@@ -19,6 +19,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
+import io.github.abelgomez.cpntools.Alias;
 import io.github.abelgomez.cpntools.Annot;
 import io.github.abelgomez.cpntools.Arc;
 import io.github.abelgomez.cpntools.Block;
@@ -315,18 +316,53 @@ public class CpnToolsBuilder {
 		Element element = document.createElement("color");
 		element.setAttribute("id", getModelElementId(colorSet));
 		element.appendChild(createElementId(document, colorSet.getIdname()));
+		if (colorSet.isTimed()) {
+			element.appendChild(document.createElement("timed"));
+		}
+		// Simple Color Sets
 		if (colorSet instanceof Unit) {
+			element.appendChild(document.createElement("unit"));
 		} else if (colorSet instanceof io.github.abelgomez.cpntools.Boolean) {
+			element.appendChild(document.createElement("bool"));
 		} else if (colorSet instanceof io.github.abelgomez.cpntools.Integer) {
+			element.appendChild(document.createElement("int"));
 		} else if (colorSet instanceof io.github.abelgomez.cpntools.LargeInteger) {
+			element.appendChild(document.createElement("intinf"));
 		} else if (colorSet instanceof io.github.abelgomez.cpntools.Real) {
+			element.appendChild(document.createElement("real"));
 		} else if (colorSet instanceof io.github.abelgomez.cpntools.Time) {
+			element.appendChild(document.createElement("time"));
 		} else if (colorSet instanceof io.github.abelgomez.cpntools.String) {
+			element.appendChild(document.createElement("string"));
 		} else if (colorSet instanceof io.github.abelgomez.cpntools.Enumerated) {
-			element.appendChild(createEnumerated(document, (Enumerated) colorSet));
+			Element enumElt = document.createElement("enum");
+			for (ColorSetElement colorSetElement : ((Enumerated) colorSet).getColorElements()) {
+				enumElt.appendChild(createElementId(document, colorSetElement.getName()));
+			}
+			element.appendChild(enumElt);
 		} else if (colorSet instanceof io.github.abelgomez.cpntools.Index) {
-		} else if (colorSet instanceof io.github.abelgomez.cpntools.Product) {
-			element.appendChild(createProduct(document, (Product) colorSet));
+			throw new UnsupportedOperationException();
+		}
+		// Compound Color Sets
+		else if (colorSet instanceof io.github.abelgomez.cpntools.Product) {
+			Element productElt = document.createElement("product");
+			for (SimpleColorSet simpleColorSet : ((Product) colorSet).getSimpleColors()) {
+				productElt.appendChild(createElementId(document, simpleColorSet.getIdname()));
+			}
+			element.appendChild(productElt);
+		} else if (colorSet instanceof io.github.abelgomez.cpntools.Record) {
+			throw new UnsupportedOperationException();
+		} else if (colorSet instanceof io.github.abelgomez.cpntools.List) {
+			throw new UnsupportedOperationException();
+		} else if (colorSet instanceof io.github.abelgomez.cpntools.Union) {
+			throw new UnsupportedOperationException();
+		} else if (colorSet instanceof io.github.abelgomez.cpntools.Subset) {
+			throw new UnsupportedOperationException();
+		} else if (colorSet instanceof io.github.abelgomez.cpntools.Alias) {
+			Element aliasElt = document.createElement("alias");
+			SimpleColorSet simpleColorSet = ((Alias) colorSet).getSimpleColors().get(0);
+			aliasElt.appendChild(createElementId(document, simpleColorSet.getIdname()));
+			element.appendChild(aliasElt);
 		}
 		return element;
 	}
@@ -335,22 +371,6 @@ public class CpnToolsBuilder {
 		Element element = document.createElement("ml");
 		element.setAttribute("id", getModelElementId(ml));
 		element.setTextContent(ml.getExpression());
-		return element;
-	}
-
-	private static Node createEnumerated(Document document, Enumerated enumerated) {
-		Element element = document.createElement("enum");
-		for (ColorSetElement colorSetElement : enumerated.getColorElements()) {
-			element.appendChild(createElementId(document, colorSetElement.getName()));
-		}
-		return element;
-	}
-
-	private static Node createProduct(Document document, Product product) {
-		Element element = document.createElement("product");
-		for (SimpleColorSet simpleColorSet : product.getSimpleColors()) {
-			element.appendChild(createElementId(document, simpleColorSet.getIdname()));
-		}
 		return element;
 	}
 
