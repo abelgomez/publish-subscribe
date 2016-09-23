@@ -3,7 +3,6 @@
 package io.github.abelgomez.cpntools.impl;
 
 import io.github.abelgomez.cpntools.ColorSetElement;
-import io.github.abelgomez.cpntools.CompoundColorSet;
 import io.github.abelgomez.cpntools.CpntoolsPackage;
 import io.github.abelgomez.cpntools.SimpleColorSet;
 
@@ -17,7 +16,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -29,7 +27,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link io.github.abelgomez.cpntools.impl.SimpleColorSetImpl#getColorElements <em>Color Elements</em>}</li>
- *   <li>{@link io.github.abelgomez.cpntools.impl.SimpleColorSetImpl#getUsedIn <em>Used In</em>}</li>
  * </ul>
  *
  * @generated
@@ -44,16 +41,6 @@ public abstract class SimpleColorSetImpl extends ColorSetImpl implements SimpleC
 	 * @ordered
 	 */
 	protected EList<ColorSetElement> colorElements;
-
-	/**
-	 * The cached value of the '{@link #getUsedIn() <em>Used In</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getUsedIn()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<CompoundColorSet> usedIn;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -91,26 +78,12 @@ public abstract class SimpleColorSetImpl extends ColorSetImpl implements SimpleC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<CompoundColorSet> getUsedIn() {
-		if (usedIn == null) {
-			usedIn = new EObjectWithInverseResolvingEList.ManyInverse<CompoundColorSet>(CompoundColorSet.class, this, CpntoolsPackage.SIMPLE_COLOR_SET__USED_IN, CpntoolsPackage.COMPOUND_COLOR_SET__SIMPLE_COLORS);
-		}
-		return usedIn;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case CpntoolsPackage.SIMPLE_COLOR_SET__COLOR_ELEMENTS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getColorElements()).basicAdd(otherEnd, msgs);
-			case CpntoolsPackage.SIMPLE_COLOR_SET__USED_IN:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getUsedIn()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -125,8 +98,6 @@ public abstract class SimpleColorSetImpl extends ColorSetImpl implements SimpleC
 		switch (featureID) {
 			case CpntoolsPackage.SIMPLE_COLOR_SET__COLOR_ELEMENTS:
 				return ((InternalEList<?>)getColorElements()).basicRemove(otherEnd, msgs);
-			case CpntoolsPackage.SIMPLE_COLOR_SET__USED_IN:
-				return ((InternalEList<?>)getUsedIn()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -141,8 +112,6 @@ public abstract class SimpleColorSetImpl extends ColorSetImpl implements SimpleC
 		switch (featureID) {
 			case CpntoolsPackage.SIMPLE_COLOR_SET__COLOR_ELEMENTS:
 				return getColorElements();
-			case CpntoolsPackage.SIMPLE_COLOR_SET__USED_IN:
-				return getUsedIn();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -160,10 +129,6 @@ public abstract class SimpleColorSetImpl extends ColorSetImpl implements SimpleC
 				getColorElements().clear();
 				getColorElements().addAll((Collection<? extends ColorSetElement>)newValue);
 				return;
-			case CpntoolsPackage.SIMPLE_COLOR_SET__USED_IN:
-				getUsedIn().clear();
-				getUsedIn().addAll((Collection<? extends CompoundColorSet>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -179,9 +144,6 @@ public abstract class SimpleColorSetImpl extends ColorSetImpl implements SimpleC
 			case CpntoolsPackage.SIMPLE_COLOR_SET__COLOR_ELEMENTS:
 				getColorElements().clear();
 				return;
-			case CpntoolsPackage.SIMPLE_COLOR_SET__USED_IN:
-				getUsedIn().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -196,8 +158,6 @@ public abstract class SimpleColorSetImpl extends ColorSetImpl implements SimpleC
 		switch (featureID) {
 			case CpntoolsPackage.SIMPLE_COLOR_SET__COLOR_ELEMENTS:
 				return colorElements != null && !colorElements.isEmpty();
-			case CpntoolsPackage.SIMPLE_COLOR_SET__USED_IN:
-				return usedIn != null && !usedIn.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -206,12 +206,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="SimpleColorSet" abstract="true" eSuperTypes="#//ColorSet">
     <eStructuralFeatures xsi:type="ecore:EReference" name="colorElements" upperBound="-1"
         eType="#//ColorSetElement" containment="true" eOpposite="#//ColorSetElement/simpleColorSet"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="usedIn" upperBound="-1"
-        eType="#//CompoundColorSet" eOpposite="#//CompoundColorSet/simpleColors"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CompoundColorSet" abstract="true" eSuperTypes="#//ColorSet">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="simpleColors" lowerBound="1"
-        upperBound="-1" eType="#//SimpleColorSet" eOpposite="#//SimpleColorSet/usedIn"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="simpleColors" unique="false"
+        lowerBound="1" upperBound="-1" eType="#//SimpleColorSet"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Unit" eSuperTypes="#//SimpleColorSet"/>
   <eClassifiers xsi:type="ecore:EClass" name="Boolean" eSuperTypes="#//SimpleColorSet"/>

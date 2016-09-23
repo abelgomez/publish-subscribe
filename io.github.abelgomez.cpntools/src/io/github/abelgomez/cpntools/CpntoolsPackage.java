@@ -2552,22 +2552,13 @@ public interface CpntoolsPackage extends EPackage {
 	int SIMPLE_COLOR_SET__COLOR_ELEMENTS = COLOR_SET_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Used In</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIMPLE_COLOR_SET__USED_IN = COLOR_SET_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>Simple Color Set</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_COLOR_SET_FEATURE_COUNT = COLOR_SET_FEATURE_COUNT + 2;
+	int SIMPLE_COLOR_SET_FEATURE_COUNT = COLOR_SET_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Simple Color Set</em>' class.
@@ -2743,15 +2734,6 @@ public interface CpntoolsPackage extends EPackage {
 	int UNIT__COLOR_ELEMENTS = SIMPLE_COLOR_SET__COLOR_ELEMENTS;
 
 	/**
-	 * The feature id for the '<em><b>Used In</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNIT__USED_IN = SIMPLE_COLOR_SET__USED_IN;
-
-	/**
 	 * The number of structural features of the '<em>Unit</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2841,15 +2823,6 @@ public interface CpntoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN__COLOR_ELEMENTS = SIMPLE_COLOR_SET__COLOR_ELEMENTS;
-
-	/**
-	 * The feature id for the '<em><b>Used In</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN__USED_IN = SIMPLE_COLOR_SET__USED_IN;
 
 	/**
 	 * The number of structural features of the '<em>Boolean</em>' class.
@@ -2943,15 +2916,6 @@ public interface CpntoolsPackage extends EPackage {
 	int INTEGER__COLOR_ELEMENTS = SIMPLE_COLOR_SET__COLOR_ELEMENTS;
 
 	/**
-	 * The feature id for the '<em><b>Used In</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTEGER__USED_IN = SIMPLE_COLOR_SET__USED_IN;
-
-	/**
 	 * The number of structural features of the '<em>Integer</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3041,15 +3005,6 @@ public interface CpntoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int LARGE_INTEGER__COLOR_ELEMENTS = SIMPLE_COLOR_SET__COLOR_ELEMENTS;
-
-	/**
-	 * The feature id for the '<em><b>Used In</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LARGE_INTEGER__USED_IN = SIMPLE_COLOR_SET__USED_IN;
 
 	/**
 	 * The number of structural features of the '<em>Large Integer</em>' class.
@@ -3143,15 +3098,6 @@ public interface CpntoolsPackage extends EPackage {
 	int REAL__COLOR_ELEMENTS = SIMPLE_COLOR_SET__COLOR_ELEMENTS;
 
 	/**
-	 * The feature id for the '<em><b>Used In</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REAL__USED_IN = SIMPLE_COLOR_SET__USED_IN;
-
-	/**
 	 * The number of structural features of the '<em>Real</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3241,15 +3187,6 @@ public interface CpntoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int TIME__COLOR_ELEMENTS = SIMPLE_COLOR_SET__COLOR_ELEMENTS;
-
-	/**
-	 * The feature id for the '<em><b>Used In</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIME__USED_IN = SIMPLE_COLOR_SET__USED_IN;
 
 	/**
 	 * The number of structural features of the '<em>Time</em>' class.
@@ -3343,15 +3280,6 @@ public interface CpntoolsPackage extends EPackage {
 	int STRING__COLOR_ELEMENTS = SIMPLE_COLOR_SET__COLOR_ELEMENTS;
 
 	/**
-	 * The feature id for the '<em><b>Used In</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRING__USED_IN = SIMPLE_COLOR_SET__USED_IN;
-
-	/**
 	 * The number of structural features of the '<em>String</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3443,15 +3371,6 @@ public interface CpntoolsPackage extends EPackage {
 	int ENUMERATED__COLOR_ELEMENTS = SIMPLE_COLOR_SET__COLOR_ELEMENTS;
 
 	/**
-	 * The feature id for the '<em><b>Used In</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENUMERATED__USED_IN = SIMPLE_COLOR_SET__USED_IN;
-
-	/**
 	 * The number of structural features of the '<em>Enumerated</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3541,15 +3460,6 @@ public interface CpntoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int INDEX__COLOR_ELEMENTS = SIMPLE_COLOR_SET__COLOR_ELEMENTS;
-
-	/**
-	 * The feature id for the '<em><b>Used In</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INDEX__USED_IN = SIMPLE_COLOR_SET__USED_IN;
 
 	/**
 	 * The number of structural features of the '<em>Index</em>' class.
@@ -5335,17 +5245,6 @@ public interface CpntoolsPackage extends EPackage {
 	EReference getSimpleColorSet_ColorElements();
 
 	/**
-	 * Returns the meta object for the reference list '{@link io.github.abelgomez.cpntools.SimpleColorSet#getUsedIn <em>Used In</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Used In</em>'.
-	 * @see io.github.abelgomez.cpntools.SimpleColorSet#getUsedIn()
-	 * @see #getSimpleColorSet()
-	 * @generated
-	 */
-	EReference getSimpleColorSet_UsedIn();
-
-	/**
 	 * Returns the meta object for class '{@link io.github.abelgomez.cpntools.CompoundColorSet <em>Compound Color Set</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6494,14 +6393,6 @@ public interface CpntoolsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SIMPLE_COLOR_SET__COLOR_ELEMENTS = eINSTANCE.getSimpleColorSet_ColorElements();
-
-		/**
-		 * The meta object literal for the '<em><b>Used In</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SIMPLE_COLOR_SET__USED_IN = eINSTANCE.getSimpleColorSet_UsedIn();
 
 		/**
 		 * The meta object literal for the '{@link io.github.abelgomez.cpntools.impl.CompoundColorSetImpl <em>Compound Color Set</em>}' class.

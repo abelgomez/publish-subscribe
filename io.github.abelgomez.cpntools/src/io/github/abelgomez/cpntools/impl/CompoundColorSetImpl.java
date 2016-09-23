@@ -2,21 +2,15 @@
  */
 package io.github.abelgomez.cpntools.impl;
 
+import java.util.Collection;
+
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+
 import io.github.abelgomez.cpntools.CompoundColorSet;
 import io.github.abelgomez.cpntools.CpntoolsPackage;
 import io.github.abelgomez.cpntools.SimpleColorSet;
-
-import java.util.Collection;
-
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -64,42 +58,20 @@ public abstract class CompoundColorSetImpl extends ColorSetImpl implements Compo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
 	public EList<SimpleColorSet> getSimpleColors() {
 		if (simpleColors == null) {
-			simpleColors = new EObjectWithInverseResolvingEList.ManyInverse<SimpleColorSet>(SimpleColorSet.class, this, CpntoolsPackage.COMPOUND_COLOR_SET__SIMPLE_COLORS, CpntoolsPackage.SIMPLE_COLOR_SET__USED_IN);
+			simpleColors = new EObjectResolvingEList<SimpleColorSet>(SimpleColorSet.class, this, CpntoolsPackage.COMPOUND_COLOR_SET__SIMPLE_COLORS) {
+				private static final long serialVersionUID = 1L;
+
+				@Override
+				protected boolean isUnique() {
+					return CpntoolsPackage.eINSTANCE.getCompoundColorSet_SimpleColors().isUnique();
+				}
+			};
 		}
 		return simpleColors;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case CpntoolsPackage.COMPOUND_COLOR_SET__SIMPLE_COLORS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSimpleColors()).basicAdd(otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case CpntoolsPackage.COMPOUND_COLOR_SET__SIMPLE_COLORS:
-				return ((InternalEList<?>)getSimpleColors()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**

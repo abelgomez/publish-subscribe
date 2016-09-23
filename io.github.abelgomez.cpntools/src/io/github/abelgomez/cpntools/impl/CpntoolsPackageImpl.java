@@ -1400,15 +1400,6 @@ public class CpntoolsPackageImpl extends EPackageImpl implements CpntoolsPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSimpleColorSet_UsedIn() {
-		return (EReference)simpleColorSetEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getCompoundColorSet() {
 		return compoundColorSetEClass;
 	}
@@ -1753,7 +1744,6 @@ public class CpntoolsPackageImpl extends EPackageImpl implements CpntoolsPackage
 
 		simpleColorSetEClass = createEClass(SIMPLE_COLOR_SET);
 		createEReference(simpleColorSetEClass, SIMPLE_COLOR_SET__COLOR_ELEMENTS);
-		createEReference(simpleColorSetEClass, SIMPLE_COLOR_SET__USED_IN);
 
 		compoundColorSetEClass = createEClass(COMPOUND_COLOR_SET);
 		createEReference(compoundColorSetEClass, COMPOUND_COLOR_SET__SIMPLE_COLORS);
@@ -1995,10 +1985,9 @@ public class CpntoolsPackageImpl extends EPackageImpl implements CpntoolsPackage
 
 		initEClass(simpleColorSetEClass, SimpleColorSet.class, "SimpleColorSet", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSimpleColorSet_ColorElements(), this.getColorSetElement(), this.getColorSetElement_SimpleColorSet(), "colorElements", null, 0, -1, SimpleColorSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSimpleColorSet_UsedIn(), this.getCompoundColorSet(), this.getCompoundColorSet_SimpleColors(), "usedIn", null, 0, -1, SimpleColorSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(compoundColorSetEClass, CompoundColorSet.class, "CompoundColorSet", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCompoundColorSet_SimpleColors(), this.getSimpleColorSet(), this.getSimpleColorSet_UsedIn(), "simpleColors", null, 1, -1, CompoundColorSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCompoundColorSet_SimpleColors(), this.getSimpleColorSet(), null, "simpleColors", null, 1, -1, CompoundColorSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(unitEClass, Unit.class, "Unit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

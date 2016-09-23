@@ -14,7 +14,6 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link io.github.abelgomez.cpntools.SimpleColorSet#getColorElements <em>Color Elements</em>}</li>
- *   <li>{@link io.github.abelgomez.cpntools.SimpleColorSet#getUsedIn <em>Used In</em>}</li>
  * </ul>
  *
  * @see io.github.abelgomez.cpntools.CpntoolsPackage#getSimpleColorSet()
@@ -39,23 +38,5 @@ public interface SimpleColorSet extends ColorSet {
 	 * @generated
 	 */
 	EList<ColorSetElement> getColorElements();
-
-	/**
-	 * Returns the value of the '<em><b>Used In</b></em>' reference list.
-	 * The list contents are of type {@link io.github.abelgomez.cpntools.CompoundColorSet}.
-	 * It is bidirectional and its opposite is '{@link io.github.abelgomez.cpntools.CompoundColorSet#getSimpleColors <em>Simple Colors</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Used In</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Used In</em>' reference list.
-	 * @see io.github.abelgomez.cpntools.CpntoolsPackage#getSimpleColorSet_UsedIn()
-	 * @see io.github.abelgomez.cpntools.CompoundColorSet#getSimpleColors
-	 * @model opposite="simpleColors"
-	 * @generated
-	 */
-	EList<CompoundColorSet> getUsedIn();
 
 } // SimpleColorSet
