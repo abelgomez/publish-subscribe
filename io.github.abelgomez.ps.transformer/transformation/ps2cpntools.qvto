@@ -1,0 +1,45 @@
+modeltype UML "strict" uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
+modeltype CPN "strict" uses cpntools('http://io.github.abelgomez/cpntools/1.0');
+
+transformation ps2cpntools(in uml : UML, out cpn : CPN);
+
+main() {
+	map cpnet();
+}
+
+mapping cpnet() : CPN::Cpnet {
+	globbox := map globbox();
+}
+
+mapping globbox() : CPN::Globbox {
+	declarations += map priorities();
+	declarations += map declarations();
+}
+
+	
+mapping priorities() : CPN::Block {
+	idname := "Standard priorities";
+	declarations += object CPN::Ml { expression := "val P1 = 10;"};
+	declarations += object CPN::Ml { expression := "val P2 = 20;"};
+	declarations += object CPN::Ml { expression := "val P3 = 30;"};
+	declarations += object CPN::Ml { expression := "val P4 = 40;"};
+	declarations += object CPN::Ml { expression := "val P5 = 50;"};
+	declarations += object CPN::Ml { expression := "val P6 = 60;"};
+}
+
+mapping declarations() : CPN::Block {
+	idname := "Standard declarations";
+	declarations += object CPN::Unit { idname := "UNIT" };
+	declarations += object CPN::Boolean { idname := "BOOL" };
+	declarations += object CPN::Integer { idname := "INT" };
+	declarations += object CPN::LargeInteger { idname := "INTINF" };
+	declarations += object CPN::Time { idname := "TIME" };
+	declarations += object CPN::Real { idname := "REAL" };
+	declarations += object CPN::String { idname := "STRING" };
+	declarations += object CPN::Alias { 
+		idname := "INTT" ; 
+		timed := true; 
+		simpleColors := declarations[CPN::SimpleColorSet]->select(d | d.idname = "INT")
+	};
+}
+

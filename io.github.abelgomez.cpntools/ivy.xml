@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ivy-module version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="http://ant.apache.org/ivy/schemas/ivy.xsd">
+    <info
+        organisation="Abel Gómez"
+        module="io.github.abelgomez.cpntools"
+        status="integration">
+	</info>
+	<dependency org="net.sf.jung" name="jung-algorithms" rev="2.1.1"/>
+	<dependency org="net.sf.jung" name="jung-graph-impl" rev="2.1.1"/>
+</ivy-module>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.papyrus.uml.extensionpoints.UMLProfile">
+      <profile
+            description="Profile to annotate diagrams following the Publish-Subscribe pattern"
+            iconpath="icons/full/obj16/profile.png"
+            name="Publish-Subscribe"
+            path="pathmap://DICE_PROFILES/ps.profile.uml">
+      </profile>
+   </extension>
+   <extension
+         point="org.eclipse.emf.ecore.uri_mapping">
+      <mapping
+            source="pathmap://DICE_PROFILES/"
+            target="platform:/plugin/io.github.abelgomez.ps.profile/resources/">
+      </mapping>
+   </extension>
+</plugin>

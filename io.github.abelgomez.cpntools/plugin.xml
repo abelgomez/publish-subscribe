@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated cpntools -->
+      <package
+            uri="http://io.github.abelgomez/cpntools/1.0"
+            class="io.github.abelgomez.cpntools.CpntoolsPackage"
+            genModel="model/cpntools.genmodel"/>
+   </extension>
+
+</plugin>
