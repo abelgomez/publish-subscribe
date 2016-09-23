@@ -13,7 +13,8 @@ mapping cpnet() : CPN::Cpnet {
 
 mapping globbox() : CPN::Globbox {
 	declarations += map priorities();
-	declarations += map declarations();
+	declarations += map simpleColorSetDeclarations();
+	declarations += map compoundColorSetDeclarations();
 }
 
 	
@@ -27,19 +28,102 @@ mapping priorities() : CPN::Block {
 	declarations += object CPN::Ml { expression := "val P6 = 60;"};
 }
 
-mapping declarations() : CPN::Block {
-	idname := "Standard declarations";
-	declarations += object CPN::Unit { idname := "UNIT" };
-	declarations += object CPN::Boolean { idname := "BOOL" };
-	declarations += object CPN::Integer { idname := "INT" };
-	declarations += object CPN::LargeInteger { idname := "INTINF" };
-	declarations += object CPN::Time { idname := "TIME" };
-	declarations += object CPN::Real { idname := "REAL" };
-	declarations += object CPN::String { idname := "STRING" };
+mapping simpleColorSetDeclarations() : CPN::Block {
+	idname := "Standard simple declarations";
+	declarations += map unitDeclaration();
+	declarations += map boolDeclaration();
+	declarations += map intDeclaration();
+	declarations += map intinfDeclaration();
+	declarations += map timeDeclaration();
+	declarations += map realDeclaration();
+	declarations += map stringDeclaration();
+}
+
+mapping unitDeclaration() : CPN::Unit { 
+	idname := "UNIT";
+};
+
+mapping boolDeclaration() : CPN::Boolean {
+	idname := "BOOL"
+};
+
+mapping intDeclaration() : CPN::Integer {
+	idname := "INT"
+};
+
+mapping intinfDeclaration() : CPN::LargeInteger {
+	idname := "INTINF"
+};
+
+mapping timeDeclaration() : CPN::Time {
+	idname := "TIME"
+};
+
+mapping realDeclaration() : CPN::Real {
+	idname := "REAL"
+};
+
+mapping stringDeclaration() : CPN::String {
+	idname := "STRING"
+};
+
+mapping compoundColorSetDeclarations() : CPN::Block {
+	idname := "Standard compound declarations";
 	declarations += object CPN::Alias { 
 		idname := "INTT" ; 
 		timed := true; 
-		simpleColors := declarations[CPN::SimpleColorSet]->select(d | d.idname = "INT")
+		simpleColors := resolveoneIn(intDeclaration);
 	};
-}
-
+	declarations += object CPN::Product {
+		idname := "REC";
+		timed := true; 
+		simpleColors += resolveoneIn(intDeclaration);
+		simpleColors += resolveoneIn(stringDeclaration);
+		simpleColors += resolveoneIn(intDeclaration);
+		simpleColors += resolveoneIn(intDeclaration);
+	};
+	declarations += object CPN::Product {
+		idname := "CLI";
+		timed := true; 
+		simpleColors += resolveoneIn(stringDeclaration);
+		simpleColors += resolveoneIn(stringDeclaration);
+		simpleColors += resolveoneIn(intDeclaration);
+		simpleColors += resolveoneIn(intDeclaration);
+		simpleColors += resolveoneIn(intDeclaration);
+	};
+	declarations += object CPN::Product {
+		idname := "CL";
+		timed := true; 
+		simpleColors += resolveoneIn(intDeclaration);
+		simpleColors += resolveoneIn(stringDeclaration);
+		simpleColors += resolveoneIn(stringDeclaration);
+		simpleColors += resolveoneIn(intDeclaration);
+		simpleColors += resolveoneIn(intDeclaration);
+	};
+	declarations += object CPN::Product {
+		idname := "ECLI";
+		timed := true; 
+		simpleColors += resolveoneIn(intDeclaration);
+		simpleColors += resolveoneIn(stringDeclaration);
+		simpleColors += resolveoneIn(stringDeclaration);
+		simpleColors += resolveoneIn(intDeclaration);
+		simpleColors += resolveoneIn(intDeclaration);
+		simpleColors += resolveoneIn(intDeclaration);
+	};
+	declarations += object CPN::Product {
+		idname := "ECLIR";
+		timed := true; 
+		simpleColors += resolveoneIn(intDeclaration);
+		simpleColors += resolveoneIn(stringDeclaration);
+		simpleColors += resolveoneIn(stringDeclaration);
+		simpleColors += resolveoneIn(intDeclaration);
+		simpleColors += resolveoneIn(intDeclaration);
+		simpleColors += resolveoneIn(intDeclaration);
+	};
+	declarations += object CPN::Product {
+		idname := "INT2";
+		timed := true; 
+		simpleColors += resolveoneIn(intDeclaration);
+		simpleColors += resolveoneIn(intDeclaration);
+	};
+};
