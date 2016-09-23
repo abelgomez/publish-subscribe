@@ -880,13 +880,22 @@ public interface CpntoolsPackage extends EPackage {
 	int MARK__INITMARK = 1;
 
 	/**
-	 * The feature id for the '<em><b>Color Set Element</b></em>' reference.
+	 * The feature id for the '<em><b>Expression</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MARK__COLOR_SET_ELEMENT = 2;
+	int MARK__EXPRESSION = 2;
+
+	/**
+	 * The feature id for the '<em><b>Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MARK__TIME = 3;
 
 	/**
 	 * The number of structural features of the '<em>Mark</em>' class.
@@ -895,7 +904,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MARK_FEATURE_COUNT = 3;
+	int MARK_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Mark</em>' class.
@@ -2543,22 +2552,13 @@ public interface CpntoolsPackage extends EPackage {
 	int SIMPLE_COLOR_SET__DECLARE = COLOR_SET__DECLARE;
 
 	/**
-	 * The feature id for the '<em><b>Color Elements</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIMPLE_COLOR_SET__COLOR_ELEMENTS = COLOR_SET_FEATURE_COUNT + 0;
-
-	/**
 	 * The number of structural features of the '<em>Simple Color Set</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_COLOR_SET_FEATURE_COUNT = COLOR_SET_FEATURE_COUNT + 1;
+	int SIMPLE_COLOR_SET_FEATURE_COUNT = COLOR_SET_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Simple Color Set</em>' class.
@@ -2725,13 +2725,13 @@ public interface CpntoolsPackage extends EPackage {
 	int UNIT__DECLARE = SIMPLE_COLOR_SET__DECLARE;
 
 	/**
-	 * The feature id for the '<em><b>Color Elements</b></em>' containment reference list.
+	 * The feature id for the '<em><b>With</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UNIT__COLOR_ELEMENTS = SIMPLE_COLOR_SET__COLOR_ELEMENTS;
+	int UNIT__WITH = SIMPLE_COLOR_SET_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Unit</em>' class.
@@ -2740,7 +2740,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNIT_FEATURE_COUNT = SIMPLE_COLOR_SET_FEATURE_COUNT + 0;
+	int UNIT_FEATURE_COUNT = SIMPLE_COLOR_SET_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Unit</em>' class.
@@ -2816,13 +2816,13 @@ public interface CpntoolsPackage extends EPackage {
 	int BOOLEAN__DECLARE = SIMPLE_COLOR_SET__DECLARE;
 
 	/**
-	 * The feature id for the '<em><b>Color Elements</b></em>' containment reference list.
+	 * The feature id for the '<em><b>With</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN__COLOR_ELEMENTS = SIMPLE_COLOR_SET__COLOR_ELEMENTS;
+	int BOOLEAN__WITH = SIMPLE_COLOR_SET_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Boolean</em>' class.
@@ -2831,7 +2831,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_FEATURE_COUNT = SIMPLE_COLOR_SET_FEATURE_COUNT + 0;
+	int BOOLEAN_FEATURE_COUNT = SIMPLE_COLOR_SET_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Boolean</em>' class.
@@ -2907,13 +2907,13 @@ public interface CpntoolsPackage extends EPackage {
 	int INTEGER__DECLARE = SIMPLE_COLOR_SET__DECLARE;
 
 	/**
-	 * The feature id for the '<em><b>Color Elements</b></em>' containment reference list.
+	 * The feature id for the '<em><b>With</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTEGER__COLOR_ELEMENTS = SIMPLE_COLOR_SET__COLOR_ELEMENTS;
+	int INTEGER__WITH = SIMPLE_COLOR_SET_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Integer</em>' class.
@@ -2922,7 +2922,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTEGER_FEATURE_COUNT = SIMPLE_COLOR_SET_FEATURE_COUNT + 0;
+	int INTEGER_FEATURE_COUNT = SIMPLE_COLOR_SET_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Integer</em>' class.
@@ -2998,13 +2998,13 @@ public interface CpntoolsPackage extends EPackage {
 	int LARGE_INTEGER__DECLARE = SIMPLE_COLOR_SET__DECLARE;
 
 	/**
-	 * The feature id for the '<em><b>Color Elements</b></em>' containment reference list.
+	 * The feature id for the '<em><b>With</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LARGE_INTEGER__COLOR_ELEMENTS = SIMPLE_COLOR_SET__COLOR_ELEMENTS;
+	int LARGE_INTEGER__WITH = SIMPLE_COLOR_SET_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Large Integer</em>' class.
@@ -3013,7 +3013,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LARGE_INTEGER_FEATURE_COUNT = SIMPLE_COLOR_SET_FEATURE_COUNT + 0;
+	int LARGE_INTEGER_FEATURE_COUNT = SIMPLE_COLOR_SET_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Large Integer</em>' class.
@@ -3089,13 +3089,13 @@ public interface CpntoolsPackage extends EPackage {
 	int REAL__DECLARE = SIMPLE_COLOR_SET__DECLARE;
 
 	/**
-	 * The feature id for the '<em><b>Color Elements</b></em>' containment reference list.
+	 * The feature id for the '<em><b>With</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REAL__COLOR_ELEMENTS = SIMPLE_COLOR_SET__COLOR_ELEMENTS;
+	int REAL__WITH = SIMPLE_COLOR_SET_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Real</em>' class.
@@ -3104,7 +3104,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REAL_FEATURE_COUNT = SIMPLE_COLOR_SET_FEATURE_COUNT + 0;
+	int REAL_FEATURE_COUNT = SIMPLE_COLOR_SET_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Real</em>' class.
@@ -3178,15 +3178,6 @@ public interface CpntoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int TIME__DECLARE = SIMPLE_COLOR_SET__DECLARE;
-
-	/**
-	 * The feature id for the '<em><b>Color Elements</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIME__COLOR_ELEMENTS = SIMPLE_COLOR_SET__COLOR_ELEMENTS;
 
 	/**
 	 * The number of structural features of the '<em>Time</em>' class.
@@ -3271,13 +3262,22 @@ public interface CpntoolsPackage extends EPackage {
 	int STRING__DECLARE = SIMPLE_COLOR_SET__DECLARE;
 
 	/**
-	 * The feature id for the '<em><b>Color Elements</b></em>' containment reference list.
+	 * The feature id for the '<em><b>With</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STRING__COLOR_ELEMENTS = SIMPLE_COLOR_SET__COLOR_ELEMENTS;
+	int STRING__WITH = SIMPLE_COLOR_SET_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>And</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING__AND = SIMPLE_COLOR_SET_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>String</em>' class.
@@ -3286,7 +3286,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRING_FEATURE_COUNT = SIMPLE_COLOR_SET_FEATURE_COUNT + 0;
+	int STRING_FEATURE_COUNT = SIMPLE_COLOR_SET_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>String</em>' class.
@@ -3362,13 +3362,13 @@ public interface CpntoolsPackage extends EPackage {
 	int ENUMERATED__DECLARE = SIMPLE_COLOR_SET__DECLARE;
 
 	/**
-	 * The feature id for the '<em><b>Color Elements</b></em>' containment reference list.
+	 * The feature id for the '<em><b>With</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATED__COLOR_ELEMENTS = SIMPLE_COLOR_SET__COLOR_ELEMENTS;
+	int ENUMERATED__WITH = SIMPLE_COLOR_SET_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Enumerated</em>' class.
@@ -3377,7 +3377,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATED_FEATURE_COUNT = SIMPLE_COLOR_SET_FEATURE_COUNT + 0;
+	int ENUMERATED_FEATURE_COUNT = SIMPLE_COLOR_SET_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Enumerated</em>' class.
@@ -3453,13 +3453,13 @@ public interface CpntoolsPackage extends EPackage {
 	int INDEX__DECLARE = SIMPLE_COLOR_SET__DECLARE;
 
 	/**
-	 * The feature id for the '<em><b>Color Elements</b></em>' containment reference list.
+	 * The feature id for the '<em><b>With</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INDEX__COLOR_ELEMENTS = SIMPLE_COLOR_SET__COLOR_ELEMENTS;
+	int INDEX__WITH = SIMPLE_COLOR_SET_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Index</em>' class.
@@ -3468,7 +3468,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INDEX_FEATURE_COUNT = SIMPLE_COLOR_SET_FEATURE_COUNT + 0;
+	int INDEX_FEATURE_COUNT = SIMPLE_COLOR_SET_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Index</em>' class.
@@ -3480,52 +3480,6 @@ public interface CpntoolsPackage extends EPackage {
 	int INDEX_OPERATION_COUNT = SIMPLE_COLOR_SET_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link io.github.abelgomez.cpntools.impl.ColorSetElementImpl <em>Color Set Element</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see io.github.abelgomez.cpntools.impl.ColorSetElementImpl
-	 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getColorSetElement()
-	 * @generated
-	 */
-	int COLOR_SET_ELEMENT = 35;
-
-	/**
-	 * The feature id for the '<em><b>Simple Color Set</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COLOR_SET_ELEMENT__SIMPLE_COLOR_SET = 0;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COLOR_SET_ELEMENT__NAME = 1;
-
-	/**
-	 * The number of structural features of the '<em>Color Set Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COLOR_SET_ELEMENT_FEATURE_COUNT = 2;
-
-	/**
-	 * The number of operations of the '<em>Color Set Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COLOR_SET_ELEMENT_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link io.github.abelgomez.cpntools.impl.ProductImpl <em>Product</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3533,7 +3487,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getProduct()
 	 * @generated
 	 */
-	int PRODUCT = 36;
+	int PRODUCT = 35;
 
 	/**
 	 * The feature id for the '<em><b>Globbox</b></em>' container reference.
@@ -3624,7 +3578,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getRecord()
 	 * @generated
 	 */
-	int RECORD = 37;
+	int RECORD = 36;
 
 	/**
 	 * The feature id for the '<em><b>Globbox</b></em>' container reference.
@@ -3715,7 +3669,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getList()
 	 * @generated
 	 */
-	int LIST = 38;
+	int LIST = 37;
 
 	/**
 	 * The feature id for the '<em><b>Globbox</b></em>' container reference.
@@ -3806,7 +3760,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getUnion()
 	 * @generated
 	 */
-	int UNION = 39;
+	int UNION = 38;
 
 	/**
 	 * The feature id for the '<em><b>Globbox</b></em>' container reference.
@@ -3897,7 +3851,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getSubset()
 	 * @generated
 	 */
-	int SUBSET = 40;
+	int SUBSET = 39;
 
 	/**
 	 * The feature id for the '<em><b>Globbox</b></em>' container reference.
@@ -3988,7 +3942,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getAlias()
 	 * @generated
 	 */
-	int ALIAS = 41;
+	int ALIAS = 40;
 
 	/**
 	 * The feature id for the '<em><b>Globbox</b></em>' container reference.
@@ -4079,7 +4033,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getOrientation()
 	 * @generated
 	 */
-	int ORIENTATION = 42;
+	int ORIENTATION = 41;
 
 
 	/**
@@ -4667,15 +4621,26 @@ public interface CpntoolsPackage extends EPackage {
 	EReference getMark_Initmark();
 
 	/**
-	 * Returns the meta object for the reference '{@link io.github.abelgomez.cpntools.Mark#getColorSetElement <em>Color Set Element</em>}'.
+	 * Returns the meta object for the attribute '{@link io.github.abelgomez.cpntools.Mark#getExpression <em>Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Color Set Element</em>'.
-	 * @see io.github.abelgomez.cpntools.Mark#getColorSetElement()
+	 * @return the meta object for the attribute '<em>Expression</em>'.
+	 * @see io.github.abelgomez.cpntools.Mark#getExpression()
 	 * @see #getMark()
 	 * @generated
 	 */
-	EReference getMark_ColorSetElement();
+	EAttribute getMark_Expression();
+
+	/**
+	 * Returns the meta object for the attribute '{@link io.github.abelgomez.cpntools.Mark#getTime <em>Time</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Time</em>'.
+	 * @see io.github.abelgomez.cpntools.Mark#getTime()
+	 * @see #getMark()
+	 * @generated
+	 */
+	EAttribute getMark_Time();
 
 	/**
 	 * Returns the meta object for class '{@link io.github.abelgomez.cpntools.Port <em>Port</em>}'.
@@ -5234,17 +5199,6 @@ public interface CpntoolsPackage extends EPackage {
 	EClass getSimpleColorSet();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link io.github.abelgomez.cpntools.SimpleColorSet#getColorElements <em>Color Elements</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Color Elements</em>'.
-	 * @see io.github.abelgomez.cpntools.SimpleColorSet#getColorElements()
-	 * @see #getSimpleColorSet()
-	 * @generated
-	 */
-	EReference getSimpleColorSet_ColorElements();
-
-	/**
 	 * Returns the meta object for class '{@link io.github.abelgomez.cpntools.CompoundColorSet <em>Compound Color Set</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5276,6 +5230,17 @@ public interface CpntoolsPackage extends EPackage {
 	EClass getUnit();
 
 	/**
+	 * Returns the meta object for the attribute '{@link io.github.abelgomez.cpntools.Unit#getWith <em>With</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>With</em>'.
+	 * @see io.github.abelgomez.cpntools.Unit#getWith()
+	 * @see #getUnit()
+	 * @generated
+	 */
+	EAttribute getUnit_With();
+
+	/**
 	 * Returns the meta object for class '{@link io.github.abelgomez.cpntools.Boolean <em>Boolean</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5284,6 +5249,17 @@ public interface CpntoolsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getBoolean();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link io.github.abelgomez.cpntools.Boolean#getWith <em>With</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>With</em>'.
+	 * @see io.github.abelgomez.cpntools.Boolean#getWith()
+	 * @see #getBoolean()
+	 * @generated
+	 */
+	EAttribute getBoolean_With();
 
 	/**
 	 * Returns the meta object for class '{@link io.github.abelgomez.cpntools.Integer <em>Integer</em>}'.
@@ -5296,6 +5272,17 @@ public interface CpntoolsPackage extends EPackage {
 	EClass getInteger();
 
 	/**
+	 * Returns the meta object for the attribute list '{@link io.github.abelgomez.cpntools.Integer#getWith <em>With</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>With</em>'.
+	 * @see io.github.abelgomez.cpntools.Integer#getWith()
+	 * @see #getInteger()
+	 * @generated
+	 */
+	EAttribute getInteger_With();
+
+	/**
 	 * Returns the meta object for class '{@link io.github.abelgomez.cpntools.LargeInteger <em>Large Integer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5306,6 +5293,17 @@ public interface CpntoolsPackage extends EPackage {
 	EClass getLargeInteger();
 
 	/**
+	 * Returns the meta object for the attribute list '{@link io.github.abelgomez.cpntools.LargeInteger#getWith <em>With</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>With</em>'.
+	 * @see io.github.abelgomez.cpntools.LargeInteger#getWith()
+	 * @see #getLargeInteger()
+	 * @generated
+	 */
+	EAttribute getLargeInteger_With();
+
+	/**
 	 * Returns the meta object for class '{@link io.github.abelgomez.cpntools.Real <em>Real</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5314,6 +5312,17 @@ public interface CpntoolsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getReal();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link io.github.abelgomez.cpntools.Real#getWith <em>With</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>With</em>'.
+	 * @see io.github.abelgomez.cpntools.Real#getWith()
+	 * @see #getReal()
+	 * @generated
+	 */
+	EAttribute getReal_With();
 
 	/**
 	 * Returns the meta object for class '{@link io.github.abelgomez.cpntools.Time <em>Time</em>}'.
@@ -5336,6 +5345,28 @@ public interface CpntoolsPackage extends EPackage {
 	EClass getString();
 
 	/**
+	 * Returns the meta object for the attribute list '{@link io.github.abelgomez.cpntools.String#getWith <em>With</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>With</em>'.
+	 * @see io.github.abelgomez.cpntools.String#getWith()
+	 * @see #getString()
+	 * @generated
+	 */
+	EAttribute getString_With();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link io.github.abelgomez.cpntools.String#getAnd <em>And</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>And</em>'.
+	 * @see io.github.abelgomez.cpntools.String#getAnd()
+	 * @see #getString()
+	 * @generated
+	 */
+	EAttribute getString_And();
+
+	/**
 	 * Returns the meta object for class '{@link io.github.abelgomez.cpntools.Enumerated <em>Enumerated</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5344,6 +5375,17 @@ public interface CpntoolsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getEnumerated();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link io.github.abelgomez.cpntools.Enumerated#getWith <em>With</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>With</em>'.
+	 * @see io.github.abelgomez.cpntools.Enumerated#getWith()
+	 * @see #getEnumerated()
+	 * @generated
+	 */
+	EAttribute getEnumerated_With();
 
 	/**
 	 * Returns the meta object for class '{@link io.github.abelgomez.cpntools.Index <em>Index</em>}'.
@@ -5356,36 +5398,15 @@ public interface CpntoolsPackage extends EPackage {
 	EClass getIndex();
 
 	/**
-	 * Returns the meta object for class '{@link io.github.abelgomez.cpntools.ColorSetElement <em>Color Set Element</em>}'.
+	 * Returns the meta object for the attribute list '{@link io.github.abelgomez.cpntools.Index#getWith <em>With</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Color Set Element</em>'.
-	 * @see io.github.abelgomez.cpntools.ColorSetElement
+	 * @return the meta object for the attribute list '<em>With</em>'.
+	 * @see io.github.abelgomez.cpntools.Index#getWith()
+	 * @see #getIndex()
 	 * @generated
 	 */
-	EClass getColorSetElement();
-
-	/**
-	 * Returns the meta object for the container reference '{@link io.github.abelgomez.cpntools.ColorSetElement#getSimpleColorSet <em>Simple Color Set</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Simple Color Set</em>'.
-	 * @see io.github.abelgomez.cpntools.ColorSetElement#getSimpleColorSet()
-	 * @see #getColorSetElement()
-	 * @generated
-	 */
-	EReference getColorSetElement_SimpleColorSet();
-
-	/**
-	 * Returns the meta object for the attribute '{@link io.github.abelgomez.cpntools.ColorSetElement#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see io.github.abelgomez.cpntools.ColorSetElement#getName()
-	 * @see #getColorSetElement()
-	 * @generated
-	 */
-	EAttribute getColorSetElement_Name();
+	EAttribute getIndex_With();
 
 	/**
 	 * Returns the meta object for class '{@link io.github.abelgomez.cpntools.Product <em>Product</em>}'.
@@ -5931,12 +5952,20 @@ public interface CpntoolsPackage extends EPackage {
 		EReference MARK__INITMARK = eINSTANCE.getMark_Initmark();
 
 		/**
-		 * The meta object literal for the '<em><b>Color Set Element</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Expression</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MARK__COLOR_SET_ELEMENT = eINSTANCE.getMark_ColorSetElement();
+		EAttribute MARK__EXPRESSION = eINSTANCE.getMark_Expression();
+
+		/**
+		 * The meta object literal for the '<em><b>Time</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MARK__TIME = eINSTANCE.getMark_Time();
 
 		/**
 		 * The meta object literal for the '{@link io.github.abelgomez.cpntools.impl.PortImpl <em>Port</em>}' class.
@@ -6387,14 +6416,6 @@ public interface CpntoolsPackage extends EPackage {
 		EClass SIMPLE_COLOR_SET = eINSTANCE.getSimpleColorSet();
 
 		/**
-		 * The meta object literal for the '<em><b>Color Elements</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SIMPLE_COLOR_SET__COLOR_ELEMENTS = eINSTANCE.getSimpleColorSet_ColorElements();
-
-		/**
 		 * The meta object literal for the '{@link io.github.abelgomez.cpntools.impl.CompoundColorSetImpl <em>Compound Color Set</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6423,6 +6444,14 @@ public interface CpntoolsPackage extends EPackage {
 		EClass UNIT = eINSTANCE.getUnit();
 
 		/**
+		 * The meta object literal for the '<em><b>With</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UNIT__WITH = eINSTANCE.getUnit_With();
+
+		/**
 		 * The meta object literal for the '{@link io.github.abelgomez.cpntools.impl.BooleanImpl <em>Boolean</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6431,6 +6460,14 @@ public interface CpntoolsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass BOOLEAN = eINSTANCE.getBoolean();
+
+		/**
+		 * The meta object literal for the '<em><b>With</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BOOLEAN__WITH = eINSTANCE.getBoolean_With();
 
 		/**
 		 * The meta object literal for the '{@link io.github.abelgomez.cpntools.impl.IntegerImpl <em>Integer</em>}' class.
@@ -6443,6 +6480,14 @@ public interface CpntoolsPackage extends EPackage {
 		EClass INTEGER = eINSTANCE.getInteger();
 
 		/**
+		 * The meta object literal for the '<em><b>With</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INTEGER__WITH = eINSTANCE.getInteger_With();
+
+		/**
 		 * The meta object literal for the '{@link io.github.abelgomez.cpntools.impl.LargeIntegerImpl <em>Large Integer</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6453,6 +6498,14 @@ public interface CpntoolsPackage extends EPackage {
 		EClass LARGE_INTEGER = eINSTANCE.getLargeInteger();
 
 		/**
+		 * The meta object literal for the '<em><b>With</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LARGE_INTEGER__WITH = eINSTANCE.getLargeInteger_With();
+
+		/**
 		 * The meta object literal for the '{@link io.github.abelgomez.cpntools.impl.RealImpl <em>Real</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6461,6 +6514,14 @@ public interface CpntoolsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass REAL = eINSTANCE.getReal();
+
+		/**
+		 * The meta object literal for the '<em><b>With</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REAL__WITH = eINSTANCE.getReal_With();
 
 		/**
 		 * The meta object literal for the '{@link io.github.abelgomez.cpntools.impl.TimeImpl <em>Time</em>}' class.
@@ -6483,6 +6544,22 @@ public interface CpntoolsPackage extends EPackage {
 		EClass STRING = eINSTANCE.getString();
 
 		/**
+		 * The meta object literal for the '<em><b>With</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STRING__WITH = eINSTANCE.getString_With();
+
+		/**
+		 * The meta object literal for the '<em><b>And</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STRING__AND = eINSTANCE.getString_And();
+
+		/**
 		 * The meta object literal for the '{@link io.github.abelgomez.cpntools.impl.EnumeratedImpl <em>Enumerated</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6491,6 +6568,14 @@ public interface CpntoolsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ENUMERATED = eINSTANCE.getEnumerated();
+
+		/**
+		 * The meta object literal for the '<em><b>With</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ENUMERATED__WITH = eINSTANCE.getEnumerated_With();
 
 		/**
 		 * The meta object literal for the '{@link io.github.abelgomez.cpntools.impl.IndexImpl <em>Index</em>}' class.
@@ -6503,30 +6588,12 @@ public interface CpntoolsPackage extends EPackage {
 		EClass INDEX = eINSTANCE.getIndex();
 
 		/**
-		 * The meta object literal for the '{@link io.github.abelgomez.cpntools.impl.ColorSetElementImpl <em>Color Set Element</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see io.github.abelgomez.cpntools.impl.ColorSetElementImpl
-		 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getColorSetElement()
-		 * @generated
-		 */
-		EClass COLOR_SET_ELEMENT = eINSTANCE.getColorSetElement();
-
-		/**
-		 * The meta object literal for the '<em><b>Simple Color Set</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>With</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COLOR_SET_ELEMENT__SIMPLE_COLOR_SET = eINSTANCE.getColorSetElement_SimpleColorSet();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute COLOR_SET_ELEMENT__NAME = eINSTANCE.getColorSetElement_Name();
+		EAttribute INDEX__WITH = eINSTANCE.getIndex_With();
 
 		/**
 		 * The meta object literal for the '{@link io.github.abelgomez.cpntools.impl.ProductImpl <em>Product</em>}' class.

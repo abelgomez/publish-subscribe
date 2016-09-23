@@ -11,7 +11,6 @@ import io.github.abelgomez.cpntools.AuxText;
 import io.github.abelgomez.cpntools.Auxiliary;
 import io.github.abelgomez.cpntools.Block;
 import io.github.abelgomez.cpntools.ColorSet;
-import io.github.abelgomez.cpntools.ColorSetElement;
 import io.github.abelgomez.cpntools.CompoundColorSet;
 import io.github.abelgomez.cpntools.Cond;
 import io.github.abelgomez.cpntools.Cpnet;
@@ -362,12 +361,6 @@ public class CpntoolsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseSimpleColorSet(index);
 				if (result == null) result = caseColorSet(index);
 				if (result == null) result = caseDeclaration(index);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CpntoolsPackage.COLOR_SET_ELEMENT: {
-				ColorSetElement colorSetElement = (ColorSetElement)theEObject;
-				T result = caseColorSetElement(colorSetElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -951,21 +944,6 @@ public class CpntoolsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseIndex(Index object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Color Set Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Color Set Element</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseColorSetElement(ColorSetElement object) {
 		return null;
 	}
 

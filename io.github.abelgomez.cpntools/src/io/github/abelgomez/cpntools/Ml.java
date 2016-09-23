@@ -21,7 +21,6 @@ import java.lang.String;
  * @generated
  */
 public interface Ml extends Declaration {
-
 	/**
 	 * Returns the value of the '<em><b>Expression</b></em>' attribute.
 	 * <!-- begin-user-doc -->

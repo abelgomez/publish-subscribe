@@ -11,7 +11,6 @@ import io.github.abelgomez.cpntools.AuxText;
 import io.github.abelgomez.cpntools.Auxiliary;
 import io.github.abelgomez.cpntools.Block;
 import io.github.abelgomez.cpntools.ColorSet;
-import io.github.abelgomez.cpntools.ColorSetElement;
 import io.github.abelgomez.cpntools.CompoundColorSet;
 import io.github.abelgomez.cpntools.Cond;
 import io.github.abelgomez.cpntools.Cpnet;
@@ -305,13 +304,6 @@ public class CpntoolsPackageImpl extends EPackageImpl implements CpntoolsPackage
 	 * @generated
 	 */
 	private EClass indexEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass colorSetElementEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -914,8 +906,17 @@ public class CpntoolsPackageImpl extends EPackageImpl implements CpntoolsPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMark_ColorSetElement() {
-		return (EReference)markEClass.getEStructuralFeatures().get(2);
+	public EAttribute getMark_Expression() {
+		return (EAttribute)markEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMark_Time() {
+		return (EAttribute)markEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1391,15 +1392,6 @@ public class CpntoolsPackageImpl extends EPackageImpl implements CpntoolsPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSimpleColorSet_ColorElements() {
-		return (EReference)simpleColorSetEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getCompoundColorSet() {
 		return compoundColorSetEClass;
 	}
@@ -1427,8 +1419,26 @@ public class CpntoolsPackageImpl extends EPackageImpl implements CpntoolsPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getUnit_With() {
+		return (EAttribute)unitEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getBoolean() {
 		return booleanEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBoolean_With() {
+		return (EAttribute)booleanEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1445,6 +1455,15 @@ public class CpntoolsPackageImpl extends EPackageImpl implements CpntoolsPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getInteger_With() {
+		return (EAttribute)integerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getLargeInteger() {
 		return largeIntegerEClass;
 	}
@@ -1454,8 +1473,26 @@ public class CpntoolsPackageImpl extends EPackageImpl implements CpntoolsPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getLargeInteger_With() {
+		return (EAttribute)largeIntegerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getReal() {
 		return realEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getReal_With() {
+		return (EAttribute)realEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1481,8 +1518,35 @@ public class CpntoolsPackageImpl extends EPackageImpl implements CpntoolsPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getString_With() {
+		return (EAttribute)stringEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getString_And() {
+		return (EAttribute)stringEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getEnumerated() {
 		return enumeratedEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEnumerated_With() {
+		return (EAttribute)enumeratedEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1499,26 +1563,8 @@ public class CpntoolsPackageImpl extends EPackageImpl implements CpntoolsPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getColorSetElement() {
-		return colorSetElementEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getColorSetElement_SimpleColorSet() {
-		return (EReference)colorSetElementEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getColorSetElement_Name() {
-		return (EAttribute)colorSetElementEClass.getEStructuralFeatures().get(1);
+	public EAttribute getIndex_With() {
+		return (EAttribute)indexEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1674,7 +1720,8 @@ public class CpntoolsPackageImpl extends EPackageImpl implements CpntoolsPackage
 		markEClass = createEClass(MARK);
 		createEAttribute(markEClass, MARK__VALUE);
 		createEReference(markEClass, MARK__INITMARK);
-		createEReference(markEClass, MARK__COLOR_SET_ELEMENT);
+		createEAttribute(markEClass, MARK__EXPRESSION);
+		createEAttribute(markEClass, MARK__TIME);
 
 		portEClass = createEClass(PORT);
 		createEAttribute(portEClass, PORT__PORT_TYPE);
@@ -1743,32 +1790,36 @@ public class CpntoolsPackageImpl extends EPackageImpl implements CpntoolsPackage
 		createEAttribute(auxBoxEClass, AUX_BOX__WIDTH);
 
 		simpleColorSetEClass = createEClass(SIMPLE_COLOR_SET);
-		createEReference(simpleColorSetEClass, SIMPLE_COLOR_SET__COLOR_ELEMENTS);
 
 		compoundColorSetEClass = createEClass(COMPOUND_COLOR_SET);
 		createEReference(compoundColorSetEClass, COMPOUND_COLOR_SET__SIMPLE_COLORS);
 
 		unitEClass = createEClass(UNIT);
+		createEAttribute(unitEClass, UNIT__WITH);
 
 		booleanEClass = createEClass(BOOLEAN);
+		createEAttribute(booleanEClass, BOOLEAN__WITH);
 
 		integerEClass = createEClass(INTEGER);
+		createEAttribute(integerEClass, INTEGER__WITH);
 
 		largeIntegerEClass = createEClass(LARGE_INTEGER);
+		createEAttribute(largeIntegerEClass, LARGE_INTEGER__WITH);
 
 		realEClass = createEClass(REAL);
+		createEAttribute(realEClass, REAL__WITH);
 
 		timeEClass = createEClass(TIME);
 
 		stringEClass = createEClass(STRING);
+		createEAttribute(stringEClass, STRING__WITH);
+		createEAttribute(stringEClass, STRING__AND);
 
 		enumeratedEClass = createEClass(ENUMERATED);
+		createEAttribute(enumeratedEClass, ENUMERATED__WITH);
 
 		indexEClass = createEClass(INDEX);
-
-		colorSetElementEClass = createEClass(COLOR_SET_ELEMENT);
-		createEReference(colorSetElementEClass, COLOR_SET_ELEMENT__SIMPLE_COLOR_SET);
-		createEAttribute(colorSetElementEClass, COLOR_SET_ELEMENT__NAME);
+		createEAttribute(indexEClass, INDEX__WITH);
 
 		productEClass = createEClass(PRODUCT);
 
@@ -1913,9 +1964,10 @@ public class CpntoolsPackageImpl extends EPackageImpl implements CpntoolsPackage
 		initEReference(getInitmark_Marks(), this.getMark(), this.getMark_Initmark(), "marks", null, 0, -1, Initmark.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(markEClass, Mark.class, "Mark", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getMark_Value(), ecorePackage.getEInt(), "value", null, 0, 1, Mark.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getMark_Value(), ecorePackage.getEInt(), "value", null, 1, 1, Mark.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getMark_Initmark(), this.getInitmark(), this.getInitmark_Marks(), "initmark", null, 1, 1, Mark.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMark_ColorSetElement(), this.getColorSetElement(), null, "colorSetElement", null, 1, 1, Mark.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMark_Expression(), ecorePackage.getEString(), "expression", null, 1, 1, Mark.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMark_Time(), ecorePackage.getEInt(), "time", null, 1, 1, Mark.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(portEClass, Port.class, "Port", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPort_PortType(), ecorePackage.getEString(), "portType", null, 0, 1, Port.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1984,32 +2036,36 @@ public class CpntoolsPackageImpl extends EPackageImpl implements CpntoolsPackage
 		initEAttribute(getAuxBox_Width(), ecorePackage.getEInt(), "width", null, 0, 1, AuxBox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(simpleColorSetEClass, SimpleColorSet.class, "SimpleColorSet", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSimpleColorSet_ColorElements(), this.getColorSetElement(), this.getColorSetElement_SimpleColorSet(), "colorElements", null, 0, -1, SimpleColorSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(compoundColorSetEClass, CompoundColorSet.class, "CompoundColorSet", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCompoundColorSet_SimpleColors(), this.getSimpleColorSet(), null, "simpleColors", null, 1, -1, CompoundColorSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(unitEClass, Unit.class, "Unit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getUnit_With(), ecorePackage.getEString(), "with", null, 0, 1, Unit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(booleanEClass, io.github.abelgomez.cpntools.Boolean.class, "Boolean", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBoolean_With(), ecorePackage.getEString(), "with", null, 0, 2, io.github.abelgomez.cpntools.Boolean.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(integerEClass, io.github.abelgomez.cpntools.Integer.class, "Integer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getInteger_With(), ecorePackage.getEString(), "with", null, 0, 2, io.github.abelgomez.cpntools.Integer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(largeIntegerEClass, LargeInteger.class, "LargeInteger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLargeInteger_With(), ecorePackage.getEString(), "with", null, 0, 2, LargeInteger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(realEClass, Real.class, "Real", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getReal_With(), ecorePackage.getEString(), "with", null, 0, 2, Real.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(timeEClass, Time.class, "Time", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(stringEClass, io.github.abelgomez.cpntools.String.class, "String", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getString_With(), ecorePackage.getEString(), "with", null, 0, 2, io.github.abelgomez.cpntools.String.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getString_And(), ecorePackage.getEString(), "and", null, 0, 2, io.github.abelgomez.cpntools.String.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(enumeratedEClass, Enumerated.class, "Enumerated", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getEnumerated_With(), ecorePackage.getEString(), "with", null, 0, -1, Enumerated.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(indexEClass, Index.class, "Index", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(colorSetElementEClass, ColorSetElement.class, "ColorSetElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getColorSetElement_SimpleColorSet(), this.getSimpleColorSet(), this.getSimpleColorSet_ColorElements(), "simpleColorSet", null, 0, 1, ColorSetElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getColorSetElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, ColorSetElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIndex_With(), ecorePackage.getEString(), "with", null, 0, 2, Index.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(productEClass, Product.class, "Product", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

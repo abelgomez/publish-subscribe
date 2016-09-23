@@ -2,13 +2,13 @@
  */
 package io.github.abelgomez.cpntools.impl;
 
-import io.github.abelgomez.cpntools.ColorSetElement;
 import io.github.abelgomez.cpntools.CpntoolsPackage;
 import io.github.abelgomez.cpntools.Initmark;
 import io.github.abelgomez.cpntools.Mark;
 
 import java.lang.Integer;
 
+import java.lang.String;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -30,7 +30,8 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <ul>
  *   <li>{@link io.github.abelgomez.cpntools.impl.MarkImpl#getValue <em>Value</em>}</li>
  *   <li>{@link io.github.abelgomez.cpntools.impl.MarkImpl#getInitmark <em>Initmark</em>}</li>
- *   <li>{@link io.github.abelgomez.cpntools.impl.MarkImpl#getColorSetElement <em>Color Set Element</em>}</li>
+ *   <li>{@link io.github.abelgomez.cpntools.impl.MarkImpl#getExpression <em>Expression</em>}</li>
+ *   <li>{@link io.github.abelgomez.cpntools.impl.MarkImpl#getTime <em>Time</em>}</li>
  * </ul>
  *
  * @generated
@@ -57,14 +58,44 @@ public class MarkImpl extends MinimalEObjectImpl.Container implements Mark {
 	protected int value = VALUE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getColorSetElement() <em>Color Set Element</em>}' reference.
+	 * The default value of the '{@link #getExpression() <em>Expression</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getColorSetElement()
+	 * @see #getExpression()
 	 * @generated
 	 * @ordered
 	 */
-	protected ColorSetElement colorSetElement;
+	protected static final String EXPRESSION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getExpression() <em>Expression</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExpression()
+	 * @generated
+	 * @ordered
+	 */
+	protected String expression = EXPRESSION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getTime() <em>Time</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTime()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int TIME_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getTime() <em>Time</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTime()
+	 * @generated
+	 * @ordered
+	 */
+	protected int time = TIME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -152,16 +183,8 @@ public class MarkImpl extends MinimalEObjectImpl.Container implements Mark {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ColorSetElement getColorSetElement() {
-		if (colorSetElement != null && colorSetElement.eIsProxy()) {
-			InternalEObject oldColorSetElement = (InternalEObject)colorSetElement;
-			colorSetElement = (ColorSetElement)eResolveProxy(oldColorSetElement);
-			if (colorSetElement != oldColorSetElement) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CpntoolsPackage.MARK__COLOR_SET_ELEMENT, oldColorSetElement, colorSetElement));
-			}
-		}
-		return colorSetElement;
+	public String getExpression() {
+		return expression;
 	}
 
 	/**
@@ -169,20 +192,32 @@ public class MarkImpl extends MinimalEObjectImpl.Container implements Mark {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ColorSetElement basicGetColorSetElement() {
-		return colorSetElement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setColorSetElement(ColorSetElement newColorSetElement) {
-		ColorSetElement oldColorSetElement = colorSetElement;
-		colorSetElement = newColorSetElement;
+	public void setExpression(String newExpression) {
+		String oldExpression = expression;
+		expression = newExpression;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CpntoolsPackage.MARK__COLOR_SET_ELEMENT, oldColorSetElement, colorSetElement));
+			eNotify(new ENotificationImpl(this, Notification.SET, CpntoolsPackage.MARK__EXPRESSION, oldExpression, expression));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getTime() {
+		return time;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTime(int newTime) {
+		int oldTime = time;
+		time = newTime;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CpntoolsPackage.MARK__TIME, oldTime, time));
 	}
 
 	/**
@@ -241,9 +276,10 @@ public class MarkImpl extends MinimalEObjectImpl.Container implements Mark {
 				return getValue();
 			case CpntoolsPackage.MARK__INITMARK:
 				return getInitmark();
-			case CpntoolsPackage.MARK__COLOR_SET_ELEMENT:
-				if (resolve) return getColorSetElement();
-				return basicGetColorSetElement();
+			case CpntoolsPackage.MARK__EXPRESSION:
+				return getExpression();
+			case CpntoolsPackage.MARK__TIME:
+				return getTime();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -262,8 +298,11 @@ public class MarkImpl extends MinimalEObjectImpl.Container implements Mark {
 			case CpntoolsPackage.MARK__INITMARK:
 				setInitmark((Initmark)newValue);
 				return;
-			case CpntoolsPackage.MARK__COLOR_SET_ELEMENT:
-				setColorSetElement((ColorSetElement)newValue);
+			case CpntoolsPackage.MARK__EXPRESSION:
+				setExpression((String)newValue);
+				return;
+			case CpntoolsPackage.MARK__TIME:
+				setTime((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -283,8 +322,11 @@ public class MarkImpl extends MinimalEObjectImpl.Container implements Mark {
 			case CpntoolsPackage.MARK__INITMARK:
 				setInitmark((Initmark)null);
 				return;
-			case CpntoolsPackage.MARK__COLOR_SET_ELEMENT:
-				setColorSetElement((ColorSetElement)null);
+			case CpntoolsPackage.MARK__EXPRESSION:
+				setExpression(EXPRESSION_EDEFAULT);
+				return;
+			case CpntoolsPackage.MARK__TIME:
+				setTime(TIME_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -302,8 +344,10 @@ public class MarkImpl extends MinimalEObjectImpl.Container implements Mark {
 				return value != VALUE_EDEFAULT;
 			case CpntoolsPackage.MARK__INITMARK:
 				return getInitmark() != null;
-			case CpntoolsPackage.MARK__COLOR_SET_ELEMENT:
-				return colorSetElement != null;
+			case CpntoolsPackage.MARK__EXPRESSION:
+				return EXPRESSION_EDEFAULT == null ? expression != null : !EXPRESSION_EDEFAULT.equals(expression);
+			case CpntoolsPackage.MARK__TIME:
+				return time != TIME_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -320,6 +364,10 @@ public class MarkImpl extends MinimalEObjectImpl.Container implements Mark {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (value: ");
 		result.append(value);
+		result.append(", expression: ");
+		result.append(expression);
+		result.append(", time: ");
+		result.append(time);
 		result.append(')');
 		return result.toString();
 	}

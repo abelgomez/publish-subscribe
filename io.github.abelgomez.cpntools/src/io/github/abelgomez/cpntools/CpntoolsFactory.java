@@ -283,15 +283,6 @@ public interface CpntoolsFactory extends EFactory {
 	Index createIndex();
 
 	/**
-	 * Returns a new object of class '<em>Color Set Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Color Set Element</em>'.
-	 * @generated
-	 */
-	ColorSetElement createColorSetElement();
-
-	/**
 	 * Returns a new object of class '<em>Product</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -9,7 +9,6 @@ import io.github.abelgomez.cpntools.AuxBox;
 import io.github.abelgomez.cpntools.AuxEllipse;
 import io.github.abelgomez.cpntools.AuxText;
 import io.github.abelgomez.cpntools.Block;
-import io.github.abelgomez.cpntools.ColorSetElement;
 import io.github.abelgomez.cpntools.Cond;
 import io.github.abelgomez.cpntools.Cpnet;
 import io.github.abelgomez.cpntools.CpntoolsFactory;
@@ -121,7 +120,6 @@ public class CpntoolsFactoryImpl extends EFactoryImpl implements CpntoolsFactory
 			case CpntoolsPackage.STRING: return createString();
 			case CpntoolsPackage.ENUMERATED: return createEnumerated();
 			case CpntoolsPackage.INDEX: return createIndex();
-			case CpntoolsPackage.COLOR_SET_ELEMENT: return createColorSetElement();
 			case CpntoolsPackage.PRODUCT: return createProduct();
 			case CpntoolsPackage.RECORD: return createRecord();
 			case CpntoolsPackage.LIST: return createList();
@@ -451,16 +449,6 @@ public class CpntoolsFactoryImpl extends EFactoryImpl implements CpntoolsFactory
 	public Index createIndex() {
 		IndexImpl index = new IndexImpl();
 		return index;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ColorSetElement createColorSetElement() {
-		ColorSetElementImpl colorSetElement = new ColorSetElementImpl();
-		return colorSetElement;
 	}
 
 	/**

@@ -102,11 +102,12 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Mark">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" ordered="false"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="initmark" lowerBound="1"
         eType="#//Initmark" eOpposite="#//Initmark/marks"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="colorSetElement" lowerBound="1"
-        eType="#//ColorSetElement"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="expression" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="time" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Port" eSuperTypes="#//DiagramElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="portType" ordered="false"
@@ -203,27 +204,36 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" ordered="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SimpleColorSet" abstract="true" eSuperTypes="#//ColorSet">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="colorElements" upperBound="-1"
-        eType="#//ColorSetElement" containment="true" eOpposite="#//ColorSetElement/simpleColorSet"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SimpleColorSet" abstract="true" eSuperTypes="#//ColorSet"/>
   <eClassifiers xsi:type="ecore:EClass" name="CompoundColorSet" abstract="true" eSuperTypes="#//ColorSet">
     <eStructuralFeatures xsi:type="ecore:EReference" name="simpleColors" unique="false"
         lowerBound="1" upperBound="-1" eType="#//SimpleColorSet"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Unit" eSuperTypes="#//SimpleColorSet"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Boolean" eSuperTypes="#//SimpleColorSet"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Integer" eSuperTypes="#//SimpleColorSet"/>
-  <eClassifiers xsi:type="ecore:EClass" name="LargeInteger" eSuperTypes="#//SimpleColorSet"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Real" eSuperTypes="#//SimpleColorSet"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Unit" eSuperTypes="#//SimpleColorSet">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="with" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Boolean" eSuperTypes="#//SimpleColorSet">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="with" upperBound="2" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Integer" eSuperTypes="#//SimpleColorSet">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="with" upperBound="2" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LargeInteger" eSuperTypes="#//SimpleColorSet">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="with" upperBound="2" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Real" eSuperTypes="#//SimpleColorSet">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="with" upperBound="2" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Time" eSuperTypes="#//SimpleColorSet"/>
-  <eClassifiers xsi:type="ecore:EClass" name="String" eSuperTypes="#//SimpleColorSet"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Enumerated" eSuperTypes="#//SimpleColorSet"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Index" eSuperTypes="#//SimpleColorSet"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ColorSetElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="simpleColorSet" eType="#//SimpleColorSet"
-        eOpposite="#//SimpleColorSet/colorElements"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="String" eSuperTypes="#//SimpleColorSet">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="with" upperBound="2" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="and" upperBound="2" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Enumerated" eSuperTypes="#//SimpleColorSet">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="with" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Index" eSuperTypes="#//SimpleColorSet">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="with" upperBound="2" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Product" eSuperTypes="#//CompoundColorSet"/>
   <eClassifiers xsi:type="ecore:EClass" name="Record" eSuperTypes="#//CompoundColorSet"/>

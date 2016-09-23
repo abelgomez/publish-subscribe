@@ -2,6 +2,8 @@
  */
 package io.github.abelgomez.cpntools;
 
+import java.lang.String;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -15,7 +17,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link io.github.abelgomez.cpntools.Mark#getValue <em>Value</em>}</li>
  *   <li>{@link io.github.abelgomez.cpntools.Mark#getInitmark <em>Initmark</em>}</li>
- *   <li>{@link io.github.abelgomez.cpntools.Mark#getColorSetElement <em>Color Set Element</em>}</li>
+ *   <li>{@link io.github.abelgomez.cpntools.Mark#getExpression <em>Expression</em>}</li>
+ *   <li>{@link io.github.abelgomez.cpntools.Mark#getTime <em>Time</em>}</li>
  * </ul>
  *
  * @see io.github.abelgomez.cpntools.CpntoolsPackage#getMark()
@@ -34,7 +37,7 @@ public interface Mark extends EObject {
 	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see #setValue(int)
 	 * @see io.github.abelgomez.cpntools.CpntoolsPackage#getMark_Value()
-	 * @model ordered="false"
+	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	int getValue();
@@ -78,29 +81,55 @@ public interface Mark extends EObject {
 	void setInitmark(Initmark value);
 
 	/**
-	 * Returns the value of the '<em><b>Color Set Element</b></em>' reference.
+	 * Returns the value of the '<em><b>Expression</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Color Set Element</em>' reference isn't clear,
+	 * If the meaning of the '<em>Expression</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Color Set Element</em>' reference.
-	 * @see #setColorSetElement(ColorSetElement)
-	 * @see io.github.abelgomez.cpntools.CpntoolsPackage#getMark_ColorSetElement()
+	 * @return the value of the '<em>Expression</em>' attribute.
+	 * @see #setExpression(String)
+	 * @see io.github.abelgomez.cpntools.CpntoolsPackage#getMark_Expression()
 	 * @model required="true"
 	 * @generated
 	 */
-	ColorSetElement getColorSetElement();
+	String getExpression();
 
 	/**
-	 * Sets the value of the '{@link io.github.abelgomez.cpntools.Mark#getColorSetElement <em>Color Set Element</em>}' reference.
+	 * Sets the value of the '{@link io.github.abelgomez.cpntools.Mark#getExpression <em>Expression</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Color Set Element</em>' reference.
-	 * @see #getColorSetElement()
+	 * @param value the new value of the '<em>Expression</em>' attribute.
+	 * @see #getExpression()
 	 * @generated
 	 */
-	void setColorSetElement(ColorSetElement value);
+	void setExpression(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Time</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Time</em>' attribute.
+	 * @see #setTime(int)
+	 * @see io.github.abelgomez.cpntools.CpntoolsPackage#getMark_Time()
+	 * @model required="true"
+	 * @generated
+	 */
+	int getTime();
+
+	/**
+	 * Sets the value of the '{@link io.github.abelgomez.cpntools.Mark#getTime <em>Time</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Time</em>' attribute.
+	 * @see #getTime()
+	 * @generated
+	 */
+	void setTime(int value);
 
 } // Mark

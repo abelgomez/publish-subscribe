@@ -11,7 +11,6 @@ import io.github.abelgomez.cpntools.AuxText;
 import io.github.abelgomez.cpntools.Auxiliary;
 import io.github.abelgomez.cpntools.Block;
 import io.github.abelgomez.cpntools.ColorSet;
-import io.github.abelgomez.cpntools.ColorSetElement;
 import io.github.abelgomez.cpntools.CompoundColorSet;
 import io.github.abelgomez.cpntools.Cond;
 import io.github.abelgomez.cpntools.Cpnet;
@@ -245,10 +244,6 @@ public class CpntoolsAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseIndex(Index object) {
 				return createIndexAdapter();
-			}
-			@Override
-			public Adapter caseColorSetElement(ColorSetElement object) {
-				return createColorSetElementAdapter();
 			}
 			@Override
 			public Adapter caseProduct(Product object) {
@@ -781,20 +776,6 @@ public class CpntoolsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createIndexAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link io.github.abelgomez.cpntools.ColorSetElement <em>Color Set Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see io.github.abelgomez.cpntools.ColorSetElement
-	 * @generated
-	 */
-	public Adapter createColorSetElementAdapter() {
 		return null;
 	}
 

@@ -2,8 +2,6 @@
  */
 package io.github.abelgomez.cpntools.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
@@ -11,6 +9,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import io.github.abelgomez.cpntools.CompoundColorSet;
 import io.github.abelgomez.cpntools.CpntoolsPackage;
 import io.github.abelgomez.cpntools.SimpleColorSet;
+import java.util.Collection;
 
 /**
  * <!-- begin-user-doc -->

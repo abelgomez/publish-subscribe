@@ -24,7 +24,6 @@ import io.github.abelgomez.cpntools.Annot;
 import io.github.abelgomez.cpntools.Arc;
 import io.github.abelgomez.cpntools.Block;
 import io.github.abelgomez.cpntools.ColorSet;
-import io.github.abelgomez.cpntools.ColorSetElement;
 import io.github.abelgomez.cpntools.Cpnet;
 import io.github.abelgomez.cpntools.Declaration;
 import io.github.abelgomez.cpntools.DiagramElement;
@@ -220,7 +219,7 @@ public class CpnToolsBuilder {
 		fillElementAttributesFromDiagramElement(document, element, initmark);
 		String initMarkText = "";
 		for (Mark mark : initmark.getMarks()) {
-			initMarkText = initMarkText.concat(mark.getValue() + "`" + mark.getColorSetElement().getName() + "++\n");
+			initMarkText = initMarkText.concat(mark.getValue() + "`" + mark.getExpression() + "++\n");
 		}
 		initMarkText = initMarkText.substring(0, initMarkText.length() - 3);
 		Element text = (Element) createText(document, initMarkText);
@@ -336,8 +335,8 @@ public class CpnToolsBuilder {
 			element.appendChild(document.createElement("string"));
 		} else if (colorSet instanceof io.github.abelgomez.cpntools.Enumerated) {
 			Element enumElt = document.createElement("enum");
-			for (ColorSetElement colorSetElement : ((Enumerated) colorSet).getColorElements()) {
-				enumElt.appendChild(createElementId(document, colorSetElement.getName()));
+			for (String with : ((Enumerated) colorSet).getWith()) {
+				enumElt.appendChild(createElementId(document, with));
 			}
 			element.appendChild(enumElt);
 		} else if (colorSet instanceof io.github.abelgomez.cpntools.Index) {
