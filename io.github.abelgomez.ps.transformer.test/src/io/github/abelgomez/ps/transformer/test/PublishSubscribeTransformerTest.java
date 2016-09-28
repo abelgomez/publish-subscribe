@@ -28,8 +28,10 @@ public class PublishSubscribeTransformerTest {
 		Resource resource = new XMIResourceImpl();
 		resource.getContents().add(cpnet);
 		resource.save(System.out, null);
-		CpnToolsBuilder.serialize(cpnet, System.out);
-		CpnToolsBuilder.serialize(cpnet, new FileOutputStream(new File("C:/Users/agomez/Desktop/test.cpn")));
+		
+		CpnToolsBuilder builder = new CpnToolsBuilder(cpnet);
+		builder.serialize(System.out);
+		builder.serialize(new FileOutputStream(new File("C:/Users/agomez/Desktop/test.cpn")));
 	}
 
 }

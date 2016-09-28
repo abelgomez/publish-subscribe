@@ -61,8 +61,9 @@ public class CpnToolsBuilderTest {
 		
 		page.layout(500, 500, 5000);
 		
-		CpnToolsBuilder.serialize(net, System.out);
-		CpnToolsBuilder.serialize(net, new FileOutputStream(new File("C:/Users/agomez/Desktop/test.cpn")));
+		CpnToolsBuilder builder = new CpnToolsBuilder(net);
+		builder.serialize(System.out);
+		builder.serialize(new FileOutputStream(new File("C:/Users/agomez/Desktop/test.cpn")));
 	}
 
 }
