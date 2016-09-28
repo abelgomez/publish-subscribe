@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 import org.eclipse.uml2.uml.UMLFactory;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import io.github.abelgomez.cpntools.Cpnet;
@@ -18,6 +19,17 @@ import io.github.abelgomez.cpntools.io.serializer.CpnToolsBuilder;
 import io.github.abelgomez.ps.transformer.PublishSubscribeTransformer;
 
 public class PublishSubscribeTransformerTest {
+	
+	private static final String TEMP_DIR = "./temp";
+	private static final String TEMP_TEST_FILE = TEMP_DIR + File.separator +  "test.cpn";
+	
+	@Before
+	public void pre() {
+		File temp = new File(TEMP_DIR);
+		if (!temp.exists()) {
+			Assert.assertTrue(temp.mkdir());
+		}
+	}
 
 	@Test
 	public void test() throws ParserConfigurationException, TransformerException, IOException {
@@ -31,7 +43,8 @@ public class PublishSubscribeTransformerTest {
 		
 		CpnToolsBuilder builder = new CpnToolsBuilder(cpnet);
 		builder.serialize(System.out);
-		builder.serialize(new FileOutputStream(new File("C:/Users/agomez/Desktop/test.cpn")));
+		
+		builder.serialize(new FileOutputStream(new File(TEMP_TEST_FILE)));
 	}
 
 }
