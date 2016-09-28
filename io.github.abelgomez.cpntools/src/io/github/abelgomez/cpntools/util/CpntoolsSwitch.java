@@ -12,7 +12,6 @@ import io.github.abelgomez.cpntools.Auxiliary;
 import io.github.abelgomez.cpntools.Block;
 import io.github.abelgomez.cpntools.ColorSet;
 import io.github.abelgomez.cpntools.CompoundColorSet;
-import io.github.abelgomez.cpntools.Cond;
 import io.github.abelgomez.cpntools.Cpnet;
 import io.github.abelgomez.cpntools.CpntoolsPackage;
 import io.github.abelgomez.cpntools.Declaration;
@@ -26,7 +25,6 @@ import io.github.abelgomez.cpntools.Index;
 import io.github.abelgomez.cpntools.Initmark;
 import io.github.abelgomez.cpntools.LargeInteger;
 import io.github.abelgomez.cpntools.List;
-import io.github.abelgomez.cpntools.Mark;
 import io.github.abelgomez.cpntools.Ml;
 import io.github.abelgomez.cpntools.Page;
 import io.github.abelgomez.cpntools.Place;
@@ -38,6 +36,9 @@ import io.github.abelgomez.cpntools.SimpleColorSet;
 import io.github.abelgomez.cpntools.Subset;
 import io.github.abelgomez.cpntools.Time;
 import io.github.abelgomez.cpntools.Trans;
+import io.github.abelgomez.cpntools.TransCond;
+import io.github.abelgomez.cpntools.TransPriority;
+import io.github.abelgomez.cpntools.TransTime;
 import io.github.abelgomez.cpntools.Union;
 import io.github.abelgomez.cpntools.Unit;
 import io.github.abelgomez.cpntools.Var;
@@ -155,12 +156,6 @@ public class CpntoolsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CpntoolsPackage.MARK: {
-				Mark mark = (Mark)theEObject;
-				T result = caseMark(mark);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case CpntoolsPackage.PORT: {
 				Port port = (Port)theEObject;
 				T result = casePort(port);
@@ -237,10 +232,24 @@ public class CpntoolsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CpntoolsPackage.COND: {
-				Cond cond = (Cond)theEObject;
-				T result = caseCond(cond);
-				if (result == null) result = caseDiagramElement(cond);
+			case CpntoolsPackage.TRANS_COND: {
+				TransCond transCond = (TransCond)theEObject;
+				T result = caseTransCond(transCond);
+				if (result == null) result = caseDiagramElement(transCond);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CpntoolsPackage.TRANS_PRIORITY: {
+				TransPriority transPriority = (TransPriority)theEObject;
+				T result = caseTransPriority(transPriority);
+				if (result == null) result = caseDiagramElement(transPriority);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CpntoolsPackage.TRANS_TIME: {
+				TransTime transTime = (TransTime)theEObject;
+				T result = caseTransTime(transTime);
+				if (result == null) result = caseDiagramElement(transTime);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -543,21 +552,6 @@ public class CpntoolsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Mark</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Mark</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseMark(Mark object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Port</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -723,17 +717,47 @@ public class CpntoolsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Cond</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Trans Cond</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Cond</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Trans Cond</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseCond(Cond object) {
+	public T caseTransCond(TransCond object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Trans Priority</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Trans Priority</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTransPriority(TransPriority object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Trans Time</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Trans Time</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTransTime(TransTime object) {
 		return null;
 	}
 

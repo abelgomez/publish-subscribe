@@ -37,12 +37,12 @@ public interface Arc extends DiagramElement {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Headsize</em>' attribute.
-	 * @see #setHeadsize(int)
+	 * @see #setHeadsize(float)
 	 * @see io.github.abelgomez.cpntools.CpntoolsPackage#getArc_Headsize()
 	 * @model ordered="false"
 	 * @generated
 	 */
-	int getHeadsize();
+	float getHeadsize();
 
 	/**
 	 * Sets the value of the '{@link io.github.abelgomez.cpntools.Arc#getHeadsize <em>Headsize</em>}' attribute.
@@ -52,7 +52,7 @@ public interface Arc extends DiagramElement {
 	 * @see #getHeadsize()
 	 * @generated
 	 */
-	void setHeadsize(int value);
+	void setHeadsize(float value);
 
 	/**
 	 * Returns the value of the '<em><b>Place</b></em>' reference.

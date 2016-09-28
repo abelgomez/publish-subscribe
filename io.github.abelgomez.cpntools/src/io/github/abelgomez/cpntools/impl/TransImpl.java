@@ -3,11 +3,13 @@
 package io.github.abelgomez.cpntools.impl;
 
 import io.github.abelgomez.cpntools.Arc;
-import io.github.abelgomez.cpntools.Cond;
 import io.github.abelgomez.cpntools.CpntoolsPackage;
 import io.github.abelgomez.cpntools.Page;
 import io.github.abelgomez.cpntools.Trans;
 
+import io.github.abelgomez.cpntools.TransCond;
+import io.github.abelgomez.cpntools.TransPriority;
+import io.github.abelgomez.cpntools.TransTime;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -43,6 +45,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link io.github.abelgomez.cpntools.impl.TransImpl#getPage <em>Page</em>}</li>
  *   <li>{@link io.github.abelgomez.cpntools.impl.TransImpl#getText <em>Text</em>}</li>
  *   <li>{@link io.github.abelgomez.cpntools.impl.TransImpl#getArcs <em>Arcs</em>}</li>
+ *   <li>{@link io.github.abelgomez.cpntools.impl.TransImpl#getPriority <em>Priority</em>}</li>
+ *   <li>{@link io.github.abelgomez.cpntools.impl.TransImpl#getTime <em>Time</em>}</li>
  * </ul>
  *
  * @generated
@@ -116,7 +120,7 @@ public class TransImpl extends DiagramElementImpl implements Trans {
 	 * @generated
 	 * @ordered
 	 */
-	protected Cond cond;
+	protected TransCond cond;
 
 	/**
 	 * The default value of the '{@link #getText() <em>Text</em>}' attribute.
@@ -147,6 +151,26 @@ public class TransImpl extends DiagramElementImpl implements Trans {
 	 * @ordered
 	 */
 	protected EList<Arc> arcs;
+
+	/**
+	 * The cached value of the '{@link #getPriority() <em>Priority</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPriority()
+	 * @generated
+	 * @ordered
+	 */
+	protected TransPriority priority;
+
+	/**
+	 * The cached value of the '{@link #getTime() <em>Time</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTime()
+	 * @generated
+	 * @ordered
+	 */
+	protected TransTime time;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -235,7 +259,7 @@ public class TransImpl extends DiagramElementImpl implements Trans {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Cond getCond() {
+	public TransCond getCond() {
 		return cond;
 	}
 
@@ -244,8 +268,8 @@ public class TransImpl extends DiagramElementImpl implements Trans {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCond(Cond newCond, NotificationChain msgs) {
-		Cond oldCond = cond;
+	public NotificationChain basicSetCond(TransCond newCond, NotificationChain msgs) {
+		TransCond oldCond = cond;
 		cond = newCond;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CpntoolsPackage.TRANS__COND, oldCond, newCond);
@@ -259,7 +283,7 @@ public class TransImpl extends DiagramElementImpl implements Trans {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCond(Cond newCond) {
+	public void setCond(TransCond newCond) {
 		if (newCond != cond) {
 			NotificationChain msgs = null;
 			if (cond != null)
@@ -352,6 +376,92 @@ public class TransImpl extends DiagramElementImpl implements Trans {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public TransPriority getPriority() {
+		return priority;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPriority(TransPriority newPriority, NotificationChain msgs) {
+		TransPriority oldPriority = priority;
+		priority = newPriority;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CpntoolsPackage.TRANS__PRIORITY, oldPriority, newPriority);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPriority(TransPriority newPriority) {
+		if (newPriority != priority) {
+			NotificationChain msgs = null;
+			if (priority != null)
+				msgs = ((InternalEObject)priority).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CpntoolsPackage.TRANS__PRIORITY, null, msgs);
+			if (newPriority != null)
+				msgs = ((InternalEObject)newPriority).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CpntoolsPackage.TRANS__PRIORITY, null, msgs);
+			msgs = basicSetPriority(newPriority, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CpntoolsPackage.TRANS__PRIORITY, newPriority, newPriority));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TransTime getTime() {
+		return time;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTime(TransTime newTime, NotificationChain msgs) {
+		TransTime oldTime = time;
+		time = newTime;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CpntoolsPackage.TRANS__TIME, oldTime, newTime);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTime(TransTime newTime) {
+		if (newTime != time) {
+			NotificationChain msgs = null;
+			if (time != null)
+				msgs = ((InternalEObject)time).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CpntoolsPackage.TRANS__TIME, null, msgs);
+			if (newTime != null)
+				msgs = ((InternalEObject)newTime).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CpntoolsPackage.TRANS__TIME, null, msgs);
+			msgs = basicSetTime(newTime, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CpntoolsPackage.TRANS__TIME, newTime, newTime));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -380,6 +490,10 @@ public class TransImpl extends DiagramElementImpl implements Trans {
 				return basicSetPage(null, msgs);
 			case CpntoolsPackage.TRANS__ARCS:
 				return ((InternalEList<?>)getArcs()).basicRemove(otherEnd, msgs);
+			case CpntoolsPackage.TRANS__PRIORITY:
+				return basicSetPriority(null, msgs);
+			case CpntoolsPackage.TRANS__TIME:
+				return basicSetTime(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -420,6 +534,10 @@ public class TransImpl extends DiagramElementImpl implements Trans {
 				return getText();
 			case CpntoolsPackage.TRANS__ARCS:
 				return getArcs();
+			case CpntoolsPackage.TRANS__PRIORITY:
+				return getPriority();
+			case CpntoolsPackage.TRANS__TIME:
+				return getTime();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -443,7 +561,7 @@ public class TransImpl extends DiagramElementImpl implements Trans {
 				setExplicit((Boolean)newValue);
 				return;
 			case CpntoolsPackage.TRANS__COND:
-				setCond((Cond)newValue);
+				setCond((TransCond)newValue);
 				return;
 			case CpntoolsPackage.TRANS__PAGE:
 				setPage((Page)newValue);
@@ -454,6 +572,12 @@ public class TransImpl extends DiagramElementImpl implements Trans {
 			case CpntoolsPackage.TRANS__ARCS:
 				getArcs().clear();
 				getArcs().addAll((Collection<? extends Arc>)newValue);
+				return;
+			case CpntoolsPackage.TRANS__PRIORITY:
+				setPriority((TransPriority)newValue);
+				return;
+			case CpntoolsPackage.TRANS__TIME:
+				setTime((TransTime)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -477,7 +601,7 @@ public class TransImpl extends DiagramElementImpl implements Trans {
 				setExplicit(EXPLICIT_EDEFAULT);
 				return;
 			case CpntoolsPackage.TRANS__COND:
-				setCond((Cond)null);
+				setCond((TransCond)null);
 				return;
 			case CpntoolsPackage.TRANS__PAGE:
 				setPage((Page)null);
@@ -487,6 +611,12 @@ public class TransImpl extends DiagramElementImpl implements Trans {
 				return;
 			case CpntoolsPackage.TRANS__ARCS:
 				getArcs().clear();
+				return;
+			case CpntoolsPackage.TRANS__PRIORITY:
+				setPriority((TransPriority)null);
+				return;
+			case CpntoolsPackage.TRANS__TIME:
+				setTime((TransTime)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -514,6 +644,10 @@ public class TransImpl extends DiagramElementImpl implements Trans {
 				return TEXT_EDEFAULT == null ? text != null : !TEXT_EDEFAULT.equals(text);
 			case CpntoolsPackage.TRANS__ARCS:
 				return arcs != null && !arcs.isEmpty();
+			case CpntoolsPackage.TRANS__PRIORITY:
+				return priority != null;
+			case CpntoolsPackage.TRANS__TIME:
+				return time != null;
 		}
 		return super.eIsSet(featureID);
 	}

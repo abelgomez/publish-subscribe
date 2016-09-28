@@ -2,8 +2,8 @@
  */
 package io.github.abelgomez.cpntools.impl;
 
-import io.github.abelgomez.cpntools.Cond;
 import io.github.abelgomez.cpntools.CpntoolsPackage;
+import io.github.abelgomez.cpntools.TransTime;
 
 import java.lang.String;
 
@@ -15,18 +15,18 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Cond</b></em>'.
+ * An implementation of the model object '<em><b>Trans Time</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link io.github.abelgomez.cpntools.impl.CondImpl#getText <em>Text</em>}</li>
+ *   <li>{@link io.github.abelgomez.cpntools.impl.TransTimeImpl#getText <em>Text</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class CondImpl extends DiagramElementImpl implements Cond {
+public class TransTimeImpl extends DiagramElementImpl implements TransTime {
 	/**
 	 * The default value of the '{@link #getText() <em>Text</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -52,7 +52,7 @@ public class CondImpl extends DiagramElementImpl implements Cond {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected CondImpl() {
+	protected TransTimeImpl() {
 		super();
 	}
 
@@ -63,7 +63,7 @@ public class CondImpl extends DiagramElementImpl implements Cond {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CpntoolsPackage.Literals.COND;
+		return CpntoolsPackage.Literals.TRANS_TIME;
 	}
 
 	/**
@@ -84,7 +84,7 @@ public class CondImpl extends DiagramElementImpl implements Cond {
 		String oldText = text;
 		text = newText;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CpntoolsPackage.COND__TEXT, oldText, text));
+			eNotify(new ENotificationImpl(this, Notification.SET, CpntoolsPackage.TRANS_TIME__TEXT, oldText, text));
 	}
 
 	/**
@@ -95,7 +95,7 @@ public class CondImpl extends DiagramElementImpl implements Cond {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CpntoolsPackage.COND__TEXT:
+			case CpntoolsPackage.TRANS_TIME__TEXT:
 				return getText();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -109,7 +109,7 @@ public class CondImpl extends DiagramElementImpl implements Cond {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CpntoolsPackage.COND__TEXT:
+			case CpntoolsPackage.TRANS_TIME__TEXT:
 				setText((String)newValue);
 				return;
 		}
@@ -124,7 +124,7 @@ public class CondImpl extends DiagramElementImpl implements Cond {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CpntoolsPackage.COND__TEXT:
+			case CpntoolsPackage.TRANS_TIME__TEXT:
 				setText(TEXT_EDEFAULT);
 				return;
 		}
@@ -139,7 +139,7 @@ public class CondImpl extends DiagramElementImpl implements Cond {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CpntoolsPackage.COND__TEXT:
+			case CpntoolsPackage.TRANS_TIME__TEXT:
 				return TEXT_EDEFAULT == null ? text != null : !TEXT_EDEFAULT.equals(text);
 		}
 		return super.eIsSet(featureID);
@@ -161,4 +161,4 @@ public class CondImpl extends DiagramElementImpl implements Cond {
 		return result.toString();
 	}
 
-} //CondImpl
+} //TransTimeImpl

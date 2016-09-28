@@ -52,7 +52,7 @@ public class ArcImpl extends DiagramElementImpl implements Arc {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int HEADSIZE_EDEFAULT = 0;
+	protected static final float HEADSIZE_EDEFAULT = 0.0F;
 
 	/**
 	 * The cached value of the '{@link #getHeadsize() <em>Headsize</em>}' attribute.
@@ -62,7 +62,7 @@ public class ArcImpl extends DiagramElementImpl implements Arc {
 	 * @generated
 	 * @ordered
 	 */
-	protected int headsize = HEADSIZE_EDEFAULT;
+	protected float headsize = HEADSIZE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getPlace() <em>Place</em>}' reference.
@@ -178,7 +178,7 @@ public class ArcImpl extends DiagramElementImpl implements Arc {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getHeadsize() {
+	public float getHeadsize() {
 		return headsize;
 	}
 
@@ -187,8 +187,8 @@ public class ArcImpl extends DiagramElementImpl implements Arc {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setHeadsize(int newHeadsize) {
-		int oldHeadsize = headsize;
+	public void setHeadsize(float newHeadsize) {
+		float oldHeadsize = headsize;
 		headsize = newHeadsize;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CpntoolsPackage.ARC__HEADSIZE, oldHeadsize, headsize));
@@ -558,7 +558,7 @@ public class ArcImpl extends DiagramElementImpl implements Arc {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case CpntoolsPackage.ARC__HEADSIZE:
-				setHeadsize((Integer)newValue);
+				setHeadsize((Float)newValue);
 				return;
 			case CpntoolsPackage.ARC__PLACE:
 				setPlace((Place)newValue);

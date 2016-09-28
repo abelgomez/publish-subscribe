@@ -22,6 +22,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link io.github.abelgomez.cpntools.Trans#getPage <em>Page</em>}</li>
  *   <li>{@link io.github.abelgomez.cpntools.Trans#getText <em>Text</em>}</li>
  *   <li>{@link io.github.abelgomez.cpntools.Trans#getArcs <em>Arcs</em>}</li>
+ *   <li>{@link io.github.abelgomez.cpntools.Trans#getPriority <em>Priority</em>}</li>
+ *   <li>{@link io.github.abelgomez.cpntools.Trans#getTime <em>Time</em>}</li>
  * </ul>
  *
  * @see io.github.abelgomez.cpntools.CpntoolsPackage#getTrans()
@@ -116,12 +118,12 @@ public interface Trans extends DiagramElement {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Cond</em>' containment reference.
-	 * @see #setCond(Cond)
+	 * @see #setCond(TransCond)
 	 * @see io.github.abelgomez.cpntools.CpntoolsPackage#getTrans_Cond()
 	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
-	Cond getCond();
+	TransCond getCond();
 
 	/**
 	 * Sets the value of the '{@link io.github.abelgomez.cpntools.Trans#getCond <em>Cond</em>}' containment reference.
@@ -131,7 +133,7 @@ public interface Trans extends DiagramElement {
 	 * @see #getCond()
 	 * @generated
 	 */
-	void setCond(Cond value);
+	void setCond(TransCond value);
 
 	/**
 	 * Returns the value of the '<em><b>Page</b></em>' container reference.
@@ -204,5 +206,57 @@ public interface Trans extends DiagramElement {
 	 * @generated
 	 */
 	EList<Arc> getArcs();
+
+	/**
+	 * Returns the value of the '<em><b>Priority</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Priority</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Priority</em>' containment reference.
+	 * @see #setPriority(TransPriority)
+	 * @see io.github.abelgomez.cpntools.CpntoolsPackage#getTrans_Priority()
+	 * @model containment="true" ordered="false"
+	 * @generated
+	 */
+	TransPriority getPriority();
+
+	/**
+	 * Sets the value of the '{@link io.github.abelgomez.cpntools.Trans#getPriority <em>Priority</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Priority</em>' containment reference.
+	 * @see #getPriority()
+	 * @generated
+	 */
+	void setPriority(TransPriority value);
+
+	/**
+	 * Returns the value of the '<em><b>Time</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Time</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Time</em>' containment reference.
+	 * @see #setTime(TransTime)
+	 * @see io.github.abelgomez.cpntools.CpntoolsPackage#getTrans_Time()
+	 * @model containment="true"
+	 * @generated
+	 */
+	TransTime getTime();
+
+	/**
+	 * Sets the value of the '{@link io.github.abelgomez.cpntools.Trans#getTime <em>Time</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Time</em>' containment reference.
+	 * @see #getTime()
+	 * @generated
+	 */
+	void setTime(TransTime value);
 
 } // Trans

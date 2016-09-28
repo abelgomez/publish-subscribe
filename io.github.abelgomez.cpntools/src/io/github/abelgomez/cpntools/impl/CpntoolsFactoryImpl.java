@@ -9,7 +9,6 @@ import io.github.abelgomez.cpntools.AuxBox;
 import io.github.abelgomez.cpntools.AuxEllipse;
 import io.github.abelgomez.cpntools.AuxText;
 import io.github.abelgomez.cpntools.Block;
-import io.github.abelgomez.cpntools.Cond;
 import io.github.abelgomez.cpntools.Cpnet;
 import io.github.abelgomez.cpntools.CpntoolsFactory;
 import io.github.abelgomez.cpntools.CpntoolsPackage;
@@ -22,7 +21,6 @@ import io.github.abelgomez.cpntools.Index;
 import io.github.abelgomez.cpntools.Initmark;
 import io.github.abelgomez.cpntools.LargeInteger;
 import io.github.abelgomez.cpntools.List;
-import io.github.abelgomez.cpntools.Mark;
 import io.github.abelgomez.cpntools.Ml;
 import io.github.abelgomez.cpntools.Orientation;
 import io.github.abelgomez.cpntools.Page;
@@ -34,6 +32,9 @@ import io.github.abelgomez.cpntools.Record;
 import io.github.abelgomez.cpntools.Subset;
 import io.github.abelgomez.cpntools.Time;
 import io.github.abelgomez.cpntools.Trans;
+import io.github.abelgomez.cpntools.TransCond;
+import io.github.abelgomez.cpntools.TransPriority;
+import io.github.abelgomez.cpntools.TransTime;
 import io.github.abelgomez.cpntools.Union;
 import io.github.abelgomez.cpntools.Unit;
 import io.github.abelgomez.cpntools.Var;
@@ -96,7 +97,6 @@ public class CpntoolsFactoryImpl extends EFactoryImpl implements CpntoolsFactory
 			case CpntoolsPackage.GROUP: return createGroup();
 			case CpntoolsPackage.PLACE: return createPlace();
 			case CpntoolsPackage.INITMARK: return createInitmark();
-			case CpntoolsPackage.MARK: return createMark();
 			case CpntoolsPackage.PORT: return createPort();
 			case CpntoolsPackage.FUSION: return createFusion();
 			case CpntoolsPackage.GLOBBOX: return createGlobbox();
@@ -107,7 +107,9 @@ public class CpntoolsFactoryImpl extends EFactoryImpl implements CpntoolsFactory
 			case CpntoolsPackage.AUX_TEXT: return createAuxText();
 			case CpntoolsPackage.ARC: return createArc();
 			case CpntoolsPackage.TRANS: return createTrans();
-			case CpntoolsPackage.COND: return createCond();
+			case CpntoolsPackage.TRANS_COND: return createTransCond();
+			case CpntoolsPackage.TRANS_PRIORITY: return createTransPriority();
+			case CpntoolsPackage.TRANS_TIME: return createTransTime();
 			case CpntoolsPackage.ANNOT: return createAnnot();
 			case CpntoolsPackage.AUX_ELLIPSE: return createAuxEllipse();
 			case CpntoolsPackage.AUX_BOX: return createAuxBox();
@@ -216,16 +218,6 @@ public class CpntoolsFactoryImpl extends EFactoryImpl implements CpntoolsFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Mark createMark() {
-		MarkImpl mark = new MarkImpl();
-		return mark;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Port createPort() {
 		PortImpl port = new PortImpl();
 		return port;
@@ -326,9 +318,29 @@ public class CpntoolsFactoryImpl extends EFactoryImpl implements CpntoolsFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Cond createCond() {
-		CondImpl cond = new CondImpl();
-		return cond;
+	public TransCond createTransCond() {
+		TransCondImpl transCond = new TransCondImpl();
+		return transCond;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TransPriority createTransPriority() {
+		TransPriorityImpl transPriority = new TransPriorityImpl();
+		return transPriority;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TransTime createTransTime() {
+		TransTimeImpl transTime = new TransTimeImpl();
+		return transTime;
 	}
 
 	/**

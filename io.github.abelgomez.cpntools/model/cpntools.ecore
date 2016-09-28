@@ -12,11 +12,16 @@
   <eClassifiers xsi:type="ecore:EClass" name="Page">
     <eOperations name="layout">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="body" value="DirectedSparseGraph&lt;DiagramElement, DiagramElement> graph = new DirectedSparseGraph&lt;DiagramElement, DiagramElement>();&#xD;&#xA;&#xD;&#xA;for (Arc arc : this.getArcs()) {&#xD;&#xA;&#x9;graph.addVertex(arc.getPlace());&#xD;&#xA;&#x9;graph.addVertex(arc.getTrans());&#xD;&#xA;&#xD;&#xA;&#x9;Pair&lt;DiagramElement> pair = null;&#xD;&#xA;&#x9;if (arc.getOrientation().equals(&quot;PtoT&quot;)) {&#xD;&#xA;&#x9;&#x9;pair = new Pair&lt;DiagramElement>(arc.getPlace(), arc.getTrans());&#xD;&#xA;&#x9;} else {&#xD;&#xA;&#x9;&#x9;pair = new Pair&lt;DiagramElement>(arc.getTrans(), arc.getPlace());&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;graph.addEdge(arc.getAnnot(), pair);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;FRLayout&lt;DiagramElement, DiagramElement> layout = new FRLayout&lt;DiagramElement, DiagramElement>(&#xD;&#xA;&#x9;&#x9;graph, new Dimension(width, height));&#xD;&#xA;layout.initialize();&#xD;&#xA;&#xD;&#xA;layout.setMaxIterations(steps);&#xD;&#xA;&#xD;&#xA;while (!layout.done()) {&#xD;&#xA;&#x9;layout.step();&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;for (DiagramElement edge : graph.getEdges()) {&#xD;&#xA;&#x9;DiagramElement source = graph.getSource(edge);&#xD;&#xA;&#x9;DiagramElement target = graph.getDest(edge);&#xD;&#xA;&#xD;&#xA;&#x9;int sourceX = (int) layout.getX(source) - (width / 2);&#xD;&#xA;&#x9;int sourceY = (int) layout.getY(source) - (height / 2);&#xD;&#xA;&#x9;int targetX = (int) layout.getX(target) - (width / 2);&#xD;&#xA;&#x9;int targetY = (int) layout.getY(target) - (height / 2);&#xD;&#xA;&#xD;&#xA;&#x9;source.setPosx(sourceX);&#xD;&#xA;&#x9;source.setPosy(sourceY);&#xD;&#xA;&#x9;target.setPosx(targetX);&#xD;&#xA;&#x9;target.setPosy(targetY);&#xD;&#xA;&#x9;edge.setPosx(sourceX + (targetX - sourceX) / 2);&#xD;&#xA;&#x9;edge.setPosy(sourceY + (targetY - sourceY) / 2);&#xD;&#xA;}"/>
+        <details key="body" value="DirectedSparseGraph&lt;DiagramElement, Arc> graph = new DirectedSparseGraph&lt;DiagramElement, Arc>();&#xD;&#xA;&#xD;&#xA;for (Arc arc : this.getArcs()) {&#xD;&#xA;&#x9;graph.addVertex(arc.getPlace());&#xD;&#xA;&#x9;graph.addVertex(arc.getTrans());&#xD;&#xA;&#xD;&#xA;&#x9;Pair&lt;DiagramElement> pair = null;&#xD;&#xA;&#x9;if (arc.getOrientation() == Orientation.PTO_T) {&#xD;&#xA;&#x9;&#x9;pair = new Pair&lt;DiagramElement>(arc.getPlace(), arc.getTrans());&#xD;&#xA;&#x9;} else {&#xD;&#xA;&#x9;&#x9;pair = new Pair&lt;DiagramElement>(arc.getTrans(), arc.getPlace());&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;graph.addEdge(arc, pair);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;FRLayout&lt;DiagramElement, Arc> layout = new FRLayout&lt;DiagramElement, Arc>(&#xD;&#xA;&#x9;&#x9;graph, new Dimension(width, height));&#xD;&#xA;layout.initialize();&#xD;&#xA;&#xD;&#xA;layout.setMaxIterations(steps);&#xD;&#xA;&#xD;&#xA;while (!layout.done()) {&#xD;&#xA;&#x9;layout.step();&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;for (DiagramElement element : graph.getVertices()) {&#xD;&#xA;&#x9;int x = (int) layout.getX(element) - (width / 2);&#xD;&#xA;&#x9;int y = (int) layout.getY(element) - (height / 2);&#xD;&#xA;&#xD;&#xA;&#x9;element.setPosx(x);&#xD;&#xA;&#x9;element.setPosy(y);&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;if (element instanceof Trans) {&#xD;&#xA;&#x9;&#x9;Trans trans = (Trans) element;&#xD;&#xA;&#x9;&#x9;if (trans.getCond() != null) {&#xD;&#xA;&#x9;&#x9;&#x9;trans.getCond().setPosx(x - 40);&#xD;&#xA;&#x9;&#x9;&#x9;trans.getCond().setPosy(y + 30);&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;if (trans.getPriority() != null) {&#xD;&#xA;&#x9;&#x9;&#x9;trans.getPriority().setPosx(x - 40);&#xD;&#xA;&#x9;&#x9;&#x9;trans.getPriority().setPosy(y - 30);&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;if (trans.getTime() != null) {&#xD;&#xA;&#x9;&#x9;&#x9;trans.getTime().setPosx(x + 40);&#xD;&#xA;&#x9;&#x9;&#x9;trans.getTime().setPosy(y - 30);&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;}&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;for (Arc arc : graph.getEdges()) {&#xD;&#xA;&#x9;DiagramElement source = graph.getSource(arc);&#xD;&#xA;&#x9;DiagramElement target = graph.getDest(arc);&#xD;&#xA;&#xD;&#xA;&#x9;int sourceX = (int) layout.getX(source) - (width / 2);&#xD;&#xA;&#x9;int sourceY = (int) layout.getY(source) - (height / 2);&#xD;&#xA;&#x9;int targetX = (int) layout.getX(target) - (width / 2);&#xD;&#xA;&#x9;int targetY = (int) layout.getY(target) - (height / 2);&#xD;&#xA;&#xD;&#xA;&#x9;if (arc.getAnnot() != null) {&#xD;&#xA;&#x9;&#x9;double pos = ThreadLocalRandom.current().nextDouble(0.35, 0.65); &#xD;&#xA;&#x9;&#x9;arc.getAnnot().setPosx(sourceX + (int) ((targetX - sourceX) * pos));&#xD;&#xA;&#x9;&#x9;arc.getAnnot().setPosy(sourceY + (int) ((targetY - sourceY) * pos));&#xD;&#xA;&#x9;}&#xD;&#xA;}"/>
       </eAnnotations>
       <eParameters name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
       <eParameters name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
       <eParameters name="steps" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    </eOperations>
+    <eOperations name="layout">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="int width = new Float(getWidth() * 0.9).intValue();&#xD;&#xA;int height = new Float(getHeight() * 0.9).intValue();&#xD;&#xA;layout(width, height, 5000);"/>
+      </eAnnotations>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="group" ordered="false"
         upperBound="-1" eType="#//Group" containment="true" eOpposite="#//Group/page"/>
@@ -97,17 +102,8 @@
         eOpposite="#//Block/declarations"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Initmark" eSuperTypes="#//DiagramElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="marks" ordered="false"
-        upperBound="-1" eType="#//Mark" containment="true" eOpposite="#//Mark/initmark"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Mark">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" ordered="false"
-        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="initmark" lowerBound="1"
-        eType="#//Initmark" eOpposite="#//Initmark/marks"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="expression" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="time" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Port" eSuperTypes="#//DiagramElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="portType" ordered="false"
@@ -125,6 +121,9 @@
         eOpposite="#//Page/auxiliarys"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Globbox">
+    <eAnnotations source="http://www.obeo.fr/dsl/dnc/archetype">
+      <details key="archetype" value="Description"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="cpnet" eType="#//Cpnet"
         eOpposite="#//Cpnet/globbox"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="declarations" upperBound="-1"
@@ -155,7 +154,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Arc" eSuperTypes="#//DiagramElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="headsize" ordered="false"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="place" ordered="false"
         lowerBound="1" eType="#//Place" eOpposite="#//Place/arcs"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="orientation" ordered="false"
@@ -178,16 +177,26 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="explicit" ordered="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="cond" ordered="false" eType="#//Cond"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cond" ordered="false" eType="#//TransCond"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="page" lowerBound="1" eType="#//Page"
         eOpposite="#//Page/transs"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="arcs" upperBound="-1" eType="#//Arc"
         eOpposite="#//Arc/trans"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="priority" ordered="false"
+        eType="#//TransPriority" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="time" eType="#//TransTime"
+        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Cond" eSuperTypes="#//DiagramElement">
+  <eClassifiers xsi:type="ecore:EClass" name="TransCond" eSuperTypes="#//DiagramElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TransPriority" eSuperTypes="#//DiagramElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TransTime" eSuperTypes="#//DiagramElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Annot" eSuperTypes="#//DiagramElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" ordered="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

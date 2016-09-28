@@ -12,7 +12,6 @@ import io.github.abelgomez.cpntools.Auxiliary;
 import io.github.abelgomez.cpntools.Block;
 import io.github.abelgomez.cpntools.ColorSet;
 import io.github.abelgomez.cpntools.CompoundColorSet;
-import io.github.abelgomez.cpntools.Cond;
 import io.github.abelgomez.cpntools.Cpnet;
 import io.github.abelgomez.cpntools.CpntoolsFactory;
 import io.github.abelgomez.cpntools.CpntoolsPackage;
@@ -27,7 +26,6 @@ import io.github.abelgomez.cpntools.Index;
 import io.github.abelgomez.cpntools.Initmark;
 import io.github.abelgomez.cpntools.LargeInteger;
 import io.github.abelgomez.cpntools.List;
-import io.github.abelgomez.cpntools.Mark;
 import io.github.abelgomez.cpntools.Ml;
 import io.github.abelgomez.cpntools.Orientation;
 import io.github.abelgomez.cpntools.Page;
@@ -40,6 +38,9 @@ import io.github.abelgomez.cpntools.SimpleColorSet;
 import io.github.abelgomez.cpntools.Subset;
 import io.github.abelgomez.cpntools.Time;
 import io.github.abelgomez.cpntools.Trans;
+import io.github.abelgomez.cpntools.TransCond;
+import io.github.abelgomez.cpntools.TransPriority;
+import io.github.abelgomez.cpntools.TransTime;
 import io.github.abelgomez.cpntools.Union;
 import io.github.abelgomez.cpntools.Unit;
 import io.github.abelgomez.cpntools.Var;
@@ -115,13 +116,6 @@ public class CpntoolsPackageImpl extends EPackageImpl implements CpntoolsPackage
 	 * @generated
 	 */
 	private EClass initmarkEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass markEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -205,7 +199,21 @@ public class CpntoolsPackageImpl extends EPackageImpl implements CpntoolsPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass condEClass = null;
+	private EClass transCondEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass transPriorityEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass transTimeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -573,6 +581,15 @@ public class CpntoolsPackageImpl extends EPackageImpl implements CpntoolsPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getPage__Layout() {
+		return pageEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getGroup() {
 		return groupEClass;
 	}
@@ -870,53 +887,8 @@ public class CpntoolsPackageImpl extends EPackageImpl implements CpntoolsPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInitmark_Marks() {
-		return (EReference)initmarkEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getMark() {
-		return markEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMark_Value() {
-		return (EAttribute)markEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getMark_Initmark() {
-		return (EReference)markEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMark_Expression() {
-		return (EAttribute)markEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMark_Time() {
-		return (EAttribute)markEClass.getEStructuralFeatures().get(3);
+	public EAttribute getInitmark_Expression() {
+		return (EAttribute)initmarkEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1293,8 +1265,8 @@ public class CpntoolsPackageImpl extends EPackageImpl implements CpntoolsPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getCond() {
-		return condEClass;
+	public EReference getTrans_Priority() {
+		return (EReference)transEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -1302,8 +1274,62 @@ public class CpntoolsPackageImpl extends EPackageImpl implements CpntoolsPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCond_Text() {
-		return (EAttribute)condEClass.getEStructuralFeatures().get(0);
+	public EReference getTrans_Time() {
+		return (EReference)transEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTransCond() {
+		return transCondEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTransCond_Text() {
+		return (EAttribute)transCondEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTransPriority() {
+		return transPriorityEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTransPriority_Text() {
+		return (EAttribute)transPriorityEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTransTime() {
+		return transTimeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTransTime_Text() {
+		return (EAttribute)transTimeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1676,6 +1702,7 @@ public class CpntoolsPackageImpl extends EPackageImpl implements CpntoolsPackage
 		createEAttribute(pageEClass, PAGE__WIDTH);
 		createEAttribute(pageEClass, PAGE__HEIGHT);
 		createEOperation(pageEClass, PAGE___LAYOUT__INTEGER_INTEGER_INTEGER);
+		createEOperation(pageEClass, PAGE___LAYOUT);
 
 		groupEClass = createEClass(GROUP);
 		createEReference(groupEClass, GROUP__GROUP_ELMS);
@@ -1715,13 +1742,7 @@ public class CpntoolsPackageImpl extends EPackageImpl implements CpntoolsPackage
 		createEReference(declarationEClass, DECLARATION__BLOCK);
 
 		initmarkEClass = createEClass(INITMARK);
-		createEReference(initmarkEClass, INITMARK__MARKS);
-
-		markEClass = createEClass(MARK);
-		createEAttribute(markEClass, MARK__VALUE);
-		createEReference(markEClass, MARK__INITMARK);
-		createEAttribute(markEClass, MARK__EXPRESSION);
-		createEAttribute(markEClass, MARK__TIME);
+		createEAttribute(initmarkEClass, INITMARK__EXPRESSION);
 
 		portEClass = createEClass(PORT);
 		createEAttribute(portEClass, PORT__PORT_TYPE);
@@ -1774,9 +1795,17 @@ public class CpntoolsPackageImpl extends EPackageImpl implements CpntoolsPackage
 		createEReference(transEClass, TRANS__PAGE);
 		createEAttribute(transEClass, TRANS__TEXT);
 		createEReference(transEClass, TRANS__ARCS);
+		createEReference(transEClass, TRANS__PRIORITY);
+		createEReference(transEClass, TRANS__TIME);
 
-		condEClass = createEClass(COND);
-		createEAttribute(condEClass, COND__TEXT);
+		transCondEClass = createEClass(TRANS_COND);
+		createEAttribute(transCondEClass, TRANS_COND__TEXT);
+
+		transPriorityEClass = createEClass(TRANS_PRIORITY);
+		createEAttribute(transPriorityEClass, TRANS_PRIORITY__TEXT);
+
+		transTimeEClass = createEClass(TRANS_TIME);
+		createEAttribute(transTimeEClass, TRANS_TIME__TEXT);
 
 		annotEClass = createEClass(ANNOT);
 		createEAttribute(annotEClass, ANNOT__TEXT);
@@ -1877,7 +1906,9 @@ public class CpntoolsPackageImpl extends EPackageImpl implements CpntoolsPackage
 		auxTextEClass.getESuperTypes().add(this.getAuxiliary());
 		arcEClass.getESuperTypes().add(this.getDiagramElement());
 		transEClass.getESuperTypes().add(this.getDiagramElement());
-		condEClass.getESuperTypes().add(this.getDiagramElement());
+		transCondEClass.getESuperTypes().add(this.getDiagramElement());
+		transPriorityEClass.getESuperTypes().add(this.getDiagramElement());
+		transTimeEClass.getESuperTypes().add(this.getDiagramElement());
 		annotEClass.getESuperTypes().add(this.getDiagramElement());
 		auxEllipseEClass.getESuperTypes().add(this.getAuxiliary());
 		auxBoxEClass.getESuperTypes().add(this.getAuxiliary());
@@ -1923,6 +1954,8 @@ public class CpntoolsPackageImpl extends EPackageImpl implements CpntoolsPackage
 		addEParameter(op, ecorePackage.getEIntegerObject(), "height", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEIntegerObject(), "steps", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		initEOperation(getPage__Layout(), null, "layout", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(groupEClass, Group.class, "Group", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGroup_GroupElms(), this.getDiagramElement(), this.getDiagramElement_Group(), "groupElms", null, 0, -1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getGroup_Name(), ecorePackage.getEString(), "name", null, 0, 1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1961,13 +1994,7 @@ public class CpntoolsPackageImpl extends EPackageImpl implements CpntoolsPackage
 		initEReference(getDeclaration_Block(), this.getBlock(), this.getBlock_Declarations(), "block", null, 0, 1, Declaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(initmarkEClass, Initmark.class, "Initmark", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getInitmark_Marks(), this.getMark(), this.getMark_Initmark(), "marks", null, 0, -1, Initmark.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(markEClass, Mark.class, "Mark", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getMark_Value(), ecorePackage.getEInt(), "value", null, 1, 1, Mark.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getMark_Initmark(), this.getInitmark(), this.getInitmark_Marks(), "initmark", null, 1, 1, Mark.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMark_Expression(), ecorePackage.getEString(), "expression", null, 1, 1, Mark.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMark_Time(), ecorePackage.getEInt(), "time", null, 1, 1, Mark.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getInitmark_Expression(), ecorePackage.getEString(), "expression", null, 1, 1, Initmark.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(portEClass, Port.class, "Port", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPort_PortType(), ecorePackage.getEString(), "portType", null, 0, 1, Port.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -2003,7 +2030,7 @@ public class CpntoolsPackageImpl extends EPackageImpl implements CpntoolsPackage
 		initEAttribute(getAuxText_Text(), ecorePackage.getEString(), "text", null, 0, 1, AuxText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(arcEClass, Arc.class, "Arc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getArc_Headsize(), ecorePackage.getEInt(), "headsize", null, 0, 1, Arc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getArc_Headsize(), ecorePackage.getEFloat(), "headsize", null, 0, 1, Arc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getArc_Place(), this.getPlace(), this.getPlace_Arcs(), "place", null, 1, 1, Arc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getArc_Orientation(), this.getOrientation(), "orientation", "PtoT", 0, 1, Arc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getArc_Currentcyckle(), ecorePackage.getEString(), "currentcyckle", "2", 0, 1, Arc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -2016,13 +2043,21 @@ public class CpntoolsPackageImpl extends EPackageImpl implements CpntoolsPackage
 		initEAttribute(getTrans_Height(), ecorePackage.getEInt(), "height", null, 0, 1, Trans.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getTrans_Width(), ecorePackage.getEInt(), "width", null, 0, 1, Trans.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getTrans_Explicit(), ecorePackage.getEBoolean(), "explicit", null, 0, 1, Trans.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getTrans_Cond(), this.getCond(), null, "cond", null, 0, 1, Trans.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getTrans_Cond(), this.getTransCond(), null, "cond", null, 0, 1, Trans.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getTrans_Page(), this.getPage(), this.getPage_Transs(), "page", null, 1, 1, Trans.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTrans_Text(), ecorePackage.getEString(), "text", null, 0, 1, Trans.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTrans_Arcs(), this.getArc(), this.getArc_Trans(), "arcs", null, 0, -1, Trans.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTrans_Priority(), this.getTransPriority(), null, "priority", null, 0, 1, Trans.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getTrans_Time(), this.getTransTime(), null, "time", null, 0, 1, Trans.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(condEClass, Cond.class, "Cond", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCond_Text(), ecorePackage.getEString(), "text", null, 0, 1, Cond.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(transCondEClass, TransCond.class, "TransCond", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTransCond_Text(), ecorePackage.getEString(), "text", null, 0, 1, TransCond.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(transPriorityEClass, TransPriority.class, "TransPriority", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTransPriority_Text(), ecorePackage.getEString(), "text", null, 0, 1, TransPriority.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(transTimeEClass, TransTime.class, "TransTime", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTransTime_Text(), ecorePackage.getEString(), "text", null, 0, 1, TransTime.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(annotEClass, Annot.class, "Annot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAnnot_Text(), ecorePackage.getEString(), "text", null, 0, 1, Annot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

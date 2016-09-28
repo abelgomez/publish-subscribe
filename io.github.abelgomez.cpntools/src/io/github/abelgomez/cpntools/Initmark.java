@@ -2,7 +2,7 @@
  */
 package io.github.abelgomez.cpntools;
 
-import org.eclipse.emf.common.util.EList;
+import java.lang.String;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,7 +13,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link io.github.abelgomez.cpntools.Initmark#getMarks <em>Marks</em>}</li>
+ *   <li>{@link io.github.abelgomez.cpntools.Initmark#getExpression <em>Expression</em>}</li>
  * </ul>
  *
  * @see io.github.abelgomez.cpntools.CpntoolsPackage#getInitmark()
@@ -22,21 +22,29 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Initmark extends DiagramElement {
 	/**
-	 * Returns the value of the '<em><b>Marks</b></em>' containment reference list.
-	 * The list contents are of type {@link io.github.abelgomez.cpntools.Mark}.
-	 * It is bidirectional and its opposite is '{@link io.github.abelgomez.cpntools.Mark#getInitmark <em>Initmark</em>}'.
+	 * Returns the value of the '<em><b>Expression</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Marks</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Expression</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Marks</em>' containment reference list.
-	 * @see io.github.abelgomez.cpntools.CpntoolsPackage#getInitmark_Marks()
-	 * @see io.github.abelgomez.cpntools.Mark#getInitmark
-	 * @model opposite="initmark" containment="true" ordered="false"
+	 * @return the value of the '<em>Expression</em>' attribute.
+	 * @see #setExpression(String)
+	 * @see io.github.abelgomez.cpntools.CpntoolsPackage#getInitmark_Expression()
+	 * @model required="true"
 	 * @generated
 	 */
-	EList<Mark> getMarks();
+	String getExpression();
+
+	/**
+	 * Sets the value of the '{@link io.github.abelgomez.cpntools.Initmark#getExpression <em>Expression</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Expression</em>' attribute.
+	 * @see #getExpression()
+	 * @generated
+	 */
+	void setExpression(String value);
 
 } // Initmark

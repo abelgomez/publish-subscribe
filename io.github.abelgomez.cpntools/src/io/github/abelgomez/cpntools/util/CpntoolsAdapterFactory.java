@@ -12,7 +12,6 @@ import io.github.abelgomez.cpntools.Auxiliary;
 import io.github.abelgomez.cpntools.Block;
 import io.github.abelgomez.cpntools.ColorSet;
 import io.github.abelgomez.cpntools.CompoundColorSet;
-import io.github.abelgomez.cpntools.Cond;
 import io.github.abelgomez.cpntools.Cpnet;
 import io.github.abelgomez.cpntools.CpntoolsPackage;
 import io.github.abelgomez.cpntools.Declaration;
@@ -26,7 +25,6 @@ import io.github.abelgomez.cpntools.Index;
 import io.github.abelgomez.cpntools.Initmark;
 import io.github.abelgomez.cpntools.LargeInteger;
 import io.github.abelgomez.cpntools.List;
-import io.github.abelgomez.cpntools.Mark;
 import io.github.abelgomez.cpntools.Ml;
 import io.github.abelgomez.cpntools.Page;
 import io.github.abelgomez.cpntools.Place;
@@ -38,6 +36,9 @@ import io.github.abelgomez.cpntools.SimpleColorSet;
 import io.github.abelgomez.cpntools.Subset;
 import io.github.abelgomez.cpntools.Time;
 import io.github.abelgomez.cpntools.Trans;
+import io.github.abelgomez.cpntools.TransCond;
+import io.github.abelgomez.cpntools.TransPriority;
+import io.github.abelgomez.cpntools.TransTime;
 import io.github.abelgomez.cpntools.Union;
 import io.github.abelgomez.cpntools.Unit;
 import io.github.abelgomez.cpntools.Var;
@@ -138,10 +139,6 @@ public class CpntoolsAdapterFactory extends AdapterFactoryImpl {
 				return createInitmarkAdapter();
 			}
 			@Override
-			public Adapter caseMark(Mark object) {
-				return createMarkAdapter();
-			}
-			@Override
 			public Adapter casePort(Port object) {
 				return createPortAdapter();
 			}
@@ -186,8 +183,16 @@ public class CpntoolsAdapterFactory extends AdapterFactoryImpl {
 				return createTransAdapter();
 			}
 			@Override
-			public Adapter caseCond(Cond object) {
-				return createCondAdapter();
+			public Adapter caseTransCond(TransCond object) {
+				return createTransCondAdapter();
+			}
+			@Override
+			public Adapter caseTransPriority(TransPriority object) {
+				return createTransPriorityAdapter();
+			}
+			@Override
+			public Adapter caseTransTime(TransTime object) {
+				return createTransTimeAdapter();
 			}
 			@Override
 			public Adapter caseAnnot(Annot object) {
@@ -402,20 +407,6 @@ public class CpntoolsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link io.github.abelgomez.cpntools.Mark <em>Mark</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see io.github.abelgomez.cpntools.Mark
-	 * @generated
-	 */
-	public Adapter createMarkAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link io.github.abelgomez.cpntools.Port <em>Port</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -570,16 +561,44 @@ public class CpntoolsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link io.github.abelgomez.cpntools.Cond <em>Cond</em>}'.
+	 * Creates a new adapter for an object of class '{@link io.github.abelgomez.cpntools.TransCond <em>Trans Cond</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see io.github.abelgomez.cpntools.Cond
+	 * @see io.github.abelgomez.cpntools.TransCond
 	 * @generated
 	 */
-	public Adapter createCondAdapter() {
+	public Adapter createTransCondAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link io.github.abelgomez.cpntools.TransPriority <em>Trans Priority</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see io.github.abelgomez.cpntools.TransPriority
+	 * @generated
+	 */
+	public Adapter createTransPriorityAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link io.github.abelgomez.cpntools.TransTime <em>Trans Time</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see io.github.abelgomez.cpntools.TransTime
+	 * @generated
+	 */
+	public Adapter createTransTimeAdapter() {
 		return null;
 	}
 

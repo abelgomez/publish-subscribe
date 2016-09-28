@@ -7,6 +7,7 @@ import java.lang.Integer;
 import java.lang.String;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+import java.util.concurrent.ThreadLocalRandom;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -28,6 +29,7 @@ import io.github.abelgomez.cpntools.Cpnet;
 import io.github.abelgomez.cpntools.CpntoolsPackage;
 import io.github.abelgomez.cpntools.DiagramElement;
 import io.github.abelgomez.cpntools.Group;
+import io.github.abelgomez.cpntools.Orientation;
 import io.github.abelgomez.cpntools.Page;
 import io.github.abelgomez.cpntools.Place;
 import io.github.abelgomez.cpntools.Trans;
@@ -437,22 +439,22 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page {
 	 * @generated
 	 */
 	public void layout(final Integer width, final Integer height, final Integer steps) {
-		DirectedSparseGraph<DiagramElement, DiagramElement> graph = new DirectedSparseGraph<DiagramElement, DiagramElement>();
+		DirectedSparseGraph<DiagramElement, Arc> graph = new DirectedSparseGraph<DiagramElement, Arc>();
 		
 		for (Arc arc : this.getArcs()) {
 			graph.addVertex(arc.getPlace());
 			graph.addVertex(arc.getTrans());
 		
 			Pair<DiagramElement> pair = null;
-			if (arc.getOrientation().equals("PtoT")) {
+			if (arc.getOrientation() == Orientation.PTO_T) {
 				pair = new Pair<DiagramElement>(arc.getPlace(), arc.getTrans());
 			} else {
 				pair = new Pair<DiagramElement>(arc.getTrans(), arc.getPlace());
 			}
-			graph.addEdge(arc.getAnnot(), pair);
+			graph.addEdge(arc, pair);
 		}
 		
-		FRLayout<DiagramElement, DiagramElement> layout = new FRLayout<DiagramElement, DiagramElement>(
+		FRLayout<DiagramElement, Arc> layout = new FRLayout<DiagramElement, Arc>(
 				graph, new Dimension(width, height));
 		layout.initialize();
 		
@@ -462,22 +464,56 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page {
 			layout.step();
 		}
 		
-		for (DiagramElement edge : graph.getEdges()) {
-			DiagramElement source = graph.getSource(edge);
-			DiagramElement target = graph.getDest(edge);
+		for (DiagramElement element : graph.getVertices()) {
+			int x = (int) layout.getX(element) - (width / 2);
+			int y = (int) layout.getY(element) - (height / 2);
+		
+			element.setPosx(x);
+			element.setPosy(y);
+			
+			if (element instanceof Trans) {
+				Trans trans = (Trans) element;
+				if (trans.getCond() != null) {
+					trans.getCond().setPosx(x - 40);
+					trans.getCond().setPosy(y + 30);
+				}
+				if (trans.getPriority() != null) {
+					trans.getPriority().setPosx(x - 40);
+					trans.getPriority().setPosy(y - 30);
+				}
+				if (trans.getTime() != null) {
+					trans.getTime().setPosx(x + 40);
+					trans.getTime().setPosy(y - 30);
+				}
+			}
+		}
+		
+		for (Arc arc : graph.getEdges()) {
+			DiagramElement source = graph.getSource(arc);
+			DiagramElement target = graph.getDest(arc);
 		
 			int sourceX = (int) layout.getX(source) - (width / 2);
 			int sourceY = (int) layout.getY(source) - (height / 2);
 			int targetX = (int) layout.getX(target) - (width / 2);
 			int targetY = (int) layout.getY(target) - (height / 2);
 		
-			source.setPosx(sourceX);
-			source.setPosy(sourceY);
-			target.setPosx(targetX);
-			target.setPosy(targetY);
-			edge.setPosx(sourceX + (targetX - sourceX) / 2);
-			edge.setPosy(sourceY + (targetY - sourceY) / 2);
+			if (arc.getAnnot() != null) {
+				double pos = ThreadLocalRandom.current().nextDouble(0.35, 0.65); 
+				arc.getAnnot().setPosx(sourceX + (int) ((targetX - sourceX) * pos));
+				arc.getAnnot().setPosy(sourceY + (int) ((targetY - sourceY) * pos));
+			}
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void layout() {
+		int width = new Float(getWidth() * 0.9).intValue();
+		int height = new Float(getHeight() * 0.9).intValue();
+		layout(width, height, 5000);
 	}
 
 	/**
@@ -719,6 +755,9 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page {
 		switch (operationID) {
 			case CpntoolsPackage.PAGE___LAYOUT__INTEGER_INTEGER_INTEGER:
 				layout((Integer)arguments.get(0), (Integer)arguments.get(1), (Integer)arguments.get(2));
+				return null;
+			case CpntoolsPackage.PAGE___LAYOUT:
+				layout();
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

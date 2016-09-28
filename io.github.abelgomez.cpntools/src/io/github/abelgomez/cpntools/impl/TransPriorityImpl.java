@@ -3,50 +3,56 @@
 package io.github.abelgomez.cpntools.impl;
 
 import io.github.abelgomez.cpntools.CpntoolsPackage;
-import io.github.abelgomez.cpntools.Initmark;
+import io.github.abelgomez.cpntools.TransPriority;
+
 import java.lang.String;
+
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Initmark</b></em>'.
+ * An implementation of the model object '<em><b>Trans Priority</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link io.github.abelgomez.cpntools.impl.InitmarkImpl#getExpression <em>Expression</em>}</li>
+ *   <li>{@link io.github.abelgomez.cpntools.impl.TransPriorityImpl#getText <em>Text</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class InitmarkImpl extends DiagramElementImpl implements Initmark {
+public class TransPriorityImpl extends DiagramElementImpl implements TransPriority {
 	/**
-	 * The default value of the '{@link #getExpression() <em>Expression</em>}' attribute.
+	 * The default value of the '{@link #getText() <em>Text</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getExpression()
+	 * @see #getText()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String EXPRESSION_EDEFAULT = null;
+	protected static final String TEXT_EDEFAULT = null;
+
 	/**
-	 * The cached value of the '{@link #getExpression() <em>Expression</em>}' attribute.
+	 * The cached value of the '{@link #getText() <em>Text</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getExpression()
+	 * @see #getText()
 	 * @generated
 	 * @ordered
 	 */
-	protected String expression = EXPRESSION_EDEFAULT;
+	protected String text = TEXT_EDEFAULT;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected InitmarkImpl() {
+	protected TransPriorityImpl() {
 		super();
 	}
 
@@ -57,7 +63,7 @@ public class InitmarkImpl extends DiagramElementImpl implements Initmark {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CpntoolsPackage.Literals.INITMARK;
+		return CpntoolsPackage.Literals.TRANS_PRIORITY;
 	}
 
 	/**
@@ -65,8 +71,8 @@ public class InitmarkImpl extends DiagramElementImpl implements Initmark {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getExpression() {
-		return expression;
+	public String getText() {
+		return text;
 	}
 
 	/**
@@ -74,11 +80,11 @@ public class InitmarkImpl extends DiagramElementImpl implements Initmark {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setExpression(String newExpression) {
-		String oldExpression = expression;
-		expression = newExpression;
+	public void setText(String newText) {
+		String oldText = text;
+		text = newText;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CpntoolsPackage.INITMARK__EXPRESSION, oldExpression, expression));
+			eNotify(new ENotificationImpl(this, Notification.SET, CpntoolsPackage.TRANS_PRIORITY__TEXT, oldText, text));
 	}
 
 	/**
@@ -89,8 +95,8 @@ public class InitmarkImpl extends DiagramElementImpl implements Initmark {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CpntoolsPackage.INITMARK__EXPRESSION:
-				return getExpression();
+			case CpntoolsPackage.TRANS_PRIORITY__TEXT:
+				return getText();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -100,12 +106,11 @@ public class InitmarkImpl extends DiagramElementImpl implements Initmark {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CpntoolsPackage.INITMARK__EXPRESSION:
-				setExpression((String)newValue);
+			case CpntoolsPackage.TRANS_PRIORITY__TEXT:
+				setText((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -119,8 +124,8 @@ public class InitmarkImpl extends DiagramElementImpl implements Initmark {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CpntoolsPackage.INITMARK__EXPRESSION:
-				setExpression(EXPRESSION_EDEFAULT);
+			case CpntoolsPackage.TRANS_PRIORITY__TEXT:
+				setText(TEXT_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -134,8 +139,8 @@ public class InitmarkImpl extends DiagramElementImpl implements Initmark {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CpntoolsPackage.INITMARK__EXPRESSION:
-				return EXPRESSION_EDEFAULT == null ? expression != null : !EXPRESSION_EDEFAULT.equals(expression);
+			case CpntoolsPackage.TRANS_PRIORITY__TEXT:
+				return TEXT_EDEFAULT == null ? text != null : !TEXT_EDEFAULT.equals(text);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -150,10 +155,10 @@ public class InitmarkImpl extends DiagramElementImpl implements Initmark {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (expression: ");
-		result.append(expression);
+		result.append(" (text: ");
+		result.append(text);
 		result.append(')');
 		return result.toString();
 	}
 
-} //InitmarkImpl
+} //TransPriorityImpl

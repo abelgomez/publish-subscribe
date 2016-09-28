@@ -243,13 +243,22 @@ public interface CpntoolsPackage extends EPackage {
 	int PAGE___LAYOUT__INTEGER_INTEGER_INTEGER = 0;
 
 	/**
+	 * The operation id for the '<em>Layout</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE___LAYOUT = 1;
+
+	/**
 	 * The number of operations of the '<em>Page</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PAGE_OPERATION_COUNT = 1;
+	int PAGE_OPERATION_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link io.github.abelgomez.cpntools.impl.GroupImpl <em>Group</em>}' class.
@@ -825,13 +834,13 @@ public interface CpntoolsPackage extends EPackage {
 	int INITMARK__GROUP = DIAGRAM_ELEMENT__GROUP;
 
 	/**
-	 * The feature id for the '<em><b>Marks</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Expression</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INITMARK__MARKS = DIAGRAM_ELEMENT_FEATURE_COUNT + 0;
+	int INITMARK__EXPRESSION = DIAGRAM_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Initmark</em>' class.
@@ -852,70 +861,6 @@ public interface CpntoolsPackage extends EPackage {
 	int INITMARK_OPERATION_COUNT = DIAGRAM_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link io.github.abelgomez.cpntools.impl.MarkImpl <em>Mark</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see io.github.abelgomez.cpntools.impl.MarkImpl
-	 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getMark()
-	 * @generated
-	 */
-	int MARK = 8;
-
-	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MARK__VALUE = 0;
-
-	/**
-	 * The feature id for the '<em><b>Initmark</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MARK__INITMARK = 1;
-
-	/**
-	 * The feature id for the '<em><b>Expression</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MARK__EXPRESSION = 2;
-
-	/**
-	 * The feature id for the '<em><b>Time</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MARK__TIME = 3;
-
-	/**
-	 * The number of structural features of the '<em>Mark</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MARK_FEATURE_COUNT = 4;
-
-	/**
-	 * The number of operations of the '<em>Mark</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MARK_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link io.github.abelgomez.cpntools.impl.PortImpl <em>Port</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -923,7 +868,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getPort()
 	 * @generated
 	 */
-	int PORT = 9;
+	int PORT = 8;
 
 	/**
 	 * The feature id for the '<em><b>Line Colour</b></em>' attribute.
@@ -1041,7 +986,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getFusion()
 	 * @generated
 	 */
-	int FUSION = 10;
+	int FUSION = 9;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1096,7 +1041,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getAuxiliary()
 	 * @generated
 	 */
-	int AUXILIARY = 11;
+	int AUXILIARY = 10;
 
 	/**
 	 * The feature id for the '<em><b>Line Colour</b></em>' attribute.
@@ -1214,7 +1159,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getGlobbox()
 	 * @generated
 	 */
-	int GLOBBOX = 12;
+	int GLOBBOX = 11;
 
 	/**
 	 * The feature id for the '<em><b>Cpnet</b></em>' container reference.
@@ -1269,7 +1214,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getVar()
 	 * @generated
 	 */
-	int VAR = 13;
+	int VAR = 12;
 
 	/**
 	 * The feature id for the '<em><b>Globbox</b></em>' container reference.
@@ -1333,7 +1278,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getGlobref()
 	 * @generated
 	 */
-	int GLOBREF = 14;
+	int GLOBREF = 13;
 
 	/**
 	 * The feature id for the '<em><b>Globbox</b></em>' container reference.
@@ -1388,7 +1333,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getMl()
 	 * @generated
 	 */
-	int ML = 15;
+	int ML = 14;
 
 	/**
 	 * The feature id for the '<em><b>Globbox</b></em>' container reference.
@@ -1443,7 +1388,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getBlock()
 	 * @generated
 	 */
-	int BLOCK = 16;
+	int BLOCK = 15;
 
 	/**
 	 * The feature id for the '<em><b>Globbox</b></em>' container reference.
@@ -1507,7 +1452,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getAuxText()
 	 * @generated
 	 */
-	int AUX_TEXT = 17;
+	int AUX_TEXT = 16;
 
 	/**
 	 * The feature id for the '<em><b>Line Colour</b></em>' attribute.
@@ -1634,7 +1579,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getArc()
 	 * @generated
 	 */
-	int ARC = 18;
+	int ARC = 17;
 
 	/**
 	 * The feature id for the '<em><b>Line Colour</b></em>' attribute.
@@ -1815,7 +1760,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getTrans()
 	 * @generated
 	 */
-	int TRANS = 19;
+	int TRANS = 18;
 
 	/**
 	 * The feature id for the '<em><b>Line Colour</b></em>' attribute.
@@ -1962,13 +1907,31 @@ public interface CpntoolsPackage extends EPackage {
 	int TRANS__ARCS = DIAGRAM_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
+	 * The feature id for the '<em><b>Priority</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANS__PRIORITY = DIAGRAM_ELEMENT_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Time</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANS__TIME = DIAGRAM_ELEMENT_FEATURE_COUNT + 8;
+
+	/**
 	 * The number of structural features of the '<em>Trans</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRANS_FEATURE_COUNT = DIAGRAM_ELEMENT_FEATURE_COUNT + 7;
+	int TRANS_FEATURE_COUNT = DIAGRAM_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
 	 * The number of operations of the '<em>Trans</em>' class.
@@ -1980,14 +1943,14 @@ public interface CpntoolsPackage extends EPackage {
 	int TRANS_OPERATION_COUNT = DIAGRAM_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link io.github.abelgomez.cpntools.impl.CondImpl <em>Cond</em>}' class.
+	 * The meta object id for the '{@link io.github.abelgomez.cpntools.impl.TransCondImpl <em>Trans Cond</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see io.github.abelgomez.cpntools.impl.CondImpl
-	 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getCond()
+	 * @see io.github.abelgomez.cpntools.impl.TransCondImpl
+	 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getTransCond()
 	 * @generated
 	 */
-	int COND = 20;
+	int TRANS_COND = 19;
 
 	/**
 	 * The feature id for the '<em><b>Line Colour</b></em>' attribute.
@@ -1996,7 +1959,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COND__LINE_COLOUR = DIAGRAM_ELEMENT__LINE_COLOUR;
+	int TRANS_COND__LINE_COLOUR = DIAGRAM_ELEMENT__LINE_COLOUR;
 
 	/**
 	 * The feature id for the '<em><b>Fill Filled</b></em>' attribute.
@@ -2005,7 +1968,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COND__FILL_FILLED = DIAGRAM_ELEMENT__FILL_FILLED;
+	int TRANS_COND__FILL_FILLED = DIAGRAM_ELEMENT__FILL_FILLED;
 
 	/**
 	 * The feature id for the '<em><b>Line Thick</b></em>' attribute.
@@ -2014,7 +1977,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COND__LINE_THICK = DIAGRAM_ELEMENT__LINE_THICK;
+	int TRANS_COND__LINE_THICK = DIAGRAM_ELEMENT__LINE_THICK;
 
 	/**
 	 * The feature id for the '<em><b>Posx</b></em>' attribute.
@@ -2023,7 +1986,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COND__POSX = DIAGRAM_ELEMENT__POSX;
+	int TRANS_COND__POSX = DIAGRAM_ELEMENT__POSX;
 
 	/**
 	 * The feature id for the '<em><b>Line Type</b></em>' attribute.
@@ -2032,7 +1995,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COND__LINE_TYPE = DIAGRAM_ELEMENT__LINE_TYPE;
+	int TRANS_COND__LINE_TYPE = DIAGRAM_ELEMENT__LINE_TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Posy</b></em>' attribute.
@@ -2041,7 +2004,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COND__POSY = DIAGRAM_ELEMENT__POSY;
+	int TRANS_COND__POSY = DIAGRAM_ELEMENT__POSY;
 
 	/**
 	 * The feature id for the '<em><b>Fill Colour</b></em>' attribute.
@@ -2050,7 +2013,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COND__FILL_COLOUR = DIAGRAM_ELEMENT__FILL_COLOUR;
+	int TRANS_COND__FILL_COLOUR = DIAGRAM_ELEMENT__FILL_COLOUR;
 
 	/**
 	 * The feature id for the '<em><b>Fill Pattern</b></em>' attribute.
@@ -2059,7 +2022,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COND__FILL_PATTERN = DIAGRAM_ELEMENT__FILL_PATTERN;
+	int TRANS_COND__FILL_PATTERN = DIAGRAM_ELEMENT__FILL_PATTERN;
 
 	/**
 	 * The feature id for the '<em><b>Group</b></em>' container reference.
@@ -2068,7 +2031,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COND__GROUP = DIAGRAM_ELEMENT__GROUP;
+	int TRANS_COND__GROUP = DIAGRAM_ELEMENT__GROUP;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -2077,25 +2040,261 @@ public interface CpntoolsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COND__TEXT = DIAGRAM_ELEMENT_FEATURE_COUNT + 0;
+	int TRANS_COND__TEXT = DIAGRAM_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Cond</em>' class.
+	 * The number of structural features of the '<em>Trans Cond</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COND_FEATURE_COUNT = DIAGRAM_ELEMENT_FEATURE_COUNT + 1;
+	int TRANS_COND_FEATURE_COUNT = DIAGRAM_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>Cond</em>' class.
+	 * The number of operations of the '<em>Trans Cond</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COND_OPERATION_COUNT = DIAGRAM_ELEMENT_OPERATION_COUNT + 0;
+	int TRANS_COND_OPERATION_COUNT = DIAGRAM_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link io.github.abelgomez.cpntools.impl.TransPriorityImpl <em>Trans Priority</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see io.github.abelgomez.cpntools.impl.TransPriorityImpl
+	 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getTransPriority()
+	 * @generated
+	 */
+	int TRANS_PRIORITY = 20;
+
+	/**
+	 * The feature id for the '<em><b>Line Colour</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANS_PRIORITY__LINE_COLOUR = DIAGRAM_ELEMENT__LINE_COLOUR;
+
+	/**
+	 * The feature id for the '<em><b>Fill Filled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANS_PRIORITY__FILL_FILLED = DIAGRAM_ELEMENT__FILL_FILLED;
+
+	/**
+	 * The feature id for the '<em><b>Line Thick</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANS_PRIORITY__LINE_THICK = DIAGRAM_ELEMENT__LINE_THICK;
+
+	/**
+	 * The feature id for the '<em><b>Posx</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANS_PRIORITY__POSX = DIAGRAM_ELEMENT__POSX;
+
+	/**
+	 * The feature id for the '<em><b>Line Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANS_PRIORITY__LINE_TYPE = DIAGRAM_ELEMENT__LINE_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Posy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANS_PRIORITY__POSY = DIAGRAM_ELEMENT__POSY;
+
+	/**
+	 * The feature id for the '<em><b>Fill Colour</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANS_PRIORITY__FILL_COLOUR = DIAGRAM_ELEMENT__FILL_COLOUR;
+
+	/**
+	 * The feature id for the '<em><b>Fill Pattern</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANS_PRIORITY__FILL_PATTERN = DIAGRAM_ELEMENT__FILL_PATTERN;
+
+	/**
+	 * The feature id for the '<em><b>Group</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANS_PRIORITY__GROUP = DIAGRAM_ELEMENT__GROUP;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANS_PRIORITY__TEXT = DIAGRAM_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Trans Priority</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANS_PRIORITY_FEATURE_COUNT = DIAGRAM_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Trans Priority</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANS_PRIORITY_OPERATION_COUNT = DIAGRAM_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link io.github.abelgomez.cpntools.impl.TransTimeImpl <em>Trans Time</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see io.github.abelgomez.cpntools.impl.TransTimeImpl
+	 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getTransTime()
+	 * @generated
+	 */
+	int TRANS_TIME = 21;
+
+	/**
+	 * The feature id for the '<em><b>Line Colour</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANS_TIME__LINE_COLOUR = DIAGRAM_ELEMENT__LINE_COLOUR;
+
+	/**
+	 * The feature id for the '<em><b>Fill Filled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANS_TIME__FILL_FILLED = DIAGRAM_ELEMENT__FILL_FILLED;
+
+	/**
+	 * The feature id for the '<em><b>Line Thick</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANS_TIME__LINE_THICK = DIAGRAM_ELEMENT__LINE_THICK;
+
+	/**
+	 * The feature id for the '<em><b>Posx</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANS_TIME__POSX = DIAGRAM_ELEMENT__POSX;
+
+	/**
+	 * The feature id for the '<em><b>Line Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANS_TIME__LINE_TYPE = DIAGRAM_ELEMENT__LINE_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Posy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANS_TIME__POSY = DIAGRAM_ELEMENT__POSY;
+
+	/**
+	 * The feature id for the '<em><b>Fill Colour</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANS_TIME__FILL_COLOUR = DIAGRAM_ELEMENT__FILL_COLOUR;
+
+	/**
+	 * The feature id for the '<em><b>Fill Pattern</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANS_TIME__FILL_PATTERN = DIAGRAM_ELEMENT__FILL_PATTERN;
+
+	/**
+	 * The feature id for the '<em><b>Group</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANS_TIME__GROUP = DIAGRAM_ELEMENT__GROUP;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANS_TIME__TEXT = DIAGRAM_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Trans Time</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANS_TIME_FEATURE_COUNT = DIAGRAM_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Trans Time</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANS_TIME_OPERATION_COUNT = DIAGRAM_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link io.github.abelgomez.cpntools.impl.AnnotImpl <em>Annot</em>}' class.
@@ -2105,7 +2304,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getAnnot()
 	 * @generated
 	 */
-	int ANNOT = 21;
+	int ANNOT = 22;
 
 	/**
 	 * The feature id for the '<em><b>Line Colour</b></em>' attribute.
@@ -2223,7 +2422,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getAuxEllipse()
 	 * @generated
 	 */
-	int AUX_ELLIPSE = 22;
+	int AUX_ELLIPSE = 23;
 
 	/**
 	 * The feature id for the '<em><b>Line Colour</b></em>' attribute.
@@ -2359,7 +2558,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getAuxBox()
 	 * @generated
 	 */
-	int AUX_BOX = 23;
+	int AUX_BOX = 24;
 
 	/**
 	 * The feature id for the '<em><b>Line Colour</b></em>' attribute.
@@ -2495,7 +2694,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getSimpleColorSet()
 	 * @generated
 	 */
-	int SIMPLE_COLOR_SET = 24;
+	int SIMPLE_COLOR_SET = 25;
 
 	/**
 	 * The feature id for the '<em><b>Globbox</b></em>' container reference.
@@ -2577,7 +2776,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getCompoundColorSet()
 	 * @generated
 	 */
-	int COMPOUND_COLOR_SET = 25;
+	int COMPOUND_COLOR_SET = 26;
 
 	/**
 	 * The feature id for the '<em><b>Globbox</b></em>' container reference.
@@ -2668,7 +2867,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getUnit()
 	 * @generated
 	 */
-	int UNIT = 26;
+	int UNIT = 27;
 
 	/**
 	 * The feature id for the '<em><b>Globbox</b></em>' container reference.
@@ -2759,7 +2958,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getBoolean()
 	 * @generated
 	 */
-	int BOOLEAN = 27;
+	int BOOLEAN = 28;
 
 	/**
 	 * The feature id for the '<em><b>Globbox</b></em>' container reference.
@@ -2850,7 +3049,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getInteger()
 	 * @generated
 	 */
-	int INTEGER = 28;
+	int INTEGER = 29;
 
 	/**
 	 * The feature id for the '<em><b>Globbox</b></em>' container reference.
@@ -2941,7 +3140,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getLargeInteger()
 	 * @generated
 	 */
-	int LARGE_INTEGER = 29;
+	int LARGE_INTEGER = 30;
 
 	/**
 	 * The feature id for the '<em><b>Globbox</b></em>' container reference.
@@ -3032,7 +3231,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getReal()
 	 * @generated
 	 */
-	int REAL = 30;
+	int REAL = 31;
 
 	/**
 	 * The feature id for the '<em><b>Globbox</b></em>' container reference.
@@ -3123,7 +3322,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getTime()
 	 * @generated
 	 */
-	int TIME = 31;
+	int TIME = 32;
 
 	/**
 	 * The feature id for the '<em><b>Globbox</b></em>' container reference.
@@ -3205,7 +3404,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getString()
 	 * @generated
 	 */
-	int STRING = 32;
+	int STRING = 33;
 
 	/**
 	 * The feature id for the '<em><b>Globbox</b></em>' container reference.
@@ -3305,7 +3504,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getEnumerated()
 	 * @generated
 	 */
-	int ENUMERATED = 33;
+	int ENUMERATED = 34;
 
 	/**
 	 * The feature id for the '<em><b>Globbox</b></em>' container reference.
@@ -3396,7 +3595,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getIndex()
 	 * @generated
 	 */
-	int INDEX = 34;
+	int INDEX = 35;
 
 	/**
 	 * The feature id for the '<em><b>Globbox</b></em>' container reference.
@@ -3487,7 +3686,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getProduct()
 	 * @generated
 	 */
-	int PRODUCT = 35;
+	int PRODUCT = 36;
 
 	/**
 	 * The feature id for the '<em><b>Globbox</b></em>' container reference.
@@ -3578,7 +3777,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getRecord()
 	 * @generated
 	 */
-	int RECORD = 36;
+	int RECORD = 37;
 
 	/**
 	 * The feature id for the '<em><b>Globbox</b></em>' container reference.
@@ -3669,7 +3868,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getList()
 	 * @generated
 	 */
-	int LIST = 37;
+	int LIST = 38;
 
 	/**
 	 * The feature id for the '<em><b>Globbox</b></em>' container reference.
@@ -3760,7 +3959,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getUnion()
 	 * @generated
 	 */
-	int UNION = 38;
+	int UNION = 39;
 
 	/**
 	 * The feature id for the '<em><b>Globbox</b></em>' container reference.
@@ -3851,7 +4050,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getSubset()
 	 * @generated
 	 */
-	int SUBSET = 39;
+	int SUBSET = 40;
 
 	/**
 	 * The feature id for the '<em><b>Globbox</b></em>' container reference.
@@ -3942,7 +4141,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getAlias()
 	 * @generated
 	 */
-	int ALIAS = 40;
+	int ALIAS = 41;
 
 	/**
 	 * The feature id for the '<em><b>Globbox</b></em>' container reference.
@@ -4033,7 +4232,7 @@ public interface CpntoolsPackage extends EPackage {
 	 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getOrientation()
 	 * @generated
 	 */
-	int ORIENTATION = 41;
+	int ORIENTATION = 42;
 
 
 	/**
@@ -4219,6 +4418,16 @@ public interface CpntoolsPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getPage__Layout__Integer_Integer_Integer();
+
+	/**
+	 * Returns the meta object for the '{@link io.github.abelgomez.cpntools.Page#layout() <em>Layout</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Layout</em>' operation.
+	 * @see io.github.abelgomez.cpntools.Page#layout()
+	 * @generated
+	 */
+	EOperation getPage__Layout();
 
 	/**
 	 * Returns the meta object for class '{@link io.github.abelgomez.cpntools.Group <em>Group</em>}'.
@@ -4578,69 +4787,15 @@ public interface CpntoolsPackage extends EPackage {
 	EClass getInitmark();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link io.github.abelgomez.cpntools.Initmark#getMarks <em>Marks</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Marks</em>'.
-	 * @see io.github.abelgomez.cpntools.Initmark#getMarks()
-	 * @see #getInitmark()
-	 * @generated
-	 */
-	EReference getInitmark_Marks();
-
-	/**
-	 * Returns the meta object for class '{@link io.github.abelgomez.cpntools.Mark <em>Mark</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Mark</em>'.
-	 * @see io.github.abelgomez.cpntools.Mark
-	 * @generated
-	 */
-	EClass getMark();
-
-	/**
-	 * Returns the meta object for the attribute '{@link io.github.abelgomez.cpntools.Mark#getValue <em>Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see io.github.abelgomez.cpntools.Mark#getValue()
-	 * @see #getMark()
-	 * @generated
-	 */
-	EAttribute getMark_Value();
-
-	/**
-	 * Returns the meta object for the container reference '{@link io.github.abelgomez.cpntools.Mark#getInitmark <em>Initmark</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Initmark</em>'.
-	 * @see io.github.abelgomez.cpntools.Mark#getInitmark()
-	 * @see #getMark()
-	 * @generated
-	 */
-	EReference getMark_Initmark();
-
-	/**
-	 * Returns the meta object for the attribute '{@link io.github.abelgomez.cpntools.Mark#getExpression <em>Expression</em>}'.
+	 * Returns the meta object for the attribute '{@link io.github.abelgomez.cpntools.Initmark#getExpression <em>Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Expression</em>'.
-	 * @see io.github.abelgomez.cpntools.Mark#getExpression()
-	 * @see #getMark()
+	 * @see io.github.abelgomez.cpntools.Initmark#getExpression()
+	 * @see #getInitmark()
 	 * @generated
 	 */
-	EAttribute getMark_Expression();
-
-	/**
-	 * Returns the meta object for the attribute '{@link io.github.abelgomez.cpntools.Mark#getTime <em>Time</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Time</em>'.
-	 * @see io.github.abelgomez.cpntools.Mark#getTime()
-	 * @see #getMark()
-	 * @generated
-	 */
-	EAttribute getMark_Time();
+	EAttribute getInitmark_Expression();
 
 	/**
 	 * Returns the meta object for class '{@link io.github.abelgomez.cpntools.Port <em>Port</em>}'.
@@ -5083,25 +5238,89 @@ public interface CpntoolsPackage extends EPackage {
 	EReference getTrans_Arcs();
 
 	/**
-	 * Returns the meta object for class '{@link io.github.abelgomez.cpntools.Cond <em>Cond</em>}'.
+	 * Returns the meta object for the containment reference '{@link io.github.abelgomez.cpntools.Trans#getPriority <em>Priority</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Cond</em>'.
-	 * @see io.github.abelgomez.cpntools.Cond
+	 * @return the meta object for the containment reference '<em>Priority</em>'.
+	 * @see io.github.abelgomez.cpntools.Trans#getPriority()
+	 * @see #getTrans()
 	 * @generated
 	 */
-	EClass getCond();
+	EReference getTrans_Priority();
 
 	/**
-	 * Returns the meta object for the attribute '{@link io.github.abelgomez.cpntools.Cond#getText <em>Text</em>}'.
+	 * Returns the meta object for the containment reference '{@link io.github.abelgomez.cpntools.Trans#getTime <em>Time</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Time</em>'.
+	 * @see io.github.abelgomez.cpntools.Trans#getTime()
+	 * @see #getTrans()
+	 * @generated
+	 */
+	EReference getTrans_Time();
+
+	/**
+	 * Returns the meta object for class '{@link io.github.abelgomez.cpntools.TransCond <em>Trans Cond</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Trans Cond</em>'.
+	 * @see io.github.abelgomez.cpntools.TransCond
+	 * @generated
+	 */
+	EClass getTransCond();
+
+	/**
+	 * Returns the meta object for the attribute '{@link io.github.abelgomez.cpntools.TransCond#getText <em>Text</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Text</em>'.
-	 * @see io.github.abelgomez.cpntools.Cond#getText()
-	 * @see #getCond()
+	 * @see io.github.abelgomez.cpntools.TransCond#getText()
+	 * @see #getTransCond()
 	 * @generated
 	 */
-	EAttribute getCond_Text();
+	EAttribute getTransCond_Text();
+
+	/**
+	 * Returns the meta object for class '{@link io.github.abelgomez.cpntools.TransPriority <em>Trans Priority</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Trans Priority</em>'.
+	 * @see io.github.abelgomez.cpntools.TransPriority
+	 * @generated
+	 */
+	EClass getTransPriority();
+
+	/**
+	 * Returns the meta object for the attribute '{@link io.github.abelgomez.cpntools.TransPriority#getText <em>Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Text</em>'.
+	 * @see io.github.abelgomez.cpntools.TransPriority#getText()
+	 * @see #getTransPriority()
+	 * @generated
+	 */
+	EAttribute getTransPriority_Text();
+
+	/**
+	 * Returns the meta object for class '{@link io.github.abelgomez.cpntools.TransTime <em>Trans Time</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Trans Time</em>'.
+	 * @see io.github.abelgomez.cpntools.TransTime
+	 * @generated
+	 */
+	EClass getTransTime();
+
+	/**
+	 * Returns the meta object for the attribute '{@link io.github.abelgomez.cpntools.TransTime#getText <em>Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Text</em>'.
+	 * @see io.github.abelgomez.cpntools.TransTime#getText()
+	 * @see #getTransTime()
+	 * @generated
+	 */
+	EAttribute getTransTime_Text();
 
 	/**
 	 * Returns the meta object for class '{@link io.github.abelgomez.cpntools.Annot <em>Annot</em>}'.
@@ -5642,6 +5861,14 @@ public interface CpntoolsPackage extends EPackage {
 		EOperation PAGE___LAYOUT__INTEGER_INTEGER_INTEGER = eINSTANCE.getPage__Layout__Integer_Integer_Integer();
 
 		/**
+		 * The meta object literal for the '<em><b>Layout</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PAGE___LAYOUT = eINSTANCE.getPage__Layout();
+
+		/**
 		 * The meta object literal for the '{@link io.github.abelgomez.cpntools.impl.GroupImpl <em>Group</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5918,54 +6145,12 @@ public interface CpntoolsPackage extends EPackage {
 		EClass INITMARK = eINSTANCE.getInitmark();
 
 		/**
-		 * The meta object literal for the '<em><b>Marks</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference INITMARK__MARKS = eINSTANCE.getInitmark_Marks();
-
-		/**
-		 * The meta object literal for the '{@link io.github.abelgomez.cpntools.impl.MarkImpl <em>Mark</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see io.github.abelgomez.cpntools.impl.MarkImpl
-		 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getMark()
-		 * @generated
-		 */
-		EClass MARK = eINSTANCE.getMark();
-
-		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MARK__VALUE = eINSTANCE.getMark_Value();
-
-		/**
-		 * The meta object literal for the '<em><b>Initmark</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MARK__INITMARK = eINSTANCE.getMark_Initmark();
-
-		/**
 		 * The meta object literal for the '<em><b>Expression</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute MARK__EXPRESSION = eINSTANCE.getMark_Expression();
-
-		/**
-		 * The meta object literal for the '<em><b>Time</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MARK__TIME = eINSTANCE.getMark_Time();
+		EAttribute INITMARK__EXPRESSION = eINSTANCE.getInitmark_Expression();
 
 		/**
 		 * The meta object literal for the '{@link io.github.abelgomez.cpntools.impl.PortImpl <em>Port</em>}' class.
@@ -6318,14 +6503,30 @@ public interface CpntoolsPackage extends EPackage {
 		EReference TRANS__ARCS = eINSTANCE.getTrans_Arcs();
 
 		/**
-		 * The meta object literal for the '{@link io.github.abelgomez.cpntools.impl.CondImpl <em>Cond</em>}' class.
+		 * The meta object literal for the '<em><b>Priority</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see io.github.abelgomez.cpntools.impl.CondImpl
-		 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getCond()
 		 * @generated
 		 */
-		EClass COND = eINSTANCE.getCond();
+		EReference TRANS__PRIORITY = eINSTANCE.getTrans_Priority();
+
+		/**
+		 * The meta object literal for the '<em><b>Time</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TRANS__TIME = eINSTANCE.getTrans_Time();
+
+		/**
+		 * The meta object literal for the '{@link io.github.abelgomez.cpntools.impl.TransCondImpl <em>Trans Cond</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see io.github.abelgomez.cpntools.impl.TransCondImpl
+		 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getTransCond()
+		 * @generated
+		 */
+		EClass TRANS_COND = eINSTANCE.getTransCond();
 
 		/**
 		 * The meta object literal for the '<em><b>Text</b></em>' attribute feature.
@@ -6333,7 +6534,43 @@ public interface CpntoolsPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute COND__TEXT = eINSTANCE.getCond_Text();
+		EAttribute TRANS_COND__TEXT = eINSTANCE.getTransCond_Text();
+
+		/**
+		 * The meta object literal for the '{@link io.github.abelgomez.cpntools.impl.TransPriorityImpl <em>Trans Priority</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see io.github.abelgomez.cpntools.impl.TransPriorityImpl
+		 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getTransPriority()
+		 * @generated
+		 */
+		EClass TRANS_PRIORITY = eINSTANCE.getTransPriority();
+
+		/**
+		 * The meta object literal for the '<em><b>Text</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TRANS_PRIORITY__TEXT = eINSTANCE.getTransPriority_Text();
+
+		/**
+		 * The meta object literal for the '{@link io.github.abelgomez.cpntools.impl.TransTimeImpl <em>Trans Time</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see io.github.abelgomez.cpntools.impl.TransTimeImpl
+		 * @see io.github.abelgomez.cpntools.impl.CpntoolsPackageImpl#getTransTime()
+		 * @generated
+		 */
+		EClass TRANS_TIME = eINSTANCE.getTransTime();
+
+		/**
+		 * The meta object literal for the '<em><b>Text</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TRANS_TIME__TEXT = eINSTANCE.getTransTime_Text();
 
 		/**
 		 * The meta object literal for the '{@link io.github.abelgomez.cpntools.impl.AnnotImpl <em>Annot</em>}' class.

@@ -67,15 +67,6 @@ public interface CpntoolsFactory extends EFactory {
 	Initmark createInitmark();
 
 	/**
-	 * Returns a new object of class '<em>Mark</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Mark</em>'.
-	 * @generated
-	 */
-	Mark createMark();
-
-	/**
 	 * Returns a new object of class '<em>Port</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -166,13 +157,31 @@ public interface CpntoolsFactory extends EFactory {
 	Trans createTrans();
 
 	/**
-	 * Returns a new object of class '<em>Cond</em>'.
+	 * Returns a new object of class '<em>Trans Cond</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Cond</em>'.
+	 * @return a new object of class '<em>Trans Cond</em>'.
 	 * @generated
 	 */
-	Cond createCond();
+	TransCond createTransCond();
+
+	/**
+	 * Returns a new object of class '<em>Trans Priority</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Trans Priority</em>'.
+	 * @generated
+	 */
+	TransPriority createTransPriority();
+
+	/**
+	 * Returns a new object of class '<em>Trans Time</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Trans Time</em>'.
+	 * @generated
+	 */
+	TransTime createTransTime();
 
 	/**
 	 * Returns a new object of class '<em>Annot</em>'.
