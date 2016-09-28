@@ -4,17 +4,22 @@ modeltype CPN "strict" uses cpntools('http://io.github.abelgomez/cpntools/1.0');
 transformation ps2cpntools(in uml : UML, out cpn : CPN);
 
 main() {
-	map cpnet();
+	var cpnet := map cpnet();
+	cpnet.page.layout(1500, 1500, 1000);
 }
 
 mapping cpnet() : CPN::Cpnet {
 	globbox := map globbox();
+	page := map page();
 }
 
 mapping globbox() : CPN::Globbox {
 	declarations += map priorities();
-	declarations += map simpleColorSetDeclarations();
-	declarations += map compoundColorSetDeclarations();
+	declarations += map simpleColorSets();
+	declarations += map compoundColorSets();
+	declarations += map values();
+	declarations += map functions();
+	declarations += map variables();
 }
 
 	
@@ -28,102 +33,474 @@ mapping priorities() : CPN::Block {
 	declarations += object CPN::Ml { expression := "val P6 = 60;"};
 }
 
-mapping simpleColorSetDeclarations() : CPN::Block {
+mapping simpleColorSets() : CPN::Block {
 	idname := "Standard simple declarations";
-	declarations += map unitDeclaration();
-	declarations += map boolDeclaration();
-	declarations += map intDeclaration();
-	declarations += map intinfDeclaration();
-	declarations += map timeDeclaration();
-	declarations += map realDeclaration();
-	declarations += map stringDeclaration();
+	declarations += map unit();
+	declarations += map bool();
+	declarations += map int();
+	declarations += map intinf();
+	declarations += map time();
+	declarations += map real();
+	declarations += map string();
 }
 
-mapping unitDeclaration() : CPN::Unit { 
+mapping unit() : CPN::Unit { 
 	idname := "UNIT";
 };
 
-mapping boolDeclaration() : CPN::Boolean {
+mapping bool() : CPN::Boolean {
 	idname := "BOOL"
 };
 
-mapping intDeclaration() : CPN::Integer {
+mapping int() : CPN::Integer {
 	idname := "INT"
 };
 
-mapping intinfDeclaration() : CPN::LargeInteger {
+mapping intinf() : CPN::LargeInteger {
 	idname := "INTINF"
 };
 
-mapping timeDeclaration() : CPN::Time {
+mapping time() : CPN::Time {
 	idname := "TIME"
 };
 
-mapping realDeclaration() : CPN::Real {
+mapping real() : CPN::Real {
 	idname := "REAL"
 };
 
-mapping stringDeclaration() : CPN::String {
+mapping string() : CPN::String {
 	idname := "STRING"
 };
 
-mapping compoundColorSetDeclarations() : CPN::Block {
+mapping compoundColorSets() : CPN::Block {
 	idname := "Standard compound declarations";
-	declarations += object CPN::Alias { 
-		idname := "INTT" ; 
-		timed := true; 
-		simpleColors := resolveoneIn(intDeclaration);
-	};
-	declarations += object CPN::Product {
-		idname := "REC";
-		timed := true; 
-		simpleColors += resolveoneIn(intDeclaration);
-		simpleColors += resolveoneIn(stringDeclaration);
-		simpleColors += resolveoneIn(intDeclaration);
-		simpleColors += resolveoneIn(intDeclaration);
-	};
-	declarations += object CPN::Product {
-		idname := "CLI";
-		timed := true; 
-		simpleColors += resolveoneIn(stringDeclaration);
-		simpleColors += resolveoneIn(stringDeclaration);
-		simpleColors += resolveoneIn(intDeclaration);
-		simpleColors += resolveoneIn(intDeclaration);
-		simpleColors += resolveoneIn(intDeclaration);
-	};
-	declarations += object CPN::Product {
-		idname := "CL";
-		timed := true; 
-		simpleColors += resolveoneIn(intDeclaration);
-		simpleColors += resolveoneIn(stringDeclaration);
-		simpleColors += resolveoneIn(stringDeclaration);
-		simpleColors += resolveoneIn(intDeclaration);
-		simpleColors += resolveoneIn(intDeclaration);
-	};
-	declarations += object CPN::Product {
-		idname := "ECLI";
-		timed := true; 
-		simpleColors += resolveoneIn(intDeclaration);
-		simpleColors += resolveoneIn(stringDeclaration);
-		simpleColors += resolveoneIn(stringDeclaration);
-		simpleColors += resolveoneIn(intDeclaration);
-		simpleColors += resolveoneIn(intDeclaration);
-		simpleColors += resolveoneIn(intDeclaration);
-	};
-	declarations += object CPN::Product {
-		idname := "ECLIR";
-		timed := true; 
-		simpleColors += resolveoneIn(intDeclaration);
-		simpleColors += resolveoneIn(stringDeclaration);
-		simpleColors += resolveoneIn(stringDeclaration);
-		simpleColors += resolveoneIn(intDeclaration);
-		simpleColors += resolveoneIn(intDeclaration);
-		simpleColors += resolveoneIn(intDeclaration);
-	};
-	declarations += object CPN::Product {
+	declarations += map intt();
+	declarations += map rec();
+	declarations += map cli();
+	declarations += map cl();
+	declarations += map ecli();
+	declarations += map eclir();
+	declarations += map int2();
+};
+
+mapping intt() : CPN::Alias {
+	idname := "INTT" ; 
+	timed := true; 
+	simpleColors := resolveoneIn(int);
+};
+
+mapping rec() : CPN::Product {
+	idname := "REC";
+	timed := true; 
+	simpleColors += resolveoneIn(int);
+	simpleColors += resolveoneIn(string);
+	simpleColors += resolveoneIn(int);
+	simpleColors += resolveoneIn(int);
+};
+
+mapping cli() : CPN::Product {
+	idname := "CLI";
+	timed := true; 
+	simpleColors += resolveoneIn(string);
+	simpleColors += resolveoneIn(string);
+	simpleColors += resolveoneIn(int);
+	simpleColors += resolveoneIn(int);
+	simpleColors += resolveoneIn(int);
+};
+
+mapping cl() : CPN::Product {
+	idname := "CL";
+	timed := true; 
+	simpleColors += resolveoneIn(int);
+	simpleColors += resolveoneIn(string);
+	simpleColors += resolveoneIn(string);
+	simpleColors += resolveoneIn(int);
+	simpleColors += resolveoneIn(int);
+};
+
+mapping ecli() : CPN::Product {
+	idname := "ECLI";
+	timed := true; 
+	simpleColors += resolveoneIn(int);
+	simpleColors += resolveoneIn(string);
+	simpleColors += resolveoneIn(string);
+	simpleColors += resolveoneIn(int);
+	simpleColors += resolveoneIn(int);
+	simpleColors += resolveoneIn(int);
+};
+
+mapping eclir() : CPN::Product {
+	idname := "ECLIR";
+	timed := true; 
+	simpleColors += resolveoneIn(int);
+	simpleColors += resolveoneIn(string);
+	simpleColors += resolveoneIn(string);
+	simpleColors += resolveoneIn(int);
+	simpleColors += resolveoneIn(int);
+	simpleColors += resolveoneIn(int);
+};
+
+mapping int2() : CPN::Product {
 		idname := "INT2";
 		timed := true; 
-		simpleColors += resolveoneIn(intDeclaration);
-		simpleColors += resolveoneIn(intDeclaration);
+		simpleColors += resolveoneIn(int);
+		simpleColors += resolveoneIn(int);
+};
+
+mapping values() : CPN::Block {
+	idname := "Value declarations";
+	declarations += object CPN::Ml {
+		expression := "val m1 = 4";
+	};
+	declarations += object CPN::Ml {
+		expression := "val m2 = 1";
+	};
+	declarations += object CPN::Integer {
+		idname := "V0m1";
+		_with += "0";
+		_with += "m1";
+	};
+	declarations += object CPN::Integer {
+		idname := "V0m2";
+		_with += "0";
+		_with += "m2";
+	};
+	declarations += object CPN::Ml {
+		expression := "val PosCli=
+			1`(\"Client1\",\"CR_USER\",0,999,365)@0++
+			1`(\"Client1\",\"L1\",0,850,365)@1++
+			1`(\"Client1\",\"L2\",0,850,365)@1;"
+	};
+	declarations += object CPN::Ml {
+		expression := "val PosRec=
+			1`(1,\"L1\",950,365)@0+++
+			1`(2,\"L2\",900,365)@1+++
+			1`(3,\"CR_USER\",2000,365)@1;";
+	};
+	declarations += object CPN::Ml {
+		expression := "val count=
+			2`1@0++2`1@1++2`1@2++
+			2`1@3++2`1@4;";
 	};
 };
+
+mapping functions() : CPN::Block {
+	idname := "Function declarations";
+	declarations += object CPN::Ml {
+		expression := "fun intTime()=IntInf.toInt(time());";
+	};
+	declarations += object CPN::Ml {
+		expression := "fun nV()=V0m1.ran();";
+	};
+	declarations += object CPN::Ml {
+		expression := "fun nT()=V0m1.ran();";
+	};
+};	
+
+mapping variables() : CPN::Block {
+	idname := "Variable declarations";
+	declarations += object CPN::Var {
+		idname := "R";
+		type := resolveoneIn(string);
+	};
+	declarations += object CPN::Var {
+		idname := "C";
+		type := resolveoneIn(string);
+	};
+	declarations += object CPN::Var {
+		idname := "C1";
+		type := resolveoneIn(string);
+	};
+	declarations += object CPN::Var {
+		idname := "n";
+		type := resolveoneIn(int);
+	};
+	declarations += object CPN::Var {
+		idname := "k";
+		type := resolveoneIn(int);
+	};
+	declarations += object CPN::Var {
+		idname := "EPR";
+		type := resolveoneIn(int);
+	};
+	declarations += object CPN::Var {
+		idname := "EPR1";
+		type := resolveoneIn(int);
+	};
+	declarations += object CPN::Var {
+		idname := "v";
+		type := resolveoneIn(int);
+	};
+	declarations += object CPN::Var {
+		idname := "t";
+		type := resolveoneIn(int);
+	};
+	declarations += object CPN::Var {
+		idname := "cr";
+		type := resolveoneIn(int);
+	};
+	declarations += object CPN::Var {
+		idname := "condv1";
+		type := resolveoneIn(int);
+	};
+	declarations += object CPN::Var {
+		idname := "condv11";
+		type := resolveoneIn(int);
+	};
+	declarations += object CPN::Var {
+		idname := "condv2";
+		type := resolveoneIn(int);
+	};
+	declarations += object CPN::Var {
+		idname := "condv22";
+		type := resolveoneIn(int);
+	};
+	declarations += object CPN::Var {
+		idname := "condt";
+		type := resolveoneIn(int);
+	};
+	declarations += object CPN::Var {
+		idname := "condtt";
+		type := resolveoneIn(int);
+	};
+	declarations += object CPN::Var {
+		idname := "cc";
+		type := resolveoneIn(int);
+	};
+};
+
+mapping page() : CPN::Page {
+	name := "CPN_PS";
+	posx := 300;	
+	posy := 30;
+	width := 500;
+	height := 500;
+
+	var pResources := map place("Resources", resolveoneIn(rec), "PosRec");
+	var pRoles := map place("Roles", resolveoneIn(cli), "PosCli");
+	var pOpControl := map place("Op\nControl", resolveoneIn(intt), "count");
+	var pExpiredResources := map place("Espired\nResources", resolveoneIn(rec));
+	var pResourceRegistry := map place("Resource\nregistry", resolveoneIn(rec));
+	var pSubscriptionRegistry := map place("Subscription\nRegistry", resolveoneIn(eclir));
+	var pSubscriptionRequest := map place("Subscription\nRequest", resolveoneIn(ecli));
+	var pSubscriptionsTimeOut := map place("Subscriptions\nTime-Out", resolveoneIn(eclir));
+	var pSubscriptionsRemoved := map place("Subscriptions\nRemoved", resolveoneIn(eclir));
+	var pFailSubscriptionRequests := map place("Fail\nSubscription\nRequests", resolveoneIn(ecli));
+	var pFailRoles := map place("Fail\nRoles", resolveoneIn(cli));
+	var pExpiredControl := map place("Expired\nControl", resolveoneIn(int));
+	var pTimeControl := map place("Time\nControl", resolveoneIn(intt), "0");
+	var pNotifications := map place("Notifications", resolveoneIn(cl));
+	var pRlt := map place("RLT", resolveoneIn(int2));
+	var pRv := map place("RV", resolveoneIn(int2));
+
+	var tNotify := map trans("Notify", "P1", "[v >= condv1, v <= condv2]", null);
+	var tEmpty := map trans("Empty", "P3");
+	var tRemoveSubscription := map trans("Remove\nSubscription", "P2", "[EPR = EPR1]", null);
+	var tTimeStep := map trans("Time\nStep", "P4", null, "@+1");
+	var tResourceExpire := map trans("Resource\nExpire", "P2", "[n > cr]", null);
+	var tSubscriptionTimeOut := map trans("Subscription\nTime-Out", "P2", "[cc < n]", null);
+	var tSetProp := map trans("Set Prop", "P4");
+	var tGetProp := map trans("Get Prop", "P4");
+	var tGetTimeFail := map trans("Get Time\nFail", "P4");
+	var tSetTimeFail := map trans("Set Time\nFail", "P4");
+	var tGetPropFail := map trans("Get Prop\nFail", "P4");
+	var tSetPropFail := map trans("Set Prop\nFail", "P4");
+	var tGetTime := map trans("Get Time", "P4");
+	var tSetTime := map trans("Set Time", "P4");
+	var tPublishOk := map trans("Publish_ok", "P4");
+	var tPublishFail := map trans("Publish_fail", "P2", "[EPR = EPR1]", null);
+	var tDiscover := map trans("Discover", "P2");
+	var tFailDiscover := map trans("Fail\nDiscover", "P4");
+	var tSubscribe := map trans("Subscribe", "P4");
+	var tFailSubscribe := map trans("Fail\nSubscribe", "P4");
+	var tReSubscribe := map trans("Re-Subscribe", "P2", "[C = C1]", null);
+	
+	places += pResources;
+	places += pRoles;
+	places += pOpControl;
+	places += pExpiredResources;
+	places += pResourceRegistry;
+	places += pSubscriptionRegistry;
+	places += pSubscriptionRequest;
+	places += pSubscriptionsTimeOut;
+	places += pSubscriptionsRemoved;
+	places += pFailSubscriptionRequests;
+	places += pFailRoles;
+	places += pExpiredControl;
+	places += pTimeControl;
+	places += pNotifications;
+	places += pRlt;
+	places += pRv;
+	
+	transs += tNotify;
+	transs += tEmpty;
+	transs += tRemoveSubscription;
+	transs += tTimeStep;
+	transs += tResourceExpire;
+	transs += tSubscriptionTimeOut;
+	transs += tSetProp;
+	transs += tGetProp;
+	transs += tGetTimeFail;
+	transs += tSetTimeFail;
+	transs += tGetPropFail;
+	transs += tSetPropFail;
+	transs += tGetTime;
+	transs += tSetTime;
+	transs += tPublishOk;
+	transs += tPublishFail;
+	transs += tDiscover;
+	transs += tFailDiscover;
+	transs += tSubscribe;
+	transs += tFailSubscribe;
+	transs += tReSubscribe;
+	
+	arcs += map arc(pResourceRegistry, tNotify, "(EPR1,R,v,cr)");
+	arcs += map arc(tNotify, pResourceRegistry, "(EPR1,R,v,cr)");
+	arcs += map arc(tRemoveSubscription, pSubscriptionsRemoved, "(EPR1,R,C,condv1,condv2,cc)");
+	arcs += map arc(pExpiredControl, tEmpty, "EPR");
+	arcs += map arc(pExpiredControl, tRemoveSubscription, "EPR");
+	arcs += map arc(tRemoveSubscription, pExpiredControl, "EPR");
+	arcs += map arc(tResourceExpire, pExpiredControl, "EPR");
+	arcs += map arc(tResourceExpire, pTimeControl, "n");
+	arcs += map arc(pTimeControl, tResourceExpire, "n");
+	arcs += map arc(pTimeControl, tTimeStep, "n");
+	arcs += map arc(tTimeStep, pTimeControl, "n + 1");
+	arcs += map arc(pTimeControl, tSubscriptionTimeOut, "n");
+	arcs += map arc(tSubscriptionTimeOut, pTimeControl, "n");
+	arcs += map arc(tSubscriptionTimeOut, pSubscriptionsTimeOut, "(EPR1,R,C,condv1,condv2,cc)");
+	arcs += map arc(pSubscriptionRegistry, tSubscriptionTimeOut, "(EPR1,R,C,condv1,condv2,cc)");
+	arcs += map arc(pSubscriptionRegistry, tRemoveSubscription, "(EPR1,R,C,condv1,condv2,cc)");
+	arcs += map arc(pSubscriptionRegistry, tNotify, "(EPR1,R,C,condv1,condv2,cc)");
+	arcs += map arc(pSubscriptionRegistry, tReSubscribe, "(EPR1,R,C,condv1,condv2,cc)");
+	arcs += map arc(tReSubscribe, pSubscriptionRegistry, "(EPR1,R,C,condv11,condv22,condtt+intTime())");
+	arcs += map arc(tSubscribe, pSubscriptionRegistry, "(EPR1,R,C,condv1,condv2,condt+intTime())");
+	arcs += map arc(tNotify, pNotifications, "(EPR1,R,C,v,cc)");
+	arcs += map arc(tNotify, pResourceRegistry, "(EPR1,R,v,cr)");
+	arcs += map arc(pResourceRegistry, tNotify, "(EPR1,R,v,cr)");
+	arcs += map arc(pResourceRegistry, tResourceExpire, "(EPR,R,v,cr)");
+	arcs += map arc(pResourceRegistry, tSetProp, "(EPR,R,v,cr)");
+	arcs += map arc(tSetProp, pResourceRegistry, "(EPR,R,nV(),cr)");
+	arcs += map arc(pResourceRegistry, tGetProp, "(EPR,R,v,cr)");
+	arcs += map arc(tGetProp, pResourceRegistry, "(EPR,R,v,cr)");
+	arcs += map arc(pResourceRegistry, tSetTime, "(EPR,R,v,cr)");
+	arcs += map arc(tSetTime, pResourceRegistry, "(EPR,R,v,nT()+intTime())");
+	arcs += map arc(pResourceRegistry, tGetTime, "(EPR,R,v,cr)");
+	arcs += map arc(tGetTime, pResourceRegistry, "(EPR,R,v,cr)");
+	arcs += map arc(tPublishOk, pResourceRegistry, "(EPR,R,v,intTime()+t)");
+	arcs += map arc(pResourceRegistry, tPublishFail, "(EPR1,R,v,cr)");
+	arcs += map arc(tPublishFail, pResourceRegistry, "(EPR1,R,v,cr)");
+	arcs += map arc(pResourceRegistry, tDiscover, "(EPR1,R,v,cr)");
+	arcs += map arc(tDiscover, pResourceRegistry, "(EPR1,R,v,cr)");
+	arcs += map arc(pResourceRegistry, tReSubscribe, "(EPR1,R,v,cr)");
+	arcs += map arc(tReSubscribe, pResourceRegistry, "(EPR1,R,v,cr)");
+	arcs += map arc(pResourceRegistry, tSubscribe, "(EPR1,R,v,cr)");
+	arcs += map arc(tSubscribe, pResourceRegistry, "(EPR1,R,v,cr)");
+	arcs += map arc(tDiscover, pSubscriptionRequest, "(EPR1,R,C,condv1,condv2,condt)");
+	arcs += map arc(pSubscriptionRequest, tReSubscribe, "(EPR1,R,C,condv11,condv22,condtt)");
+	arcs += map arc(pSubscriptionRequest, tSubscribe, "(EPR1,R,C,condv1,condv2,condt)");
+	arcs += map arc(pSubscriptionRequest, tFailSubscribe, "(EPR1,R,C,condv1,condv2,condt)");
+	arcs += map arc(tFailSubscribe, pFailSubscriptionRequests, "(EPR1,R,C,condv1,condv2,condt)");
+	arcs += map arc(pRoles, tDiscover, "(C,R,condv1,condv2,condt)");
+	arcs += map arc(pRoles, tFailDiscover, "(C,R,condv1,condv2,condt)");
+	arcs += map arc(tFailDiscover, pFailRoles, "(C,R,condv1,condv2,condt)");
+	arcs += map arc(pResources, tPublishFail, "(EPR,R,v,t)");
+	arcs += map arc(pResources, tPublishOk, "(EPR,R,v,t)");
+	arcs += map arc(tGetTime, pRlt, "(EPR,cr)");
+	arcs += map arc(tResourceExpire, pExpiredResources, "(EPR,R,v,cr)");
+	arcs += map arc(tFailSubscribe, pExpiredResources, "(EPR1,R,v,cr)");
+	arcs += map arc(pExpiredResources, tFailSubscribe, "(EPR1,R,v,cr)");
+	arcs += map arc(pExpiredResources, tGetTimeFail, "(EPR,R,v,cr)");
+	arcs += map arc(tGetTimeFail, pExpiredResources, "(EPR,R,v,cr)");
+	arcs += map arc(pExpiredResources, tSetPropFail, "(EPR,R,v,cr)");
+	arcs += map arc(tSetPropFail, pExpiredResources, "(EPR,R,v,cr)");
+	arcs += map arc(pExpiredResources, tGetPropFail, "(EPR,R,v,cr)");
+	arcs += map arc(tGetPropFail, pExpiredResources, "(EPR,R,v,cr)");
+	arcs += map arc(pExpiredResources, tSetTimeFail, "(EPR,R,v,cr)");
+	arcs += map arc(tSetTimeFail, pExpiredResources, "(EPR,R,v,cr)");
+	arcs += map arc(pOpControl, tGetTimeFail, "1");
+	arcs += map arc(pOpControl, tSetPropFail, "1");
+	arcs += map arc(pOpControl, tGetPropFail, "1");
+	arcs += map arc(pOpControl, tSetTimeFail, "1");
+	arcs += map arc(pOpControl, tGetTime, "1");
+	arcs += map arc(pOpControl, tSetTime, "1");
+	arcs += map arc(pOpControl, tGetProp, "1");
+	arcs += map arc(pOpControl, tSetProp, "1");
+	arcs += map arc(tGetProp, pRv, "(EPR,v)");
+		
+	
+	
+	
+};
+
+mapping place(_text : String, _type : CPN::ColorSet) : CPN::Place {
+	fillAttribs(result);
+	width := 60;
+	height := 40;
+	text := _text;
+	type := _type;
+};
+
+mapping place(_text : String, _type : CPN::ColorSet, _initmark : String) : CPN::Place {
+	init {
+		result := map place(_text, _type);
+	}
+	initmark := object CPN::Initmark {
+		expression := _initmark;
+	};
+};
+
+mapping trans(_text : String, _priority : String) : CPN::Trans {
+	fillAttribs(result);
+	width := 60;
+	height := 40;
+	text := _text;
+	priority := object CPN::TransPriority {
+		text := _priority;
+	};
+};
+
+mapping trans(_text : String, _priority : String, _cond : String, _time : String) : CPN::Trans {
+	init {
+		result := map trans(_text, _priority);
+	}
+	if (_cond.oclIsUndefined().not()) {
+		cond := object CPN::TransCond {
+			text:= _cond;
+		};
+	};
+	if (_time.oclIsUndefined().not()) {
+		time := object CPN::TransTime {
+			text:= _time;
+		};
+	};
+};
+
+abstract mapping abstractArc(elt1 : CPN::DiagramElement, elt2 : CPN::DiagramElement, _text : String)  : CPN::Arc {
+	fillAttribs(result);
+	headsize := 1.2;
+	annot := object CPN::Annot {
+		text := _text;
+	}
+}
+
+mapping arc(_place : CPN::Place, _trans : CPN::Trans, _text : String)  : CPN::Arc inherits abstractArc {
+	orientation := Orientation::PtoT;
+	place := _place;
+	trans := _trans;
+};
+
+mapping arc(_trans : CPN::Trans, _place : CPN::Place, _text : String)  : CPN::Arc inherits abstractArc {
+	orientation := Orientation::TtoP;
+	place := _place;
+	trans := _trans;
+};
+
+
+helper fillAttribs(inout element : CPN::DiagramElement) {
+	element.fillColour := "White";
+	element.fillPattern := "";
+	element.fillFilled := false;
+	element.lineColour := "Black";
+	element.lineThick := 1;
+	element.lineType := "Solid";
+}
