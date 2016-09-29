@@ -5,8 +5,10 @@ import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.MultiStatus;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
@@ -25,7 +27,11 @@ public class PublishSubscribeTransformer {
 
 	private static final String PLUGIN_ID = "io.github.abelgomez.ps.transformer"; //$NON-NLS-1$
 
-	private static final String TRANSFORMATION_PATH = "/transformation/ps2cpntools.qvto"; //$NON-NLS-1$
+	private static final String POINT_ID = "io.github.abelgomez.ps.transformer.uri_provider"; //$NON-NLS-1$
+
+	private static final String EXT_URI = "uri"; //$NON-NLS-1$
+
+	private static final String EXT_PRIORITY = "priority"; //$NON-NLS-1$
 	
 	private IStatus status = null;
 	
@@ -44,7 +50,7 @@ public class PublishSubscribeTransformer {
 			return; 
 		}
 		
-		TransformationExecutor executor = new TransformationExecutor(URI.createPlatformPluginURI(PLUGIN_ID + TRANSFORMATION_PATH, true));
+		TransformationExecutor executor = new TransformationExecutor(retrieveUri());
 		ExecutionContextImpl context = new ExecutionContextImpl();
 		StatusLog statusLog = new StatusLog();
 		context.setLog(statusLog);
@@ -78,6 +84,24 @@ public class PublishSubscribeTransformer {
 		executed = true;
 	}
 	
+	private URI retrieveUri() {
+		URI uri = null;
+		int priority = Integer.MIN_VALUE;
+		
+		IConfigurationElement[] elements = Platform.getExtensionRegistry().getConfigurationElementsFor(POINT_ID);
+		for (IConfigurationElement element : elements) {
+			int newPriority = Integer.MIN_VALUE;
+			try {
+				newPriority = Integer.valueOf(element.getAttribute(EXT_PRIORITY));
+			} catch (NumberFormatException e) {
+			}
+			if (newPriority >= priority) {
+				uri = URI.createURI(element.getAttribute(EXT_URI));
+			}
+		}
+		return uri;
+	}
+
 	public IStatus status() {
 		return status;
 	}
