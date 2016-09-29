@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:ps="http://io.github.abelgomez/ps/1.0" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://io.github.abelgomez/ps/1.0 pathmap://DICE_PROFILES/ps.profile.uml#_xTvvAIDJEea8LOV2RJYYPg">
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:ps="http://io.github.abelgomez/ps/1.0" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://io.github.abelgomez/ps/1.0 pathmap://DICE_PROFILES/ps.profile.uml#_xFaiYIZLEeaPs_vasFHzuA">
   <uml:Model xmi:id="_0ivl8IV8EeaLor1nMrvpkw" name="Publish-Subscribe">
     <packagedElement xmi:type="uml:Interaction" xmi:id="_023b0IV8EeaLor1nMrvpkw" name="On-line purchase order">
       <lifeline xmi:type="uml:Lifeline" xmi:id="_4UIM4IV8EeaLor1nMrvpkw" name="Shop1" coveredBy="_s7x_IIV9EeaLor1nMrvpkw _s77JEIV9EeaLor1nMrvpkw _18S9YIV9EeaLor1nMrvpkw _4XChgYV9EeaLor1nMrvpkw _4XChgIV9EeaLor1nMrvpkw _LiKSkIV-EeaLor1nMrvpkw _W7dGEIV-EeaLor1nMrvpkw _YLbgMIV-EeaLor1nMrvpkw"/>
@@ -126,36 +126,36 @@
       </message>
     </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_1JwioIV8EeaLor1nMrvpkw">
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_1Jzl8IV8EeaLor1nMrvpkw" source="PapyrusVersion">
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_1Jzl8YV8EeaLor1nMrvpkw" key="Version" value="0.0.1"/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_1Jzl8oV8EeaLor1nMrvpkw" key="Comment" value=""/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_1Jzl84V8EeaLor1nMrvpkw" key="Copyright" value=""/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_1Jzl9IV8EeaLor1nMrvpkw" key="Date" value="2016-09-22"/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_1Jzl9YV8EeaLor1nMrvpkw" key="Author" value="Abel Gómez"/>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_OVAzoIZNEeaJ9YJxMN8vmw" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_OVBasIZNEeaJ9YJxMN8vmw" key="Version" value="0.0.1"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_OVBasYZNEeaJ9YJxMN8vmw" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_OVBasoZNEeaJ9YJxMN8vmw" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_OVBas4ZNEeaJ9YJxMN8vmw" key="Date" value="2016-09-29"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_OVBatIZNEeaJ9YJxMN8vmw" key="Author" value="Abel Gómez"/>
       </eAnnotations>
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_1JxwwIV8EeaLor1nMrvpkw" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="pathmap://DICE_PROFILES/ps.profile.uml#_xTvvAIDJEea8LOV2RJYYPg"/>
+        <references xmi:type="ecore:EPackage" href="pathmap://DICE_PROFILES/ps.profile.uml#_xFaiYIZLEeaPs_vasFHzuA"/>
       </eAnnotations>
       <appliedProfile xmi:type="uml:Profile" href="pathmap://DICE_PROFILES/ps.profile.uml#_pBuJMH8uEeac4IuE8CPaHw"/>
     </profileApplication>
   </uml:Model>
-  <ps:Getter xmi:id="_bbf_QIV9EeaLor1nMrvpkw" varName="balance" base_Message="_KDRIIIV9EeaLor1nMrvpkw" resource="_fRyUUIV9EeaLor1nMrvpkw"/>
+  <ps:Getter xmi:id="_6PuLQIZKEeaNyJI9A6d0mw" varName="balance" base_Message="_KDRIIIV9EeaLor1nMrvpkw" resource="_fRyUUIV9EeaLor1nMrvpkw"/>
   <ps:Resource xmi:id="_fRyUUIV9EeaLor1nMrvpkw" base_Lifeline="_-D398IV8EeaLor1nMrvpkw"/>
   <ps:Resource xmi:id="_oP3poIV9EeaLor1nMrvpkw" base_Lifeline="_7Id8wIV8EeaLor1nMrvpkw"/>
   <ps:Resource xmi:id="_o0Xd0IV9EeaLor1nMrvpkw" base_Lifeline="_8scQ8IV8EeaLor1nMrvpkw"/>
-  <ps:Setter xmi:id="_whtukIV-EeaLor1nMrvpkw" base_Message="_W7bQ4IV-EeaLor1nMrvpkw" resource="_oP3poIV9EeaLor1nMrvpkw"/>
-  <ps:Setter xmi:id="_ABX6gIV_EeaLor1nMrvpkw" base_Message="_YLZrAIV-EeaLor1nMrvpkw" resource="_oP3poIV9EeaLor1nMrvpkw"/>
-  <ps:Setter xmi:id="_AlCBMIV_EeaLor1nMrvpkw" base_Message="_of5NMIV-EeaLor1nMrvpkw" resource="_o0Xd0IV9EeaLor1nMrvpkw"/>
-  <ps:Setter xmi:id="_BNa24IV_EeaLor1nMrvpkw" base_Message="_qF2eYIV-EeaLor1nMrvpkw" resource="_o0Xd0IV9EeaLor1nMrvpkw"/>
+  <ps:Setter xmi:id="_whtukIV-EeaLor1nMrvpkw" base_Message="_W7bQ4IV-EeaLor1nMrvpkw"/>
+  <ps:Setter xmi:id="_ABX6gIV_EeaLor1nMrvpkw" base_Message="_YLZrAIV-EeaLor1nMrvpkw"/>
+  <ps:Setter xmi:id="_AlCBMIV_EeaLor1nMrvpkw" base_Message="_of5NMIV-EeaLor1nMrvpkw"/>
+  <ps:Setter xmi:id="_BNa24IV_EeaLor1nMrvpkw" base_Message="_qF2eYIV-EeaLor1nMrvpkw"/>
   <ps:Resource xmi:id="_eVFz0IWDEeaLor1nMrvpkw" base_Lifeline="_pC6lQIV_EeaLor1nMrvpkw"/>
   <ps:Resource xmi:id="_fHjLgIWDEeaLor1nMrvpkw" base_Lifeline="_p9Ix0IV_EeaLor1nMrvpkw"/>
   <ps:Resource xmi:id="_fsuVIIWDEeaLor1nMrvpkw" base_Lifeline="_rDadYIV_EeaLor1nMrvpkw"/>
-  <ps:Getter xmi:id="_RRmS4IWEEeaLor1nMrvpkw" varName="PPL1" base_Message="_M1aGUIWCEeaLor1nMrvpkw" resource="_eVFz0IWDEeaLor1nMrvpkw"/>
-  <ps:Getter xmi:id="_R9kBAIWEEeaLor1nMrvpkw" varName="PPL2" base_Message="_P7YYwIWCEeaLor1nMrvpkw" resource="_fHjLgIWDEeaLor1nMrvpkw"/>
-  <ps:Setter xmi:id="_TcYvcIWEEeaLor1nMrvpkw" base_Message="_Y0STIIWCEeaLor1nMrvpkw" resource="_fsuVIIWDEeaLor1nMrvpkw">
-    <value xmi:type="ps:UpdateOperator" xmi:id="_ZtL_IIWEEeaLor1nMrvpkw" variable="PPL1"/>
+  <ps:Getter xmi:id="_RRmS4IWEEeaLor1nMrvpkw" varName="PPL1" base_Message="_M1aGUIWCEeaLor1nMrvpkw"/>
+  <ps:Getter xmi:id="_R9kBAIWEEeaLor1nMrvpkw" varName="PPL2" base_Message="_P7YYwIWCEeaLor1nMrvpkw"/>
+  <ps:Setter xmi:id="_TcYvcIWEEeaLor1nMrvpkw" base_Message="_Y0STIIWCEeaLor1nMrvpkw">
+    <value xmi:type="ps:UpdateOperator" xmi:id="_NDtj0YZNEeaJ9YJxMN8vmw" variable="PPL1"/>
   </ps:Setter>
-  <ps:Setter xmi:id="_UFunYIWEEeaLor1nMrvpkw" base_Message="_j7htUIWCEeaLor1nMrvpkw" resource="_fsuVIIWDEeaLor1nMrvpkw">
-    <value xmi:type="ps:UpdateOperator" xmi:id="_d7H_MIWEEeaLor1nMrvpkw" variable="PPL2"/>
+  <ps:Setter xmi:id="_UFunYIWEEeaLor1nMrvpkw" base_Message="_j7htUIWCEeaLor1nMrvpkw">
+    <value xmi:type="ps:UpdateOperator" xmi:id="_NDux8YZNEeaJ9YJxMN8vmw" variable="PPL2"/>
   </ps:Setter>
 </xmi:XMI>
