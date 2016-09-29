@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            name="Publish-Subscribe"
+            id="io.github.abelgomez.ps.transformer.ui.commands.category">
+      </category>
+      <command
+            name="Generate Petri net"
+            categoryId="io.github.abelgomez.ps.transformer.ui.commands.category"
+            id="io.github.abelgomez.ps.transformer.ui.commands.transform">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="io.github.abelgomez.ps.transformer.ui.commands.transform"
+            class="io.github.abelgomez.ps.transformer.ui.handlers.TransformHandler">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+         <menu
+               icon="icons/full/obj16/publish-subscribe.png"
+               id="io.github.abelgomez.ps.transformer.ui.menus.transformer"
+               label="Publish-Subscribe Tools"
+               mnemonic="P">
+            <command
+                  commandId="io.github.abelgomez.ps.transformer.ui.commands.transform"
+                  icon="icons/full/obj16/petri-net.png"
+                  id="io.github.abelgomez.ps.transformer.ui.menus.transform"
+                  label="Generate Petri net..."
+                  mnemonic="G">
+            </command>
+            <visibleWhen
+                  checkEnabled="false">
+               <iterate>
+                  <or>
+                     <adapt
+                           type="org.eclipse.papyrus.infra.onefile.model.IPapyrusElement">
+                     </adapt>
+                     <and>
+                        <adapt
+                              type="org.eclipse.core.resources.IFile">
+                        </adapt>
+                        <or>
+                           <test
+                                 forcePluginActivation="true"
+                                 property="org.eclipse.core.resources.extension"
+                                 value="notation">
+                           </test>
+                           <test
+                                 forcePluginActivation="true"
+                                 property="org.eclipse.core.resources.extension"
+                                 value="di">
+                           </test>
+                           <test
+                                 forcePluginActivation="true"
+                                 property="org.eclipse.core.resources.extension"
+                                 value="uml">
+                           </test>
+                        </or>
+                     </and>
+                  </or>
+               </iterate>
+            </visibleWhen>
+         </menu>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.adapters">
+      <factory
+            adaptableType="org.eclipse.core.resources.IFile"
+            class="io.github.abelgomez.ps.transformer.ui.adapters.UmlModelAdapterFactory">
+         <adapter
+               type="org.eclipse.papyrus.uml.tools.model.UmlModel">
+         </adapter>
+ </factory>
+      <factory
+            adaptableType="org.eclipse.papyrus.infra.onefile.model.IPapyrusElement"
+            class="io.github.abelgomez.ps.transformer.ui.adapters.UmlModelAdapterFactory">
+         <adapter
+               type="org.eclipse.papyrus.uml.tools.model.UmlModel">
+         </adapter>
+      </factory>
+   </extension>
+
+</plugin>
