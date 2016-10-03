@@ -58,7 +58,6 @@ import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.Interaction;
 
 import io.github.abelgomez.cpntools.Cpnet;
-import io.github.abelgomez.cpntools.CpntoolsPackage;
 import io.github.abelgomez.cpntools.io.serializer.CpnToolsBuilder;
 import io.github.abelgomez.ps.transformer.PublishSubscribeTransformer;
 import io.github.abelgomez.ps.transformer.ui.TransformerUiPlugin;
@@ -106,6 +105,8 @@ public class TransformHandler extends AbstractHandler {
 	 *
 	 */
 	private final class TransformationJob extends Job {
+
+		private static final String CPNTOOLS_FILE_EXTENSION = "cpn";
 
 		private static final String JOB_NAME = "Converting to Petri nets";
 
@@ -213,7 +214,7 @@ public class TransformHandler extends AbstractHandler {
 		}
 
 		private URI buildOutputFileUri(URI uri) {
-			return uri.trimFileExtension().appendFileExtension(CpntoolsPackage.eNS_PREFIX);
+			return uri.trimFileExtension().appendFileExtension(CPNTOOLS_FILE_EXTENSION);
 		}
 	}
 
