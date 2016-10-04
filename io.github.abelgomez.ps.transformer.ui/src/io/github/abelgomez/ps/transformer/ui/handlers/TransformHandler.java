@@ -15,6 +15,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
@@ -23,6 +24,7 @@ import java.util.Set;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.core.commands.IHandler;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
@@ -73,6 +75,14 @@ import io.github.abelgomez.ps.transformer.PublishSubscribeTransformer;
 import io.github.abelgomez.ps.transformer.ui.TransformerUiPlugin;
 import io.github.abelgomez.ps.transformer.ui.util.UriConverter;
 
+/**
+ * {@link IHandler} that tries to transform the Worchbench's selection into a
+ * set of Petri nets by using {@link PublishSubscribeTransformer} and
+ * {@link CpnToolsBuilder}
+ * 
+ * @author Abel Gómez (agomezlla@uoc.edu)
+ *
+ */
 public class TransformHandler extends AbstractHandler {
 
 	@Override
@@ -82,7 +92,7 @@ public class TransformHandler extends AbstractHandler {
 
 		if (selection instanceof IStructuredSelection) {
 			IStructuredSelection structuredSelection = (IStructuredSelection) selection;
-			List<UmlModel> models = collectModels(structuredSelection);
+			Collection<UmlModel> models = collectModels(structuredSelection);
 			Job job = new TransformationJob(models);
 			job.schedule();
 		}
@@ -91,7 +101,14 @@ public class TransformHandler extends AbstractHandler {
 		return null;
 	}
 
-	private List<UmlModel> collectModels(IStructuredSelection structuredSelection) {
+	/**
+	 * Collects the valid {@link UmlModel} instances from the given
+	 * {@link IStructuredSelection}
+	 * 
+	 * @param structuredSelection
+	 * @return
+	 */
+	private static Collection<UmlModel> collectModels(IStructuredSelection structuredSelection) {
 		Set<URI> processed = new HashSet<>();
 		List<UmlModel> models = new ArrayList<>();
 
@@ -122,9 +139,9 @@ public class TransformHandler extends AbstractHandler {
 
 		private MultiStatus globalStatus;
 
-		private List<UmlModel> models = new ArrayList<>();
+		private Collection<UmlModel> models = new ArrayList<>();
 
-		private TransformationJob(List<UmlModel> models) {
+		private TransformationJob(Collection<UmlModel> models) {
 			super(JOB_NAME);
 			this.models.addAll(models);
 		}
@@ -133,7 +150,7 @@ public class TransformHandler extends AbstractHandler {
 		public IStatus run(IProgressMonitor monitor) {
 			globalStatus = new MultiStatus(TransformerUiPlugin.PLUGIN_ID, 0, getName(), null);
 			SubMonitor subMonitor = SubMonitor.convert(monitor, getName(), 3);
-			List<Element> elements = collectElements(models, subMonitor.newChild(1));
+			Collection<Element> elements = collectElements(models, subMonitor.newChild(1));
 			transformElements(elements, subMonitor.newChild(1));
 			refreshWorkspace(subMonitor.newChild(1));
 			return globalStatus;
@@ -157,7 +174,7 @@ public class TransformHandler extends AbstractHandler {
 			}
 		}
 
-		private List<Element> collectElements(List<UmlModel> models, IProgressMonitor monitor) {
+		private Collection<Element> collectElements(Collection<UmlModel> models, IProgressMonitor monitor) {
 			SubMonitor subMonitor = SubMonitor.convert(monitor, "Collecting elements to be transformed", models.size());
 			List<Element> elements = new ArrayList<>();
 			for (UmlModel model : models) {
@@ -176,10 +193,11 @@ public class TransformHandler extends AbstractHandler {
 			}
 			return elements;
 		}
-		
+
 		private Element retrieveUmlElement(Resource resource) {
 			class ElementRetriever implements Runnable {
 				private Element element;
+
 				@Override
 				public void run() {
 					SelectElementDialog dialog = new SelectElementDialog(Display.getDefault().getActiveShell(), resource);
@@ -192,8 +210,8 @@ public class TransformHandler extends AbstractHandler {
 			Display.getDefault().syncExec(retriever);
 			return retriever.element;
 		}
-		
-		private void transformElements(List<Element> elements, IProgressMonitor monitor) {
+
+		private void transformElements(Collection<Element> elements, IProgressMonitor monitor) {
 			SubMonitor subMonitor = SubMonitor.convert(monitor, "Transforming elements to Petri nets", elements.size());
 			for (Element element : elements) {
 				URI uri = element.eResource().getURI();
@@ -203,7 +221,7 @@ public class TransformHandler extends AbstractHandler {
 				subMonitor.worked(1);
 			}
 		}
-		
+
 		private void processUmlModel(Element element, File out, IProgressMonitor monitor) {
 			SubMonitor subMonitor = SubMonitor.convert(monitor, NLS.bind("Transforming ''{0}''", EcoreUtil.getURI(element)), 2);
 			PublishSubscribeTransformer transformer = new PublishSubscribeTransformer(element);
