@@ -26,6 +26,7 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -52,7 +53,16 @@ import io.github.abelgomez.cpntools.TransPriority;
 import io.github.abelgomez.cpntools.Unit;
 import io.github.abelgomez.cpntools.Var;
 
+
+/**
+ * 
+ * Class used to serialice a {@link Cpnet} into a normative CPN Tools XML file.
+ * 
+ * @author Abel Gómez (agomezlla@uoc.edu)
+ *
+ */
 public class CpnToolsBuilder {
+	
 	private static final String TOOL_NAME = "CPN Tools";
 	private static final String TOOL_VERSION = "4.0.1";
 	private static final String TOOL_FORMAT = "6";
@@ -70,21 +80,42 @@ public class CpnToolsBuilder {
 	private Document document = null;
 	private Cpnet cpnet = null;
 	
+	/**
+	 * Creates a {@link CpnToolsBuilder} out of a {@link Cpnet}. The instance is
+	 * immutable, i.e., the {@link Cpnet} attached to this instance is a
+	 * deep-copy of the {@link Cpnet} given in the constructor.
+	 * 
+	 * @param cpnet
+	 */
 	public CpnToolsBuilder(Cpnet cpnet) {
-		this.cpnet = cpnet; 
+		this.cpnet = EcoreUtil.copy(cpnet); 
 	}
 	
-	public synchronized void serialize(OutputStream stream) throws ParserConfigurationException, TransformerException {
-		if (document == null) {
-			build();
+	/**
+	 * Serializes the {@link Cpnet} attached to this {@link CpnToolsBuilder}
+	 * 
+	 * @param stream
+	 *            the {@link OutputStream} in which to serialize. Client code is
+	 *            responsible of closing it when it is no longer needed.
+	 * @throws SerializationException
+	 *             if an unrecoverable error occurs during the course of the
+	 *             serialization.
+	 */
+	public synchronized void serialize(OutputStream stream) throws SerializationException {
+		try {
+			if (document == null) {
+				build();
+			}
+			Transformer transformer = TransformerFactory.newInstance().newTransformer();
+			transformer.setOutputProperty(OutputKeys.ENCODING, "iso-8859-1");
+			transformer.setOutputProperty(OutputKeys.DOCTYPE_PUBLIC, "-//CPN//DTD CPNXML 1.0//EN");
+			transformer.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, "http://cpntools.org/DTD/6/cpn.dtd");
+			transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
+			transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+			transformer.transform(new DOMSource(document), new StreamResult(stream));
+		} catch (ParserConfigurationException | TransformerException e) {
+			throw new SerializationException(e);
 		}
-		Transformer transformer = TransformerFactory.newInstance().newTransformer();
-		transformer.setOutputProperty(OutputKeys.ENCODING, "iso-8859-1");
-		transformer.setOutputProperty(OutputKeys.DOCTYPE_PUBLIC, "-//CPN//DTD CPNXML 1.0//EN");
-		transformer.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, "http://cpntools.org/DTD/6/cpn.dtd");
-		transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
-		transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-		transformer.transform(new DOMSource(document), new StreamResult(stream));
 	}
 
 	private void build() throws ParserConfigurationException {
