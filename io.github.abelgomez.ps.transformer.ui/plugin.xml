@@ -89,5 +89,32 @@
          </adapter>
       </factory>
    </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="io.github.abelgomez.ps.transformer.ui.preferences.root"
+            class="io.github.abelgomez.ps.transformer.ui.preferences.UriPreferencePage"
+            id="io.github.abelgomez.ps.transformer.ui.preferences.uri"
+            name="Transformation">
+      </page>
+      <page
+            class="io.github.abelgomez.ps.transformer.ui.preferences.RootPreferencePage"
+            id="io.github.abelgomez.ps.transformer.ui.preferences.root"
+            name="Publish-Subscribe Tools">
+      </page>
+   </extension>
+   <extension
+         point="io.github.abelgomez.ps.transformer.uri_provider">
+      <URI
+            priority="5"
+            provider="io.github.abelgomez.ps.transformer.ui.provider.DynamicUriProvider">
+      </URI>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="io.github.abelgomez.ps.transformer.ui.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
 
 </plugin>

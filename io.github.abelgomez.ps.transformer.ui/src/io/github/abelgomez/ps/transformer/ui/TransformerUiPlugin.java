@@ -25,5 +25,4 @@ public class TransformerUiPlugin extends AbstractUIPlugin {
 	public static TransformerUiPlugin getDefault() {
 		return plugin;
 	}
-
 }
