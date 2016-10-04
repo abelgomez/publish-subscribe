@@ -13,9 +13,11 @@ package io.github.abelgomez.ps.transformer.test;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.PrintStream;
 
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
+import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.UMLFactory;
 import org.junit.Assert;
 import org.junit.Before;
@@ -26,11 +28,19 @@ import io.github.abelgomez.cpntools.io.serializer.CpnToolsBuilder;
 import io.github.abelgomez.cpntools.io.serializer.SerializationException;
 import io.github.abelgomez.ps.transformer.PublishSubscribeTransformer;
 
+/**
+ * 
+ * Simple test that demonstrates how a sample UML2 model is transformed into a
+ * {@link Cpnet}
+ * 
+ * @author Abel Gómez (agomezlla@uoc.edu)
+ *
+ */
 public class PublishSubscribeTransformerTest {
-	
+
 	private static final String TEMP_DIR = "./temp";
-	private static final String TEMP_TEST_FILE = TEMP_DIR + File.separator +  "test.cpn";
-	
+	private static final String TEMP_TEST_FILE = TEMP_DIR + File.separator + "test.cpn";
+
 	@Before
 	public void pre() {
 		File temp = new File(TEMP_DIR);
@@ -40,19 +50,26 @@ public class PublishSubscribeTransformerTest {
 	}
 
 	@Test
-	public void test() throws IOException, SerializationException  {
-		PublishSubscribeTransformer transformer = new PublishSubscribeTransformer(UMLFactory.eINSTANCE.createPackage());
+	public void test() throws IOException, SerializationException {
+
+		Package samplePackage = UMLFactory.eINSTANCE.createPackage();
+
+		PublishSubscribeTransformer transformer = new PublishSubscribeTransformer(samplePackage);
 		transformer.transform();
 		Cpnet cpnet = transformer.result();
 		Assert.assertNotNull(cpnet);
-		Resource resource = new XMIResourceImpl();
-		resource.getContents().add(cpnet);
-		resource.save(System.out, null);
-		
+
+		// Print the results to debug conformance
+		printXmi(cpnet, System.out);
 		CpnToolsBuilder builder = new CpnToolsBuilder(cpnet);
 		builder.serialize(System.out);
-		
 		builder.serialize(new FileOutputStream(new File(TEMP_TEST_FILE)));
+	}
+
+	private void printXmi(Cpnet cpnet, PrintStream out) throws IOException {
+		Resource resource = new XMIResourceImpl();
+		resource.getContents().add(cpnet);
+		resource.save(out, null);
 	}
 
 }
