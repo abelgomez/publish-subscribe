@@ -10,11 +10,22 @@
  *******************************************************************************/
 package io.github.abelgomez.ps.transformer.ui.preferences;
 
+import io.github.abelgomez.ps.transformer.ui.TransformerUiPlugin;
+
+/**
+ * Class holding the constants of the {@link TransformerUiPlugin} preferences
+ * 
+ * @author Abel Gómez (agomezlla@uoc.edu)
+ *
+ */
 public abstract class PreferenceConstants {
 
 	public static final String URI = "uri";
-	
+
+	/**
+	 * Hidden constructor. This class is not intended to be instantiated.
+	 */
 	private PreferenceConstants() {
 	};
-	
+
 }

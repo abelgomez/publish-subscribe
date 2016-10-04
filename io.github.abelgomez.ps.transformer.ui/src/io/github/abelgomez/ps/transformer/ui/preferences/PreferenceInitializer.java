@@ -27,6 +27,12 @@ import org.eclipse.jface.preference.IPreferenceStore;
 import io.github.abelgomez.ps.transformer.DefaultUriProvider;
 import io.github.abelgomez.ps.transformer.ui.TransformerUiPlugin;
 
+/**
+ * Initializer class for the {@link TransformerUiPlugin} default preferences
+ * 
+ * @author Abel Gómez (agomezlla@uoc.edu)
+ *
+ */
 public class PreferenceInitializer extends AbstractPreferenceInitializer {
 
 	private static final String FILE_NAME = DefaultUriProvider.DEFAULT_TRANSFORMATION_URI.lastSegment();
@@ -34,37 +40,42 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
 
 	@Override
 	public void initializeDefaultPreferences() {
-		
+
 		initializeTransformationFile();
-		
+
 		IPreferenceStore store = TransformerUiPlugin.getDefault().getPreferenceStore();
-		
+
 		if (FILE_FULL_PATH.toFile().exists()) {
 			store.setDefault(PreferenceConstants.URI, FILE_FULL_PATH.toFile().toURI().toString());
 		} else {
+			// If the internal plugin's transformation cannot be initialized,
+			// use the default one
 			store.setDefault(PreferenceConstants.URI, DefaultUriProvider.DEFAULT_TRANSFORMATION_URI.toString());
 		}
 	}
-	
+
+	/**
+	 * Initialize the contents of the editable QVTo transformation if the file
+	 * {@link #FILE_FULL_PATH} does not exist
+	 */
 	private void initializeTransformationFile() {
-		
+
 		File target = FILE_FULL_PATH.toFile();
 		if (target.exists()) {
 			return;
 		}
-        
-        URL source = null;
+
+		URL source = null;
 		try {
 			source = new URL(DefaultUriProvider.DEFAULT_TRANSFORMATION_URI.toString());
 		} catch (MalformedURLException e) {
 			// Should not ever happen since the constant URI must be valid
 			throw new RuntimeException(e);
 		}
-		
+
 		try (
 				InputStream sourceStream = source.openStream();
-				OutputStream targetStream = new FileOutputStream(target);
-		) {
+				OutputStream targetStream = new FileOutputStream(target);) {
 			int read;
 			byte[] buffer = new byte[1024];
 			while ((read = sourceStream.read(buffer)) != -1) {

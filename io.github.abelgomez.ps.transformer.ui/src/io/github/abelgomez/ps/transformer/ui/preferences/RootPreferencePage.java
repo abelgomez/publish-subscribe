@@ -11,9 +11,19 @@
 package io.github.abelgomez.ps.transformer.ui.preferences;
 
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
+import org.eclipse.jface.preference.PreferencePage;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
 
+import io.github.abelgomez.ps.transformer.ui.TransformerUiPlugin;
+
+/**
+ * Dummy {@link PreferencePage} that serves as a root for all the
+ * {@link PreferencePage}s of the {@link TransformerUiPlugin}
+ * 
+ * @author Abel Gómez (agomezlla@uoc.edu)
+ *
+ */
 public class RootPreferencePage extends FieldEditorPreferencePage implements IWorkbenchPreferencePage {
 
 	@Override

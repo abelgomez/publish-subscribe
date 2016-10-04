@@ -24,7 +24,6 @@ import org.eclipse.jface.databinding.preference.PreferencePageSupport;
 import org.eclipse.jface.databinding.swt.WidgetProperties;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.preference.PreferencePage;
-import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -46,20 +45,19 @@ import org.eclipse.ui.ide.IDE;
 
 import io.github.abelgomez.ps.transformer.ui.TransformerUiPlugin;
 
+/**
+ * {@link PreferencePage} to customize the {@link PreferenceConstants#URI}
+ * preference.
+ * 
+ * @author Abel Gómez (agomezlla@uoc.edu)
+ *
+ */
 public class UriPreferencePage extends PreferencePage implements IWorkbenchPreferencePage {
 
+	/**
+	 * Internal variable holding the value of the URI
+	 */
 	private WritableValue<String> observableLocation = new WritableValue<>();
-
-	public UriPreferencePage() {
-	}
-
-	public UriPreferencePage(String title) {
-		super(title);
-	}
-
-	public UriPreferencePage(String title, ImageDescriptor image) {
-		super(title, image);
-	}
 
 	@Override
 	public void init(IWorkbench workbench) {
@@ -90,46 +88,12 @@ public class UriPreferencePage extends PreferencePage implements IWorkbenchPrefe
 			Button browseButton = new Button(group, SWT.PUSH);
 			browseButton.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false));
 			browseButton.setText("&Browse");
-			browseButton.addSelectionListener(new SelectionAdapter() {
-				@Override
-				public void widgetSelected(SelectionEvent event) {
-					FileDialog dialog = new FileDialog(getShell(), SWT.OPEN);
-					try {
-						File file = new File(URI.create(observableLocation.getValue()));
-						dialog.setFileName(file.getPath());
-					} catch (IllegalArgumentException e) {
-						TransformerUiPlugin.getDefault().getLog().log(
-								new Status(IStatus.WARNING, TransformerUiPlugin.PLUGIN_ID,
-										MessageFormat.format("String ''{0}'' does not represent a valid file path", observableLocation.getValue()), e));
-					}
-					dialog.setFilterExtensions(new String[] { "*.qvto", "*.qvt", "*.*" });
-					String location = dialog.open();
-					if (location != null) {
-						observableLocation.setValue(new File(location).toURI().toString());
-					}
-				}
-			});
+			browseButton.addSelectionListener(new BrowseSelectionAdapter());
 
-			Link link = new Link(group, SWT.NONE);
-			link.setLayoutData(new GridData(SWT.FILL, SWT.BEGINNING, true, false));
-			link.setText("<a>Edit this file in the workspace</a>");
-			link.addSelectionListener(new SelectionAdapter() {
-				@Override
-				public void widgetSelected(SelectionEvent event) {
-					IFileStore fileStore = EFS.getLocalFileSystem().getStore(URI.create(observableLocation.getValue()));
-					if (!fileStore.fetchInfo().isDirectory() && fileStore.fetchInfo().exists()) {
-						IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
-						try {
-							IDE.openEditorOnFileStore(page, fileStore);
-						} catch (PartInitException e) {
-							TransformerUiPlugin.getDefault().getLog().log(
-									new Status(IStatus.ERROR, TransformerUiPlugin.PLUGIN_ID,
-											MessageFormat.format("Unable to open ''{0}'' in the workspace", observableLocation.getValue()), e));
-
-						}
-					}
-				}
-			});
+			Link editLink = new Link(group, SWT.NONE);
+			editLink.setLayoutData(new GridData(SWT.FILL, SWT.BEGINNING, true, false));
+			editLink.setText("<a>Edit this file in the workspace</a>");
+			editLink.addSelectionListener(new OpenEditorSelectionAdapter());
 
 			context.bindValue(WidgetProperties.text(SWT.Modify).observe(pathText), observableLocation);
 		}
@@ -150,10 +114,62 @@ public class UriPreferencePage extends PreferencePage implements IWorkbenchPrefe
 		getPreferenceStore().setValue(PreferenceConstants.URI, observableLocation.getValue());
 		return true;
 	}
-	
+
 	@Override
 	protected void performDefaults() {
 		getPreferenceStore().setToDefault(PreferenceConstants.URI);
 		applyData(getPreferenceStore());
+	}
+
+	/**
+	 * {@link SelectionAdapter} implementing the behavior when the
+	 * <code>Browse</code> {@link Button} is pressed.
+	 * 
+	 * @author Abel Gómez (agomezlla@uoc.edu)
+	 *
+	 */
+	private final class BrowseSelectionAdapter extends SelectionAdapter {
+		@Override
+		public void widgetSelected(SelectionEvent event) {
+			FileDialog dialog = new FileDialog(getShell(), SWT.OPEN);
+			try {
+				File file = new File(URI.create(observableLocation.getValue()));
+				dialog.setFileName(file.getPath());
+			} catch (IllegalArgumentException e) {
+				TransformerUiPlugin.getDefault().getLog().log(
+						new Status(IStatus.WARNING, TransformerUiPlugin.PLUGIN_ID,
+								MessageFormat.format("String ''{0}'' does not represent a valid file path", observableLocation.getValue()), e));
+			}
+			dialog.setFilterExtensions(new String[] { "*.qvto", "*.qvt", "*.*" });
+			String location = dialog.open();
+			if (location != null) {
+				observableLocation.setValue(new File(location).toURI().toString());
+			}
+		}
+	}
+
+	/**
+	 * {@link SelectionAdapter} implementig the behaviour when the <em>open in
+	 * editor</em> link if pressed.
+	 * 
+	 * @author Abel Gómez (agomezlla@uoc.edu)
+	 *
+	 */
+	private final class OpenEditorSelectionAdapter extends SelectionAdapter {
+		@Override
+		public void widgetSelected(SelectionEvent event) {
+			IFileStore fileStore = EFS.getLocalFileSystem().getStore(URI.create(observableLocation.getValue()));
+			if (!fileStore.fetchInfo().isDirectory() && fileStore.fetchInfo().exists()) {
+				IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
+				try {
+					IDE.openEditorOnFileStore(page, fileStore);
+				} catch (PartInitException e) {
+					TransformerUiPlugin.getDefault().getLog().log(
+							new Status(IStatus.ERROR, TransformerUiPlugin.PLUGIN_ID,
+									MessageFormat.format("Unable to open ''{0}'' in the workspace", observableLocation.getValue()), e));
+
+				}
+			}
+		}
 	}
 }
