@@ -29,10 +29,27 @@ import io.github.abelgomez.cpntools.Trans;
 import io.github.abelgomez.cpntools.io.serializer.CpnToolsBuilder;
 import io.github.abelgomez.cpntools.io.serializer.SerializationException;
 
+/**
+ *
+ * Simple class that demonstrates how the {@link CpnToolsBuilder} class is used
+ * to serialize a {@link Cpnet}
+ * 
+ * @author Abel Gómez (agomezlla@uoc.edu)
+ *
+ */
 public class CpnToolsBuilderTest {
+
+	private static final String TEST_FILE = "test.cpn";
 
 	@Test
 	public void test() throws FileNotFoundException, SerializationException {
+		Cpnet net = buildSampleNet();
+		CpnToolsBuilder builder = new CpnToolsBuilder(net);
+		builder.serialize(System.out);
+		builder.serialize(new FileOutputStream(new File(TEST_FILE)));
+	}
+
+	private Cpnet buildSampleNet() {
 		Cpnet net = CpntoolsFactory.eINSTANCE.createCpnet();
 		Page page = CpntoolsFactory.eINSTANCE.createPage();
 		Globbox globbox = CpntoolsFactory.eINSTANCE.createGlobbox();
@@ -43,35 +60,32 @@ public class CpnToolsBuilderTest {
 		page.setHeight(500);
 		net.setPage(page);
 		net.setGlobbox(globbox);
-		
+
 		Enumerated enumerated = CpntoolsFactory.eINSTANCE.createEnumerated();
 		globbox.getDeclarations().add(enumerated);
 
 		enumerated.setColorSetType("Type");
 		Place place = CpntoolsFactory.eINSTANCE.createPlace();
 		place.setType(enumerated);
-		
+
 		Trans trans = CpntoolsFactory.eINSTANCE.createTrans();
 		trans.setText("Text");
-		
+
 		Annot annot = CpntoolsFactory.eINSTANCE.createAnnot();
 		annot.setText("Annot");
-		
+
 		Arc arc = CpntoolsFactory.eINSTANCE.createArc();
 		arc.setPlace(place);
 		arc.setTrans(trans);
 		arc.setOrientation(Orientation.PTO_T);
 		arc.setAnnot(annot);
-				
+
 		page.getPlaces().add(place);
 		page.getTranss().add(trans);
 		page.getArcs().add(arc);
-		
+
 		page.layout(500, 500, 5000);
-		
-		CpnToolsBuilder builder = new CpnToolsBuilder(net);
-		builder.serialize(System.out);
-		builder.serialize(new FileOutputStream(new File("C:/Users/agomez/Desktop/test.cpn")));
+		return net;
 	}
 
 }
