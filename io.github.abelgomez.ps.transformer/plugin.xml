@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
-   <extension-point id="io.github.abelgomez.ps.transformer.uri_provider" name="Publish-Subscribe Transformer URI Provider" schema="schema/uri_provider.exsd"/>
+   <extension-point id="uri_provider" name="Publish-Subscribe Transformer URI Provider" schema="schema/uri_provider.exsd"/>
 
    <extension
          point="io.github.abelgomez.ps.transformer.uri_provider">
       <URI
-            priority="0"
-            uri="platform:/plugin/io.github.abelgomez.ps.transformer/transformation/ps2cpntools.qvto">
+            priority="5"
+            provider="io.github.abelgomez.ps.transformer.DefaultUriProvider">
       </URI>
    </extension>
 

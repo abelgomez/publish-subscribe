@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.MultiStatus;
@@ -29,7 +30,7 @@ public class PublishSubscribeTransformer {
 
 	private static final String POINT_ID = "io.github.abelgomez.ps.transformer.uri_provider"; //$NON-NLS-1$
 
-	private static final String EXT_URI = "uri"; //$NON-NLS-1$
+	private static final String EXT_PROVIDER = "provider"; //$NON-NLS-1$
 
 	private static final String EXT_PRIORITY = "priority"; //$NON-NLS-1$
 	
@@ -96,7 +97,11 @@ public class PublishSubscribeTransformer {
 			} catch (NumberFormatException e) {
 			}
 			if (newPriority >= priority) {
-				uri = URI.createURI(element.getAttribute(EXT_URI));
+				try {
+					uri = ((IUriProvider) element.createExecutableExtension(EXT_PROVIDER)).getUri();
+				} catch (CoreException e) {
+					throw new RuntimeException(MessageFormat.format("Unable to retrieve URI for ''{0}''", element), e);
+				}
 			}
 		}
 		return uri;

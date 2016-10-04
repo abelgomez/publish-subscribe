@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- Schema file written by PDE -->
-<schema targetNamespace="io.github.abelgomez.ps.transformer.ui" xmlns="http://www.w3.org/2001/XMLSchema">
+<schema targetNamespace="io.github.abelgomez.ps.transformer" xmlns="http://www.w3.org/2001/XMLSchema">
 <annotation>
       <appinfo>
-         <meta.schema plugin="io.github.abelgomez.ps.transformer.ui" id="io.github.abelgomez.ps.transformer.uri_provider" name="Publish-Subscribe Transformer URI Provider"/>
+         <meta.schema plugin="io.github.abelgomez.ps.transformer" id="io.github.abelgomez.ps.transformer.uri_provider" name="Publish-Subscribe Transformer URI Provider"/>
       </appinfo>
       <documentation>
          [Enter description of this extension point.]
@@ -49,17 +49,20 @@
 
    <element name="URI">
       <complexType>
-         <attribute name="uri" type="string" use="required">
+         <attribute name="provider" type="string" use="required">
             <annotation>
                <documentation>
-                  URI of a QVTo transformation
+                  Class implementing a IUriProvider of a QVTo transformation
                </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":io.github.abelgomez.ps.transformer.IUriProvider"/>
+               </appinfo>
             </annotation>
          </attribute>
          <attribute name="priority" type="string" use="required">
             <annotation>
                <documentation>
-                  Priority (integer value) of the QVTo transformation denoted by &apos;uri&apos;. If the entered value cannot be parsed as a integer value, the priority will be the lowest possible.
+                  Priority (integer value) of the QVTo transformation denoted by &apos;provider&apos;. If the entered value cannot be parsed as an integer value, the priority will be the lowest possible.
                </documentation>
             </annotation>
          </attribute>
