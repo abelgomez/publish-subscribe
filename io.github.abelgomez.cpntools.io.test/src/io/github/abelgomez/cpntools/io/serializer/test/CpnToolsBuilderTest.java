@@ -14,9 +14,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.TransformerException;
-
 import org.junit.Test;
 
 import io.github.abelgomez.cpntools.Annot;
@@ -30,11 +27,12 @@ import io.github.abelgomez.cpntools.Page;
 import io.github.abelgomez.cpntools.Place;
 import io.github.abelgomez.cpntools.Trans;
 import io.github.abelgomez.cpntools.io.serializer.CpnToolsBuilder;
+import io.github.abelgomez.cpntools.io.serializer.SerializationException;
 
 public class CpnToolsBuilderTest {
 
 	@Test
-	public void test() throws ParserConfigurationException, TransformerException, FileNotFoundException {
+	public void test() throws FileNotFoundException, SerializationException {
 		Cpnet net = CpntoolsFactory.eINSTANCE.createCpnet();
 		Page page = CpntoolsFactory.eINSTANCE.createPage();
 		Globbox globbox = CpntoolsFactory.eINSTANCE.createGlobbox();
