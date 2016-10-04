@@ -13,12 +13,18 @@ package io.github.abelgomez.ps.transformer.ui;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
+/**
+ * Activator class for the Publish-Subscribe Transformer UI Plug-in
+ * 
+ * @author Abel Gómez (agomezlla@uoc.edu)
+ *
+ */
 public class TransformerUiPlugin extends AbstractUIPlugin {
 
 	public static final String PLUGIN_ID = "io.github.abelgomez.ps.transformer.ui"; //$NON-NLS-1$
 
 	private static TransformerUiPlugin plugin;
-	
+
 	public TransformerUiPlugin() {
 	}
 

@@ -18,11 +18,17 @@ import org.eclipse.papyrus.infra.services.resourceloading.OnDemandLoadingModelSe
 import org.eclipse.papyrus.uml.tools.model.UmlModel;
 import org.eclipse.papyrus.uml.tools.model.UmlUtils;
 
+/**
+ * {@link IAdapterFactory} to adapt {@link IResource}s into Papyrus
+ * {@link UmlModel}s
+ * 
+ * @author Abel Gómez (agomezlla@uoc.edu)
+ *
+ */
 public class UmlModelAdapterFactory implements IAdapterFactory {
 
 	private final Class<?>[] adapterTypes = { UmlModel.class };
 
-	
 	@Override
 	public <T> T getAdapter(Object adaptableObject, Class<T> adapterType) {
 		IResource resource = Platform.getAdapterManager().getAdapter(adaptableObject, IResource.class);
