@@ -1,15 +1,23 @@
-/**
- */
+/*******************************************************************************
+ * Copyright (c) 2016 Abel Gómez.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Abel Gómez (agomezlla@uoc.edu) - initial API and implementation
+ *******************************************************************************/
 package io.github.abelgomez.cpntools.impl;
 
 import io.github.abelgomez.cpntools.Arc;
 import io.github.abelgomez.cpntools.CpntoolsPackage;
 import io.github.abelgomez.cpntools.Page;
 import io.github.abelgomez.cpntools.Trans;
-
 import io.github.abelgomez.cpntools.TransCond;
 import io.github.abelgomez.cpntools.TransPriority;
 import io.github.abelgomez.cpntools.TransTime;
+
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;

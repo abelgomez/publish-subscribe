@@ -1,5 +1,13 @@
-/**
- */
+/*******************************************************************************
+ * Copyright (c) 2016 Abel Gómez.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Abel Gómez (agomezlla@uoc.edu) - initial API and implementation
+ *******************************************************************************/
 package io.github.abelgomez.cpntools.impl;
 
 import io.github.abelgomez.cpntools.Alias;
@@ -2122,6 +2130,26 @@ public class CpntoolsPackageImpl extends EPackageImpl implements CpntoolsPackage
 
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// http://www.obeo.fr/dsl/dnc/archetype
+		createArchetypeAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.obeo.fr/dsl/dnc/archetype</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createArchetypeAnnotations() {
+		String source = "http://www.obeo.fr/dsl/dnc/archetype";	
+		addAnnotation
+		  (globboxEClass, 
+		   source, 
+		   new String[] {
+			 "archetype", "Description"
+		   });
 	}
 
 } //CpntoolsPackageImpl

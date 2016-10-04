@@ -1,12 +1,24 @@
-/**
- */
+/*******************************************************************************
+ * Copyright (c) 2016 Abel Gómez.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Abel Gómez (agomezlla@uoc.edu) - initial API and implementation
+ *******************************************************************************/
 package io.github.abelgomez.cpntools.impl;
 
 import io.github.abelgomez.cpntools.CpntoolsPackage;
 import io.github.abelgomez.cpntools.Initmark;
+
 import java.lang.String;
+
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -32,6 +44,7 @@ public class InitmarkImpl extends DiagramElementImpl implements Initmark {
 	 * @ordered
 	 */
 	protected static final String EXPRESSION_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getExpression() <em>Expression</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -41,6 +54,7 @@ public class InitmarkImpl extends DiagramElementImpl implements Initmark {
 	 * @ordered
 	 */
 	protected String expression = EXPRESSION_EDEFAULT;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -100,7 +114,6 @@ public class InitmarkImpl extends DiagramElementImpl implements Initmark {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
