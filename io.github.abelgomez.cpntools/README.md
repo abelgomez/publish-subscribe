@@ -1,6 +1,6 @@
 # CPN Tools Metamodel Plug-in
 
-![CPN Tools metamodel](model/cpntools.pdf)
+![CPN Tools metamodel](model/cpntools.png)
 
 ## Modifications to the default generated code (i.e., @generated not)
 
