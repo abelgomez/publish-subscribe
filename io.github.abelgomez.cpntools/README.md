@@ -1,5 +1,7 @@
 # CPN Tools Metamodel Plug-in
 
+This plug-in contains the definition and implementation of the CPN Tools metamodel, according to the following specification.
+
 ![CPN Tools metamodel](model/cpntools.png)
 
 ## Modifications to the default generated code (i.e., @generated not)
