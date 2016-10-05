@@ -9,7 +9,6 @@
     Contributors:
         Abel Gómez (agomezlla@uoc.edu) - initial API and implementation
  -->
-
 <feature
       id="io.github.abelgomez.ps.sdk.feature"
       label="Publish-Subscribe Profile SDK"
@@ -122,5 +121,19 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <import feature="org.eclipse.papyrus.sdk.feature" version="2.0.0.201606080854"/>
       <import feature="org.eclipse.m2m.qvt.oml.sdk" version="3.6.0.v20160606-1156"/>
    </requires>
+
+   <plugin
+         id="io.github.abelgomez.cpntools.io.test"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="io.github.abelgomez.ps.transformer.test"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
 
 </feature>
