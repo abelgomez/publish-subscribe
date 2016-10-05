@@ -1,6 +1,6 @@
 # CPN Tools Metamodel Plug-in
 
-## Modifications to the default generated code (@generated not)
+## Modifications to the default generated code (i.e., @generated not)
 
 ### `io.github.abelgomez.cpntools.impl.CompoundColorSetImpl#getSimpleColors()`
 
