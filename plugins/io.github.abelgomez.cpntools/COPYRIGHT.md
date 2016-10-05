@@ -1,1 +1,0 @@
-Abel Gómez Copyright (c) 2016

@@ -2,6 +2,8 @@
 
 This repository contains the plugins to transform services following the *publish-subscribe* paradigm into colored Petri nets. Models are created using Papyrus UML2. Such models are later  annotated with the provided *publish-subscribe* profile.
 
+This repository depends on the [CPN Tools Toolkit](https://github.com/SOM-Research/cpntools.toolkit).
+
 ## Quick Start
 
 Next, we describe how to start using the plugins provided in this repository.
@@ -86,18 +88,6 @@ Next image shows what the IDE looks like when the file is opened in the workbenc
 
 ### Plug-in Projects
 
-#### [io.github.abelgomez.cpntools](plugins/io.github.abelgomez.cpntools/README.md)
-
-EMF [metamodel](plugins/io.github.abelgomez.cpntools/model/cpntools.pdf) for the [CPN Tools](http://cpntools.org/) tool. The metamodel resembles the structure of the normative XML used by CPN Tools to persist Petri nets.
-
-#### [io.github.abelgomez.cpntools.io](plugins/io.github.abelgomez.cpntools.io)
-
-Plug-in containing the classes to serialize EMF-compatible Petri nets to the normative CPN Tools XML format.
-
-#### [io.github.abelgomez.cpntools.io.test](plugins/io.github.abelgomez.cpntools.io.test)
-
-Test plug-in containing some sample code demonstrating how the serialization is invoked.
-
 #### [io.github.abelgomez.ps.example](plugins/io.github.abelgomez.ps.example)
 
 Simple plug-in containing some example models.
@@ -120,13 +110,6 @@ Plug-in containing the UI contributions, i.e., preference pages, pop-up menus an
 
 ### Feature Projects
 
-#### [io.github.abelgomez.cpntools.feature](features/io.github.abelgomez.cpntools.feature)
-
-Feature for the CPN Tools metamodels and I/O utilities. Included plugins are:
-
-* io.github.abelgomez.cpntools
-* io.github.abelgomez.cpntools.io
-
 #### [io.github.abelgomez.ps.feature](features/io.github.abelgomez.ps.feature)
 
 Feature for the Publish-Subscribe profile and associated transformations. Included plugins are:
@@ -142,7 +125,6 @@ Feature for the UI contributions. Included plugins are:
 
 #### [io.github.abelgomez.ps.sdk.feature](features/io.github.abelgomez.ps.sdk.feature)
 
-Feature for the SDK. Includes all the previous features, together with QVTo SDK and Papyrus SDK. Additions included plugins are:
+Feature for the SDK. Includes all the previous features, together with the CPN Tools Toolkit SDK, QVTo SDK and Papyrus SDK. Additional included plugins are:
 
-* io.github.abelgomez.cpntools.io.test
 * io.github.abelgomez.ps.transformer.test
