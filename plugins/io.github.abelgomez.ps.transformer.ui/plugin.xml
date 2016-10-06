@@ -50,7 +50,11 @@
             </command>
             <visibleWhen
                   checkEnabled="false">
-               <iterate>
+               <and>
+                  <count
+                        value="+">
+                  </count>
+                                 <iterate>
                   <or>
                      <adapt
                            type="org.eclipse.papyrus.infra.onefile.model.IPapyrusElement">
@@ -79,6 +83,8 @@
                      </and>
                   </or>
                </iterate>
+               </and>
+
             </visibleWhen>
          </menu>
       </menuContribution>
