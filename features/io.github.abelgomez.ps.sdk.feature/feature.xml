@@ -11,7 +11,7 @@
  -->
 <feature
       id="io.github.abelgomez.ps.sdk.feature"
-      label="Publish-Subscribe Profile SDK"
+      label="Publish-Subscribe Tools SDK"
       version="0.1.0.qualifier"
       provider-name="Abel Gómez">
 

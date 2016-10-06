@@ -9,10 +9,9 @@
     Contributors:
         Abel Gómez (agomezlla@uoc.edu) - initial API and implementation
  -->
-
 <feature
       id="io.github.abelgomez.ps.ui.feature"
-      label="Publish-Subscribe Profile UI"
+      label="Publish-Subscribe Tools UI"
       version="0.1.0.qualifier"
       provider-name="Abel Gómez">
 
