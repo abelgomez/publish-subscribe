@@ -123,6 +123,7 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <import plugin="org.eclipse.papyrus.infra.services.resourceloading" version="2.0.0" match="greaterOrEqual"/>
       <import plugin="io.github.abelgomez.ps.transformer" version="0.1.0" match="greaterOrEqual"/>
       <import plugin="io.github.abelgomez.cpntools.io" version="0.1.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.papyrus.sdk.feature" version="2.0.0.201606080854"/>
    </requires>
 
    <plugin
