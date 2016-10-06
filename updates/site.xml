@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site
+      associateSitesURL="https://som-research.github.io/publish-subscribe/updates/associateSites.xml">
+   <description name="Publish-Subscribe Tools" url="https://som-research.github.io/publish-subscribe/updates/">
+      This repository contains the plugins to transform services following the publish-subscribe paradigm into colored Petri nets. Models are created using Papyrus UML2. Such models are later annotated with the provided publish-subscribe profile.
+   </description>
+   <feature url="features/io.github.abelgomez.ps.feature_0.1.0.201610071255.jar" id="io.github.abelgomez.ps.feature" version="0.1.0.201610071255">
+      <category name="Publish-Subscribe Tools"/>
+   </feature>
+   <feature url="features/io.github.abelgomez.ps.ui.feature_0.1.0.201610071255.jar" id="io.github.abelgomez.ps.ui.feature" version="0.1.0.201610071255">
+      <category name="Publish-Subscribe Tools"/>
+   </feature>
+   <feature url="features/io.github.abelgomez.ps.sdk.feature_0.1.0.201610071255.jar" id="io.github.abelgomez.ps.sdk.feature" version="0.1.0.201610071255">
+      <category name="Publish-Subscribe Tools SDK"/>
+   </feature>
+   <category-def name="Publish-Subscribe Tools" label="Publish-Subscribe Tools">
+      <description>
+         Plug-ins to create and transform UML2 files profiled using the Publish-Subscribe profile.
+      </description>
+   </category-def>
+   <category-def name="Publish-Subscribe Tools SDK" label="Publish-Subscribe Tools SDK">
+      <description>
+         Plug-ins suppoorting the development of tools to create and transform UML2 files profiled using the Publish-Subscribe profile. May install SDK components from other update sites, including the Eclipse site.
+      </description>
+   </category-def>
+</site>
