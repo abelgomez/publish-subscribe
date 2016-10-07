@@ -86,7 +86,7 @@ The location of the file containing specific transformation to be executed can b
 
 In addition, by using the *Edit this file in the workspace* link, the file is opened into the Eclipse platform with the default QVTo editor. Changes done in this editor are directly reflected in the transformation, which allows direclty customizing the QVT transformation easily without rebuilding the plug-ins.
 
-Next image shows what the IDE looks like when the file is opened in the workbench. Once the file has been opened, the rpeferences window can be close to proceed with the editing.
+Next image shows what the IDE looks like when the file is opened in the workbench. Once the file has been opened, the preferences window can be closed to proceed with the editing.
 
 ![Transformation shown in the QVTo editor](docs/images/15-edit-transformation.png)
 
