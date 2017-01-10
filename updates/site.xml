@@ -13,6 +13,15 @@
    <feature url="features/io.github.abelgomez.ps.sdk.feature_0.1.0.201610071255.jar" id="io.github.abelgomez.ps.sdk.feature" version="0.1.0.201610071255">
       <category name="Publish-Subscribe Tools SDK"/>
    </feature>
+   <feature url="features/io.github.abelgomez.ps.feature_0.1.1.201701101933.jar" id="io.github.abelgomez.ps.feature" version="0.1.1.201701101933">
+      <category name="Publish-Subscribe Tools"/>
+   </feature>
+   <feature url="features/io.github.abelgomez.ps.ui.feature_0.1.1.201701101933.jar" id="io.github.abelgomez.ps.ui.feature" version="0.1.1.201701101933">
+      <category name="Publish-Subscribe Tools"/>
+   </feature>
+   <feature url="features/io.github.abelgomez.ps.sdk.feature_0.1.1.201701101933.jar" id="io.github.abelgomez.ps.sdk.feature" version="0.1.1.201701101933">
+      <category name="Publish-Subscribe Tools SDK"/>
+   </feature>
    <category-def name="Publish-Subscribe Tools" label="Publish-Subscribe Tools">
       <description>
          Plug-ins to create and transform UML2 files profiled using the Publish-Subscribe profile.
