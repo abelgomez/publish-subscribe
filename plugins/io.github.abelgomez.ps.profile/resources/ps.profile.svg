@@ -7,55 +7,47 @@
 <stop stop-opacity="1" stop-color="white" offset="0%"/>
 <stop stop-opacity="1" stop-color="rgb(195,209,213)" offset="100%"/>
 </linearGradient>
-<linearGradient x1="545" x2="545" y1="161" gradientUnits="userSpaceOnUse" y2="225" xlink:type="simple" xlink:actuate="onLoad" id="linearGradient2" xlink:show="other" spreadMethod="pad">
+<linearGradient x1="795" x2="795" y1="290" gradientUnits="userSpaceOnUse" y2="354" xlink:type="simple" xlink:actuate="onLoad" id="linearGradient2" xlink:show="other" spreadMethod="pad">
 <stop stop-opacity="1" stop-color="white" offset="0%"/>
 <stop stop-opacity="1" stop-color="rgb(195,209,213)" offset="100%"/>
 </linearGradient>
-<linearGradient x1="795" x2="795" y1="290" gradientUnits="userSpaceOnUse" y2="354" xlink:type="simple" xlink:actuate="onLoad" id="linearGradient3" xlink:show="other" spreadMethod="pad">
+<linearGradient x1="787" x2="787" y1="161" gradientUnits="userSpaceOnUse" y2="225" xlink:type="simple" xlink:actuate="onLoad" id="linearGradient3" xlink:show="other" spreadMethod="pad">
 <stop stop-opacity="1" stop-color="white" offset="0%"/>
 <stop stop-opacity="1" stop-color="rgb(195,209,213)" offset="100%"/>
 </linearGradient>
-<linearGradient x1="787" x2="787" y1="161" gradientUnits="userSpaceOnUse" y2="225" xlink:type="simple" xlink:actuate="onLoad" id="linearGradient4" xlink:show="other" spreadMethod="pad">
+<linearGradient x1="469" x2="469" y1="432" gradientUnits="userSpaceOnUse" y2="504" xlink:type="simple" xlink:actuate="onLoad" id="linearGradient4" xlink:show="other" spreadMethod="pad">
 <stop stop-opacity="1" stop-color="white" offset="0%"/>
 <stop stop-opacity="1" stop-color="rgb(195,209,213)" offset="100%"/>
 </linearGradient>
-<linearGradient x1="469" x2="469" y1="432" gradientUnits="userSpaceOnUse" y2="504" xlink:type="simple" xlink:actuate="onLoad" id="linearGradient5" xlink:show="other" spreadMethod="pad">
+<linearGradient x1="454" x2="454" y1="616" gradientUnits="userSpaceOnUse" y2="687" xlink:type="simple" xlink:actuate="onLoad" id="linearGradient5" xlink:show="other" spreadMethod="pad">
 <stop stop-opacity="1" stop-color="white" offset="0%"/>
 <stop stop-opacity="1" stop-color="rgb(195,209,213)" offset="100%"/>
 </linearGradient>
-<linearGradient x1="454" x2="454" y1="616" gradientUnits="userSpaceOnUse" y2="687" xlink:type="simple" xlink:actuate="onLoad" id="linearGradient6" xlink:show="other" spreadMethod="pad">
+<linearGradient x1="44" x2="44" y1="511" gradientUnits="userSpaceOnUse" y2="626" xlink:type="simple" xlink:actuate="onLoad" id="linearGradient6" xlink:show="other" spreadMethod="pad">
 <stop stop-opacity="1" stop-color="white" offset="0%"/>
 <stop stop-opacity="1" stop-color="rgb(195,209,213)" offset="100%"/>
 </linearGradient>
-<linearGradient x1="44" x2="44" y1="511" gradientUnits="userSpaceOnUse" y2="626" xlink:type="simple" xlink:actuate="onLoad" id="linearGradient7" xlink:show="other" spreadMethod="pad">
+<linearGradient x1="10" x2="10" y1="376" gradientUnits="userSpaceOnUse" y2="480" xlink:type="simple" xlink:actuate="onLoad" id="linearGradient7" xlink:show="other" spreadMethod="pad">
 <stop stop-opacity="1" stop-color="white" offset="0%"/>
 <stop stop-opacity="1" stop-color="rgb(195,209,213)" offset="100%"/>
 </linearGradient>
-<linearGradient x1="10" x2="10" y1="376" gradientUnits="userSpaceOnUse" y2="480" xlink:type="simple" xlink:actuate="onLoad" id="linearGradient8" xlink:show="other" spreadMethod="pad">
+<linearGradient x1="452" x2="452" y1="286" gradientUnits="userSpaceOnUse" y2="418" xlink:type="simple" xlink:actuate="onLoad" id="linearGradient8" xlink:show="other" spreadMethod="pad">
 <stop stop-opacity="1" stop-color="white" offset="0%"/>
 <stop stop-opacity="1" stop-color="rgb(195,209,213)" offset="100%"/>
 </linearGradient>
-<linearGradient x1="452" x2="452" y1="286" gradientUnits="userSpaceOnUse" y2="418" xlink:type="simple" xlink:actuate="onLoad" id="linearGradient9" xlink:show="other" spreadMethod="pad">
-<stop stop-opacity="1" stop-color="white" offset="0%"/>
-<stop stop-opacity="1" stop-color="rgb(195,209,213)" offset="100%"/>
-</linearGradient>
-<linearGradient x1="275" x2="275" y1="11" gradientUnits="userSpaceOnUse" y2="61" xlink:type="simple" xlink:actuate="onLoad" id="linearGradient10" xlink:show="other" spreadMethod="pad">
+<linearGradient x1="275" x2="275" y1="11" gradientUnits="userSpaceOnUse" y2="61" xlink:type="simple" xlink:actuate="onLoad" id="linearGradient9" xlink:show="other" spreadMethod="pad">
 <stop stop-opacity="1" stop-color="white" offset="0%"/>
 <stop stop-opacity="1" stop-color="rgb(195,215,221)" offset="100%"/>
 </linearGradient>
-<linearGradient x1="547" x2="547" y1="58" gradientUnits="userSpaceOnUse" y2="108" xlink:type="simple" xlink:actuate="onLoad" id="linearGradient11" xlink:show="other" spreadMethod="pad">
+<linearGradient x1="499" x2="499" y1="537" gradientUnits="userSpaceOnUse" y2="587" xlink:type="simple" xlink:actuate="onLoad" id="linearGradient10" xlink:show="other" spreadMethod="pad">
 <stop stop-opacity="1" stop-color="white" offset="0%"/>
 <stop stop-opacity="1" stop-color="rgb(195,215,221)" offset="100%"/>
 </linearGradient>
-<linearGradient x1="499" x2="499" y1="537" gradientUnits="userSpaceOnUse" y2="587" xlink:type="simple" xlink:actuate="onLoad" id="linearGradient12" xlink:show="other" spreadMethod="pad">
+<linearGradient x1="156" x2="156" y1="10" gradientUnits="userSpaceOnUse" y2="60" xlink:type="simple" xlink:actuate="onLoad" id="linearGradient11" xlink:show="other" spreadMethod="pad">
 <stop stop-opacity="1" stop-color="white" offset="0%"/>
 <stop stop-opacity="1" stop-color="rgb(195,215,221)" offset="100%"/>
 </linearGradient>
-<linearGradient x1="156" x2="156" y1="10" gradientUnits="userSpaceOnUse" y2="60" xlink:type="simple" xlink:actuate="onLoad" id="linearGradient13" xlink:show="other" spreadMethod="pad">
-<stop stop-opacity="1" stop-color="white" offset="0%"/>
-<stop stop-opacity="1" stop-color="rgb(195,215,221)" offset="100%"/>
-</linearGradient>
-<linearGradient x1="787" x2="787" y1="63" gradientUnits="userSpaceOnUse" y2="113" xlink:type="simple" xlink:actuate="onLoad" id="linearGradient14" xlink:show="other" spreadMethod="pad">
+<linearGradient x1="787" x2="787" y1="63" gradientUnits="userSpaceOnUse" y2="113" xlink:type="simple" xlink:actuate="onLoad" id="linearGradient12" xlink:show="other" spreadMethod="pad">
 <stop stop-opacity="1" stop-color="white" offset="0%"/>
 <stop stop-opacity="1" stop-color="rgb(195,215,221)" offset="100%"/>
 </linearGradient>
@@ -102,451 +94,397 @@
 <path d="M203 116 L348 116 L348 244 L203 244 L203 116 Z"/>
 </clipPath>
 <clipPath clipPathUnits="userSpaceOnUse" id="clipPath15">
-<path d="M545 161 L545 224 L644 224 L644 161 Z"/>
-</clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath16">
-<path d="M560 163 L631 163 L631 180 L560 180 L560 163 Z"/>
-</clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath17">
-<path d="M575 179 L616 179 L616 196 L575 196 L575 179 Z"/>
-</clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath18">
-<path d="M545 195 L646 195 L646 211 L545 211 L545 195 Z"/>
-</clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath19">
-<path d="M545 210 L646 210 L646 226 L545 226 L545 210 Z"/>
-</clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath20">
-<path d="M544 160 L646 160 L646 226 L544 226 L544 160 Z"/>
-</clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath21">
 <path d="M795 290 L795 353 L894 353 L894 290 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath22">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath16">
 <path d="M810 292 L881 292 L881 309 L810 309 L810 292 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath23">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath17">
 <path d="M829 308 L863 308 L863 325 L829 325 L829 308 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath24">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath18">
 <path d="M795 324 L896 324 L896 340 L795 340 L795 324 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath25">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath19">
 <path d="M795 339 L896 339 L896 355 L795 355 L795 339 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath26">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath20">
 <path d="M794 289 L896 289 L896 355 L794 355 L794 289 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath27">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath21">
 <path d="M787 161 L787 224 L886 224 L886 161 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath28">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath22">
 <path d="M802 163 L873 163 L873 180 L802 180 L802 163 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath29">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath23">
 <path d="M818 179 L858 179 L858 196 L818 196 L818 179 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath30">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath24">
 <path d="M787 195 L888 195 L888 211 L787 211 L787 195 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath31">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath25">
 <path d="M787 210 L888 210 L888 226 L787 226 L787 210 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath32">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath26">
 <path d="M786 160 L888 160 L888 226 L786 226 L786 160 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath33">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath27">
 <path d="M469 432 L469 503 L629 503 L629 432 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath34">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath28">
 <path d="M515 434 L586 434 L586 451 L515 451 L515 434 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath35">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath29">
 <path d="M533 450 L568 450 L568 467 L533 467 L533 450 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath36">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath30">
 <path d="M474 468 L627 468 L627 486 L474 486 L474 468 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath37">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath31">
 <path d="M493 468 L623 468 L623 485 L493 485 L493 468 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath38">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath32">
 <path d="M469 466 L631 466 L631 489 L469 489 L469 466 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath39">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath33">
 <path d="M469 488 L631 488 L631 505 L469 505 L469 488 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath40">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath34">
 <path d="M468 431 L631 431 L631 505 L468 505 L468 431 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath41">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath35">
 <path d="M454 616 L454 686 L644 686 L644 616 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath42">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath36">
 <path d="M515 618 L586 618 L586 635 L515 635 L515 618 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath43">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath37">
 <path d="M534 634 L567 634 L567 651 L534 651 L534 634 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath44">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath38">
 <path d="M459 652 L642 652 L642 670 L459 670 L459 652 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath45">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath39">
 <path d="M478 652 L642 652 L642 669 L478 669 L478 652 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath46">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath40">
 <path d="M454 650 L646 650 L646 672 L454 672 L454 650 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath47">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath41">
 <path d="M454 671 L646 671 L646 688 L454 688 L454 671 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath48">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath42">
 <path d="M453 615 L646 615 L646 688 L453 688 L453 615 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath49">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath43">
 <path d="M44 511 L44 625 L143 625 L143 511 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath50">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath44">
 <path d="M53 513 L136 513 L136 530 L53 530 L53 513 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath51">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath45">
 <path d="M44 529 L145 529 L145 547 L44 547 L44 529 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath52">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath46">
 <path d="M79 529 L129 529 L129 546 L79 546 L79 529 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath53">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath47">
 <path d="M49 548 L141 548 L141 566 L49 566 L49 548 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath54">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath48">
 <path d="M68 548 L104 548 L104 565 L68 565 L68 548 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath55">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath49">
 <path d="M49 564 L141 564 L141 582 L49 582 L49 564 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath56">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath50">
 <path d="M68 564 L93 564 L93 581 L68 581 L68 564 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath57">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath51">
 <path d="M49 580 L141 580 L141 598 L49 598 L49 580 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath58">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath52">
 <path d="M68 580 L96 580 L96 597 L68 597 L68 580 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath59">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath53">
 <path d="M49 596 L141 596 L141 614 L49 614 L49 596 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath60">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath54">
 <path d="M68 596 L86 596 L86 613 L68 613 L68 596 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath61">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath55">
 <path d="M44 546 L145 546 L145 627 L44 627 L44 546 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath62">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath56">
 <path d="M43 510 L145 510 L145 627 L43 627 L43 510 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath63">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath57">
 <path d="M10 376 L10 479 L179 479 L179 376 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath64">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath58">
 <path d="M64 378 L128 378 L128 395 L64 395 L64 378 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath65">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath59">
 <path d="M52 394 L140 394 L140 411 L52 411 L52 394 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath66">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath60">
 <path d="M15 412 L177 412 L177 430 L15 430 L15 412 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath67">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath61">
 <path d="M34 412 L177 412 L177 429 L34 429 L34 412 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath68">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath62">
 <path d="M15 428 L177 428 L177 446 L15 446 L15 428 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath69">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath63">
 <path d="M34 428 L157 428 L157 445 L34 445 L34 428 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath70">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath64">
 <path d="M10 410 L181 410 L181 458 L10 458 L10 410 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath71">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath65">
 <path d="M10 457 L181 457 L181 481 L10 481 L10 457 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath72">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath66">
 <path d="M9 375 L181 375 L181 481 L9 481 L9 375 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath73">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath67">
 <path d="M452 286 L452 417 L658 417 L658 286 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath74">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath68">
 <path d="M521 288 L592 288 L592 305 L521 305 L521 288 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath75">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath69">
 <path d="M522 304 L590 304 L590 321 L522 321 L522 304 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath76">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath70">
 <path d="M457 322 L656 322 L656 340 L457 340 L457 322 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath77">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath71">
 <path d="M476 322 L613 322 L613 339 L476 339 L476 322 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath78">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath72">
 <path d="M457 338 L656 338 L656 356 L457 356 L457 338 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath79">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath73">
 <path d="M476 338 L614 338 L614 355 L476 355 L476 338 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath80">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath74">
 <path d="M457 354 L656 354 L656 372 L457 372 L457 354 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath81">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath75">
 <path d="M476 354 L656 354 L656 371 L476 371 L476 354 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath82">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath76">
 <path d="M457 370 L656 370 L656 388 L457 388 L457 370 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath83">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath77">
 <path d="M476 370 L619 370 L619 387 L476 387 L476 370 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath84">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath78">
 <path d="M452 320 L660 320 L660 397 L452 397 L452 320 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath85">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath79">
 <path d="M452 396 L660 396 L660 419 L452 419 L452 396 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath86">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath80">
 <path d="M451 285 L660 285 L660 419 L451 419 L451 285 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath87">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath81">
 <path d="M275 11 L275 60 L374 60 L374 11 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath88">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath82">
 <path d="M292 20 L359 20 L359 37 L292 37 L292 20 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath89">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath83">
 <path d="M305 36 L346 36 L346 53 L305 53 L305 36 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath90">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath84">
 <path d="M274 10 L376 10 L376 62 L274 62 L274 10 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath91">
-<path d="M547 58 L547 107 L646 107 L646 58 Z"/>
-</clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath92">
-<path d="M564 67 L631 67 L631 84 L564 84 L564 67 Z"/>
-</clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath93">
-<path d="M566 83 L629 83 L629 100 L566 100 L566 83 Z"/>
-</clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath94">
-<path d="M546 57 L648 57 L648 109 L546 109 L546 57 Z"/>
-</clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath95">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath85">
 <path d="M499 537 L499 586 L598 586 L598 537 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath96">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath86">
 <path d="M516 546 L583 546 L583 563 L516 563 L516 546 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath97">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath87">
 <path d="M525 562 L574 562 L574 579 L525 579 L525 562 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath98">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath88">
 <path d="M498 536 L600 536 L600 588 L498 588 L498 536 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath99">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath89">
 <path d="M156 10 L156 59 L255 59 L255 10 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath100">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath90">
 <path d="M173 19 L240 19 L240 36 L173 36 L173 19 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath101">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath91">
 <path d="M186 35 L228 35 L228 52 L186 52 L186 35 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath102">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath92">
 <path d="M155 9 L257 9 L257 61 L155 61 L155 9 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath103">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath93">
 <path d="M787 63 L787 112 L886 112 L886 63 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath104">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath94">
 <path d="M804 72 L871 72 L871 89 L804 89 L804 72 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath105">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath95">
 <path d="M822 88 L854 88 L854 105 L822 105 L822 88 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath106">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath96">
 <path d="M786 62 L888 62 L888 114 L786 114 L786 62 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath107">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath97">
 <path d="M-1 -1 L957 -1 L957 700 L-1 700 L-1 -1 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath108">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath98">
 <path d="M668 346 L735 346 L735 363 L668 363 L668 346 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath109">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath99">
 <path d="M745 307 L791 307 L791 324 L745 324 L745 307 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath110">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath100">
 <path d="M779 340 L791 340 L791 357 L779 357 L779 340 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath111">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath101">
 <path d="M683 312 L694 312 L694 329 L683 329 L683 312 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath112">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath102">
 <path d="M779 328 L797 328 L797 341 L779 341 L779 328 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath113">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath103">
 <path d="M658 328 L676 328 L676 341 L658 341 L658 328 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath114">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath104">
 <path d="M344 251 L406 251 L406 268 L344 268 L344 251 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath115">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath105">
 <path d="M383 312 L450 312 L450 329 L383 329 L383 312 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath116">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath106">
 <path d="M433 281 L444 281 L444 298 L433 298 L433 281 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath117">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath107">
 <path d="M305 253 L317 253 L317 270 L305 270 L305 253 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath118">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath108">
 <path d="M436 302 L454 302 L454 315 L436 315 L436 302 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath119">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath109">
 <path d="M319 242 L334 242 L334 263 L319 263 L319 242 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath120">
-<path d="M653 169 L708 169 L708 186 L653 186 L653 169 Z"/>
-</clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath121">
-<path d="M726 201 L779 201 L779 218 L726 218 L726 201 Z"/>
-</clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath122">
-<path d="M756 176 L767 176 L767 193 L756 193 L756 176 Z"/>
-</clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath123">
-<path d="M665 205 L677 205 L677 222 L665 222 L665 205 Z"/>
-</clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath124">
-<path d="M771 187 L789 187 L789 200 L771 200 L771 187 Z"/>
-</clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath125">
-<path d="M644 186 L665 186 L665 201 L644 201 L644 186 Z"/>
-</clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath126">
-<path d="M356 147 L418 147 L418 164 L356 164 L356 147 Z"/>
-</clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath127">
-<path d="M488 181 L543 181 L543 198 L488 198 L488 181 Z"/>
-</clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath128">
-<path d="M521 152 L532 152 L532 169 L521 169 L521 152 Z"/>
-</clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath129">
-<path d="M365 191 L377 191 L377 208 L365 208 L365 191 Z"/>
-</clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath130">
-<path d="M529 167 L547 167 L547 180 L529 180 L529 167 Z"/>
-</clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath131">
-<path d="M346 166 L367 166 L367 181 L346 181 L346 166 Z"/>
-</clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath132">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath110">
 <path d="M652 442 L700 442 L700 459 L652 459 L652 442 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath133">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath111">
 <path d="M768 360 L814 360 L814 377 L768 377 L768 360 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath134">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath112">
 <path d="M798 378 L809 378 L809 395 L798 395 L798 378 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath135">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath113">
 <path d="M661 477 L673 477 L673 494 L661 494 L661 477 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath136">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath114">
 <path d="M813 353 L826 353 L826 371 L813 371 L813 353 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath137">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath115">
 <path d="M629 458 L650 458 L650 473 L629 473 L629 458 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath138">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath116">
 <path d="M675 626 L721 626 L721 643 L675 643 L675 626 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath139">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath117">
 <path d="M885 358 L931 358 L931 375 L885 375 L885 358 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath140">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath118">
 <path d="M854 363 L866 363 L866 380 L854 380 L854 363 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath141">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath119">
 <path d="M678 660 L689 660 L689 677 L678 677 L678 660 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath142">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath120">
 <path d="M869 353 L882 353 L882 371 L869 371 L869 353 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath143">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath121">
 <path d="M644 643 L665 643 L665 658 L644 658 L644 643 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath144">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath122">
 <path d="M227 260 L289 260 L289 277 L227 277 L227 260 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath145">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath123">
 <path d="M414 477 L462 477 L462 494 L414 494 L414 477 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath146">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath124">
 <path d="M442 449 L453 449 L453 466 L442 466 L442 449 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath147">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath125">
 <path d="M277 287 L289 287 L289 304 L277 304 L277 287 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath148">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath126">
 <path d="M453 465 L471 465 L471 478 L453 478 L453 465 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath149">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath127">
 <path d="M266 242 L281 242 L281 263 L266 263 L266 242 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath150">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath128">
 <path d="M145 270 L207 270 L207 287 L145 287 L145 270 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath151">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath129">
 <path d="M402 656 L448 656 L448 673 L402 673 L402 656 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath152">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath130">
 <path d="M428 628 L439 628 L439 645 L428 645 L428 628 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath153">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath131">
 <path d="M214 293 L226 293 L226 310 L214 310 L214 293 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath154">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath132">
 <path d="M438 644 L456 644 L456 657 L438 657 L438 644 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath155">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath133">
 <path d="M205 242 L220 242 L220 263 L205 263 L205 242 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath156">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath134">
 <path d="M309 60 L322 60 L322 78 L309 78 L309 60 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath157">
-<path d="M593 107 L606 107 L606 125 L593 125 L593 107 Z"/>
-</clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath158">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath135">
 <path d="M543 521 L556 521 L556 539 L543 539 L543 521 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath159">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath136">
 <path d="M544 586 L557 586 L557 604 L544 604 L544 586 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath160">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath137">
 <path d="M374 34 L392 34 L392 47 L374 47 L374 34 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath161">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath138">
 <path d="M483 556 L501 556 L501 569 L483 569 L483 556 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath162">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath139">
 <path d="M208 59 L221 59 L221 77 L208 77 L208 59 Z"/>
 </clipPath>
-<clipPath clipPathUnits="userSpaceOnUse" id="clipPath163">
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath140">
 <path d="M829 112 L842 112 L842 130 L829 130 L829 112 Z"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath141">
+<path d="M372 155 L439 155 L439 172 L372 172 L372 155 Z"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath142">
+<path d="M724 182 L777 182 L777 199 L724 199 L724 182 Z"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath143">
+<path d="M747 155 L759 155 L759 172 L747 172 L747 155 Z"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath144">
+<path d="M376 186 L387 186 L387 203 L376 203 L376 186 Z"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath145">
+<path d="M346 172 L367 172 L367 187 L346 187 L346 172 Z"/>
 </clipPath>
 </defs>
 <g fill="url(#linearGradient1)" font-family="'Segoe UI'" stroke-linejoin="round" stroke="url(#linearGradient1)" stroke-width="0" stroke-miterlimit="0">
@@ -566,203 +504,179 @@
 <line clip-path="url(#clipPath12)" fill="none" x1="204" x2="347" y1="152" y2="152"/>
 <line clip-path="url(#clipPath13)" fill="none" x1="204" x2="347" y1="223" y2="223"/>
 <rect x="204" y="117" clip-path="url(#clipPath14)" fill="none" width="142" rx="0" ry="0" height="125"/>
-<rect x="545" y="161" clip-path="url(#clipPath15)" fill="url(#linearGradient2)" width="100" height="64" stroke="none"/>
-<text xml:space="preserve" x="561" y="177" clip-path="url(#clipPath16)" stroke="none">«Stereotype»</text>
-<text xml:space="preserve" x="576" y="193" clip-path="url(#clipPath17)" stroke="none">Publish</text>
-<line clip-path="url(#clipPath18)" fill="none" x1="545" x2="645" y1="196" y2="196"/>
-<line clip-path="url(#clipPath19)" fill="none" x1="545" x2="645" y1="211" y2="211"/>
-<rect x="545" y="161" clip-path="url(#clipPath20)" fill="none" width="99" rx="0" ry="0" height="63"/>
-<rect x="795" y="290" clip-path="url(#clipPath21)" fill="url(#linearGradient3)" width="100" height="64" stroke="none"/>
-<text xml:space="preserve" x="811" y="306" clip-path="url(#clipPath22)" stroke="none">«Stereotype»</text>
-<text xml:space="preserve" x="830" y="322" clip-path="url(#clipPath23)" stroke="none">Client</text>
-<line clip-path="url(#clipPath24)" fill="none" x1="795" x2="895" y1="325" y2="325"/>
-<line clip-path="url(#clipPath25)" fill="none" x1="795" x2="895" y1="340" y2="340"/>
-<rect x="795" y="290" clip-path="url(#clipPath26)" fill="none" width="99" rx="0" ry="0" height="63"/>
-<rect x="787" y="161" clip-path="url(#clipPath27)" fill="url(#linearGradient4)" width="100" height="64" stroke="none"/>
-<text xml:space="preserve" x="803" y="177" clip-path="url(#clipPath28)" stroke="none">«Stereotype»</text>
-<text xml:space="preserve" x="819" y="193" clip-path="url(#clipPath29)" stroke="none">Service</text>
-<line clip-path="url(#clipPath30)" fill="none" x1="787" x2="887" y1="196" y2="196"/>
-<line clip-path="url(#clipPath31)" fill="none" x1="787" x2="887" y1="211" y2="211"/>
-<rect x="787" y="161" clip-path="url(#clipPath32)" fill="none" width="99" rx="0" ry="0" height="63"/>
-<rect x="469" y="432" clip-path="url(#clipPath33)" fill="url(#linearGradient5)" width="161" height="72" stroke="none"/>
-<text xml:space="preserve" x="516" y="448" clip-path="url(#clipPath34)" stroke="none">«Stereotype»</text>
-<text xml:space="preserve" x="534" y="464" clip-path="url(#clipPath35)" stroke="none">Getter</text>
-<image x="475" y="469" clip-path="url(#clipPath36)" width="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA00lEQVR42mNgGAWM&#13;&#10;ICJr1qH/pGqclmYH1ssCIn7/+ccwI8OeaM0ZMw/C2WADfgIN+At0Q8rUfRDR/zC3&#13;&#10;obGBYE62E8Ov339RDfjx6w/DHyjdne2G0+aSqbsZ/gAN/I5uwPefQAP+gWiIhCAL&#13;&#10;Ugj9R9Bgi/5D1KMY8A0o8Qso8e03ROL3f4g+EMEI88Z/hDoMA77/+gvW9P3HH4bI&#13;&#10;pvXYowtkKNC0P1CDUA0A2gwKxJUNgWCFyIGGHJAg6g/YK2hhAApVt/KVCOcyoIUB&#13;&#10;SqpBExv6AAAA13L8DwBmYwAAAABJRU5ErkJggg==" xlink:type="simple" xlink:actuate="onLoad" height="16" preserveAspectRatio="none" xlink:show="embed"/>
-<text xml:space="preserve" x="494" y="482" clip-path="url(#clipPath37)" stroke="none"> + varName: String [0..1]</text>
-<line clip-path="url(#clipPath38)" fill="none" x1="469" x2="630" y1="467" y2="467"/>
-<line clip-path="url(#clipPath39)" fill="none" x1="469" x2="630" y1="489" y2="489"/>
-<rect x="469" y="432" clip-path="url(#clipPath40)" fill="none" width="160" rx="0" ry="0" height="71"/>
-<rect x="454" y="616" clip-path="url(#clipPath41)" fill="url(#linearGradient6)" width="191" height="71" stroke="none"/>
-<text xml:space="preserve" x="516" y="632" clip-path="url(#clipPath42)" stroke="none">«Stereotype»</text>
-<text xml:space="preserve" x="535" y="648" clip-path="url(#clipPath43)" stroke="none">Setter</text>
-<image x="460" y="653" clip-path="url(#clipPath44)" width="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA00lEQVR42mNgGAWM&#13;&#10;ICJr1qH/pGqclmYH1ssCIn7/+ccwI8OeaM0ZMw/C2WADfgIN+At0Q8rUfRDR/zC3&#13;&#10;obGBYE62E8Ov339RDfjx6w/DHyjdne2G0+aSqbsZ/gAN/I5uwPefQAP+gWiIhCAL&#13;&#10;Ugj9R9Bgi/5D1KMY8A0o8Qso8e03ROL3f4g+EMEI88Z/hDoMA77/+gvW9P3HH4bI&#13;&#10;pvXYowtkKNC0P1CDUA0A2gwKxJUNgWCFyIGGHJAg6g/YK2hhAApVt/KVCOcyoIUB&#13;&#10;SqpBExv6AAAA13L8DwBmYwAAAABJRU5ErkJggg==" xlink:type="simple" xlink:actuate="onLoad" height="16" preserveAspectRatio="none" xlink:show="embed"/>
-<text xml:space="preserve" x="479" y="666" clip-path="url(#clipPath45)" stroke="none"> + value: UpdateOperator [0..1]</text>
-<line clip-path="url(#clipPath46)" fill="none" x1="454" x2="645" y1="651" y2="651"/>
-<line clip-path="url(#clipPath47)" fill="none" x1="454" x2="645" y1="672" y2="672"/>
-<rect x="454" y="616" clip-path="url(#clipPath48)" fill="none" width="190" rx="0" ry="0" height="70"/>
-<rect x="44" y="511" clip-path="url(#clipPath49)" fill="url(#linearGradient7)" width="100" height="115" stroke="none"/>
-<text xml:space="preserve" x="54" y="527" clip-path="url(#clipPath50)" stroke="none">«Enumeration»</text>
-<image x="61" y="530" clip-path="url(#clipPath51)" width="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABTUlEQVR42mNgGGjA&#13;&#10;CCIKFhz5/+DJJyj3PxAyQiQYkdggmf8IjYoyvAwTEmwYWUCc+48/MUxMswNrBhnC&#13;&#10;CNUB4QEN+c8INhtoHlSMgSF31kGwGrAB//7+Y+BgYwZrOXHjMYOFuhyDk2cBilP3&#13;&#10;7uhnOAmS05CFGPHvP8IAMIOZieHI1QcMdc1rGPatKAaLHdo9EcWvILmm2hAGG20F&#13;&#10;uDgTjMHKzAhWcHh1KZANEbZzzYdjkAUgOZAaFmZGuAFILmAEm24b2s1wfF0ZWOz0&#13;&#10;oakoIWcZ1AVWA7MAYQBQEcgGTxMVBgagAhaoAlO7bLjC80emgTWD1IDs/4ccBv//&#13;&#10;/2NgZmICe9THTBWs4NKxGZAYgMQsWMzXTA0eFf//owWif8NGaKQhSFhUIgckJGUA&#13;&#10;2dC4hhuwtMKLpBQY07kdNRbIBWAXqCgJw00kFoD0DA4AAKzIb179to3dAAAAAElF&#13;&#10;TkSuQmCC" xlink:type="simple" xlink:actuate="onLoad" height="16" preserveAspectRatio="none" xlink:show="embed"/>
-<text xml:space="preserve" x="80" y="543" clip-path="url(#clipPath52)" stroke="none">SignKind</text>
-<image x="50" y="549" clip-path="url(#clipPath53)" width="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAiElEQVR42mNgGAWM&#13;&#10;IKJgwZH/t+++AXP/I5Eg8B9N8X8gBNGqyiIMExJsGFlAEnfuvWVYWuFFks0xndvB&#13;&#10;NBOlXmBB5gi4lzCwsbIwcLCzMnBxcDBwc7Iz8HJyMPBwcTBwAWkuDjYGTnY2humF&#13;&#10;AdgN2NCdTZkLHPQUyTNARUkYHijEApCeUUAlAADmXxlFUHnZYAAAAABJRU5ErkJg&#13;&#10;gg==" xlink:type="simple" xlink:actuate="onLoad" height="16" preserveAspectRatio="none" xlink:show="embed"/>
-<text xml:space="preserve" x="69" y="562" clip-path="url(#clipPath54)" stroke="none">minus</text>
-<image x="50" y="565" clip-path="url(#clipPath55)" width="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAiElEQVR42mNgGAWM&#13;&#10;IKJgwZH/t+++AXP/I5Eg8B9N8X8gBNGqyiIMExJsGFlAEnfuvWVYWuFFks0xndvB&#13;&#10;NBOlXmBB5gi4lzCwsbIwcLCzMnBxcDBwc7Iz8HJyMPBwcTBwAWkuDjYGTnY2humF&#13;&#10;AdgN2NCdTZkLHPQUyTNARUkYHijEApCeUUAlAADmXxlFUHnZYAAAAABJRU5ErkJg&#13;&#10;gg==" xlink:type="simple" xlink:actuate="onLoad" height="16" preserveAspectRatio="none" xlink:show="embed"/>
-<text xml:space="preserve" x="69" y="578" clip-path="url(#clipPath56)" stroke="none">plus</text>
-<image x="50" y="581" clip-path="url(#clipPath57)" width="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAiElEQVR42mNgGAWM&#13;&#10;IKJgwZH/t+++AXP/I5Eg8B9N8X8gBNGqyiIMExJsGFlAEnfuvWVYWuFFks0xndvB&#13;&#10;NBOlXmBB5gi4lzCwsbIwcLCzMnBxcDBwc7Iz8HJyMPBwcTBwAWkuDjYGTnY2humF&#13;&#10;AdgN2NCdTZkLHPQUyTNARUkYHijEApCeUUAlAADmXxlFUHnZYAAAAABJRU5ErkJg&#13;&#10;gg==" xlink:type="simple" xlink:actuate="onLoad" height="16" preserveAspectRatio="none" xlink:show="embed"/>
-<text xml:space="preserve" x="69" y="594" clip-path="url(#clipPath58)" stroke="none">mult</text>
-<image x="50" y="597" clip-path="url(#clipPath59)" width="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAiElEQVR42mNgGAWM&#13;&#10;IKJgwZH/t+++AXP/I5Eg8B9N8X8gBNGqyiIMExJsGFlAEnfuvWVYWuFFks0xndvB&#13;&#10;NBOlXmBB5gi4lzCwsbIwcLCzMnBxcDBwc7Iz8HJyMPBwcTBwAWkuDjYGTnY2humF&#13;&#10;AdgN2NCdTZkLHPQUyTNARUkYHijEApCeUUAlAADmXxlFUHnZYAAAAABJRU5ErkJg&#13;&#10;gg==" xlink:type="simple" xlink:actuate="onLoad" height="16" preserveAspectRatio="none" xlink:show="embed"/>
-<text xml:space="preserve" x="69" y="610" clip-path="url(#clipPath60)" stroke="none">div</text>
-<line clip-path="url(#clipPath61)" fill="none" x1="44" x2="144" y1="547" y2="547"/>
-<rect x="44" y="511" clip-path="url(#clipPath62)" fill="none" width="99" rx="0" ry="0" height="114"/>
-<rect x="10" y="376" clip-path="url(#clipPath63)" fill="url(#linearGradient8)" width="170" height="104" stroke="none"/>
-<text xml:space="preserve" x="65" y="392" clip-path="url(#clipPath64)" stroke="none">«DataType»</text>
-<text xml:space="preserve" x="53" y="408" clip-path="url(#clipPath65)" stroke="none">UpdateOperator</text>
-<image x="16" y="413" clip-path="url(#clipPath66)" width="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA00lEQVR42mNgGAWM&#13;&#10;ICJr1qH/pGqclmYH1ssCIn7/+ccwI8OeaM0ZMw/C2WADfgIN+At0Q8rUfRDR/zC3&#13;&#10;obGBYE62E8Ov339RDfjx6w/DHyjdne2G0+aSqbsZ/gAN/I5uwPefQAP+gWiIhCAL&#13;&#10;Ugj9R9Bgi/5D1KMY8A0o8Qso8e03ROL3f4g+EMEI88Z/hDoMA77/+gvW9P3HH4bI&#13;&#10;pvXYowtkKNC0P1CDUA0A2gwKxJUNgWCFyIGGHJAg6g/YK2hhAApVt/KVCOcyoIUB&#13;&#10;SqpBExv6AAAA13L8DwBmYwAAAABJRU5ErkJggg==" xlink:type="simple" xlink:actuate="onLoad" height="16" preserveAspectRatio="none" xlink:show="embed"/>
-<text xml:space="preserve" x="35" y="426" clip-path="url(#clipPath67)" stroke="none"> + operator: SignKind [0..1]</text>
-<image x="16" y="429" clip-path="url(#clipPath68)" width="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA00lEQVR42mNgGAWM&#13;&#10;ICJr1qH/pGqclmYH1ssCIn7/+ccwI8OeaM0ZMw/C2WADfgIN+At0Q8rUfRDR/zC3&#13;&#10;obGBYE62E8Ov339RDfjx6w/DHyjdne2G0+aSqbsZ/gAN/I5uwPefQAP+gWiIhCAL&#13;&#10;Ugj9R9Bgi/5D1KMY8A0o8Qso8e03ROL3f4g+EMEI88Z/hDoMA77/+gvW9P3HH4bI&#13;&#10;pvXYowtkKNC0P1CDUA0A2gwKxJUNgWCFyIGGHJAg6g/YK2hhAApVt/KVCOcyoIUB&#13;&#10;SqpBExv6AAAA13L8DwBmYwAAAABJRU5ErkJggg==" xlink:type="simple" xlink:actuate="onLoad" height="16" preserveAspectRatio="none" xlink:show="embed"/>
-<text xml:space="preserve" x="35" y="442" clip-path="url(#clipPath69)" stroke="none"> + variable: String [0..1]</text>
-<line clip-path="url(#clipPath70)" fill="none" x1="10" x2="180" y1="411" y2="411"/>
-<line clip-path="url(#clipPath71)" fill="none" x1="10" x2="180" y1="458" y2="458"/>
-<rect x="10" y="376" clip-path="url(#clipPath72)" fill="none" width="169" rx="0" ry="0" height="103"/>
-<rect x="452" y="286" clip-path="url(#clipPath73)" fill="url(#linearGradient9)" width="207" height="132" stroke="none"/>
-<text xml:space="preserve" x="522" y="302" clip-path="url(#clipPath74)" stroke="none">«Stereotype»</text>
-<text xml:space="preserve" x="523" y="318" clip-path="url(#clipPath75)" stroke="none">Subscription</text>
-<image x="458" y="323" clip-path="url(#clipPath76)" width="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA00lEQVR42mNgGAWM&#13;&#10;ICJr1qH/pGqclmYH1ssCIn7/+ccwI8OeaM0ZMw/C2WADfgIN+At0Q8rUfRDR/zC3&#13;&#10;obGBYE62E8Ov339RDfjx6w/DHyjdne2G0+aSqbsZ/gAN/I5uwPefQAP+gWiIhCAL&#13;&#10;Ugj9R9Bgi/5D1KMY8A0o8Qso8e03ROL3f4g+EMEI88Z/hDoMA77/+gvW9P3HH4bI&#13;&#10;pvXYowtkKNC0P1CDUA0A2gwKxJUNgWCFyIGGHJAg6g/YK2hhAApVt/KVCOcyoIUB&#13;&#10;SqpBExv6AAAA13L8DwBmYwAAAABJRU5ErkJggg==" xlink:type="simple" xlink:actuate="onLoad" height="16" preserveAspectRatio="none" xlink:show="embed"/>
-<text xml:space="preserve" x="477" y="336" clip-path="url(#clipPath77)" stroke="none"> + minValue: Integer [0..1]</text>
-<image x="458" y="339" clip-path="url(#clipPath78)" width="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHklEQVR42mNgGAWM&#13;&#10;ICJr1qH/pGqclmYH1ssCIn7/+ccwI8OeaM0ZMw/C2WADfgIN+At0Q8rUfRDR/zC3&#13;&#10;obGBYE62E8Ov339RDfjx6w/DHyjdne2G0+aSqbsZ/gAN/I5kABOI+P4TaMA/EA2R&#13;&#10;EGSBYlYELcfBwLCq2JWBk5mBYWWRK8N/IIC74BvQ5l9A7rfff8AG/P4PcTmIYIR5&#13;&#10;A6iRrckLbvOvum0IL3z/9Res6fuPPwyRTetRnH20LRCFn2OgwzDlwhVI8AABxACg&#13;&#10;zaBAXNkQyMCIFmgggGwzuhjYAFCoupWvRDgXKZVcmRAOtxnZFSAAcgnYgKsTIxhx&#13;&#10;Bv2E8P8wxSBgJ63McOjpXdRoJARgAYYtEBmJTX2gAMNmAAC8fn+eU+XlTAAAAABJRU5ErkJggg==" xlink:type="simple" xlink:actuate="onLoad" height="16" preserveAspectRatio="none" xlink:show="embed"/>
-<text xml:space="preserve" x="477" y="352" clip-path="url(#clipPath79)" stroke="none"> + maxValue: Integer [0..1]</text>
-<image x="458" y="355" clip-path="url(#clipPath80)" width="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA00lEQVR42mNgGAWM&#13;&#10;ICJr1qH/pGqclmYH1ssCIn7/+ccwI8OeaM0ZMw/C2WADfgIN+At0Q8rUfRDR/zC3&#13;&#10;obGBYE62E8Ov339RDfjx6w/DHyjdne2G0+aSqbsZ/gAN/I5uwPefQAP+gWiIhCAL&#13;&#10;Ugj9R9Bgi/5D1KMY8A0o8Qso8e03ROL3f4g+EMEI88Z/hDoMA77/+gvW9P3HH4bI&#13;&#10;pvXYowtkKNC0P1CDUA0A2gwKxJUNgWCFyIGGHJAg6g/YK2hhAApVt/KVCOcyoIUB&#13;&#10;SqpBExv6AAAA13L8DwBmYwAAAABJRU5ErkJggg==" xlink:type="simple" xlink:actuate="onLoad" height="16" preserveAspectRatio="none" xlink:show="embed"/>
-<text xml:space="preserve" x="477" y="368" clip-path="url(#clipPath81)" stroke="none"> + subscriptionTime: Integer [0..1]</text>
-<image x="458" y="371" clip-path="url(#clipPath82)" width="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA00lEQVR42mNgGAWM&#13;&#10;ICJr1qH/pGqclmYH1ssCIn7/+ccwI8OeaM0ZMw/C2WADfgIN+At0Q8rUfRDR/zC3&#13;&#10;obGBYE62E8Ov339RDfjx6w/DHyjdne2G0+aSqbsZ/gAN/I5uwPefQAP+gWiIhCAL&#13;&#10;Ugj9R9Bgi/5D1KMY8A0o8Qso8e03ROL3f4g+EMEI88Z/hDoMA77/+gvW9P3HH4bI&#13;&#10;pvXYowtkKNC0P1CDUA0A2gwKxJUNgWCFyIGGHJAg6g/YK2hhAApVt/KVCOcyoIUB&#13;&#10;SqpBExv6AAAA13L8DwBmYwAAAABJRU5ErkJggg==" xlink:type="simple" xlink:actuate="onLoad" height="16" preserveAspectRatio="none" xlink:show="embed"/>
-<text xml:space="preserve" x="477" y="384" clip-path="url(#clipPath83)" stroke="none"> + trigger: Interaction [0..1]</text>
-<line clip-path="url(#clipPath84)" fill="none" x1="452" x2="659" y1="321" y2="321"/>
-<line clip-path="url(#clipPath85)" fill="none" x1="452" x2="659" y1="397" y2="397"/>
-<rect x="452" y="286" clip-path="url(#clipPath86)" fill="none" width="206" rx="0" ry="0" height="131"/>
-<rect x="275" y="11" clip-path="url(#clipPath87)" fill="url(#linearGradient10)" width="100" height="50" stroke="none"/>
-<text xml:space="preserve" x="293" y="34" clip-path="url(#clipPath88)" stroke="none">«Metaclass»</text>
-<text xml:space="preserve" x="306" y="50" clip-path="url(#clipPath89)" stroke="none">Lifeline</text>
-<rect x="275" y="11" clip-path="url(#clipPath90)" fill="none" width="99" rx="0" ry="0" height="49"/>
-<rect x="547" y="58" clip-path="url(#clipPath91)" fill="url(#linearGradient11)" width="100" height="50" stroke="none"/>
-<text xml:space="preserve" x="565" y="81" clip-path="url(#clipPath92)" stroke="none">«Metaclass»</text>
-<text xml:space="preserve" x="567" y="97" clip-path="url(#clipPath93)" stroke="none">Association</text>
-<rect x="547" y="58" clip-path="url(#clipPath94)" fill="none" width="99" rx="0" ry="0" height="49"/>
-<rect x="499" y="537" clip-path="url(#clipPath95)" fill="url(#linearGradient12)" width="100" height="50" stroke="none"/>
-<text xml:space="preserve" x="517" y="560" clip-path="url(#clipPath96)" stroke="none">«Metaclass»</text>
-<text xml:space="preserve" x="526" y="576" clip-path="url(#clipPath97)" stroke="none">Message</text>
-<rect x="499" y="537" clip-path="url(#clipPath98)" fill="none" width="99" rx="0" ry="0" height="49"/>
-<rect x="156" y="10" clip-path="url(#clipPath99)" fill="url(#linearGradient13)" width="100" height="50" stroke="none"/>
-<text xml:space="preserve" x="174" y="33" clip-path="url(#clipPath100)" stroke="none">«Metaclass»</text>
-<text xml:space="preserve" x="187" y="49" clip-path="url(#clipPath101)" stroke="none">Artifact</text>
-<rect x="156" y="10" clip-path="url(#clipPath102)" fill="none" width="99" rx="0" ry="0" height="49"/>
-<rect x="787" y="63" clip-path="url(#clipPath103)" fill="url(#linearGradient14)" width="100" height="50" stroke="none"/>
-<text xml:space="preserve" x="805" y="86" clip-path="url(#clipPath104)" stroke="none">«Metaclass»</text>
-<text xml:space="preserve" x="823" y="102" clip-path="url(#clipPath105)" stroke="none">Node</text>
-<rect x="787" y="63" clip-path="url(#clipPath106)" fill="none" width="99" rx="0" ry="0" height="49"/>
-<line clip-path="url(#clipPath107)" fill="none" text-rendering="optimizeLegibility" x1="795" x2="659" y1="334" y2="334"/>
-<text x="669" y="360" clip-path="url(#clipPath108)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> + subscribe</text>
-<text x="746" y="321" clip-path="url(#clipPath109)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> + client</text>
-<text x="780" y="354" clip-path="url(#clipPath110)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> 1</text>
-<text x="684" y="326" clip-path="url(#clipPath111)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> *</text>
-<line clip-path="url(#clipPath112)" fill="none" text-rendering="optimizeLegibility" x1="780" x2="795" y1="339" y2="334"/>
-<line clip-path="url(#clipPath112)" fill="none" text-rendering="optimizeLegibility" x1="795" x2="780" y1="334" y2="329"/>
-<line clip-path="url(#clipPath113)" fill="none" text-rendering="optimizeLegibility" x1="674" x2="659" y1="329" y2="334"/>
-<line clip-path="url(#clipPath113)" fill="none" text-rendering="optimizeLegibility" x1="659" x2="674" y1="334" y2="339"/>
-<line clip-path="url(#clipPath107)" fill="none" text-rendering="optimizeLegibility" x1="452" x2="326" y1="308" y2="308"/>
-<line clip-path="url(#clipPath107)" fill="none" text-rendering="optimizeLegibility" x1="326" x2="326" y1="308" y2="243"/>
-<text x="345" y="265" clip-path="url(#clipPath114)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> + resource</text>
-<text x="384" y="326" clip-path="url(#clipPath115)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> + subscribe</text>
-<text x="434" y="295" clip-path="url(#clipPath116)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> *</text>
-<text x="306" y="267" clip-path="url(#clipPath117)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> 1</text>
-<line clip-path="url(#clipPath118)" fill="none" text-rendering="optimizeLegibility" x1="437" x2="452" y1="313" y2="308"/>
-<line clip-path="url(#clipPath118)" fill="none" text-rendering="optimizeLegibility" x1="452" x2="437" y1="308" y2="303"/>
-<polygon text-rendering="optimizeLegibility" clip-path="url(#clipPath119)" points=" 327 243 329 245 329 247 327 249 326 249 332 261 326 249 320 261 326 249 325 249 323 247 323 245 325 243" stroke="none"/>
-<polygon text-rendering="optimizeLegibility" fill="none" clip-path="url(#clipPath119)" points=" 327 243 329 245 329 247 327 249 326 249 332 261 326 249 320 261 326 249 325 249 323 247 323 245 325 243"/>
-<line clip-path="url(#clipPath107)" fill="none" text-rendering="optimizeLegibility" x1="787" x2="645" y1="193" y2="193"/>
-<text x="654" y="183" clip-path="url(#clipPath120)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> + publish</text>
-<text x="727" y="215" clip-path="url(#clipPath121)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> + service</text>
-<text x="757" y="190" clip-path="url(#clipPath122)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> *</text>
-<text x="666" y="219" clip-path="url(#clipPath123)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> 1</text>
-<line clip-path="url(#clipPath124)" fill="none" text-rendering="optimizeLegibility" x1="772" x2="787" y1="198" y2="193"/>
-<line clip-path="url(#clipPath124)" fill="none" text-rendering="optimizeLegibility" x1="787" x2="772" y1="193" y2="188"/>
-<polygon text-rendering="optimizeLegibility" clip-path="url(#clipPath125)" points=" 645 192 647 190 649 190 651 192 651 193 663 187 651 193 663 199 651 193 651 194 649 196 647 196 645 194" stroke="none"/>
-<polygon text-rendering="optimizeLegibility" fill="none" clip-path="url(#clipPath125)" points=" 645 192 647 190 649 190 651 192 651 193 663 187 651 193 663 199 651 193 651 194 649 196 647 196 645 194"/>
-<line clip-path="url(#clipPath107)" fill="none" text-rendering="optimizeLegibility" x1="545" x2="347" y1="173" y2="173"/>
-<text x="357" y="161" clip-path="url(#clipPath126)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> + resource</text>
-<text x="489" y="195" clip-path="url(#clipPath127)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> + publish</text>
-<text x="522" y="166" clip-path="url(#clipPath128)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> *</text>
-<text x="366" y="205" clip-path="url(#clipPath129)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> 1</text>
-<line clip-path="url(#clipPath130)" fill="none" text-rendering="optimizeLegibility" x1="530" x2="545" y1="178" y2="173"/>
-<line clip-path="url(#clipPath130)" fill="none" text-rendering="optimizeLegibility" x1="545" x2="530" y1="173" y2="168"/>
-<polygon text-rendering="optimizeLegibility" clip-path="url(#clipPath131)" points=" 347 172 349 170 351 170 353 172 353 173 365 167 353 173 365 179 353 173 353 174 351 176 349 176 347 174" stroke="none"/>
-<polygon text-rendering="optimizeLegibility" fill="none" clip-path="url(#clipPath131)" points=" 347 172 349 170 351 170 353 172 353 173 365 167 353 173 365 179 353 173 353 174 351 176 349 176 347 174"/>
-<line clip-path="url(#clipPath107)" fill="none" text-rendering="optimizeLegibility" x1="819" x2="819" y1="354" y2="465"/>
-<line clip-path="url(#clipPath107)" fill="none" text-rendering="optimizeLegibility" x1="819" x2="630" y1="465" y2="465"/>
-<text x="653" y="456" clip-path="url(#clipPath132)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> + getter</text>
-<text x="769" y="374" clip-path="url(#clipPath133)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> + client</text>
-<text x="799" y="392" clip-path="url(#clipPath134)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> *</text>
-<text x="662" y="491" clip-path="url(#clipPath135)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> 1</text>
-<line clip-path="url(#clipPath136)" fill="none" text-rendering="optimizeLegibility" x1="824" x2="819" y1="369" y2="354"/>
-<line clip-path="url(#clipPath136)" fill="none" text-rendering="optimizeLegibility" x1="819" x2="814" y1="354" y2="369"/>
-<polygon text-rendering="optimizeLegibility" clip-path="url(#clipPath137)" points=" 630 464 632 462 634 462 636 464 636 465 648 459 636 465 648 471 636 465 636 466 634 468 632 468 630 466" stroke="none"/>
-<polygon text-rendering="optimizeLegibility" fill="none" clip-path="url(#clipPath137)" points=" 630 464 632 462 634 462 636 464 636 465 648 459 636 465 648 471 636 465 636 466 634 468 632 468 630 466"/>
-<line clip-path="url(#clipPath107)" fill="none" text-rendering="optimizeLegibility" x1="875" x2="875" y1="354" y2="650"/>
-<line clip-path="url(#clipPath107)" fill="none" text-rendering="optimizeLegibility" x1="875" x2="645" y1="650" y2="650"/>
-<text x="676" y="640" clip-path="url(#clipPath138)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> + setter</text>
-<text x="886" y="372" clip-path="url(#clipPath139)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> + client</text>
-<text x="855" y="377" clip-path="url(#clipPath140)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> 1</text>
-<text x="679" y="674" clip-path="url(#clipPath141)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> *</text>
-<line clip-path="url(#clipPath142)" fill="none" text-rendering="optimizeLegibility" x1="880" x2="875" y1="369" y2="354"/>
-<line clip-path="url(#clipPath142)" fill="none" text-rendering="optimizeLegibility" x1="875" x2="870" y1="354" y2="369"/>
-<polygon text-rendering="optimizeLegibility" clip-path="url(#clipPath143)" points=" 645 649 647 647 649 647 651 649 651 650 663 644 651 650 663 656 651 650 651 651 649 653 647 653 645 651" stroke="none"/>
-<polygon text-rendering="optimizeLegibility" fill="none" clip-path="url(#clipPath143)" points=" 645 649 647 647 649 647 651 649 651 650 663 644 651 650 663 656 651 650 651 651 649 653 647 653 645 651"/>
-<line clip-path="url(#clipPath107)" fill="none" text-rendering="optimizeLegibility" x1="469" x2="273" y1="471" y2="471"/>
-<line clip-path="url(#clipPath107)" fill="none" text-rendering="optimizeLegibility" x1="273" x2="273" y1="471" y2="243"/>
-<text x="228" y="274" clip-path="url(#clipPath144)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> + resource</text>
-<text x="415" y="491" clip-path="url(#clipPath145)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> + getter</text>
-<text x="443" y="463" clip-path="url(#clipPath146)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> *</text>
-<text x="278" y="301" clip-path="url(#clipPath147)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> 1</text>
-<line clip-path="url(#clipPath148)" fill="none" text-rendering="optimizeLegibility" x1="454" x2="469" y1="476" y2="471"/>
-<line clip-path="url(#clipPath148)" fill="none" text-rendering="optimizeLegibility" x1="469" x2="454" y1="471" y2="466"/>
-<polygon text-rendering="optimizeLegibility" clip-path="url(#clipPath149)" points=" 274 243 276 245 276 247 274 249 273 249 279 261 273 249 267 261 273 249 272 249 270 247 270 245 272 243" stroke="none"/>
-<polygon text-rendering="optimizeLegibility" fill="none" clip-path="url(#clipPath149)" points=" 274 243 276 245 276 247 274 249 273 249 279 261 273 249 267 261 273 249 272 249 270 247 270 245 272 243"/>
-<line clip-path="url(#clipPath107)" fill="none" text-rendering="optimizeLegibility" x1="454" x2="212" y1="650" y2="650"/>
-<line clip-path="url(#clipPath107)" fill="none" text-rendering="optimizeLegibility" x1="212" x2="212" y1="650" y2="243"/>
-<text x="146" y="284" clip-path="url(#clipPath150)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> + resource</text>
-<text x="403" y="670" clip-path="url(#clipPath151)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> + setter</text>
-<text x="429" y="642" clip-path="url(#clipPath152)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> *</text>
-<text x="215" y="307" clip-path="url(#clipPath153)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> 1</text>
-<line clip-path="url(#clipPath154)" fill="none" text-rendering="optimizeLegibility" x1="439" x2="454" y1="655" y2="650"/>
-<line clip-path="url(#clipPath154)" fill="none" text-rendering="optimizeLegibility" x1="454" x2="439" y1="650" y2="645"/>
-<polygon text-rendering="optimizeLegibility" clip-path="url(#clipPath155)" points=" 213 243 215 245 215 247 213 249 212 249 218 261 212 249 206 261 212 249 211 249 209 247 209 245 211 243" stroke="none"/>
-<polygon text-rendering="optimizeLegibility" fill="none" clip-path="url(#clipPath155)" points=" 213 243 215 245 215 247 213 249 212 249 218 261 212 249 206 261 212 249 211 249 209 247 209 245 211 243"/>
-<line clip-path="url(#clipPath107)" fill="none" text-rendering="optimizeLegibility" x1="315" x2="315" y1="117" y2="61"/>
-<polygon text-rendering="optimizeLegibility" clip-path="url(#clipPath156)" points=" 315 61 320 76 310 76" stroke="none"/>
-<polygon text-rendering="optimizeLegibility" fill="none" clip-path="url(#clipPath156)" points=" 315 61 320 76 310 76"/>
-<line clip-path="url(#clipPath107)" fill="none" text-rendering="optimizeLegibility" x1="599" x2="599" y1="161" y2="108"/>
-<polygon text-rendering="optimizeLegibility" clip-path="url(#clipPath157)" points=" 599 108 604 123 594 123" stroke="none"/>
-<polygon text-rendering="optimizeLegibility" fill="none" clip-path="url(#clipPath157)" points=" 599 108 604 123 594 123"/>
-<line clip-path="url(#clipPath107)" fill="none" text-rendering="optimizeLegibility" x1="549" x2="549" y1="504" y2="537"/>
-<polygon text-rendering="optimizeLegibility" clip-path="url(#clipPath158)" points=" 549 537 544 522 554 522" stroke="none"/>
-<polygon text-rendering="optimizeLegibility" fill="none" clip-path="url(#clipPath158)" points=" 549 537 544 522 554 522"/>
-<line clip-path="url(#clipPath107)" fill="none" text-rendering="optimizeLegibility" x1="550" x2="550" y1="616" y2="587"/>
-<polygon text-rendering="optimizeLegibility" clip-path="url(#clipPath159)" points=" 550 587 555 602 545 602" stroke="none"/>
-<polygon text-rendering="optimizeLegibility" fill="none" clip-path="url(#clipPath159)" points=" 550 587 555 602 545 602"/>
-<line clip-path="url(#clipPath107)" fill="none" text-rendering="optimizeLegibility" x1="895" x2="932" y1="322" y2="322"/>
-<line clip-path="url(#clipPath107)" fill="none" text-rendering="optimizeLegibility" x1="932" x2="932" y1="322" y2="40"/>
-<line clip-path="url(#clipPath107)" fill="none" text-rendering="optimizeLegibility" x1="932" x2="375" y1="40" y2="40"/>
-<polygon text-rendering="optimizeLegibility" clip-path="url(#clipPath160)" points=" 375 40 390 35 390 45" stroke="none"/>
-<polygon text-rendering="optimizeLegibility" fill="none" clip-path="url(#clipPath160)" points=" 375 40 390 35 390 45"/>
-<line clip-path="url(#clipPath107)" fill="none" text-rendering="optimizeLegibility" x1="452" x2="346" y1="382" y2="382"/>
-<line clip-path="url(#clipPath107)" fill="none" text-rendering="optimizeLegibility" x1="346" x2="346" y1="382" y2="562"/>
-<line clip-path="url(#clipPath107)" fill="none" text-rendering="optimizeLegibility" x1="346" x2="499" y1="562" y2="562"/>
-<polygon text-rendering="optimizeLegibility" clip-path="url(#clipPath161)" points=" 499 562 484 567 484 557" stroke="none"/>
-<polygon text-rendering="optimizeLegibility" fill="none" clip-path="url(#clipPath161)" points=" 499 562 484 567 484 557"/>
-<line clip-path="url(#clipPath107)" fill="none" text-rendering="optimizeLegibility" x1="214" x2="214" y1="117" y2="60"/>
-<polygon text-rendering="optimizeLegibility" clip-path="url(#clipPath162)" points=" 214 60 219 75 209 75" stroke="none"/>
-<polygon text-rendering="optimizeLegibility" fill="none" clip-path="url(#clipPath162)" points=" 214 60 219 75 209 75"/>
-<line clip-path="url(#clipPath107)" fill="none" text-rendering="optimizeLegibility" x1="835" x2="835" y1="161" y2="113"/>
-<polygon text-rendering="optimizeLegibility" clip-path="url(#clipPath163)" points=" 835 113 840 128 830 128" stroke="none"/>
-<polygon text-rendering="optimizeLegibility" fill="none" clip-path="url(#clipPath163)" points=" 835 113 840 128 830 128"/>
+<rect x="795" y="290" clip-path="url(#clipPath15)" fill="url(#linearGradient2)" width="100" height="64" stroke="none"/>
+<text xml:space="preserve" x="811" y="306" clip-path="url(#clipPath16)" stroke="none">«Stereotype»</text>
+<text xml:space="preserve" x="830" y="322" clip-path="url(#clipPath17)" stroke="none">Client</text>
+<line clip-path="url(#clipPath18)" fill="none" x1="795" x2="895" y1="325" y2="325"/>
+<line clip-path="url(#clipPath19)" fill="none" x1="795" x2="895" y1="340" y2="340"/>
+<rect x="795" y="290" clip-path="url(#clipPath20)" fill="none" width="99" rx="0" ry="0" height="63"/>
+<rect x="787" y="161" clip-path="url(#clipPath21)" fill="url(#linearGradient3)" width="100" height="64" stroke="none"/>
+<text xml:space="preserve" x="803" y="177" clip-path="url(#clipPath22)" stroke="none">«Stereotype»</text>
+<text xml:space="preserve" x="819" y="193" clip-path="url(#clipPath23)" stroke="none">Service</text>
+<line clip-path="url(#clipPath24)" fill="none" x1="787" x2="887" y1="196" y2="196"/>
+<line clip-path="url(#clipPath25)" fill="none" x1="787" x2="887" y1="211" y2="211"/>
+<rect x="787" y="161" clip-path="url(#clipPath26)" fill="none" width="99" rx="0" ry="0" height="63"/>
+<rect x="469" y="432" clip-path="url(#clipPath27)" fill="url(#linearGradient4)" width="161" height="72" stroke="none"/>
+<text xml:space="preserve" x="516" y="448" clip-path="url(#clipPath28)" stroke="none">«Stereotype»</text>
+<text xml:space="preserve" x="534" y="464" clip-path="url(#clipPath29)" stroke="none">Getter</text>
+<image x="475" y="469" clip-path="url(#clipPath30)" width="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA00lEQVR42mNgGAWM&#13;&#10;ICJr1qH/pGqclmYH1ssCIn7/+ccwI8OeaM0ZMw/C2WADfgIN+At0Q8rUfRDR/zC3&#13;&#10;obGBYE62E8Ov339RDfjx6w/DHyjdne2G0+aSqbsZ/gAN/I5uwPefQAP+gWiIhCAL&#13;&#10;Ugj9R9Bgi/5D1KMY8A0o8Qso8e03ROL3f4g+EMEI88Z/hDoMA77/+gvW9P3HH4bI&#13;&#10;pvXYowtkKNC0P1CDUA0A2gwKxJUNgWCFyIGGHJAg6g/YK2hhAApVt/KVCOcyoIUB&#13;&#10;SqpBExv6AAAA13L8DwBmYwAAAABJRU5ErkJggg==" xlink:type="simple" xlink:actuate="onLoad" height="16" preserveAspectRatio="none" xlink:show="embed"/>
+<text xml:space="preserve" x="494" y="482" clip-path="url(#clipPath31)" stroke="none"> + varName: String [0..1]</text>
+<line clip-path="url(#clipPath32)" fill="none" x1="469" x2="630" y1="467" y2="467"/>
+<line clip-path="url(#clipPath33)" fill="none" x1="469" x2="630" y1="489" y2="489"/>
+<rect x="469" y="432" clip-path="url(#clipPath34)" fill="none" width="160" rx="0" ry="0" height="71"/>
+<rect x="454" y="616" clip-path="url(#clipPath35)" fill="url(#linearGradient5)" width="191" height="71" stroke="none"/>
+<text xml:space="preserve" x="516" y="632" clip-path="url(#clipPath36)" stroke="none">«Stereotype»</text>
+<text xml:space="preserve" x="535" y="648" clip-path="url(#clipPath37)" stroke="none">Setter</text>
+<image x="460" y="653" clip-path="url(#clipPath38)" width="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA00lEQVR42mNgGAWM&#13;&#10;ICJr1qH/pGqclmYH1ssCIn7/+ccwI8OeaM0ZMw/C2WADfgIN+At0Q8rUfRDR/zC3&#13;&#10;obGBYE62E8Ov339RDfjx6w/DHyjdne2G0+aSqbsZ/gAN/I5uwPefQAP+gWiIhCAL&#13;&#10;Ugj9R9Bgi/5D1KMY8A0o8Qso8e03ROL3f4g+EMEI88Z/hDoMA77/+gvW9P3HH4bI&#13;&#10;pvXYowtkKNC0P1CDUA0A2gwKxJUNgWCFyIGGHJAg6g/YK2hhAApVt/KVCOcyoIUB&#13;&#10;SqpBExv6AAAA13L8DwBmYwAAAABJRU5ErkJggg==" xlink:type="simple" xlink:actuate="onLoad" height="16" preserveAspectRatio="none" xlink:show="embed"/>
+<text xml:space="preserve" x="479" y="666" clip-path="url(#clipPath39)" stroke="none"> + value: UpdateOperator [0..1]</text>
+<line clip-path="url(#clipPath40)" fill="none" x1="454" x2="645" y1="651" y2="651"/>
+<line clip-path="url(#clipPath41)" fill="none" x1="454" x2="645" y1="672" y2="672"/>
+<rect x="454" y="616" clip-path="url(#clipPath42)" fill="none" width="190" rx="0" ry="0" height="70"/>
+<rect x="44" y="511" clip-path="url(#clipPath43)" fill="url(#linearGradient6)" width="100" height="115" stroke="none"/>
+<text xml:space="preserve" x="54" y="527" clip-path="url(#clipPath44)" stroke="none">«Enumeration»</text>
+<image x="61" y="530" clip-path="url(#clipPath45)" width="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABTUlEQVR42mNgGGjA&#13;&#10;CCIKFhz5/+DJJyj3PxAyQiQYkdggmf8IjYoyvAwTEmwYWUCc+48/MUxMswNrBhnC&#13;&#10;CNUB4QEN+c8INhtoHlSMgSF31kGwGrAB//7+Y+BgYwZrOXHjMYOFuhyDk2cBilP3&#13;&#10;7uhnOAmS05CFGPHvP8IAMIOZieHI1QcMdc1rGPatKAaLHdo9EcWvILmm2hAGG20F&#13;&#10;uDgTjMHKzAhWcHh1KZANEbZzzYdjkAUgOZAaFmZGuAFILmAEm24b2s1wfF0ZWOz0&#13;&#10;oakoIWcZ1AVWA7MAYQBQEcgGTxMVBgagAhaoAlO7bLjC80emgTWD1IDs/4ccBv//&#13;&#10;/2NgZmICe9THTBWs4NKxGZAYgMQsWMzXTA0eFf//owWif8NGaKQhSFhUIgckJGUA&#13;&#10;2dC4hhuwtMKLpBQY07kdNRbIBWAXqCgJw00kFoD0DA4AAKzIb179to3dAAAAAElF&#13;&#10;TkSuQmCC" xlink:type="simple" xlink:actuate="onLoad" height="16" preserveAspectRatio="none" xlink:show="embed"/>
+<text xml:space="preserve" x="80" y="543" clip-path="url(#clipPath46)" stroke="none">SignKind</text>
+<image x="50" y="549" clip-path="url(#clipPath47)" width="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAiElEQVR42mNgGAWM&#13;&#10;IKJgwZH/t+++AXP/I5Eg8B9N8X8gBNGqyiIMExJsGFlAEnfuvWVYWuFFks0xndvB&#13;&#10;NBOlXmBB5gi4lzCwsbIwcLCzMnBxcDBwc7Iz8HJyMPBwcTBwAWkuDjYGTnY2humF&#13;&#10;AdgN2NCdTZkLHPQUyTNARUkYHijEApCeUUAlAADmXxlFUHnZYAAAAABJRU5ErkJg&#13;&#10;gg==" xlink:type="simple" xlink:actuate="onLoad" height="16" preserveAspectRatio="none" xlink:show="embed"/>
+<text xml:space="preserve" x="69" y="562" clip-path="url(#clipPath48)" stroke="none">minus</text>
+<image x="50" y="565" clip-path="url(#clipPath49)" width="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAiElEQVR42mNgGAWM&#13;&#10;IKJgwZH/t+++AXP/I5Eg8B9N8X8gBNGqyiIMExJsGFlAEnfuvWVYWuFFks0xndvB&#13;&#10;NBOlXmBB5gi4lzCwsbIwcLCzMnBxcDBwc7Iz8HJyMPBwcTBwAWkuDjYGTnY2humF&#13;&#10;AdgN2NCdTZkLHPQUyTNARUkYHijEApCeUUAlAADmXxlFUHnZYAAAAABJRU5ErkJg&#13;&#10;gg==" xlink:type="simple" xlink:actuate="onLoad" height="16" preserveAspectRatio="none" xlink:show="embed"/>
+<text xml:space="preserve" x="69" y="578" clip-path="url(#clipPath50)" stroke="none">plus</text>
+<image x="50" y="581" clip-path="url(#clipPath51)" width="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAiElEQVR42mNgGAWM&#13;&#10;IKJgwZH/t+++AXP/I5Eg8B9N8X8gBNGqyiIMExJsGFlAEnfuvWVYWuFFks0xndvB&#13;&#10;NBOlXmBB5gi4lzCwsbIwcLCzMnBxcDBwc7Iz8HJyMPBwcTBwAWkuDjYGTnY2humF&#13;&#10;AdgN2NCdTZkLHPQUyTNARUkYHijEApCeUUAlAADmXxlFUHnZYAAAAABJRU5ErkJg&#13;&#10;gg==" xlink:type="simple" xlink:actuate="onLoad" height="16" preserveAspectRatio="none" xlink:show="embed"/>
+<text xml:space="preserve" x="69" y="594" clip-path="url(#clipPath52)" stroke="none">mult</text>
+<image x="50" y="597" clip-path="url(#clipPath53)" width="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAiElEQVR42mNgGAWM&#13;&#10;IKJgwZH/t+++AXP/I5Eg8B9N8X8gBNGqyiIMExJsGFlAEnfuvWVYWuFFks0xndvB&#13;&#10;NBOlXmBB5gi4lzCwsbIwcLCzMnBxcDBwc7Iz8HJyMPBwcTBwAWkuDjYGTnY2humF&#13;&#10;AdgN2NCdTZkLHPQUyTNARUkYHijEApCeUUAlAADmXxlFUHnZYAAAAABJRU5ErkJg&#13;&#10;gg==" xlink:type="simple" xlink:actuate="onLoad" height="16" preserveAspectRatio="none" xlink:show="embed"/>
+<text xml:space="preserve" x="69" y="610" clip-path="url(#clipPath54)" stroke="none">div</text>
+<line clip-path="url(#clipPath55)" fill="none" x1="44" x2="144" y1="547" y2="547"/>
+<rect x="44" y="511" clip-path="url(#clipPath56)" fill="none" width="99" rx="0" ry="0" height="114"/>
+<rect x="10" y="376" clip-path="url(#clipPath57)" fill="url(#linearGradient7)" width="170" height="104" stroke="none"/>
+<text xml:space="preserve" x="65" y="392" clip-path="url(#clipPath58)" stroke="none">«DataType»</text>
+<text xml:space="preserve" x="53" y="408" clip-path="url(#clipPath59)" stroke="none">UpdateOperator</text>
+<image x="16" y="413" clip-path="url(#clipPath60)" width="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA00lEQVR42mNgGAWM&#13;&#10;ICJr1qH/pGqclmYH1ssCIn7/+ccwI8OeaM0ZMw/C2WADfgIN+At0Q8rUfRDR/zC3&#13;&#10;obGBYE62E8Ov339RDfjx6w/DHyjdne2G0+aSqbsZ/gAN/I5uwPefQAP+gWiIhCAL&#13;&#10;Ugj9R9Bgi/5D1KMY8A0o8Qso8e03ROL3f4g+EMEI88Z/hDoMA77/+gvW9P3HH4bI&#13;&#10;pvXYowtkKNC0P1CDUA0A2gwKxJUNgWCFyIGGHJAg6g/YK2hhAApVt/KVCOcyoIUB&#13;&#10;SqpBExv6AAAA13L8DwBmYwAAAABJRU5ErkJggg==" xlink:type="simple" xlink:actuate="onLoad" height="16" preserveAspectRatio="none" xlink:show="embed"/>
+<text xml:space="preserve" x="35" y="426" clip-path="url(#clipPath61)" stroke="none"> + operator: SignKind [0..1]</text>
+<image x="16" y="429" clip-path="url(#clipPath62)" width="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA00lEQVR42mNgGAWM&#13;&#10;ICJr1qH/pGqclmYH1ssCIn7/+ccwI8OeaM0ZMw/C2WADfgIN+At0Q8rUfRDR/zC3&#13;&#10;obGBYE62E8Ov339RDfjx6w/DHyjdne2G0+aSqbsZ/gAN/I5uwPefQAP+gWiIhCAL&#13;&#10;Ugj9R9Bgi/5D1KMY8A0o8Qso8e03ROL3f4g+EMEI88Z/hDoMA77/+gvW9P3HH4bI&#13;&#10;pvXYowtkKNC0P1CDUA0A2gwKxJUNgWCFyIGGHJAg6g/YK2hhAApVt/KVCOcyoIUB&#13;&#10;SqpBExv6AAAA13L8DwBmYwAAAABJRU5ErkJggg==" xlink:type="simple" xlink:actuate="onLoad" height="16" preserveAspectRatio="none" xlink:show="embed"/>
+<text xml:space="preserve" x="35" y="442" clip-path="url(#clipPath63)" stroke="none"> + variable: String [0..1]</text>
+<line clip-path="url(#clipPath64)" fill="none" x1="10" x2="180" y1="411" y2="411"/>
+<line clip-path="url(#clipPath65)" fill="none" x1="10" x2="180" y1="458" y2="458"/>
+<rect x="10" y="376" clip-path="url(#clipPath66)" fill="none" width="169" rx="0" ry="0" height="103"/>
+<rect x="452" y="286" clip-path="url(#clipPath67)" fill="url(#linearGradient8)" width="207" height="132" stroke="none"/>
+<text xml:space="preserve" x="522" y="302" clip-path="url(#clipPath68)" stroke="none">«Stereotype»</text>
+<text xml:space="preserve" x="523" y="318" clip-path="url(#clipPath69)" stroke="none">Subscription</text>
+<image x="458" y="323" clip-path="url(#clipPath70)" width="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA00lEQVR42mNgGAWM&#13;&#10;ICJr1qH/pGqclmYH1ssCIn7/+ccwI8OeaM0ZMw/C2WADfgIN+At0Q8rUfRDR/zC3&#13;&#10;obGBYE62E8Ov339RDfjx6w/DHyjdne2G0+aSqbsZ/gAN/I5uwPefQAP+gWiIhCAL&#13;&#10;Ugj9R9Bgi/5D1KMY8A0o8Qso8e03ROL3f4g+EMEI88Z/hDoMA77/+gvW9P3HH4bI&#13;&#10;pvXYowtkKNC0P1CDUA0A2gwKxJUNgWCFyIGGHJAg6g/YK2hhAApVt/KVCOcyoIUB&#13;&#10;SqpBExv6AAAA13L8DwBmYwAAAABJRU5ErkJggg==" xlink:type="simple" xlink:actuate="onLoad" height="16" preserveAspectRatio="none" xlink:show="embed"/>
+<text xml:space="preserve" x="477" y="336" clip-path="url(#clipPath71)" stroke="none"> + minValue: Integer [0..1]</text>
+<image x="458" y="339" clip-path="url(#clipPath72)" width="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHklEQVR42mNgGAWM&#13;&#10;ICJr1qH/pGqclmYH1ssCIn7/+ccwI8OeaM0ZMw/C2WADfgIN+At0Q8rUfRDR/zC3&#13;&#10;obGBYE62E8Ov339RDfjx6w/DHyjdne2G0+aSqbsZ/gAN/I5kABOI+P4TaMA/EA2R&#13;&#10;EGSBYlYELcfBwLCq2JWBk5mBYWWRK8N/IIC74BvQ5l9A7rfff8AG/P4PcTmIYIR5&#13;&#10;A6iRrckLbvOvum0IL3z/9Res6fuPPwyRTetRnH20LRCFn2OgwzDlwhVI8AABxACg&#13;&#10;zaBAXNkQyMCIFmgggGwzuhjYAFCoupWvRDgXKZVcmRAOtxnZFSAAcgnYgKsTIxhx&#13;&#10;Bv2E8P8wxSBgJ63McOjpXdRoJARgAYYtEBmJTX2gAMNmAAC8fn+eU+XlTAAAAABJRU5ErkJggg==" xlink:type="simple" xlink:actuate="onLoad" height="16" preserveAspectRatio="none" xlink:show="embed"/>
+<text xml:space="preserve" x="477" y="352" clip-path="url(#clipPath73)" stroke="none"> + maxValue: Integer [0..1]</text>
+<image x="458" y="355" clip-path="url(#clipPath74)" width="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA00lEQVR42mNgGAWM&#13;&#10;ICJr1qH/pGqclmYH1ssCIn7/+ccwI8OeaM0ZMw/C2WADfgIN+At0Q8rUfRDR/zC3&#13;&#10;obGBYE62E8Ov339RDfjx6w/DHyjdne2G0+aSqbsZ/gAN/I5uwPefQAP+gWiIhCAL&#13;&#10;Ugj9R9Bgi/5D1KMY8A0o8Qso8e03ROL3f4g+EMEI88Z/hDoMA77/+gvW9P3HH4bI&#13;&#10;pvXYowtkKNC0P1CDUA0A2gwKxJUNgWCFyIGGHJAg6g/YK2hhAApVt/KVCOcyoIUB&#13;&#10;SqpBExv6AAAA13L8DwBmYwAAAABJRU5ErkJggg==" xlink:type="simple" xlink:actuate="onLoad" height="16" preserveAspectRatio="none" xlink:show="embed"/>
+<text xml:space="preserve" x="477" y="368" clip-path="url(#clipPath75)" stroke="none"> + subscriptionTime: Integer [0..1]</text>
+<image x="458" y="371" clip-path="url(#clipPath76)" width="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA00lEQVR42mNgGAWM&#13;&#10;ICJr1qH/pGqclmYH1ssCIn7/+ccwI8OeaM0ZMw/C2WADfgIN+At0Q8rUfRDR/zC3&#13;&#10;obGBYE62E8Ov339RDfjx6w/DHyjdne2G0+aSqbsZ/gAN/I5uwPefQAP+gWiIhCAL&#13;&#10;Ugj9R9Bgi/5D1KMY8A0o8Qso8e03ROL3f4g+EMEI88Z/hDoMA77/+gvW9P3HH4bI&#13;&#10;pvXYowtkKNC0P1CDUA0A2gwKxJUNgWCFyIGGHJAg6g/YK2hhAApVt/KVCOcyoIUB&#13;&#10;SqpBExv6AAAA13L8DwBmYwAAAABJRU5ErkJggg==" xlink:type="simple" xlink:actuate="onLoad" height="16" preserveAspectRatio="none" xlink:show="embed"/>
+<text xml:space="preserve" x="477" y="384" clip-path="url(#clipPath77)" stroke="none"> + trigger: Interaction [0..1]</text>
+<line clip-path="url(#clipPath78)" fill="none" x1="452" x2="659" y1="321" y2="321"/>
+<line clip-path="url(#clipPath79)" fill="none" x1="452" x2="659" y1="397" y2="397"/>
+<rect x="452" y="286" clip-path="url(#clipPath80)" fill="none" width="206" rx="0" ry="0" height="131"/>
+<rect x="275" y="11" clip-path="url(#clipPath81)" fill="url(#linearGradient9)" width="100" height="50" stroke="none"/>
+<text xml:space="preserve" x="293" y="34" clip-path="url(#clipPath82)" stroke="none">«Metaclass»</text>
+<text xml:space="preserve" x="306" y="50" clip-path="url(#clipPath83)" stroke="none">Lifeline</text>
+<rect x="275" y="11" clip-path="url(#clipPath84)" fill="none" width="99" rx="0" ry="0" height="49"/>
+<rect x="499" y="537" clip-path="url(#clipPath85)" fill="url(#linearGradient10)" width="100" height="50" stroke="none"/>
+<text xml:space="preserve" x="517" y="560" clip-path="url(#clipPath86)" stroke="none">«Metaclass»</text>
+<text xml:space="preserve" x="526" y="576" clip-path="url(#clipPath87)" stroke="none">Message</text>
+<rect x="499" y="537" clip-path="url(#clipPath88)" fill="none" width="99" rx="0" ry="0" height="49"/>
+<rect x="156" y="10" clip-path="url(#clipPath89)" fill="url(#linearGradient11)" width="100" height="50" stroke="none"/>
+<text xml:space="preserve" x="174" y="33" clip-path="url(#clipPath90)" stroke="none">«Metaclass»</text>
+<text xml:space="preserve" x="187" y="49" clip-path="url(#clipPath91)" stroke="none">Artifact</text>
+<rect x="156" y="10" clip-path="url(#clipPath92)" fill="none" width="99" rx="0" ry="0" height="49"/>
+<rect x="787" y="63" clip-path="url(#clipPath93)" fill="url(#linearGradient12)" width="100" height="50" stroke="none"/>
+<text xml:space="preserve" x="805" y="86" clip-path="url(#clipPath94)" stroke="none">«Metaclass»</text>
+<text xml:space="preserve" x="823" y="102" clip-path="url(#clipPath95)" stroke="none">Node</text>
+<rect x="787" y="63" clip-path="url(#clipPath96)" fill="none" width="99" rx="0" ry="0" height="49"/>
+<line clip-path="url(#clipPath97)" fill="none" text-rendering="optimizeLegibility" x1="795" x2="659" y1="334" y2="334"/>
+<text x="669" y="360" clip-path="url(#clipPath98)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> + subscribe</text>
+<text x="746" y="321" clip-path="url(#clipPath99)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> + client</text>
+<text x="780" y="354" clip-path="url(#clipPath100)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> 1</text>
+<text x="684" y="326" clip-path="url(#clipPath101)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> *</text>
+<line clip-path="url(#clipPath102)" fill="none" text-rendering="optimizeLegibility" x1="780" x2="795" y1="339" y2="334"/>
+<line clip-path="url(#clipPath102)" fill="none" text-rendering="optimizeLegibility" x1="795" x2="780" y1="334" y2="329"/>
+<line clip-path="url(#clipPath103)" fill="none" text-rendering="optimizeLegibility" x1="674" x2="659" y1="329" y2="334"/>
+<line clip-path="url(#clipPath103)" fill="none" text-rendering="optimizeLegibility" x1="659" x2="674" y1="334" y2="339"/>
+<line clip-path="url(#clipPath97)" fill="none" text-rendering="optimizeLegibility" x1="452" x2="326" y1="308" y2="308"/>
+<line clip-path="url(#clipPath97)" fill="none" text-rendering="optimizeLegibility" x1="326" x2="326" y1="308" y2="243"/>
+<text x="345" y="265" clip-path="url(#clipPath104)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> + resource</text>
+<text x="384" y="326" clip-path="url(#clipPath105)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> + subscribe</text>
+<text x="434" y="295" clip-path="url(#clipPath106)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> *</text>
+<text x="306" y="267" clip-path="url(#clipPath107)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> 1</text>
+<line clip-path="url(#clipPath108)" fill="none" text-rendering="optimizeLegibility" x1="437" x2="452" y1="313" y2="308"/>
+<line clip-path="url(#clipPath108)" fill="none" text-rendering="optimizeLegibility" x1="452" x2="437" y1="308" y2="303"/>
+<polygon text-rendering="optimizeLegibility" clip-path="url(#clipPath109)" points=" 327 243 329 245 329 247 327 249 326 249 332 261 326 249 320 261 326 249 325 249 323 247 323 245 325 243" stroke="none"/>
+<polygon text-rendering="optimizeLegibility" fill="none" clip-path="url(#clipPath109)" points=" 327 243 329 245 329 247 327 249 326 249 332 261 326 249 320 261 326 249 325 249 323 247 323 245 325 243"/>
+<line clip-path="url(#clipPath97)" fill="none" text-rendering="optimizeLegibility" x1="819" x2="819" y1="354" y2="465"/>
+<line clip-path="url(#clipPath97)" fill="none" text-rendering="optimizeLegibility" x1="819" x2="630" y1="465" y2="465"/>
+<text x="653" y="456" clip-path="url(#clipPath110)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> + getter</text>
+<text x="769" y="374" clip-path="url(#clipPath111)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> + client</text>
+<text x="799" y="392" clip-path="url(#clipPath112)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> *</text>
+<text x="662" y="491" clip-path="url(#clipPath113)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> 1</text>
+<line clip-path="url(#clipPath114)" fill="none" text-rendering="optimizeLegibility" x1="824" x2="819" y1="369" y2="354"/>
+<line clip-path="url(#clipPath114)" fill="none" text-rendering="optimizeLegibility" x1="819" x2="814" y1="354" y2="369"/>
+<polygon text-rendering="optimizeLegibility" clip-path="url(#clipPath115)" points=" 630 464 632 462 634 462 636 464 636 465 648 459 636 465 648 471 636 465 636 466 634 468 632 468 630 466" stroke="none"/>
+<polygon text-rendering="optimizeLegibility" fill="none" clip-path="url(#clipPath115)" points=" 630 464 632 462 634 462 636 464 636 465 648 459 636 465 648 471 636 465 636 466 634 468 632 468 630 466"/>
+<line clip-path="url(#clipPath97)" fill="none" text-rendering="optimizeLegibility" x1="875" x2="875" y1="354" y2="650"/>
+<line clip-path="url(#clipPath97)" fill="none" text-rendering="optimizeLegibility" x1="875" x2="645" y1="650" y2="650"/>
+<text x="676" y="640" clip-path="url(#clipPath116)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> + setter</text>
+<text x="886" y="372" clip-path="url(#clipPath117)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> + client</text>
+<text x="855" y="377" clip-path="url(#clipPath118)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> 1</text>
+<text x="679" y="674" clip-path="url(#clipPath119)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> *</text>
+<line clip-path="url(#clipPath120)" fill="none" text-rendering="optimizeLegibility" x1="880" x2="875" y1="369" y2="354"/>
+<line clip-path="url(#clipPath120)" fill="none" text-rendering="optimizeLegibility" x1="875" x2="870" y1="354" y2="369"/>
+<polygon text-rendering="optimizeLegibility" clip-path="url(#clipPath121)" points=" 645 649 647 647 649 647 651 649 651 650 663 644 651 650 663 656 651 650 651 651 649 653 647 653 645 651" stroke="none"/>
+<polygon text-rendering="optimizeLegibility" fill="none" clip-path="url(#clipPath121)" points=" 645 649 647 647 649 647 651 649 651 650 663 644 651 650 663 656 651 650 651 651 649 653 647 653 645 651"/>
+<line clip-path="url(#clipPath97)" fill="none" text-rendering="optimizeLegibility" x1="469" x2="273" y1="471" y2="471"/>
+<line clip-path="url(#clipPath97)" fill="none" text-rendering="optimizeLegibility" x1="273" x2="273" y1="471" y2="243"/>
+<text x="228" y="274" clip-path="url(#clipPath122)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> + resource</text>
+<text x="415" y="491" clip-path="url(#clipPath123)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> + getter</text>
+<text x="443" y="463" clip-path="url(#clipPath124)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> *</text>
+<text x="278" y="301" clip-path="url(#clipPath125)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> 1</text>
+<line clip-path="url(#clipPath126)" fill="none" text-rendering="optimizeLegibility" x1="454" x2="469" y1="476" y2="471"/>
+<line clip-path="url(#clipPath126)" fill="none" text-rendering="optimizeLegibility" x1="469" x2="454" y1="471" y2="466"/>
+<polygon text-rendering="optimizeLegibility" clip-path="url(#clipPath127)" points=" 274 243 276 245 276 247 274 249 273 249 279 261 273 249 267 261 273 249 272 249 270 247 270 245 272 243" stroke="none"/>
+<polygon text-rendering="optimizeLegibility" fill="none" clip-path="url(#clipPath127)" points=" 274 243 276 245 276 247 274 249 273 249 279 261 273 249 267 261 273 249 272 249 270 247 270 245 272 243"/>
+<line clip-path="url(#clipPath97)" fill="none" text-rendering="optimizeLegibility" x1="454" x2="212" y1="650" y2="650"/>
+<line clip-path="url(#clipPath97)" fill="none" text-rendering="optimizeLegibility" x1="212" x2="212" y1="650" y2="243"/>
+<text x="146" y="284" clip-path="url(#clipPath128)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> + resource</text>
+<text x="403" y="670" clip-path="url(#clipPath129)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> + setter</text>
+<text x="429" y="642" clip-path="url(#clipPath130)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> *</text>
+<text x="215" y="307" clip-path="url(#clipPath131)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> 1</text>
+<line clip-path="url(#clipPath132)" fill="none" text-rendering="optimizeLegibility" x1="439" x2="454" y1="655" y2="650"/>
+<line clip-path="url(#clipPath132)" fill="none" text-rendering="optimizeLegibility" x1="454" x2="439" y1="650" y2="645"/>
+<polygon text-rendering="optimizeLegibility" clip-path="url(#clipPath133)" points=" 213 243 215 245 215 247 213 249 212 249 218 261 212 249 206 261 212 249 211 249 209 247 209 245 211 243" stroke="none"/>
+<polygon text-rendering="optimizeLegibility" fill="none" clip-path="url(#clipPath133)" points=" 213 243 215 245 215 247 213 249 212 249 218 261 212 249 206 261 212 249 211 249 209 247 209 245 211 243"/>
+<line clip-path="url(#clipPath97)" fill="none" text-rendering="optimizeLegibility" x1="315" x2="315" y1="117" y2="61"/>
+<polygon text-rendering="optimizeLegibility" clip-path="url(#clipPath134)" points=" 315 61 320 76 310 76" stroke="none"/>
+<polygon text-rendering="optimizeLegibility" fill="none" clip-path="url(#clipPath134)" points=" 315 61 320 76 310 76"/>
+<line clip-path="url(#clipPath97)" fill="none" text-rendering="optimizeLegibility" x1="549" x2="549" y1="504" y2="537"/>
+<polygon text-rendering="optimizeLegibility" clip-path="url(#clipPath135)" points=" 549 537 544 522 554 522" stroke="none"/>
+<polygon text-rendering="optimizeLegibility" fill="none" clip-path="url(#clipPath135)" points=" 549 537 544 522 554 522"/>
+<line clip-path="url(#clipPath97)" fill="none" text-rendering="optimizeLegibility" x1="550" x2="550" y1="616" y2="587"/>
+<polygon text-rendering="optimizeLegibility" clip-path="url(#clipPath136)" points=" 550 587 555 602 545 602" stroke="none"/>
+<polygon text-rendering="optimizeLegibility" fill="none" clip-path="url(#clipPath136)" points=" 550 587 555 602 545 602"/>
+<line clip-path="url(#clipPath97)" fill="none" text-rendering="optimizeLegibility" x1="895" x2="932" y1="322" y2="322"/>
+<line clip-path="url(#clipPath97)" fill="none" text-rendering="optimizeLegibility" x1="932" x2="932" y1="322" y2="40"/>
+<line clip-path="url(#clipPath97)" fill="none" text-rendering="optimizeLegibility" x1="932" x2="375" y1="40" y2="40"/>
+<polygon text-rendering="optimizeLegibility" clip-path="url(#clipPath137)" points=" 375 40 390 35 390 45" stroke="none"/>
+<polygon text-rendering="optimizeLegibility" fill="none" clip-path="url(#clipPath137)" points=" 375 40 390 35 390 45"/>
+<line clip-path="url(#clipPath97)" fill="none" text-rendering="optimizeLegibility" x1="452" x2="346" y1="382" y2="382"/>
+<line clip-path="url(#clipPath97)" fill="none" text-rendering="optimizeLegibility" x1="346" x2="346" y1="382" y2="562"/>
+<line clip-path="url(#clipPath97)" fill="none" text-rendering="optimizeLegibility" x1="346" x2="499" y1="562" y2="562"/>
+<polygon text-rendering="optimizeLegibility" clip-path="url(#clipPath138)" points=" 499 562 484 567 484 557" stroke="none"/>
+<polygon text-rendering="optimizeLegibility" fill="none" clip-path="url(#clipPath138)" points=" 499 562 484 567 484 557"/>
+<line clip-path="url(#clipPath97)" fill="none" text-rendering="optimizeLegibility" x1="214" x2="214" y1="117" y2="60"/>
+<polygon text-rendering="optimizeLegibility" clip-path="url(#clipPath139)" points=" 214 60 219 75 209 75" stroke="none"/>
+<polygon text-rendering="optimizeLegibility" fill="none" clip-path="url(#clipPath139)" points=" 214 60 219 75 209 75"/>
+<line clip-path="url(#clipPath97)" fill="none" text-rendering="optimizeLegibility" x1="835" x2="835" y1="161" y2="113"/>
+<polygon text-rendering="optimizeLegibility" clip-path="url(#clipPath140)" points=" 835 113 840 128 830 128" stroke="none"/>
+<polygon text-rendering="optimizeLegibility" fill="none" clip-path="url(#clipPath140)" points=" 835 113 840 128 830 128"/>
+<line clip-path="url(#clipPath97)" fill="none" text-rendering="optimizeLegibility" x1="787" x2="347" y1="179" y2="179"/>
+<text x="373" y="169" clip-path="url(#clipPath141)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> + publishes</text>
+<text x="725" y="196" clip-path="url(#clipPath142)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> + service</text>
+<text x="748" y="169" clip-path="url(#clipPath143)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> 1</text>
+<text x="377" y="200" clip-path="url(#clipPath144)" text-rendering="optimizeLegibility" stroke="none" xml:space="preserve"> *</text>
+<polygon text-rendering="optimizeLegibility" clip-path="url(#clipPath145)" points=" 347 178 349 176 351 176 353 178 353 179 365 173 353 179 365 185 353 179 353 180 351 182 349 182 347 180" stroke="none"/>
+<polygon text-rendering="optimizeLegibility" fill="none" clip-path="url(#clipPath145)" points=" 347 178 349 176 351 176 353 178 353 179 365 173 353 179 365 185 353 179 353 180 351 182 349 182 347 180"/>
 </g>
 </g>
 </svg>
