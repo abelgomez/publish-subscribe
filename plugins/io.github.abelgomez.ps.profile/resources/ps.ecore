@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="ps" nsURI="http://io.github.abelgomez/ps/1.0" nsPrefix="ps">
+  <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <details key="originalName" value="PublishSubscribe"/>
+  </eAnnotations>
+  <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+    <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="PublishSubscribeScenario">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="base_Interaction" ordered="false"
+        lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Interaction"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Service">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="base_Node" ordered="false"
+        lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Node"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="publishes" ordered="false"
+        lowerBound="1" upperBound="-1" eType="#//Resource" changeable="false" volatile="true"
+        transient="true" derived="true" eOpposite="#//Resource/owningService">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+        <details key="derivation" value="self.base_Node.nestedClassifier->collect(getStereotypeApplication(getApplicableStereotype('Publish-Subscribe::Resource')))->reject(oclIsUndefined()).oclAsType(Resource)->asSet()"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Resource">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="self.base_Artifact.owner.getStereotypeApplication(base_Artifact.owner.getApplicableStereotype('Publish-Subscribe::Service')).oclIsUndefined()._not()"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="base_Artifact" ordered="false"
+        lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Artifact"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="epr" ordered="false" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tag" ordered="false" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" ordered="false"
+        eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//Real"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="time" ordered="false" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//Integer"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owningService" ordered="false"
+        lowerBound="1" eType="#//Service" volatile="true" transient="true" derived="true"
+        eOpposite="#//Service/publishes">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+        <details key="initial" value="self.base_Artifact.owner.getStereotypeApplication(base_Artifact.owner.getApplicableStereotype('Publish-Subscribe::Service')).oclAsType(Service)"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UpdateOperation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" ordered="false"
+        lowerBound="1" eType="#//SignKind"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operandValue" ordered="false"
+        lowerBound="1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//Real"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="SignKind">
+    <eLiterals name="plus"/>
+    <eLiterals name="minus" value="1"/>
+    <eLiterals name="mult" value="2"/>
+    <eLiterals name="div" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TimedExecution">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="base_ExecutionSpecification"
+        ordered="false" lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//ExecutionSpecification"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="time" ordered="false" lowerBound="1"
+        eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//Integer"
+        defaultValueLiteral="0"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AssignmentExecution">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="base_ExecutionSpecification"
+        ordered="false" lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//ExecutionSpecification"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assignments" ordered="false"
+        upperBound="-1" eType="#//AssignmentOperation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AssignmentOperation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="property" ordered="false"
+        lowerBound="1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" ordered="false"
+        lowerBound="1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Client">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="base_Lifeline" ordered="false"
+        lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Lifeline"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ClientToResourceMessage" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="base_Message" ordered="false"
+        lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Message"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resource" ordered="false"
+        lowerBound="1" eType="#//Resource" changeable="false" volatile="true" transient="true"
+        derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+        <details key="derivation" value="let r : Resource = self.base_Message.receiveEvent.oclAsType(uml::MessageOccurrenceSpecification).covered.represents.type->collect(getStereotypeApplication(getApplicableStereotype('Publish-Subscribe::Resource')))->asSequence()->first().oclAsType(Resource) in&#xD;&#xA;if r.oclIsInvalid() &#xD;&#xA;&#x9;then null &#xD;&#xA;&#x9;else r &#xD;&#xA;endif"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="client" ordered="false"
+        lowerBound="1" eType="#//Client" changeable="false" volatile="true" transient="true"
+        derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+        <details key="derivation" value="let c : Client = self.base_Message.sendEvent.oclAsType(uml::MessageOccurrenceSpecification).covered->collect(getStereotypeApplication(getApplicableStereotype('Publish-Subscribe::Client')))->asSequence()->first().oclAsType(Client) in&#xD;&#xA;if c.oclIsInvalid() &#xD;&#xA;&#x9;then null &#xD;&#xA;&#x9;else c&#xD;&#xA;endif&#xD;&#xA;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Subscription" eSuperTypes="#//ClientToResourceMessage">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minValue" ordered="false"
+        lowerBound="1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//Real"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxValue" ordered="false"
+        lowerBound="1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//Real"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="subscriptionTime" ordered="false"
+        lowerBound="1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//Integer"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="triggers" ordered="false"
+        lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Interaction"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Getter" eSuperTypes="#//ClientToResourceMessage">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="variable" ordered="false"
+        lowerBound="1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Setter" eSuperTypes="#//ClientToResourceMessage #//AbstractSetter"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractSetter" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operation" ordered="false"
+        lowerBound="1" eType="#//UpdateOperation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TimedSetter" eSuperTypes="#//AbstractSetter">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="base_Message" ordered="false"
+        lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Message"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="time" ordered="false" lowerBound="1"
+        eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//Integer"
+        defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resource" ordered="false"
+        lowerBound="1" eType="#//Resource" changeable="false" volatile="true" transient="true"
+        derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+        <details key="derivation" value="let r : Resource = self.base_Message.receiveEvent.oclAsType(uml::MessageOccurrenceSpecification).covered.represents.type->collect(getStereotypeApplication(getApplicableStereotype('Publish-Subscribe::Resource')))->asSequence()->first().oclAsType(Resource) in&#xD;&#xA;if r.oclIsInvalid() &#xD;&#xA;&#x9;then null &#xD;&#xA;&#x9;else r &#xD;&#xA;endif"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="service" ordered="false"
+        lowerBound="1" eType="#//Service" changeable="false" volatile="true" transient="true"
+        derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+        <details key="derivation" value="let s : Service = self.base_Message.sendEvent.oclAsType(uml::MessageOccurrenceSpecification).covered.represents.type->collect(getStereotypeApplication(getApplicableStereotype('Publish-Subscribe::Service')))->asSequence()->first().oclAsType(Service) in&#xD;&#xA;if s.oclIsInvalid() &#xD;&#xA;&#x9;then null &#xD;&#xA;&#x9;else s&#xD;&#xA;endif"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+</ecore:EPackage>

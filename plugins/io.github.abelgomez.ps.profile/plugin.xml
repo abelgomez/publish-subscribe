@@ -12,6 +12,13 @@
  -->
 
 <plugin>
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ps.profile -->
+      <package
+            uri="http://io.github.abelgomez/ps/1.0"
+            class="io.github.abelgomez.ps.PsPackage"
+            genModel="resources/ps.profile.genmodel"/>
+   </extension>
    <extension
          point="org.eclipse.papyrus.uml.extensionpoints.UMLProfile">
       <profile
@@ -28,4 +35,13 @@
             target="platform:/plugin/io.github.abelgomez.ps.profile/resources/">
       </mapping>
    </extension>
+   <extension
+         point="org.eclipse.uml2.uml.generated_package">
+      <profile
+            location="pathmap://PS_PROFILES/ps.profile.uml#_oym6cPnVEeaktbtljtfrvA"
+            uri="http://io.github.abelgomez/ps/1.0">
+      </profile>
+   </extension>
+
+
 </plugin>

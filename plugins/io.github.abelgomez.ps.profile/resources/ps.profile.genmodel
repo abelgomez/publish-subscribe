@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/uml2/2.2.0/GenModel"
+    modelDirectory="/io.github.abelgomez.ps.profile/src-gen" modelPluginID="io.github.abelgomez.ps.profile"
+    modelName="Ps" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.uml2.uml.ecore.importer" complianceLevel="8.0" copyrightFields="false"
+    usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.uml2.types/model/Types.genmodel#//types ../../org.eclipse.uml2.uml/model/UML.genmodel#//uml"
+    operationReflection="true" importOrganizing="true">
+  <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/importer/org.eclipse.uml2.uml.ecore.importer">
+    <details key="OPPOSITE_ROLE_NAMES" value="IGNORE"/>
+    <details key="DUPLICATE_FEATURES" value="DISCARD"/>
+    <details key="ANNOTATION_DETAILS" value="PROCESS"/>
+    <details key="PROPERTY_DEFAULT_EXPRESSIONS" value="PROCESS"/>
+    <details key="DUPLICATE_FEATURE_INHERITANCE" value="REPORT"/>
+    <details key="COMMENTS" value="PROCESS"/>
+    <details key="DERIVED_FEATURES" value="PROCESS"/>
+    <details key="SUPER_CLASS_ORDER" value="PROCESS"/>
+    <details key="DUPLICATE_OPERATION_INHERITANCE" value="DISCARD"/>
+    <details key="REDEFINING_OPERATIONS" value="REPORT"/>
+    <details key="INVARIANT_CONSTRAINTS" value="IGNORE"/>
+    <details key="UNION_PROPERTIES" value="REPORT"/>
+    <details key="DUPLICATE_OPERATIONS" value="DISCARD"/>
+    <details key="NON_API_INVARIANTS" value="IGNORE"/>
+    <details key="CAMEL_CASE_NAMES" value="IGNORE"/>
+    <details key="SUBSETTING_PROPERTIES" value="REPORT"/>
+    <details key="OPERATION_BODIES" value="IGNORE"/>
+    <details key="ECORE_TAGGED_VALUES" value="PROCESS"/>
+    <details key="UNTYPED_PROPERTIES" value="REPORT"/>
+    <details key="REDEFINING_PROPERTIES" value="REPORT"/>
+    <details key="INVOCATION_DELEGATES" value="IGNORE"/>
+    <details key="VALIDATION_DELEGATES" value="IGNORE"/>
+  </genAnnotations>
+  <foreignModel>ps.profile.uml</foreignModel>
+  <genPackages xsi:type="genmodel:GenPackage" prefix="Ps" basePackage="io.github.abelgomez"
+      disposableProviderFactory="true" ecorePackage="ps.ecore#/">
+    <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="ps.ecore#//SignKind">
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="ps.ecore#//SignKind/plus"/>
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="ps.ecore#//SignKind/minus"/>
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="ps.ecore#//SignKind/mult"/>
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="ps.ecore#//SignKind/div"/>
+    </genEnums>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="ps.ecore#//PublishSubscribeScenario">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference ps.ecore#//PublishSubscribeScenario/base_Interaction"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="ps.ecore#//Service">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference ps.ecore#//Service/base_Node"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="Readonly" notify="false"
+          createChild="false" ecoreFeature="ecore:EReference ps.ecore#//Service/publishes"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="ps.ecore#//Resource">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference ps.ecore#//Resource/base_Artifact"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ps.ecore#//Resource/epr"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ps.ecore#//Resource/tag"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ps.ecore#//Resource/value"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ps.ecore#//Resource/time"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference ps.ecore#//Resource/owningService"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="ps.ecore#//UpdateOperation">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ps.ecore#//UpdateOperation/operator"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ps.ecore#//UpdateOperation/operandValue"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="ps.ecore#//TimedExecution">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference ps.ecore#//TimedExecution/base_ExecutionSpecification"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ps.ecore#//TimedExecution/time"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="ps.ecore#//AssignmentExecution">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference ps.ecore#//AssignmentExecution/base_ExecutionSpecification"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference ps.ecore#//AssignmentExecution/assignments"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="ps.ecore#//AssignmentOperation">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ps.ecore#//AssignmentOperation/property"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ps.ecore#//AssignmentOperation/value"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="ps.ecore#//Client">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference ps.ecore#//Client/base_Lifeline"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="ps.ecore#//ClientToResourceMessage">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference ps.ecore#//ClientToResourceMessage/base_Message"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="Readonly" notify="false"
+          createChild="false" ecoreFeature="ecore:EReference ps.ecore#//ClientToResourceMessage/resource"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="Readonly" notify="false"
+          createChild="false" ecoreFeature="ecore:EReference ps.ecore#//ClientToResourceMessage/client"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="ps.ecore#//Subscription">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ps.ecore#//Subscription/minValue"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ps.ecore#//Subscription/maxValue"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ps.ecore#//Subscription/subscriptionTime"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference ps.ecore#//Subscription/triggers"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="ps.ecore#//Getter">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ps.ecore#//Getter/variable"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="ps.ecore#//Setter"/>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="ps.ecore#//AbstractSetter">
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference ps.ecore#//AbstractSetter/operation"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="ps.ecore#//TimedSetter">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference ps.ecore#//TimedSetter/base_Message"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ps.ecore#//TimedSetter/time"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="Readonly" notify="false"
+          createChild="false" ecoreFeature="ecore:EReference ps.ecore#//TimedSetter/resource"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="Readonly" notify="false"
+          createChild="false" ecoreFeature="ecore:EReference ps.ecore#//TimedSetter/service"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
