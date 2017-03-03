@@ -53,7 +53,7 @@ public class PublishSubscribeTransformer {
 	private volatile boolean executed = false;
 	
 	public PublishSubscribeTransformer(Element element) {
-		this.input = EcoreUtil.copy(element);
+		this.input = element;
 	}
 	
 	public synchronized void transform() {
