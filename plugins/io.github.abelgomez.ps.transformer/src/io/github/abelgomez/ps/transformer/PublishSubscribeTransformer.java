@@ -83,8 +83,10 @@ public class PublishSubscribeTransformer {
 		} else {
 			status = new Status(IStatus.ERROR, PLUGIN_ID, diagnostic.getMessage());
 		}
-		
-		if (res.getContents().size() != 1) {
+
+		if (!status.isOK()) {
+			throw new RuntimeException(status.getMessage(), status.getException());
+		} else if (res.getContents().size() != 1) {
 			throw new RuntimeException(MessageFormat.format("Unexpected number of generated elements, expecting 1, but found {0}", res.getContents().size()));
 		} else if (!(res.getContents().get(0) instanceof Cpnet)) {
 			throw new RuntimeException(MessageFormat.format("Unexpected type for the generated element, expecting 'Cpnet', but found ''{0}''", res.getContents().get(0).eClass().getName()));
