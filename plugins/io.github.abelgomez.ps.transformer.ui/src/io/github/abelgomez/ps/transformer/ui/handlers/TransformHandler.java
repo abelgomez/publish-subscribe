@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.Spliterator;
 import java.util.Spliterators;
-import java.util.stream.Stream;
+import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 import org.eclipse.core.commands.AbstractHandler;
@@ -42,7 +42,6 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
@@ -50,11 +49,14 @@ import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IMessageProvider;
 import org.eclipse.jface.dialogs.TitleAreaDialog;
+import org.eclipse.jface.viewers.ArrayContentProvider;
+import org.eclipse.jface.viewers.DoubleClickEvent;
+import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
-import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.osgi.util.NLS;
 import org.eclipse.papyrus.uml.tools.model.UmlModel;
@@ -259,12 +261,23 @@ public class TransformHandler extends AbstractHandler {
 	private class SelectElementDialog extends TitleAreaDialog {
 
 		private Resource resource;
+		
+		private List<Element> elements;
 
 		private Object selection;
+
+		private TableViewer viewer;
 
 		public SelectElementDialog(Shell shell, Resource resource) {
 			super(shell);
 			this.resource = resource;
+			// @formatter:off
+			this.elements = StreamSupport.stream(Spliterators.spliteratorUnknownSize(resource.getAllContents(), Spliterator.NONNULL), false)
+					.filter(e -> e instanceof Element)
+					.map(e -> (Element) e)
+					.filter(e -> UMLUtil.getStereotypeApplication(e, PublishSubscribeScenario.class) != null)
+					.collect(Collectors.toList());
+			// @formatter:on
 		}
 
 		@Override
@@ -274,10 +287,18 @@ public class TransformHandler extends AbstractHandler {
 			getShell().setSize(currentWidth > 640 ? 640 : currentWidth, 480);
 			getShell().setText("Element Selection");
 			setTitle("Select the Sequence Diagram to transform");
-			setMessage("Select the Sequence Diagram to be transformed into a CPN Tools Petri net.\n"
+
+			getButton(Dialog.OK).setEnabled(false);
+
+			super.setMessage("Select the Sequence Diagram to be transformed into a CPN Tools Petri net.\n"
 					+ "Only Interactions stereotyped as <<PublishSubscribeScenario>> can be transformed.",
 					IMessageProvider.INFORMATION);
-			getButton(Dialog.OK).setEnabled(false);
+			
+			if (elements.size() == 0) {
+				super.setErrorMessage("The selected model has no Interactions stereotyped as <<PublishSubscribeScenario>>");
+			} else if (elements.size() == 1) {
+				viewer.setSelection(new StructuredSelection(elements.get(0)));
+			}
 		}
 
 		@Override
@@ -300,7 +321,7 @@ public class TransformHandler extends AbstractHandler {
 			text.setText(UriConverter.toPlatformResourceUri(resource.getURI()).toString());
 			text.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 
-			TableViewer viewer = new TableViewer(container);
+			viewer = new TableViewer(container);
 			viewer.getTable().setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
 
 			ComposedAdapterFactory composedAdapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
@@ -308,21 +329,8 @@ public class TransformHandler extends AbstractHandler {
 			AdapterFactoryLabelProvider labelProvider = new AdapterFactoryLabelProvider(composedAdapterFactory);
 
 			viewer.setLabelProvider(labelProvider);
-			viewer.setContentProvider(new IStructuredContentProvider() {
-				@Override
-				public Object[] getElements(Object input) {
-					Resource resource = (Resource) input;
-					Stream<EObject> stream = StreamSupport.stream(Spliterators.spliteratorUnknownSize(resource.getAllContents(), Spliterator.NONNULL), false);
-					// @formatter:off
-					return stream
-							.filter(e -> e instanceof Element)
-							.map(e -> (Element) e)
-							.filter(e -> UMLUtil.getStereotypeApplication(e, PublishSubscribeScenario.class) != null)
-							.toArray();
-					// @formatter:on
-				}
-			});
-			viewer.setInput(resource);
+			viewer.setContentProvider(new ArrayContentProvider());
+			viewer.setInput(elements);
 
 			viewer.addSelectionChangedListener(new ISelectionChangedListener() {
 				@Override
@@ -333,6 +341,14 @@ public class TransformHandler extends AbstractHandler {
 					}
 					if (selection != null) {
 						setErrorMessage(null);
+					}
+				}
+			});
+			viewer.addDoubleClickListener(new IDoubleClickListener() {
+				@Override
+				public void doubleClick(DoubleClickEvent event) {
+					if (selection == viewer.getStructuredSelection().getFirstElement()) {
+						close();
 					}
 				}
 			});
