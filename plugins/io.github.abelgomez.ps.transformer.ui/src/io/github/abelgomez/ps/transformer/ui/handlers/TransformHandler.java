@@ -20,6 +20,10 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.Spliterator;
+import java.util.Spliterators;
+import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
@@ -38,22 +42,20 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
-import org.eclipse.emf.edit.provider.ItemProvider;
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IMessageProvider;
 import org.eclipse.jface.dialogs.TitleAreaDialog;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
+import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
-import org.eclipse.jface.viewers.TreeViewer;
-import org.eclipse.jface.viewers.Viewer;
-import org.eclipse.jface.viewers.ViewerFilter;
+import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.osgi.util.NLS;
 import org.eclipse.papyrus.uml.tools.model.UmlModel;
 import org.eclipse.swt.SWT;
@@ -67,10 +69,11 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.eclipse.uml2.uml.Element;
-import org.eclipse.uml2.uml.Interaction;
+import org.eclipse.uml2.uml.util.UMLUtil;
 
 import io.github.abelgomez.cpntools.Cpnet;
 import io.github.abelgomez.cpntools.io.serializer.CpnToolsBuilder;
+import io.github.abelgomez.ps.PublishSubscribeScenario;
 import io.github.abelgomez.ps.transformer.PublishSubscribeTransformer;
 import io.github.abelgomez.ps.transformer.ui.TransformerUiPlugin;
 import io.github.abelgomez.ps.transformer.ui.util.UriConverter;
@@ -270,9 +273,9 @@ public class TransformHandler extends AbstractHandler {
 			int currentWidth = getShell().getSize().x;
 			getShell().setSize(currentWidth > 640 ? 640 : currentWidth, 480);
 			getShell().setText("Element Selection");
-			setTitle("Select the UML element to transform");
-			setMessage("Select the UML element to be transformed into a CPN Tools Petri net.\n"
-					+ "It must be an Interaction, i.e., an element denoting a UML Sequence Diagram",
+			setTitle("Select the Sequence Diagram to transform");
+			setMessage("Select the Sequence Diagram to be transformed into a CPN Tools Petri net.\n"
+					+ "Only Interactions stereotyped as <<PublishSubscribeScenario>> can be transformed.",
 					IMessageProvider.INFORMATION);
 			getButton(Dialog.OK).setEnabled(false);
 		}
@@ -297,24 +300,29 @@ public class TransformHandler extends AbstractHandler {
 			text.setText(UriConverter.toPlatformResourceUri(resource.getURI()).toString());
 			text.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 
-			TreeViewer viewer = new TreeViewer(container);
-			viewer.getTree().setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
+			TableViewer viewer = new TableViewer(container);
+			viewer.getTable().setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
 
 			ComposedAdapterFactory composedAdapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 
 			AdapterFactoryLabelProvider labelProvider = new AdapterFactoryLabelProvider(composedAdapterFactory);
-			AdapterFactoryContentProvider contentProvider = new AdapterFactoryContentProvider(composedAdapterFactory);
 
 			viewer.setLabelProvider(labelProvider);
-			viewer.setContentProvider(contentProvider);
-			viewer.setInput(new ItemProvider(resource.getContents()));
-
-			viewer.addFilter(new ViewerFilter() {
+			viewer.setContentProvider(new IStructuredContentProvider() {
 				@Override
-				public boolean select(Viewer viewer, Object parentElement, Object element) {
-					return element instanceof Element;
+				public Object[] getElements(Object input) {
+					Resource resource = (Resource) input;
+					Stream<EObject> stream = StreamSupport.stream(Spliterators.spliteratorUnknownSize(resource.getAllContents(), Spliterator.NONNULL), false);
+					// @formatter:off
+					return stream
+							.filter(e -> e instanceof Element)
+							.map(e -> (Element) e)
+							.filter(e -> UMLUtil.getStereotypeApplication(e, PublishSubscribeScenario.class) != null)
+							.toArray();
+					// @formatter:on
 				}
 			});
+			viewer.setInput(resource);
 
 			viewer.addSelectionChangedListener(new ISelectionChangedListener() {
 				@Override
@@ -323,18 +331,12 @@ public class TransformHandler extends AbstractHandler {
 						IStructuredSelection structuredSelection = (IStructuredSelection) event.getSelection();
 						selection = structuredSelection.getFirstElement();
 					}
-					validateSelection();
+					if (selection != null) {
+						setErrorMessage(null);
+					}
 				}
 			});
 			return area;
-		}
-
-		private void validateSelection() {
-			if (!(selection instanceof Interaction)) {
-				setErrorMessage("Selected element is not a UML Interaction");
-			} else {
-				setErrorMessage(null);
-			}
 		}
 
 		@Override
