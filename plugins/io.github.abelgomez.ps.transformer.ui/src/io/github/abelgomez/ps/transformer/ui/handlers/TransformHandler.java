@@ -295,7 +295,7 @@ public class TransformHandler extends AbstractHandler {
 					IMessageProvider.INFORMATION);
 			
 			if (elements.size() == 0) {
-				super.setErrorMessage("The selected model has no Interactions stereotyped as <<PublishSubscribeScenario>>");
+				super.setErrorMessage("The selected model has no Interactions stereotyped as <<PublishSubscribeScenario>>.");
 			} else if (elements.size() == 1) {
 				viewer.setSelection(new StructuredSelection(elements.get(0)));
 			}
