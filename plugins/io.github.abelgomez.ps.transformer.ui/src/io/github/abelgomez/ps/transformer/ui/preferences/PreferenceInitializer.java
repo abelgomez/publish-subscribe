@@ -52,6 +52,7 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
 			// use the default one
 			store.setDefault(PreferenceConstants.URI, DefaultUriProvider.DEFAULT_TRANSFORMATION_URI.toString());
 		}
+		store.setDefault(PreferenceConstants.OPEN_RESULT, true);
 	}
 
 	/**

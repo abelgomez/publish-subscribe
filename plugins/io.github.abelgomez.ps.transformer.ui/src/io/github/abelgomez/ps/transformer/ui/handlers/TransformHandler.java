@@ -10,10 +10,12 @@
  *******************************************************************************/
 package io.github.abelgomez.ps.transformer.ui.handlers;
 
+import java.awt.Desktop;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -61,8 +63,11 @@ import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.osgi.util.NLS;
 import org.eclipse.papyrus.uml.tools.model.UmlModel;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
@@ -78,6 +83,7 @@ import io.github.abelgomez.cpntools.io.serializer.CpnToolsBuilder;
 import io.github.abelgomez.ps.PublishSubscribeScenario;
 import io.github.abelgomez.ps.transformer.PublishSubscribeTransformer;
 import io.github.abelgomez.ps.transformer.ui.TransformerUiPlugin;
+import io.github.abelgomez.ps.transformer.ui.preferences.PreferenceConstants;
 import io.github.abelgomez.ps.transformer.ui.util.UriConverter;
 
 /**
@@ -223,6 +229,14 @@ public class TransformHandler extends AbstractHandler {
 				subMonitor.subTask(NLS.bind("Transforming model ''{0}''", uri));
 				File outFile = new File(buildOutputFileUri(uri).toFileString());
 				processUmlModel(element, outFile, subMonitor.newChild(1));
+				if (TransformerUiPlugin.getDefault().getPreferenceStore().getBoolean(PreferenceConstants.OPEN_RESULT)) {
+					try {
+						Desktop.getDesktop().open(outFile);
+					} catch (IOException e) {
+						TransformerUiPlugin.getDefault().getLog().log(new Status(IStatus.ERROR, TransformerUiPlugin.PLUGIN_ID, 
+								MessageFormat.format("Unable to open ''{0}'' using the system's default editor", outFile), e));
+					}
+				}
 				subMonitor.worked(1);
 			}
 		}
@@ -350,6 +364,16 @@ public class TransformHandler extends AbstractHandler {
 					if (selection == viewer.getStructuredSelection().getFirstElement()) {
 						close();
 					}
+				}
+			});
+			
+			Button openButton = new Button(container, SWT.CHECK);
+			openButton.setText("&Open result file automatically");
+			openButton.setSelection(TransformerUiPlugin.getDefault().getPreferenceStore().getBoolean(PreferenceConstants.OPEN_RESULT));
+			openButton.addSelectionListener(new SelectionAdapter() {
+				@Override
+				public void widgetSelected(SelectionEvent e) {
+					TransformerUiPlugin.getDefault().getPreferenceStore().setValue(PreferenceConstants.OPEN_RESULT, openButton.getSelection());
 				}
 			});
 			return area;

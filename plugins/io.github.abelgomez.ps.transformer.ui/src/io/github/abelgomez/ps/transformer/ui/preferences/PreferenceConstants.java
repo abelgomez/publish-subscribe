@@ -21,6 +21,7 @@ import io.github.abelgomez.ps.transformer.ui.TransformerUiPlugin;
 public abstract class PreferenceConstants {
 
 	public static final String URI = "uri";
+	public static final String OPEN_RESULT = "open_result";
 
 	/**
 	 * Hidden constructor. This class is not intended to be instantiated.
