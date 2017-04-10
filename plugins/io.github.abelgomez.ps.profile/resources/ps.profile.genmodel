@@ -63,10 +63,10 @@
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ps.ecore#//UpdateOperation/operator"/>
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ps.ecore#//UpdateOperation/operandValue"/>
     </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="ps.ecore#//TimedExecution">
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="ps.ecore#//Delayed">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ps.ecore#//Delayed/delay"/>
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-          propertySortChoices="true" ecoreFeature="ecore:EReference ps.ecore#//TimedExecution/base_ExecutionSpecification"/>
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ps.ecore#//TimedExecution/time"/>
+          propertySortChoices="true" ecoreFeature="ecore:EReference ps.ecore#//Delayed/base_Message"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="ps.ecore#//AssignmentExecution">
       <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"

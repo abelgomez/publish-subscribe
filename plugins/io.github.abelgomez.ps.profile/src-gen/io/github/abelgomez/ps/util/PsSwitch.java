@@ -90,9 +90,9 @@ public class PsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PsPackage.TIMED_EXECUTION: {
-				TimedExecution timedExecution = (TimedExecution)theEObject;
-				T result = caseTimedExecution(timedExecution);
+			case PsPackage.DELAYED: {
+				Delayed delayed = (Delayed)theEObject;
+				T result = caseDelayed(delayed);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -220,17 +220,17 @@ public class PsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Timed Execution</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Delayed</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Timed Execution</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Delayed</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseTimedExecution(TimedExecution object) {
+	public T caseDelayed(Delayed object) {
 		return null;
 	}
 

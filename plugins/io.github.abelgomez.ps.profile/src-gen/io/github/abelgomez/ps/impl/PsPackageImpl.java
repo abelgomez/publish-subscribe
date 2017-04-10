@@ -7,6 +7,7 @@ import io.github.abelgomez.ps.AssignmentExecution;
 import io.github.abelgomez.ps.AssignmentOperation;
 import io.github.abelgomez.ps.Client;
 import io.github.abelgomez.ps.ClientToResourceMessage;
+import io.github.abelgomez.ps.Delayed;
 import io.github.abelgomez.ps.Getter;
 import io.github.abelgomez.ps.PsFactory;
 import io.github.abelgomez.ps.PsPackage;
@@ -16,7 +17,6 @@ import io.github.abelgomez.ps.Service;
 import io.github.abelgomez.ps.Setter;
 import io.github.abelgomez.ps.SignKind;
 import io.github.abelgomez.ps.Subscription;
-import io.github.abelgomez.ps.TimedExecution;
 import io.github.abelgomez.ps.TimedSetter;
 import io.github.abelgomez.ps.UpdateOperation;
 
@@ -72,7 +72,7 @@ public class PsPackageImpl extends EPackageImpl implements PsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass timedExecutionEClass = null;
+	private EClass delayedEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -348,8 +348,8 @@ public class PsPackageImpl extends EPackageImpl implements PsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getTimedExecution() {
-		return timedExecutionEClass;
+	public EClass getDelayed() {
+		return delayedEClass;
 	}
 
 	/**
@@ -357,8 +357,8 @@ public class PsPackageImpl extends EPackageImpl implements PsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTimedExecution_Base_ExecutionSpecification() {
-		return (EReference)timedExecutionEClass.getEStructuralFeatures().get(0);
+	public EAttribute getDelayed_Delay() {
+		return (EAttribute)delayedEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -366,8 +366,8 @@ public class PsPackageImpl extends EPackageImpl implements PsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTimedExecution_Time() {
-		return (EAttribute)timedExecutionEClass.getEStructuralFeatures().get(1);
+	public EReference getDelayed_Base_Message() {
+		return (EReference)delayedEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -669,9 +669,9 @@ public class PsPackageImpl extends EPackageImpl implements PsPackage {
 		createEAttribute(updateOperationEClass, UPDATE_OPERATION__OPERATOR);
 		createEAttribute(updateOperationEClass, UPDATE_OPERATION__OPERAND_VALUE);
 
-		timedExecutionEClass = createEClass(TIMED_EXECUTION);
-		createEReference(timedExecutionEClass, TIMED_EXECUTION__BASE_EXECUTION_SPECIFICATION);
-		createEAttribute(timedExecutionEClass, TIMED_EXECUTION__TIME);
+		delayedEClass = createEClass(DELAYED);
+		createEAttribute(delayedEClass, DELAYED__DELAY);
+		createEReference(delayedEClass, DELAYED__BASE_MESSAGE);
 
 		assignmentExecutionEClass = createEClass(ASSIGNMENT_EXECUTION);
 		createEReference(assignmentExecutionEClass, ASSIGNMENT_EXECUTION__BASE_EXECUTION_SPECIFICATION);
@@ -771,9 +771,9 @@ public class PsPackageImpl extends EPackageImpl implements PsPackage {
 		initEAttribute(getUpdateOperation_Operator(), this.getSignKind(), "operator", null, 1, 1, UpdateOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getUpdateOperation_OperandValue(), theTypesPackage.getReal(), "operandValue", null, 1, 1, UpdateOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(timedExecutionEClass, TimedExecution.class, "TimedExecution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTimedExecution_Base_ExecutionSpecification(), theUMLPackage.getExecutionSpecification(), null, "base_ExecutionSpecification", null, 1, 1, TimedExecution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getTimedExecution_Time(), theTypesPackage.getInteger(), "time", "0", 1, 1, TimedExecution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(delayedEClass, Delayed.class, "Delayed", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDelayed_Delay(), theTypesPackage.getInteger(), "delay", "0", 1, 1, Delayed.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getDelayed_Base_Message(), theUMLPackage.getMessage(), null, "base_Message", null, 1, 1, Delayed.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(assignmentExecutionEClass, AssignmentExecution.class, "AssignmentExecution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAssignmentExecution_Base_ExecutionSpecification(), theUMLPackage.getExecutionSpecification(), null, "base_ExecutionSpecification", null, 1, 1, AssignmentExecution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

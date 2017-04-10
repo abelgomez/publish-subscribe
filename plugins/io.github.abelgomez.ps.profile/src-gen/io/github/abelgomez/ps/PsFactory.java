@@ -58,13 +58,13 @@ public interface PsFactory extends EFactory {
 	UpdateOperation createUpdateOperation();
 
 	/**
-	 * Returns a new object of class '<em>Timed Execution</em>'.
+	 * Returns a new object of class '<em>Delayed</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Timed Execution</em>'.
+	 * @return a new object of class '<em>Delayed</em>'.
 	 * @generated
 	 */
-	TimedExecution createTimedExecution();
+	Delayed createDelayed();
 
 	/**
 	 * Returns a new object of class '<em>Assignment Execution</em>'.

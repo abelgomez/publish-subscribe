@@ -61,7 +61,7 @@ public class PsFactoryImpl extends EFactoryImpl implements PsFactory {
 			case PsPackage.SERVICE: return createService();
 			case PsPackage.RESOURCE: return createResource();
 			case PsPackage.UPDATE_OPERATION: return createUpdateOperation();
-			case PsPackage.TIMED_EXECUTION: return createTimedExecution();
+			case PsPackage.DELAYED: return createDelayed();
 			case PsPackage.ASSIGNMENT_EXECUTION: return createAssignmentExecution();
 			case PsPackage.ASSIGNMENT_OPERATION: return createAssignmentOperation();
 			case PsPackage.CLIENT: return createClient();
@@ -149,9 +149,9 @@ public class PsFactoryImpl extends EFactoryImpl implements PsFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TimedExecution createTimedExecution() {
-		TimedExecutionImpl timedExecution = new TimedExecutionImpl();
-		return timedExecution;
+	public Delayed createDelayed() {
+		DelayedImpl delayed = new DelayedImpl();
+		return delayed;
 	}
 
 	/**

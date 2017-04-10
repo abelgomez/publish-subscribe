@@ -84,8 +84,8 @@ public class PsAdapterFactory extends AdapterFactoryImpl {
 				return createUpdateOperationAdapter();
 			}
 			@Override
-			public Adapter caseTimedExecution(TimedExecution object) {
-				return createTimedExecutionAdapter();
+			public Adapter caseDelayed(Delayed object) {
+				return createDelayedAdapter();
 			}
 			@Override
 			public Adapter caseAssignmentExecution(AssignmentExecution object) {
@@ -200,16 +200,16 @@ public class PsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link io.github.abelgomez.ps.TimedExecution <em>Timed Execution</em>}'.
+	 * Creates a new adapter for an object of class '{@link io.github.abelgomez.ps.Delayed <em>Delayed</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see io.github.abelgomez.ps.TimedExecution
+	 * @see io.github.abelgomez.ps.Delayed
 	 * @generated
 	 */
-	public Adapter createTimedExecutionAdapter() {
+	public Adapter createDelayedAdapter() {
 		return null;
 	}
 

@@ -271,50 +271,50 @@ public interface PsPackage extends EPackage {
 	int UPDATE_OPERATION_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link io.github.abelgomez.ps.impl.TimedExecutionImpl <em>Timed Execution</em>}' class.
+	 * The meta object id for the '{@link io.github.abelgomez.ps.impl.DelayedImpl <em>Delayed</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see io.github.abelgomez.ps.impl.TimedExecutionImpl
-	 * @see io.github.abelgomez.ps.impl.PsPackageImpl#getTimedExecution()
+	 * @see io.github.abelgomez.ps.impl.DelayedImpl
+	 * @see io.github.abelgomez.ps.impl.PsPackageImpl#getDelayed()
 	 * @generated
 	 */
-	int TIMED_EXECUTION = 4;
+	int DELAYED = 4;
 
 	/**
-	 * The feature id for the '<em><b>Base Execution Specification</b></em>' reference.
+	 * The feature id for the '<em><b>Delay</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TIMED_EXECUTION__BASE_EXECUTION_SPECIFICATION = 0;
+	int DELAYED__DELAY = 0;
 
 	/**
-	 * The feature id for the '<em><b>Time</b></em>' attribute.
+	 * The feature id for the '<em><b>Base Message</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TIMED_EXECUTION__TIME = 1;
+	int DELAYED__BASE_MESSAGE = 1;
 
 	/**
-	 * The number of structural features of the '<em>Timed Execution</em>' class.
+	 * The number of structural features of the '<em>Delayed</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TIMED_EXECUTION_FEATURE_COUNT = 2;
+	int DELAYED_FEATURE_COUNT = 2;
 
 	/**
-	 * The number of operations of the '<em>Timed Execution</em>' class.
+	 * The number of operations of the '<em>Delayed</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TIMED_EXECUTION_OPERATION_COUNT = 0;
+	int DELAYED_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link io.github.abelgomez.ps.impl.AssignmentExecutionImpl <em>Assignment Execution</em>}' class.
@@ -1002,36 +1002,36 @@ public interface PsPackage extends EPackage {
 	EAttribute getUpdateOperation_OperandValue();
 
 	/**
-	 * Returns the meta object for class '{@link io.github.abelgomez.ps.TimedExecution <em>Timed Execution</em>}'.
+	 * Returns the meta object for class '{@link io.github.abelgomez.ps.Delayed <em>Delayed</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Timed Execution</em>'.
-	 * @see io.github.abelgomez.ps.TimedExecution
+	 * @return the meta object for class '<em>Delayed</em>'.
+	 * @see io.github.abelgomez.ps.Delayed
 	 * @generated
 	 */
-	EClass getTimedExecution();
+	EClass getDelayed();
 
 	/**
-	 * Returns the meta object for the reference '{@link io.github.abelgomez.ps.TimedExecution#getBase_ExecutionSpecification <em>Base Execution Specification</em>}'.
+	 * Returns the meta object for the attribute '{@link io.github.abelgomez.ps.Delayed#getDelay <em>Delay</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Base Execution Specification</em>'.
-	 * @see io.github.abelgomez.ps.TimedExecution#getBase_ExecutionSpecification()
-	 * @see #getTimedExecution()
+	 * @return the meta object for the attribute '<em>Delay</em>'.
+	 * @see io.github.abelgomez.ps.Delayed#getDelay()
+	 * @see #getDelayed()
 	 * @generated
 	 */
-	EReference getTimedExecution_Base_ExecutionSpecification();
+	EAttribute getDelayed_Delay();
 
 	/**
-	 * Returns the meta object for the attribute '{@link io.github.abelgomez.ps.TimedExecution#getTime <em>Time</em>}'.
+	 * Returns the meta object for the reference '{@link io.github.abelgomez.ps.Delayed#getBase_Message <em>Base Message</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Time</em>'.
-	 * @see io.github.abelgomez.ps.TimedExecution#getTime()
-	 * @see #getTimedExecution()
+	 * @return the meta object for the reference '<em>Base Message</em>'.
+	 * @see io.github.abelgomez.ps.Delayed#getBase_Message()
+	 * @see #getDelayed()
 	 * @generated
 	 */
-	EAttribute getTimedExecution_Time();
+	EReference getDelayed_Base_Message();
 
 	/**
 	 * Returns the meta object for class '{@link io.github.abelgomez.ps.AssignmentExecution <em>Assignment Execution</em>}'.
@@ -1483,30 +1483,30 @@ public interface PsPackage extends EPackage {
 		EAttribute UPDATE_OPERATION__OPERAND_VALUE = eINSTANCE.getUpdateOperation_OperandValue();
 
 		/**
-		 * The meta object literal for the '{@link io.github.abelgomez.ps.impl.TimedExecutionImpl <em>Timed Execution</em>}' class.
+		 * The meta object literal for the '{@link io.github.abelgomez.ps.impl.DelayedImpl <em>Delayed</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see io.github.abelgomez.ps.impl.TimedExecutionImpl
-		 * @see io.github.abelgomez.ps.impl.PsPackageImpl#getTimedExecution()
+		 * @see io.github.abelgomez.ps.impl.DelayedImpl
+		 * @see io.github.abelgomez.ps.impl.PsPackageImpl#getDelayed()
 		 * @generated
 		 */
-		EClass TIMED_EXECUTION = eINSTANCE.getTimedExecution();
+		EClass DELAYED = eINSTANCE.getDelayed();
 
 		/**
-		 * The meta object literal for the '<em><b>Base Execution Specification</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Delay</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TIMED_EXECUTION__BASE_EXECUTION_SPECIFICATION = eINSTANCE.getTimedExecution_Base_ExecutionSpecification();
+		EAttribute DELAYED__DELAY = eINSTANCE.getDelayed_Delay();
 
 		/**
-		 * The meta object literal for the '<em><b>Time</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Base Message</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TIMED_EXECUTION__TIME = eINSTANCE.getTimedExecution_Time();
+		EReference DELAYED__BASE_MESSAGE = eINSTANCE.getDelayed_Base_Message();
 
 		/**
 		 * The meta object literal for the '{@link io.github.abelgomez.ps.impl.AssignmentExecutionImpl <em>Assignment Execution</em>}' class.

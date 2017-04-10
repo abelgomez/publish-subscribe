@@ -111,13 +111,13 @@
       <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_KDRNYPnXEeaktbtljtfrvA" name="mult"/>
       <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Kx84UPnXEeaktbtljtfrvA" name="div"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Stereotype" xmi:id="_exUJwPnXEeaktbtljtfrvA" name="TimedExecution">
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_n2wrUvnXEeaktbtljtfrvA" name="base_ExecutionSpecification" association="_n2wrUPnXEeaktbtljtfrvA">
-        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#ExecutionSpecification"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_qePD4PnXEeaktbtljtfrvA" name="time">
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="_exUJwPnXEeaktbtljtfrvA" name="Delayed">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_qePD4PnXEeaktbtljtfrvA" name="delay" visibility="public">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
         <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_t5u6YPnXEeaktbtljtfrvA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_3CFjIAmHEeeHtpH2P4n_Qg" name="base_Message" association="_3CCf0AmHEeeHtpH2P4n_Qg">
+        <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Message"/>
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_fHNhQPnXEeaktbtljtfrvA" name="AssignmentExecution">
@@ -131,9 +131,6 @@
     </packagedElement>
     <packagedElement xmi:type="uml:Extension" xmi:id="_ndlWUPnXEeaktbtljtfrvA" name="E_AssignmentExecution_ExecutionSpecification1" memberEnd="_ndl9YPnXEeaktbtljtfrvA _ndl9YfnXEeaktbtljtfrvA">
       <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_ndl9YPnXEeaktbtljtfrvA" name="extension_AssignmentExecution" type="_fHNhQPnXEeaktbtljtfrvA" aggregation="composite" association="_ndlWUPnXEeaktbtljtfrvA"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Extension" xmi:id="_n2wrUPnXEeaktbtljtfrvA" name="E_TimedExecution_ExecutionSpecification1" memberEnd="_n2wrUfnXEeaktbtljtfrvA _n2wrUvnXEeaktbtljtfrvA">
-      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_n2wrUfnXEeaktbtljtfrvA" name="extension_TimedExecution" type="_exUJwPnXEeaktbtljtfrvA" aggregation="composite" association="_n2wrUPnXEeaktbtljtfrvA"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_AlxiwPnYEeaktbtljtfrvA" name="Client">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_CK8w0vnYEeaktbtljtfrvA" name="base_Lifeline" association="_CK8w0PnYEeaktbtljtfrvA">
@@ -287,6 +284,9 @@ endif</body>
         <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_IRW98f6EEeaPB6TaPSVLSg" key="nature" value="UML_Nature"/>
       </eAnnotations>
       <ownedEnd xmi:type="uml:Property" xmi:id="_IRW98_6EEeaPB6TaPSVLSg" name="timedsetter" type="_IC3EYP6DEeaPB6TaPSVLSg" association="_IRWW4P6EEeaPB6TaPSVLSg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Extension" xmi:id="_3CCf0AmHEeeHtpH2P4n_Qg" name="E_Delayed_Message1" memberEnd="_3CE8EAmHEeeHtpH2P4n_Qg _3CFjIAmHEeeHtpH2P4n_Qg">
+      <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_3CE8EAmHEeeHtpH2P4n_Qg" name="extension_Delayed" type="_exUJwPnXEeaktbtljtfrvA" aggregation="composite" association="_3CCf0AmHEeeHtpH2P4n_Qg"/>
     </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_18pdYPnWEeaktbtljtfrvA">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_18qrgPnWEeaktbtljtfrvA" source="http://www.eclipse.org/uml2/2.0.0/UML">

@@ -53,12 +53,12 @@
     <eLiterals name="mult" value="2"/>
     <eLiterals name="div" value="3"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TimedExecution">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="base_ExecutionSpecification"
-        ordered="false" lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//ExecutionSpecification"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="time" ordered="false" lowerBound="1"
-        eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//Integer"
+  <eClassifiers xsi:type="ecore:EClass" name="Delayed">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="delay" ordered="false"
+        lowerBound="1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//Integer"
         defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="base_Message" ordered="false"
+        lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Message"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AssignmentExecution">
     <eStructuralFeatures xsi:type="ecore:EReference" name="base_ExecutionSpecification"
