@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
 <uriMap:MappingContainer xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:uriMap="http:///www.eclipse.org/m2m/qvt/oml/MModelUriMap/1.0.0">
   <mapping sourceURI="http://io.github.abelgomez/cpntools/1.0" targetURI="platform:/resource/io.github.abelgomez.cpntools/model/cpntools.ecore"/>
+  <mapping sourceURI="http://io.github.abelgomez/ps/1.0" targetURI="platform:/resource/io.github.abelgomez.ps.profile/resources/ps.ecore"/>
 </uriMap:MappingContainer>

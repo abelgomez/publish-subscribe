@@ -1,40 +1,51 @@
 modeltype UML "strict" uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
+modeltype PS "strict" uses ps('http://io.github.abelgomez/ps/1.0');
 modeltype CPN "strict" uses cpntools('http://io.github.abelgomez/cpntools/1.0');
 
 transformation ps2cpntools(in uml : UML, out cpn : CPN);
 
+property clientIdsRegistry : Dict (Classifier, String);
+
 main() {
-	var cpnet := map cpnet();
-	cpnet.page.layout(1500, 1500, 1000);
+	var cpnet := uml.interaction().map cpnet();
+	cpnet.binder.pages.layout(1500, 1200, 5000);
 }
 
-mapping cpnet() : CPN::Cpnet {
-	globbox := map globbox();
-	page := map page();
+mapping UML::Interaction::cpnet() : CPN::Cpnet {
+	globbox := self.map invariantGlobbox();
+	binder := object CPN::Binder {
+		posx := 300;
+		posy := 30;
+		width := 500;
+		height := 500;
+		pages += self.map invariantPage();
+		pages += self.map scenarioPage();
+	}
 }
 
-mapping globbox() : CPN::Globbox {
-	declarations += map priorities();
-	declarations += map simpleColorSets();
-	declarations += map compoundColorSets();
-	declarations += map values();
-	declarations += map functions();
-	declarations += map variables();
+mapping UML::Interaction::invariantGlobbox() : CPN::Globbox {
+	declarations += self.map priorities();
+	declarations += self.map simpleColorSets();
+	declarations += self.map compoundColorSets();
+	declarations += self.map clientsCompoundColorSets();
+	declarations += self.map values();
+	declarations += self.map functions();
+	declarations += self.map variables();
 }
 
 	
-mapping priorities() : CPN::Block {
-	idname := "Standard priorities";
-	declarations += object CPN::Ml { expression := "val P1 = 10;"};
-	declarations += object CPN::Ml { expression := "val P2 = 20;"};
-	declarations += object CPN::Ml { expression := "val P3 = 30;"};
-	declarations += object CPN::Ml { expression := "val P4 = 40;"};
-	declarations += object CPN::Ml { expression := "val P5 = 50;"};
-	declarations += object CPN::Ml { expression := "val P6 = 60;"};
+mapping UML::Interaction::priorities() : CPN::Block {
+	idname := 'Standard priorities';
+	declarations += object CPN::Ml { expression := 'val P1 = 10;'};
+	declarations += object CPN::Ml { expression := 'val P2 = 20;'};
+	declarations += object CPN::Ml { expression := 'val P3 = 30;'};
+	declarations += object CPN::Ml { expression := 'val P4 = 40;'};
+	declarations += object CPN::Ml { expression := 'val P5 = 50;'};
+	declarations += object CPN::Ml { expression := 'val P6 = 60;'};
 }
 
-mapping simpleColorSets() : CPN::Block {
-	idname := "Standard simple declarations";
+mapping UML::Interaction::simpleColorSets() : CPN::Block {
+	idname := 'Standard simple declarations';
 	declarations += map unit();
 	declarations += map bool();
 	declarations += map int();
@@ -45,35 +56,35 @@ mapping simpleColorSets() : CPN::Block {
 }
 
 mapping unit() : CPN::Unit { 
-	idname := "UNIT";
+	idname := 'UNIT';
 };
 
 mapping bool() : CPN::Boolean {
-	idname := "BOOL"
+	idname := 'BOOL';
 };
 
 mapping int() : CPN::Integer {
-	idname := "INT"
+	idname := 'INT';
 };
 
 mapping intinf() : CPN::LargeInteger {
-	idname := "INTINF"
+	idname := 'INTINF';
 };
 
 mapping time() : CPN::Time {
-	idname := "TIME"
+	idname := 'TIME';
 };
 
 mapping real() : CPN::Real {
-	idname := "REAL"
+	idname := 'REAL';
 };
 
 mapping string() : CPN::String {
-	idname := "STRING"
+	idname := 'STRING';
 };
 
-mapping compoundColorSets() : CPN::Block {
-	idname := "Standard compound declarations";
+mapping UML::Interaction::compoundColorSets() : CPN::Block {
+	idname := 'Standard compound declarations';
 	declarations += map intt();
 	declarations += map rec();
 	declarations += map cli();
@@ -84,423 +95,799 @@ mapping compoundColorSets() : CPN::Block {
 };
 
 mapping intt() : CPN::Alias {
-	idname := "INTT" ; 
+	idname := 'INTT'; 
 	timed := true; 
 	simpleColors := resolveoneIn(int);
 };
 
 mapping rec() : CPN::Product {
-	idname := "REC";
+	idname := 'REC';
 	timed := true; 
 	simpleColors += resolveoneIn(int);
 	simpleColors += resolveoneIn(string);
-	simpleColors += resolveoneIn(int);
+	simpleColors += resolveoneIn(real);
 	simpleColors += resolveoneIn(int);
 };
 
 mapping cli() : CPN::Product {
-	idname := "CLI";
+	idname := 'CLI';
 	timed := true; 
 	simpleColors += resolveoneIn(string);
 	simpleColors += resolveoneIn(string);
+	simpleColors += resolveoneIn(real);
+	simpleColors += resolveoneIn(real);
 	simpleColors += resolveoneIn(int);
-	simpleColors += resolveoneIn(int);
-	simpleColors += resolveoneIn(int);
+	simpleColors += resolveoneIn(string);
 };
 
 mapping cl() : CPN::Product {
-	idname := "CL";
+	idname := 'CL';
 	timed := true; 
 	simpleColors += resolveoneIn(int);
 	simpleColors += resolveoneIn(string);
 	simpleColors += resolveoneIn(string);
-	simpleColors += resolveoneIn(int);
+	simpleColors += resolveoneIn(real);
 	simpleColors += resolveoneIn(int);
 };
 
 mapping ecli() : CPN::Product {
-	idname := "ECLI";
+	idname := 'ECLI';
 	timed := true; 
 	simpleColors += resolveoneIn(int);
 	simpleColors += resolveoneIn(string);
 	simpleColors += resolveoneIn(string);
+	simpleColors += resolveoneIn(real);
+	simpleColors += resolveoneIn(real);
 	simpleColors += resolveoneIn(int);
-	simpleColors += resolveoneIn(int);
-	simpleColors += resolveoneIn(int);
+	simpleColors += resolveoneIn(string);
 };
 
 mapping eclir() : CPN::Product {
-	idname := "ECLIR";
+	idname := 'ECLIR';
 	timed := true; 
 	simpleColors += resolveoneIn(int);
 	simpleColors += resolveoneIn(string);
 	simpleColors += resolveoneIn(string);
+	simpleColors += resolveoneIn(real);
+	simpleColors += resolveoneIn(real);
 	simpleColors += resolveoneIn(int);
-	simpleColors += resolveoneIn(int);
-	simpleColors += resolveoneIn(int);
+	simpleColors += resolveoneIn(string);
 };
 
 mapping int2() : CPN::Product {
-		idname := "INT2";
-		timed := true; 
-		simpleColors += resolveoneIn(int);
-		simpleColors += resolveoneIn(int);
+	idname := 'INT2';
+	timed := true; 
+	simpleColors += resolveoneIn(int);
+	simpleColors += resolveoneIn(real);
 };
 
-mapping values() : CPN::Block {
-	idname := "Value declarations";
-	declarations += object CPN::Ml {
-		expression := "val m1 = 4";
+mapping UML::Classifier::clientProductDeclaration() : CPN::Product {
+	idname := self.name.toUpper();
+	simpleColors += resolveoneIn(string);
+	self.attribute->forEach(p) {
+		if (p.type.name = 'String') {
+			simpleColors += resolveoneIn(string);
+		} else if (p.type.name = 'Boolean') {
+			simpleColors += resolveoneIn(bool);
+		} else if (p.type.name = 'Integer') {
+			simpleColors += resolveoneIn(int);
+		} else if (p.type.name = 'Real') {
+			simpleColors += resolveoneIn(real);
+		} else {
+			assert fatal (false) with log ("Unknown Client Classifier Property type: " + p.type.name);
+		};
 	};
-	declarations += object CPN::Ml {
-		expression := "val m2 = 1";
-	};
-	declarations += object CPN::Integer {
-		idname := "V0m1";
-		_with += "0";
-		_with += "m1";
-	};
-	declarations += object CPN::Integer {
-		idname := "V0m2";
-		_with += "0";
-		_with += "m2";
-	};
-	declarations += object CPN::Ml {
-		expression := "val PosCli=
-			1`(\"Client1\",\"CR_USER\",0,999,365)@0++
-			1`(\"Client1\",\"L1\",0,850,365)@1++
-			1`(\"Client1\",\"L2\",0,850,365)@1;"
-	};
-	declarations += object CPN::Ml {
-		expression := "val PosRec=
-			1`(1,\"L1\",950,365)@0+++
-			1`(2,\"L2\",900,365)@1+++
-			1`(3,\"CR_USER\",2000,365)@1;";
-	};
-	declarations += object CPN::Ml {
-		expression := "val count=
-			2`1@0++2`1@1++2`1@2++
-			2`1@3++2`1@4;";
+	timed := true;
+};
+
+mapping UML::Classifier::clientVariableDeclaration() : CPN::Var {
+	idname :=  self.clientId().toLower();
+	type := resolveoneIn(string);
+};
+
+mapping UML::Property::clientPropertyVariablesDeclaration() : CPN::Var {
+	idname := self.name;
+	if (self.type.name = 'String') {
+		type := resolveoneIn(string);
+	} else if (self.type.name = 'Boolean') {
+		type := resolveoneIn(bool);
+	} else if (self.type.name = 'Integer') {
+		type := resolveoneIn(int);
+	} else if (self.type.name = 'Real') {
+		type := resolveoneIn(real);
+	} else {
+		assert fatal (false) with log ("Unknown Client Classifier Property type: " + self.type.name);
 	};
 };
 
-mapping functions() : CPN::Block {
-	idname := "Function declarations";
+mapping UML::Interaction::clientsCompoundColorSets() : CPN::Block {
+	idname := 'Clients declarations';
+	declarations += self.clientClassifiers()->map clientProductDeclaration();
+	declarations += self.clientClassifiers()->map clientVariableDeclaration();
+	declarations += self.clientClassifiers().attribute->map clientPropertyVariablesDeclaration();
+};
+
+mapping UML::Interaction::values() : CPN::Block {
+	idname := 'Value declarations';
 	declarations += object CPN::Ml {
-		expression := "fun intTime()=IntInf.toInt(time());";
+		expression := 'val m1 = 1';
 	};
 	declarations += object CPN::Ml {
-		expression := "fun nV()=V0m1.ran();";
+		expression := 'val m2 = 1';
+	};
+	declarations += object CPN::Integer {
+		idname := 'V0m1';
+		_with += '0';
+		_with += 'm1';
+	};
+	declarations += object CPN::Integer {
+		idname := 'V0m2';
+		_with += '0';
+		_with += 'm2';
 	};
 	declarations += object CPN::Ml {
-		expression := "fun nT()=V0m1.ran();";
+		expression := 'val PosCli=' +
+			'1`("Client1", "CR_USER", 0.0, 999.0, 365, "Deposit")@0++\n' +
+			'1`("Client1", "L1", 0.0, 850.0, 365, "Purchase")@1++\n' +
+			'1`("Client1", "L2", 0.0, 850.0, 365, "Purchase")@1;'
+	};
+	declarations += object CPN::Ml {
+		expression := 'val PosRec=' +
+			'1`(1,"L1",950.0,365)@0+++' +
+			'1`(2,"L2",900.0,365)@2+++' +
+			'1`(3,"CR_USER",2000.0,365)@2;';
+	};
+	declarations += object CPN::Ml {
+		expression := 'val count=' +
+			'2`1@0++2`1@1++1`1@2;';
+	};
+	declarations += object CPN::Ml {
+		expression := 'val maxTime=4';
+	};
+	declarations += object CPN::Ml {
+		expression :=  uml.interaction().resourcesLifelines().represents.type->selectByKind(UML::Artifact)
+			->collectselect(a; res = '1`"' + a.resource()._tag + '"' | a.isResource())
+			->asList()
+			->joinfields('++', 'val ResLocks=', ';')
+	};
+};
+
+mapping UML::Interaction::functions() : CPN::Block {
+	idname := 'Function declarations';
+	declarations += object CPN::Ml {
+		expression := 'fun intTime()=IntInf.toInt(time());';
+	};
+	declarations += object CPN::Ml {
+		expression := 'fun nV()=V0m1.ran();';
+	};
+	declarations += object CPN::Ml {
+		expression := 'fun nT()=V0m1.ran();';
 	};
 };	
 
-mapping variables() : CPN::Block {
-	idname := "Variable declarations";
+mapping UML::Interaction::variables() : CPN::Block {
+	idname := 'Variable declarations';
 	declarations += object CPN::Var {
-		idname := "R";
+		idname := 'R';
 		type := resolveoneIn(string);
 	};
 	declarations += object CPN::Var {
-		idname := "C";
+		idname := 'C';
 		type := resolveoneIn(string);
 	};
 	declarations += object CPN::Var {
-		idname := "C1";
+		idname := 'C1';
 		type := resolveoneIn(string);
 	};
 	declarations += object CPN::Var {
-		idname := "n";
+		idname := 'tr';
+		type := resolveoneIn(string);
+	};
+	declarations += object CPN::Var {
+		idname := 'trOld';
+		type := resolveoneIn(string);
+	};
+	declarations += object CPN::Var {
+		idname := 'n';
 		type := resolveoneIn(int);
 	};
 	declarations += object CPN::Var {
-		idname := "k";
+		idname := 'k';
 		type := resolveoneIn(int);
 	};
 	declarations += object CPN::Var {
-		idname := "EPR";
+		idname := 'EPR';
 		type := resolveoneIn(int);
 	};
 	declarations += object CPN::Var {
-		idname := "EPR1";
+		idname := 'EPR1';
 		type := resolveoneIn(int);
 	};
 	declarations += object CPN::Var {
-		idname := "v";
+		idname := 'v';
+		type := resolveoneIn(real);
+	};
+	declarations += object CPN::Var {
+		idname := 't';
 		type := resolveoneIn(int);
 	};
 	declarations += object CPN::Var {
-		idname := "t";
+		idname := 'cr';
 		type := resolveoneIn(int);
 	};
 	declarations += object CPN::Var {
-		idname := "cr";
+		idname := 'condv1';
+		type := resolveoneIn(real);
+	};
+	declarations += object CPN::Var {
+		idname := 'condv11';
+		type := resolveoneIn(real);
+	};
+	declarations += object CPN::Var {
+		idname := 'condv2';
+		type := resolveoneIn(real);
+	};
+	declarations += object CPN::Var {
+		idname := 'condv22';
+		type := resolveoneIn(real);
+	};
+	declarations += object CPN::Var {
+		idname := 'condt';
 		type := resolveoneIn(int);
 	};
 	declarations += object CPN::Var {
-		idname := "condv1";
+		idname := 'condtt';
 		type := resolveoneIn(int);
 	};
 	declarations += object CPN::Var {
-		idname := "condv11";
-		type := resolveoneIn(int);
-	};
-	declarations += object CPN::Var {
-		idname := "condv2";
-		type := resolveoneIn(int);
-	};
-	declarations += object CPN::Var {
-		idname := "condv22";
-		type := resolveoneIn(int);
-	};
-	declarations += object CPN::Var {
-		idname := "condt";
-		type := resolveoneIn(int);
-	};
-	declarations += object CPN::Var {
-		idname := "condtt";
-		type := resolveoneIn(int);
-	};
-	declarations += object CPN::Var {
-		idname := "cc";
+		idname := 'cc';
 		type := resolveoneIn(int);
 	};
 };
 
-mapping page() : CPN::Page {
-	name := "CPN_PS";
-	posx := 300;	
-	posy := 30;
-	width := 500;
-	height := 500;
-
-	var pResources := map place("Resources", resolveoneIn(rec), "PosRec");
-	var pRoles := map place("Roles", resolveoneIn(cli), "PosCli");
-	var pOpControl := map place("Op\nControl", resolveoneIn(intt), "count");
-	var pExpiredResources := map place("Espired\nResources", resolveoneIn(rec));
-	var pResourceRegistry := map place("Resource\nregistry", resolveoneIn(rec));
-	var pSubscriptionRegistry := map place("Subscription\nRegistry", resolveoneIn(eclir));
-	var pSubscriptionRequest := map place("Subscription\nRequest", resolveoneIn(ecli));
-	var pSubscriptionsTimeOut := map place("Subscriptions\nTime-Out", resolveoneIn(eclir));
-	var pSubscriptionsRemoved := map place("Subscriptions\nRemoved", resolveoneIn(eclir));
-	var pFailSubscriptionRequests := map place("Fail\nSubscription\nRequests", resolveoneIn(ecli));
-	var pFailRoles := map place("Fail\nRoles", resolveoneIn(cli));
-	var pExpiredControl := map place("Expired\nControl", resolveoneIn(int));
-	var pTimeControl := map place("Time\nControl", resolveoneIn(intt), "0");
-	var pNotifications := map place("Notifications", resolveoneIn(cl));
-	var pRlt := map place("RLT", resolveoneIn(int2));
-	var pRv := map place("RV", resolveoneIn(int2));
-
-	var tNotify := map trans("Notify", "P1", "[v >= condv1, v <= condv2]", null);
-	var tEmpty := map trans("Empty", "P3");
-	var tRemoveSubscription := map trans("Remove\nSubscription", "P2", "[EPR = EPR1]", null);
-	var tTimeStep := map trans("Time\nStep", "P4", null, "@+1");
-	var tResourceExpire := map trans("Resource\nExpire", "P2", "[n > cr]", null);
-	var tSubscriptionTimeOut := map trans("Subscription\nTime-Out", "P2", "[cc < n]", null);
-	var tSetProp := map trans("Set Prop", "P4");
-	var tGetProp := map trans("Get Prop", "P4");
-	var tGetTimeFail := map trans("Get Time\nFail", "P4");
-	var tSetTimeFail := map trans("Set Time\nFail", "P4");
-	var tGetPropFail := map trans("Get Prop\nFail", "P4");
-	var tSetPropFail := map trans("Set Prop\nFail", "P4");
-	var tGetTime := map trans("Get Time", "P4");
-	var tSetTime := map trans("Set Time", "P4");
-	var tPublishOk := map trans("Publish_ok", "P4");
-	var tPublishFail := map trans("Publish_fail", "P2", "[EPR = EPR1]", null);
-	var tDiscover := map trans("Discover", "P2");
-	var tFailDiscover := map trans("Fail\nDiscover", "P4");
-	var tSubscribe := map trans("Subscribe", "P4");
-	var tFailSubscribe := map trans("Fail\nSubscribe", "P4");
-	var tReSubscribe := map trans("Re-Subscribe", "P2", "[C = C1]", null);
-	
-	places += pResources;
-	places += pRoles;
-	places += pOpControl;
-	places += pExpiredResources;
-	places += pResourceRegistry;
-	places += pSubscriptionRegistry;
-	places += pSubscriptionRequest;
-	places += pSubscriptionsTimeOut;
-	places += pSubscriptionsRemoved;
-	places += pFailSubscriptionRequests;
-	places += pFailRoles;
-	places += pExpiredControl;
-	places += pTimeControl;
-	places += pNotifications;
-	places += pRlt;
-	places += pRv;
-	
-	transs += tNotify;
-	transs += tEmpty;
-	transs += tRemoveSubscription;
-	transs += tTimeStep;
-	transs += tResourceExpire;
-	transs += tSubscriptionTimeOut;
-	transs += tSetProp;
-	transs += tGetProp;
-	transs += tGetTimeFail;
-	transs += tSetTimeFail;
-	transs += tGetPropFail;
-	transs += tSetPropFail;
-	transs += tGetTime;
-	transs += tSetTime;
-	transs += tPublishOk;
-	transs += tPublishFail;
-	transs += tDiscover;
-	transs += tFailDiscover;
-	transs += tSubscribe;
-	transs += tFailSubscribe;
-	transs += tReSubscribe;
-	
-	arcs += map arc(pResourceRegistry, tNotify, "(EPR1,R,v,cr)");
-	arcs += map arc(tNotify, pResourceRegistry, "(EPR1,R,v,cr)");
-	arcs += map arc(tRemoveSubscription, pSubscriptionsRemoved, "(EPR1,R,C,condv1,condv2,cc)");
-	arcs += map arc(pExpiredControl, tEmpty, "EPR");
-	arcs += map arc(pExpiredControl, tRemoveSubscription, "EPR");
-	arcs += map arc(tRemoveSubscription, pExpiredControl, "EPR");
-	arcs += map arc(tResourceExpire, pExpiredControl, "EPR");
-	arcs += map arc(tResourceExpire, pTimeControl, "n");
-	arcs += map arc(pTimeControl, tResourceExpire, "n");
-	arcs += map arc(pTimeControl, tTimeStep, "n");
-	arcs += map arc(tTimeStep, pTimeControl, "n + 1");
-	arcs += map arc(pTimeControl, tSubscriptionTimeOut, "n");
-	arcs += map arc(tSubscriptionTimeOut, pTimeControl, "n");
-	arcs += map arc(tSubscriptionTimeOut, pSubscriptionsTimeOut, "(EPR1,R,C,condv1,condv2,cc)");
-	arcs += map arc(pSubscriptionRegistry, tSubscriptionTimeOut, "(EPR1,R,C,condv1,condv2,cc)");
-	arcs += map arc(pSubscriptionRegistry, tRemoveSubscription, "(EPR1,R,C,condv1,condv2,cc)");
-	arcs += map arc(pSubscriptionRegistry, tNotify, "(EPR1,R,C,condv1,condv2,cc)");
-	arcs += map arc(pSubscriptionRegistry, tReSubscribe, "(EPR1,R,C,condv1,condv2,cc)");
-	arcs += map arc(tReSubscribe, pSubscriptionRegistry, "(EPR1,R,C,condv11,condv22,condtt+intTime())");
-	arcs += map arc(tSubscribe, pSubscriptionRegistry, "(EPR1,R,C,condv1,condv2,condt+intTime())");
-	arcs += map arc(tNotify, pNotifications, "(EPR1,R,C,v,cc)");
-	arcs += map arc(tNotify, pResourceRegistry, "(EPR1,R,v,cr)");
-	arcs += map arc(pResourceRegistry, tNotify, "(EPR1,R,v,cr)");
-	arcs += map arc(pResourceRegistry, tResourceExpire, "(EPR,R,v,cr)");
-	arcs += map arc(pResourceRegistry, tSetProp, "(EPR,R,v,cr)");
-	arcs += map arc(tSetProp, pResourceRegistry, "(EPR,R,nV(),cr)");
-	arcs += map arc(pResourceRegistry, tGetProp, "(EPR,R,v,cr)");
-	arcs += map arc(tGetProp, pResourceRegistry, "(EPR,R,v,cr)");
-	arcs += map arc(pResourceRegistry, tSetTime, "(EPR,R,v,cr)");
-	arcs += map arc(tSetTime, pResourceRegistry, "(EPR,R,v,nT()+intTime())");
-	arcs += map arc(pResourceRegistry, tGetTime, "(EPR,R,v,cr)");
-	arcs += map arc(tGetTime, pResourceRegistry, "(EPR,R,v,cr)");
-	arcs += map arc(tPublishOk, pResourceRegistry, "(EPR,R,v,intTime()+t)");
-	arcs += map arc(pResourceRegistry, tPublishFail, "(EPR1,R,v,cr)");
-	arcs += map arc(tPublishFail, pResourceRegistry, "(EPR1,R,v,cr)");
-	arcs += map arc(pResourceRegistry, tDiscover, "(EPR1,R,v,cr)");
-	arcs += map arc(tDiscover, pResourceRegistry, "(EPR1,R,v,cr)");
-	arcs += map arc(pResourceRegistry, tReSubscribe, "(EPR1,R,v,cr)");
-	arcs += map arc(tReSubscribe, pResourceRegistry, "(EPR1,R,v,cr)");
-	arcs += map arc(pResourceRegistry, tSubscribe, "(EPR1,R,v,cr)");
-	arcs += map arc(tSubscribe, pResourceRegistry, "(EPR1,R,v,cr)");
-	arcs += map arc(tDiscover, pSubscriptionRequest, "(EPR1,R,C,condv1,condv2,condt)");
-	arcs += map arc(pSubscriptionRequest, tReSubscribe, "(EPR1,R,C,condv11,condv22,condtt)");
-	arcs += map arc(pSubscriptionRequest, tSubscribe, "(EPR1,R,C,condv1,condv2,condt)");
-	arcs += map arc(pSubscriptionRequest, tFailSubscribe, "(EPR1,R,C,condv1,condv2,condt)");
-	arcs += map arc(tFailSubscribe, pFailSubscriptionRequests, "(EPR1,R,C,condv1,condv2,condt)");
-	arcs += map arc(pRoles, tDiscover, "(C,R,condv1,condv2,condt)");
-	arcs += map arc(pRoles, tFailDiscover, "(C,R,condv1,condv2,condt)");
-	arcs += map arc(tFailDiscover, pFailRoles, "(C,R,condv1,condv2,condt)");
-	arcs += map arc(pResources, tPublishFail, "(EPR,R,v,t)");
-	arcs += map arc(pResources, tPublishOk, "(EPR,R,v,t)");
-	arcs += map arc(tGetTime, pRlt, "(EPR,cr)");
-	arcs += map arc(tResourceExpire, pExpiredResources, "(EPR,R,v,cr)");
-	arcs += map arc(tFailSubscribe, pExpiredResources, "(EPR1,R,v,cr)");
-	arcs += map arc(pExpiredResources, tFailSubscribe, "(EPR1,R,v,cr)");
-	arcs += map arc(pExpiredResources, tGetTimeFail, "(EPR,R,v,cr)");
-	arcs += map arc(tGetTimeFail, pExpiredResources, "(EPR,R,v,cr)");
-	arcs += map arc(pExpiredResources, tSetPropFail, "(EPR,R,v,cr)");
-	arcs += map arc(tSetPropFail, pExpiredResources, "(EPR,R,v,cr)");
-	arcs += map arc(pExpiredResources, tGetPropFail, "(EPR,R,v,cr)");
-	arcs += map arc(tGetPropFail, pExpiredResources, "(EPR,R,v,cr)");
-	arcs += map arc(pExpiredResources, tSetTimeFail, "(EPR,R,v,cr)");
-	arcs += map arc(tSetTimeFail, pExpiredResources, "(EPR,R,v,cr)");
-	arcs += map arc(pOpControl, tGetTimeFail, "1");
-	arcs += map arc(pOpControl, tSetPropFail, "1");
-	arcs += map arc(pOpControl, tGetPropFail, "1");
-	arcs += map arc(pOpControl, tSetTimeFail, "1");
-	arcs += map arc(pOpControl, tGetTime, "1");
-	arcs += map arc(pOpControl, tSetTime, "1");
-	arcs += map arc(pOpControl, tGetProp, "1");
-	arcs += map arc(pOpControl, tSetProp, "1");
-	arcs += map arc(tGetProp, pRv, "(EPR,v)");
-		
-	
-	
-	
-};
-
-mapping place(_text : String, _type : CPN::ColorSet) : CPN::Place {
-	fillAttribs(result);
-	width := 60;
-	height := 40;
-	text := _text;
-	type := _type;
-};
-
-mapping place(_text : String, _type : CPN::ColorSet, _initmark : String) : CPN::Place {
+mapping pResourceRegistry(inout _page : CPN::Page) : CPN::Place {
 	init {
-		result := map place(_text, _type);
-	}
-	initmark := object CPN::Initmark {
-		expression := _initmark;
-	};
-};
-
-mapping trans(_text : String, _priority : String) : CPN::Trans {
-	fillAttribs(result);
-	width := 60;
-	height := 40;
-	text := _text;
-	priority := object CPN::TransPriority {
-		text := _priority;
-	};
-};
-
-mapping trans(_text : String, _priority : String, _cond : String, _time : String) : CPN::Trans {
-	init {
-		result := map trans(_text, _priority);
-	}
-	if (_cond.oclIsUndefined().not()) {
-		cond := object CPN::TransCond {
-			text:= _cond;
-		};
-	};
-	if (_time.oclIsUndefined().not()) {
-		time := object CPN::TransTime {
-			text:= _time;
-		};
-	};
-};
-
-abstract mapping abstractArc(elt1 : CPN::DiagramElement, elt2 : CPN::DiagramElement, _text : String)  : CPN::Arc {
-	fillAttribs(result);
-	headsize := 1.2;
-	annot := object CPN::Annot {
-		text := _text;
+		result := create_place(_page, 'Resource\nregistry', resolveoneIn(rec), null);
 	}
 }
 
-mapping arc(_place : CPN::Place, _trans : CPN::Trans, _text : String)  : CPN::Arc inherits abstractArc {
-	orientation := Orientation::PtoT;
-	place := _place;
-	trans := _trans;
+mapping pFusionedResourceRegistry(inout _page : CPN::Page) : CPN::Place {
+	init {
+		result := resolveoneIn(pResourceRegistry).map duplicate(_page);
+	}
+}
+
+mapping pResourceLocks(inout _page : CPN::Page) : CPN::Place {
+	init {
+		result := create_place(_page, 'Resource\nlocks', resolveoneIn(string), 'ResLocks');
+	}
+}
+
+mapping UML::Interaction::invariantPage() : CPN::Page {
+	name := 'PS_Core_' + self.name;
+
+	/*  1 */	var pSubscriptionsRemoved     := create_place(result, 'Subscriptions\nRemoved', resolveoneIn(eclir));
+	/*  2 */	var pExpiredControl           := create_place(result, 'Expired\nControl', resolveoneIn(int));
+	/*  3 */	var pSubscriptionsTimeOut     := create_place(result, 'Subscriptions\nTime-Out', resolveoneIn(eclir));
+	/*  4 */	var pExpiredResources         := create_place(result, 'Expired\nResources', resolveoneIn(rec));
+	/*  5 */	var pTimeControl              := create_place(result, 'Time\nControl', resolveoneIn(intt), '0');
+	/*  6 */	var pOpControl                := create_place(result, 'Op\nControl', resolveoneIn(intt), 'count');
+	/*  7 */	var pNotifications            := create_place(result, 'Notifications', resolveoneIn(cl));
+	/*  8 */	var pResourceRegistry         := map pResourceRegistry(result);
+	/*  9 */	var pSubscriptionRegistry     := create_place(result, 'Subscription\nRegistry', resolveoneIn(eclir));
+	/* 10 */	var pResources                := create_place(result, 'Resources', resolveoneIn(rec), 'PosRec');
+	/* 12 */	var pRoles                    := create_place(result, 'Roles', resolveoneIn(cli), 'PosCli');
+	/* 13 */	var pSubscriptionRequest      := create_place(result, 'Subscription\nRequest', resolveoneIn(ecli));
+	/* 14 */	var pFailSubscriptionRequests := create_place(result, 'Fail\nSubscription\nRequests', resolveoneIn(ecli));
+
+	/*  1 */	var tEmpty                    := create_trans(result, 'Empty', 'P3');
+	/*  2 */	var tRemoveSubscription       := create_trans(result, 'Remove\nSubscription', 'P2', '[EPR = EPR1]');
+	/*  3 */	var tTimeStep                 := create_trans(result, 'Time\nStep', 'P4', '[n < maxTime]', '@+1');
+	/*  4 */	var tResourceExpire           := create_trans(result, 'Resource\nExpire', 'P2', '[n > cr]');
+	/*  5 */	var tGetTimeFail              := create_trans(result, 'Get Time\nFail', 'P4');
+	/*  6 */	var tSetPropFail              := create_trans(result, 'Set Prop\nFail', 'P4');
+	/*  7 */	var tGetPropFail              := create_trans(result, 'Get Prop\nFail', 'P4');
+	/*  8 */	var tSetTimeFail              := create_trans(result, 'Set Time\nFail', 'P4');
+	/*  9 */	var tSubscriptionTimeOut      := create_trans(result, 'Subscription\nTime-Out', 'P2', '[cc < n]');
+	/* 10 */	var tSetTime                  := create_trans(result, 'Set Time', 'P4');
+	/* 11 */	var tNotify                   := create_trans(result, 'Notify', 'P1');
+	/* 12 */	var tPublishOk                := create_trans(result, 'Publish_ok', 'P4');
+	/* 13 */	var tPublishFail              := create_trans(result, 'Publish_fail', 'P2', '[EPR = EPR1]');
+	/* 14 */	var tDiscover                 := create_trans(result, 'Discover', 'P2');
+	/* 15 */	var tReSubscribe              := create_trans(result, 'Re-Subscribe', 'P2', '[C = C1]');
+	/* 16 */	var tFailDiscover             := create_trans(result, 'Fail\nDiscover', 'P4');
+	/* 17 */	var tFailSubscribe            := create_trans(result, 'Fail\nSubscribe', 'P4');
+	/* 18 */	var tSubscribe                := create_trans(result, 'Subscribe', 'P4');
+
+	
+	create_arc(result, pResourceRegistry, tNotify, '(EPR1,R,v,cr)');
+	create_arc(result, tNotify, pResourceRegistry, '(EPR1,R,v,cr)');
+	create_arc(result, tRemoveSubscription, pSubscriptionsRemoved, '(EPR1,R,C,condv1,condv2,cc,tr)');
+	create_arc(result, pExpiredControl, tEmpty, 'EPR');
+	create_arc(result, pExpiredControl, tRemoveSubscription, 'EPR');
+	create_arc(result, tRemoveSubscription, pExpiredControl, 'EPR');
+	create_arc(result, tResourceExpire, pExpiredControl, 'EPR');
+	create_arc(result, tResourceExpire, pTimeControl, 'n');
+	create_arc(result, pTimeControl, tResourceExpire, 'n');
+	create_arc(result, pTimeControl, tTimeStep, 'n');
+	create_arc(result, tTimeStep, pTimeControl, 'n + 1');
+	create_arc(result, pTimeControl, tSubscriptionTimeOut, 'n');
+	create_arc(result, tSubscriptionTimeOut, pTimeControl, 'n');
+	create_arc(result, tSubscriptionTimeOut, pSubscriptionsTimeOut, '(EPR1,R,C,condv1,condv2,cc,tr)');
+	create_arc(result, pSubscriptionRegistry, tSubscriptionTimeOut, '(EPR1,R,C,condv1,condv2,cc,tr)');
+	create_arc(result, pSubscriptionRegistry, tRemoveSubscription, '(EPR1,R,C,condv1,condv2,cc,tr)');
+	create_arc(result, pSubscriptionRegistry, tNotify, '(EPR1,R,C,condv1,condv2,cc,tr)');
+	create_arc(result, pSubscriptionRegistry, tReSubscribe, '(EPR1,R,C,condv1,condv2,cc,trOld)');
+	create_arc(result, tReSubscribe, pSubscriptionRegistry, '(EPR1,R,C,condv11,condv22,condtt+intTime(),tr)');
+	create_arc(result, tSubscribe, pSubscriptionRegistry, '(EPR1,R,C,condv1,condv2,condt+intTime(),tr)');
+	create_arc(result, tNotify, pNotifications, '(EPR1,R,C,v,cc)');
+	create_arc(result, tNotify, pResourceRegistry, '(EPR1,R,v,cr)');
+	create_arc(result, pResourceRegistry, tNotify, '(EPR1,R,v,cr)');
+	create_arc(result, pResourceRegistry, tResourceExpire, '(EPR,R,v,cr)');
+	create_arc(result, pResourceRegistry, tSetTime, '(EPR,R,v,cr)');
+	create_arc(result, tSetTime, pResourceRegistry, '(EPR,R,v,nT()+intTime())');
+	create_arc(result, tPublishOk, pResourceRegistry, '(EPR,R,v,intTime()+t)');
+	create_arc(result, pResourceRegistry, tPublishFail, '(EPR1,R,v,cr)');
+	create_arc(result, tPublishFail, pResourceRegistry, '(EPR1,R,v,cr)');
+	create_arc(result, pResourceRegistry, tDiscover, '(EPR1,R,v,cr)');
+	create_arc(result, tDiscover, pResourceRegistry, '(EPR1,R,v,cr)');
+	create_arc(result, pResourceRegistry, tReSubscribe, '(EPR1,R,v,cr)');
+	create_arc(result, tReSubscribe, pResourceRegistry, '(EPR1,R,v,cr)');
+	create_arc(result, pResourceRegistry, tSubscribe, '(EPR1,R,v,cr)');
+	create_arc(result, tSubscribe, pResourceRegistry, '(EPR1,R,v,cr)');
+	create_arc(result, tDiscover, pSubscriptionRequest, '(EPR1,R,C,condv1,condv2,condt,tr)');
+	create_arc(result, pSubscriptionRequest, tReSubscribe, '(EPR1,R,C,condv11,condv22,condtt,tr)');
+	create_arc(result, pSubscriptionRequest, tSubscribe, '(EPR1,R,C,condv1,condv2,condt,tr)');
+	create_arc(result, pSubscriptionRequest, tFailSubscribe, '(EPR1,R,C,condv1,condv2,condt,tr)');
+	create_arc(result, tFailSubscribe, pFailSubscriptionRequests, '(EPR1,R,C,condv1,condv2,condt,tr)');
+	create_arc(result, pRoles, tDiscover, '(C,R,condv1,condv2,condt,tr)');
+	create_arc(result, pRoles, tFailDiscover, '(C,R,condv1,condv2,condt,tr)');
+	create_arc(result, pResources, tPublishFail, '(EPR,R,v,t)');
+	create_arc(result, pResources, tPublishOk, '(EPR,R,v,t)');
+	create_arc(result, tResourceExpire, pExpiredResources, '(EPR,R,v,cr)');
+	create_arc(result, tFailSubscribe, pExpiredResources, '(EPR1,R,v,cr)');
+	create_arc(result, pExpiredResources, tFailSubscribe, '(EPR1,R,v,cr)');
+	create_arc(result, pExpiredResources, tGetTimeFail, '(EPR,R,v,cr)');
+	create_arc(result, tGetTimeFail, pExpiredResources, '(EPR,R,v,cr)');
+	create_arc(result, pExpiredResources, tSetPropFail, '(EPR,R,v,cr)');
+	create_arc(result, tSetPropFail, pExpiredResources, '(EPR,R,v,cr)');
+	create_arc(result, pExpiredResources, tGetPropFail, '(EPR,R,v,cr)');
+	create_arc(result, tGetPropFail, pExpiredResources, '(EPR,R,v,cr)');
+	create_arc(result, pExpiredResources, tSetTimeFail, '(EPR,R,v,cr)');
+	create_arc(result, tSetTimeFail, pExpiredResources, '(EPR,R,v,cr)');
+	create_arc(result, pOpControl, tGetTimeFail, '1');
+	create_arc(result, pOpControl, tSetPropFail, '1');
+	create_arc(result, pOpControl, tGetPropFail, '1');
+	create_arc(result, pOpControl, tSetTimeFail, '1');
+	create_arc(result, pOpControl, tSetTime, '1');
 };
 
-mapping arc(_trans : CPN::Trans, _place : CPN::Place, _text : String)  : CPN::Arc inherits abstractArc {
-	orientation := Orientation::TtoP;
-	place := _place;
-	trans := _trans;
+mapping UML::Classifier::pClient(inout _page : CPN::Page) : CPN::Place {
+	init {
+		result := create_place(_page, 'Client', resolveone(p : CPN::Product | p.idname = self.name.toUpper()));
+	}
+}
+
+mapping UML::Classifier::pClientLock(inout _page : CPN::Page) : CPN::Place {
+	init {
+		result := create_place(_page, 'Client\nlocks', resolveoneIn(string), '1`"' +  self.clientId() + '"');
+	}
+}
+
+mapping UML::Interaction::scenarioPage() : CPN::Page {
+	name := self.name;
+	
+	var pResourceRegistry := map pFusionedResourceRegistry(result);
+	var pResourceLocks := map pResourceLocks(result);
+	
+	var pStartSubscription := create_place(result, 'Start\nSubscription', resolveoneIn(unit));
+	
+	self.scenarioInterestingEvents()->map interestingEventSubnet(result);
+	
+	var pPrev : CPN::Place := pStartSubscription;
+	
+	self.scenarioInterestingEvents()->asList()->forEach(e) {
+		var pEventStart : CPN::Place := e.resolveoneIn(UML::InteractionFragment::interestingEventSubnet).start;
+		var pEventFinish : CPN::Place := e.resolveoneIn(UML::InteractionFragment::interestingEventSubnet).finish;
+		var tBegining : CPN::Trans := create_trans(result);		
+		var pBegining : CPN::Place := create_place(result);
+		var tEnd : CPN::Trans := create_trans(result);		
+		var pEnd : CPN::Place := create_place(result);
+		create_arc(result, pPrev, tBegining);
+		create_arc(result, tBegining, pEventStart);
+		create_arc(result, tBegining, pBegining);
+		create_arc(result, pBegining, tEnd);
+		create_arc(result, pEventFinish, tEnd);
+		create_arc(result, tEnd, pEnd);
+		pPrev := pEnd;
+	};
+	pPrev.text := 'End\nSubscription';
+}
+
+mapping UML::InteractionFragment::interestingEventSubnet(inout _page : CPN::Page) : Tuple (start : CPN::Place, finish : CPN::Place)
+disjuncts 	UML::ExecutionSpecification::clientExecutionSpecificationSubnet, 
+			UML::MessageOccurrenceSpecification::messageOccurrenceSpecificationSubnet;
+
+mapping UML::MessageOccurrenceSpecification::messageOccurrenceSpecificationSubnet(inout _page : CPN::Page) : Tuple (start : CPN::Place, finish : CPN::Place) {
+	init {
+		result := Tuple { 
+			start = create_place(_page), 
+			finish = create_place(_page)
+		};
+	}
+	
+	assert fatal (self.message.isTimedSetter()) with log ('Expecting a MessageOccurrenceSpecification of TimedSetter Message but found "' + self.toString() + '"');
+	var setter := self.message.timedSetter();
+	var op := setter.operation;
+	
+	var pResourceRegistry := map pFusionedResourceRegistry(_page);
+	var pResourceLocks := map pResourceLocks(_page);
+	
+	
+	var pLifelineStart := create_place(_page, setter.resource._tag + '_lifeline', resolveoneIn(string), '1`"' +  setter.resource._tag + '"');
+	var tLifelineStart := create_trans(_page);
+	var pLifelineFinish := create_place(_page, resolveoneIn(string));
+	var tLifelineFinish := create_trans(_page);
+
+	create_arc(_page, tLifelineFinish, pResourceRegistry, '(EPR, R, v' + op.operator.toString() + op.operandValue.toString() + ',' + setter.time.toString() + ')');
+	create_arc(_page, pResourceRegistry, tLifelineFinish, '(EPR, R, v, cr)');
+	create_arc(_page, result.start, tLifelineStart);
+	create_arc(_page, pLifelineStart, tLifelineStart, 'R');	
+	if (self.message.isDelayed()) {
+		var delayed := self.message.delayed();
+		var pDelay := create_place(_page, resolveoneIn(string));
+		var tDelay := create_trans(_page, 'wait_' + setter.service.base_Node.name, null, null, '@+' + delayed.delay.toString());
+		create_arc(_page, tLifelineStart, pDelay, 'R');
+		create_arc(_page, pDelay, tDelay, 'R');
+		create_arc(_page, tDelay, pLifelineFinish, 'R');
+	} else {
+		create_arc(_page, tLifelineStart, pLifelineFinish, 'R');
+	};
+	create_arc(_page, pLifelineFinish, tLifelineFinish, 'R');
+	create_arc(_page, tLifelineFinish, result.finish);
+	create_arc(_page, pResourceLocks, tLifelineStart, 'R');
+	create_arc(_page, tLifelineFinish, pResourceLocks, 'R');
+}
+
+mapping UML::ExecutionSpecification::clientExecutionSpecificationSubnet(inout _page : CPN::Page) : Tuple (start : CPN::Place, finish : CPN::Place) {
+	init {
+		result := Tuple { 
+			start = create_place(_page), 
+			finish = create_place(_page)
+		};
+	}
+	assert (self.lifeline().isClient()) with log ('Lifeline "' + self.toString() + '" is not a Client Lifeline');
+	var clientClassifier := self.lifeline().represents.type.oclAsType(UML::Classifier);
+	assert (clientClassifier <> null) with log ('Invalid "represents" Classifier in Lifeline "' + self.toString() + '"');
+	
+	var pLock := clientClassifier.map pClientLock(_page);
+	var pLifelineStart := create_place(_page, clientClassifier.clientId() + '_lifeline', resolveoneIn(string), '1`"' +  clientClassifier.clientId() + '"');
+	var tLifelineStart := create_trans(_page);
+	var pLifelineFinish := create_place(_page, resolveoneIn(string));
+	var tLifelineFinish := create_trans(_page);
+	
+	create_arc(_page, result.start, tLifelineStart);
+	create_arc(_page, pLifelineStart, tLifelineStart,  clientClassifier.clientId().toLower());
+	create_arc(_page, pLock, tLifelineStart,  clientClassifier.clientId().toLower());
+	create_arc(_page, pLifelineFinish, tLifelineFinish,  clientClassifier.clientId().toLower());
+	create_arc(_page, tLifelineFinish, result.finish);
+	create_arc(_page, tLifelineFinish, pLock,  clientClassifier.clientId().toLower());
+	
+	self.getAssignmentOperations()->map clientAssignmentSubnet(_page, clientClassifier);
+	create_arc(_page, tLifelineStart, self.getAssignmentOperations()->asList()->first().resolveoneIn(PS::AssignmentOperation::clientAssignmentSubnet).start);
+	create_arc(_page, self.getAssignmentOperations()->asList()->last().resolveoneIn(PS::AssignmentOperation::clientAssignmentSubnet).finish, pLifelineFinish);
+	
+	var prev : AssignmentOperation;
+	self.getAssignmentOperations()->asList()->forEach(a) {
+		if (prev.oclIsUndefined().not()) {
+			create_arc(_page, prev.resolveoneIn(PS::AssignmentOperation::clientAssignmentSubnet).finish, a.resolveoneIn(PS::AssignmentOperation::clientAssignmentSubnet).start);
+		};
+		prev := a;
+	}
+}
+
+mapping PS::AssignmentOperation::clientAssignmentSubnet(inout _page : CPN::Page, in clientClassifier : UML::Classifier) : Tuple (start : CPN::Place, finish : CPN::Trans) {
+	init {
+		result := Tuple { 
+			start = create_place(_page, resolveoneIn(string)), 
+			finish = create_trans(_page, 'assign_' + self._property)
+		};
+	}
+	var pClient := clientClassifier.map pClient(_page);
+	create_arc(_page, result.start, result.finish,  clientClassifier.clientId().toLower());
+	create_arc(_page, pClient, result.finish, clientClassifier.attribute.name->asList()->joinfields(', ', '(' + clientClassifier.clientId().toLower() + ', ', ')'));
+	create_arc(_page, result.finish, pClient, clientClassifier.attribute.name->collect(s : String | if s <> self._property then s else self.value endif)->asList()->joinfields(', ', '(' + clientClassifier.clientId().toLower() + ', ', ')'));
+};
+
+property fusionCounter : Integer = 1;
+mapping CPN::Place::duplicate(inout _page : CPN::Page) : CPN::Place {
+	init {
+		result := create_place(_page, self.text, self.type, self.initmark.expression);
+		_page.places += result;
+		var orig := resolveone(p : Place | p.page = self.page and p.text = self.text and p.type = self.type);
+	
+		var fusion := resolveone(f : Fusion | f.places->includes(self));
+		if (fusion.oclIsUndefined()) {
+			fusion := object CPN::Fusion {
+				places += self;
+				name := "Fusion " + fusionCounter.toString();
+				fusionCounter := fusionCounter + 1;
+			};
+			resolveoneIn(UML::Interaction::cpnet).fusions += fusion;
+		};
+		fusion.places += result;
+	}
+}
+
+helper create_place(inout _page : CPN::Page) : CPN::Place {
+	var p := object CPN::Place {
+		width := 60;
+		height := 40;
+		type := resolveoneIn(unit);
+	};
+	_page.places += p;
+	fillAttribs(p);
+	return p;
+};
+
+helper create_place(inout _page : CPN::Page, in _text : String) : CPN::Place {
+	var p := create_place(_page);
+	p.text := _text;
+	return p;
+};
+
+helper create_place(inout _page : CPN::Page, in _type : CPN::ColorSet) : CPN::Place {
+	var p := create_place(_page);
+	p.type := _type;
+	return p;
+};
+
+helper create_place(inout _page : CPN::Page, in _text : String, in _type : CPN::ColorSet) : CPN::Place {
+	var p := create_place(_page, _text);
+	p.text := _text;
+	p.type := _type;
+	return p;
+};
+
+helper create_place(inout _page : CPN::Page, in _text : String, in _type : CPN::ColorSet, in _initmark : String) : CPN::Place {
+	var p := create_place(_page, _text, _type);
+	if (_initmark.oclIsUndefined().not()) { 
+		p.initmark := object CPN::Initmark {
+			expression := _initmark;
+		};
+	};
+	return p;
+};
+
+helper create_trans(inout _page : CPN::Page) : CPN::Trans {
+	var t := object CPN::Trans {
+		width := 60;
+		height := 40;
+	};
+	_page.transs += t;
+	fillAttribs(t);
+	return t;
+};
+
+helper create_trans(inout _page : CPN::Page, in _text : String) : CPN::Trans {
+	var t := create_trans(_page);
+	t.text := _text;
+	return t;
+};
+
+helper create_trans(inout _page : CPN::Page, in _text : String, in _priority : String) : CPN::Trans {
+	var t := create_trans(_page, _text);
+	if (_priority.oclIsUndefined().not()) {
+		t.priority := object CPN::TransPriority {
+			text := _priority;
+		};
+	};
+	return t;
+};
+
+helper create_trans(inout _page : CPN::Page, in _text : String, in _priority : String, in _cond : String) : CPN::Trans {
+	var t := create_trans(_page, _text, _priority);
+	if (_cond.oclIsUndefined().not()) {
+		t.cond := object CPN::TransCond {
+			text:= _cond;
+		};
+	};
+	return t;
+};
+
+helper create_trans(inout _page : CPN::Page, in _text : String, in _priority : String, in _cond : String, in _time : String) : CPN::Trans {
+	var t := create_trans(_page, _text, _priority, _cond);
+	if (_time.oclIsUndefined().not()) {
+		t.time := object CPN::TransTime {
+			text:= _time;
+		};
+	};
+	return t;
+};
+
+helper create_arc(inout _page : CPN::Page, in _text : String)  : CPN::Arc {
+	var a := object CPN::Arc {
+		headsize := 1.2;
+		annot := object CPN::Annot {
+			text := _text;
+		};
+	};
+	_page.arcs += a;
+	fillAttribs(a);
+	return a;
+}
+
+helper create_arc(inout _page : CPN::Page, in _place : CPN::Place, in _trans : CPN::Trans) : CPN::Arc {
+	return create_arc(_page, _place, _trans, null);
+};
+
+helper create_arc(inout _page : CPN::Page, in _place : CPN::Place, in _trans : CPN::Trans, in _text : String) : CPN::Arc {
+	var a := create_arc(_page, _text);
+	a.orientation := Orientation::PtoT;
+	a.place := _place;
+	a.trans := _trans;
+	return a;
+};
+
+helper create_arc(inout _page : CPN::Page, in _trans : CPN::Trans, in _place : CPN::Place)  : CPN::Arc {
+	return create_arc(_page, _trans, _place, null);
+};
+
+helper create_arc(inout _page : CPN::Page, in _trans : CPN::Trans, in _place : CPN::Place, in _text : String)  : CPN::Arc {
+	var a := create_arc(_page, _text);
+	a.orientation := Orientation::TtoP;
+	a.place := _place;
+	a.trans := _trans;
+	return a;
 };
 
 
 helper fillAttribs(inout element : CPN::DiagramElement) {
-	element.fillColour := "White";
-	element.fillPattern := "";
+	element.fillColour := 'White';
+	element.fillPattern := '';
 	element.fillFilled := false;
-	element.lineColour := "Black";
+	element.lineColour := 'Black';
 	element.lineThick := 1;
-	element.lineType := "Solid";
+	element.lineType := 'Solid';
+}
+
+helper UML::interaction() : UML::Interaction {
+
+	return self.objectsOfKind(UML::Interaction)->select(isPublishSubscribeScenario())->asOrderedSet()->first();
+
+	assert fatal (self.rootObjects()->size() = 1) 
+		with log ('Unexpected number of input elements found: Expecting "1", but found "' + uml.rootObjects()->size().toString() + '"');
+		
+	assert fatal (self.rootObjects()->asSequence()->first().oclIsKindOf(UML::Interaction)) 
+		with log ('Unexpected input element type: Expecting "UML::Interaction", but found "' + uml.rootObjects()->asSequence()->first().metaClassName() + '"');
+	
+	var interaction : UML::Interaction = self.rootObjects()->asSequence()->first().oclAsType(UML::Interaction);
+	
+	assert fatal (interaction.isPublishSubscribeScenario()) 
+		with log ('Root "UML::Interaction" is not a "Publish-Subscribe::PublishSubscribeScenario"');
+
+	assert fatal (interaction.clientLifelines()->size() = 1) 
+		with log ('Unexpected number of clients in "Publish-Subscribe::PublishSubscribeScenario": Expecting "1", but found "' + interaction.clientLifelines()->size().toString() + '"');
+	
+	return interaction;
+}
+
+helper UML::Interaction::isPublishSubscribeScenario() : Boolean {
+	return self.isStereotypeApplied(self.getApplicableStereotype('Publish-Subscribe::PublishSubscribeScenario'));
+}
+
+helper UML::Interaction::scenarioInterestingEvents() : OrderedSet (UML::InteractionFragment) {
+	return self.fragment
+		-- They are included in the interesting lifelines, i.e.:
+		->select(
+			-- A Service's Lifeline 
+			covered->asSequence()->first().isService() or
+			-- A Client's Lifeline
+			covered->asSequence()->first().isClient())
+		-- They correspond to interesting events: 
+		->select( 
+			-- Is a ExecutionSpecification stereotyped as AssignmentExecution or
+			isAssignmentExecution() 
+			-- Is a MessageOccurrenceSpecification whose Message is stereotyped as a TimedSetter
+			or if oclIsKindOf(UML::MessageOccurrenceSpecification) then oclAsType(UML::MessageOccurrenceSpecification).message.isTimedSetter() else false endif);
+}
+
+helper UML::Interaction::clientLifelines() : Set (UML::Lifeline) {
+	return self.lifeline->select(isClient());
+}
+
+helper UML::Interaction::serviceLifelines() : Set (UML::Lifeline) {
+	return self.lifeline->select(isService());
+}
+
+helper UML::Interaction::resourcesLifelines() : Set (UML::Lifeline) {
+	return self.lifeline->select(isResource());
+}
+
+helper UML::Interaction::clientClassifiers() : Bag (UML::Classifier) {
+	return self.clientLifelines().represents.type->selectByKind(UML::Classifier);
+}
+
+helper UML::Lifeline::isService() : Boolean {
+	return self.represents.type.isStereotypeApplied(self.represents.type.getApplicableStereotype('Publish-Subscribe::Service'));
+}
+
+helper UML::Lifeline::isResource() : Boolean {
+	return self.represents.type.isStereotypeApplied(self.represents.type.getApplicableStereotype('Publish-Subscribe::Resource'));
+}
+
+helper UML::Lifeline::isClient() : Boolean {
+	return self.isStereotypeApplied(self.getApplicableStereotype('Publish-Subscribe::Client')); 
+}
+
+helper UML::Lifeline::events() : OrderedSet(UML::InteractionFragment) {
+	return self.interaction.fragment->select(covered->includes(self)) 
+}
+
+helper UML::InteractionFragment::isAssignmentExecution() : Boolean {
+	return self.isStereotypeApplied(self.getApplicableStereotype('Publish-Subscribe::AssignmentExecution')); 
+}
+
+helper UML::InteractionFragment::getAssignmentOperations() : Collection (AssignmentOperation) {
+	if (self.isAssignmentExecution()) {
+		return self.getValue(self.getApplicableStereotype('Publish-Subscribe::AssignmentExecution'), 'assignments').oclAsType(Collection (AssignmentOperation));
+	};
+	return List {};
+}
+
+helper UML::InteractionFragment::lifeline() : UML::Lifeline {
+	return self.covered->asList()->first(); 
+}
+
+helper UML::Message::isTimedSetter() : Boolean {
+	return self.isStereotypeApplied(self.getApplicableStereotype('Publish-Subscribe::TimedSetter')); 
+}
+
+helper UML::Message::timedSetter() : PS::TimedSetter {
+	return self.getStereotypeApplication(self.getApplicableStereotype('Publish-Subscribe::TimedSetter')).oclAsType(PS::TimedSetter); 
+}
+
+helper UML::Message::isDelayed() : Boolean {
+	return self.isStereotypeApplied(self.getApplicableStereotype('Publish-Subscribe::Delay')); 
+}
+
+helper UML::Message::delayed() : PS::Delayed {
+	return self.getStereotypeApplication(self.getApplicableStereotype('Publish-Subscribe::Delay')).oclAsType(PS::Delayed); 
+}
+
+helper UML::Message::isSubscription() : Boolean {
+	return self.isStereotypeApplied(self.getApplicableStereotype('Publish-Subscribe::Subscription')); 
+}
+
+helper UML::Artifact::isResource() : Boolean {
+	return self.isStereotypeApplied(self.getApplicableStereotype('Publish-Subscribe::Resource')); 
+}
+
+helper UML::Artifact::resource() : PS::Resource {
+	return self.getStereotypeApplication(self.getApplicableStereotype('Publish-Subscribe::Resource')).oclAsType(PS::Resource);
+}
+
+helper PS::SignKind::toString() : String{
+	if (self = SignKind::plus) {
+		return '+';
+	} else if (self = SignKind::minus) {
+		return '-';
+	} else if (self = SignKind::mult) {
+		return '*';
+	} else if (self = SignKind::div) {
+		return '/';
+	} else {
+		assert fatal (false) with log ("Unknown SignKind");
+	};
+	return '';
+}
+
+helper UML::Classifier::clientId() : String {
+	-- We assume that this registry will be really small (normally with size == 1)
+	var id : String := clientIdsRegistry->get(self);
+	if (id = null) {
+		id := 'C' + (clientIdsRegistry->size() + 1).toString();
+		clientIdsRegistry->put(self, id);
+	};
+	return id; 
 }
