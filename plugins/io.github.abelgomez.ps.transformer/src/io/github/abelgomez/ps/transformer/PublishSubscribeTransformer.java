@@ -111,6 +111,7 @@ public class PublishSubscribeTransformer {
 			if (newPriority >= priority) {
 				try {
 					uri = ((IUriProvider) element.createExecutableExtension(EXT_PROVIDER)).getUri();
+					priority = newPriority;
 				} catch (CoreException e) {
 					throw new RuntimeException(MessageFormat.format("Unable to retrieve URI for ''{0}''", element), e);
 				}
