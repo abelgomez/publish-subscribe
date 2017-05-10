@@ -99,8 +99,8 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XEox8PnXEeaktbtljtfrvA" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_XEqAEPnXEeaktbtljtfrvA" value="1"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_PTyr0PnXEeaktbtljtfrvA" name="operandValue">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_PTyr0PnXEeaktbtljtfrvA" name="value">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XEqnIPnXEeaktbtljtfrvA" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_XEr1QPnXEeaktbtljtfrvA" value="1"/>
       </ownedAttribute>

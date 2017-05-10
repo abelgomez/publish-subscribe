@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link io.github.abelgomez.ps.impl.UpdateOperationImpl#getOperator <em>Operator</em>}</li>
- *   <li>{@link io.github.abelgomez.ps.impl.UpdateOperationImpl#getOperandValue <em>Operand Value</em>}</li>
+ *   <li>{@link io.github.abelgomez.ps.impl.UpdateOperationImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
@@ -49,24 +49,24 @@ public class UpdateOperationImpl extends MinimalEObjectImpl.Container implements
 	protected SignKind operator = OPERATOR_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getOperandValue() <em>Operand Value</em>}' attribute.
+	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOperandValue()
+	 * @see #getValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double OPERAND_VALUE_EDEFAULT = 0.0;
+	protected static final String VALUE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getOperandValue() <em>Operand Value</em>}' attribute.
+	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOperandValue()
+	 * @see #getValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected double operandValue = OPERAND_VALUE_EDEFAULT;
+	protected String value = VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -113,8 +113,8 @@ public class UpdateOperationImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getOperandValue() {
-		return operandValue;
+	public String getValue() {
+		return value;
 	}
 
 	/**
@@ -122,11 +122,11 @@ public class UpdateOperationImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOperandValue(double newOperandValue) {
-		double oldOperandValue = operandValue;
-		operandValue = newOperandValue;
+	public void setValue(String newValue) {
+		String oldValue = value;
+		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PsPackage.UPDATE_OPERATION__OPERAND_VALUE, oldOperandValue, operandValue));
+			eNotify(new ENotificationImpl(this, Notification.SET, PsPackage.UPDATE_OPERATION__VALUE, oldValue, value));
 	}
 
 	/**
@@ -139,8 +139,8 @@ public class UpdateOperationImpl extends MinimalEObjectImpl.Container implements
 		switch (featureID) {
 			case PsPackage.UPDATE_OPERATION__OPERATOR:
 				return getOperator();
-			case PsPackage.UPDATE_OPERATION__OPERAND_VALUE:
-				return getOperandValue();
+			case PsPackage.UPDATE_OPERATION__VALUE:
+				return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -156,8 +156,8 @@ public class UpdateOperationImpl extends MinimalEObjectImpl.Container implements
 			case PsPackage.UPDATE_OPERATION__OPERATOR:
 				setOperator((SignKind)newValue);
 				return;
-			case PsPackage.UPDATE_OPERATION__OPERAND_VALUE:
-				setOperandValue((Double)newValue);
+			case PsPackage.UPDATE_OPERATION__VALUE:
+				setValue((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -174,8 +174,8 @@ public class UpdateOperationImpl extends MinimalEObjectImpl.Container implements
 			case PsPackage.UPDATE_OPERATION__OPERATOR:
 				setOperator(OPERATOR_EDEFAULT);
 				return;
-			case PsPackage.UPDATE_OPERATION__OPERAND_VALUE:
-				setOperandValue(OPERAND_VALUE_EDEFAULT);
+			case PsPackage.UPDATE_OPERATION__VALUE:
+				setValue(VALUE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -191,8 +191,8 @@ public class UpdateOperationImpl extends MinimalEObjectImpl.Container implements
 		switch (featureID) {
 			case PsPackage.UPDATE_OPERATION__OPERATOR:
 				return operator != OPERATOR_EDEFAULT;
-			case PsPackage.UPDATE_OPERATION__OPERAND_VALUE:
-				return operandValue != OPERAND_VALUE_EDEFAULT;
+			case PsPackage.UPDATE_OPERATION__VALUE:
+				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -209,8 +209,8 @@ public class UpdateOperationImpl extends MinimalEObjectImpl.Container implements
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (operator: ");
 		result.append(operator);
-		result.append(", operandValue: ");
-		result.append(operandValue);
+		result.append(", value: ");
+		result.append(value);
 		result.append(')');
 		return result.toString();
 	}

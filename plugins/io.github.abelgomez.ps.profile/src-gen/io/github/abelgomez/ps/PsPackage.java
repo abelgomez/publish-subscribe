@@ -244,13 +244,13 @@ public interface PsPackage extends EPackage {
 	int UPDATE_OPERATION__OPERATOR = 0;
 
 	/**
-	 * The feature id for the '<em><b>Operand Value</b></em>' attribute.
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UPDATE_OPERATION__OPERAND_VALUE = 1;
+	int UPDATE_OPERATION__VALUE = 1;
 
 	/**
 	 * The number of structural features of the '<em>Update Operation</em>' class.
@@ -991,15 +991,15 @@ public interface PsPackage extends EPackage {
 	EAttribute getUpdateOperation_Operator();
 
 	/**
-	 * Returns the meta object for the attribute '{@link io.github.abelgomez.ps.UpdateOperation#getOperandValue <em>Operand Value</em>}'.
+	 * Returns the meta object for the attribute '{@link io.github.abelgomez.ps.UpdateOperation#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Operand Value</em>'.
-	 * @see io.github.abelgomez.ps.UpdateOperation#getOperandValue()
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see io.github.abelgomez.ps.UpdateOperation#getValue()
 	 * @see #getUpdateOperation()
 	 * @generated
 	 */
-	EAttribute getUpdateOperation_OperandValue();
+	EAttribute getUpdateOperation_Value();
 
 	/**
 	 * Returns the meta object for class '{@link io.github.abelgomez.ps.Delayed <em>Delayed</em>}'.
@@ -1475,12 +1475,12 @@ public interface PsPackage extends EPackage {
 		EAttribute UPDATE_OPERATION__OPERATOR = eINSTANCE.getUpdateOperation_Operator();
 
 		/**
-		 * The meta object literal for the '<em><b>Operand Value</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute UPDATE_OPERATION__OPERAND_VALUE = eINSTANCE.getUpdateOperation_OperandValue();
+		EAttribute UPDATE_OPERATION__VALUE = eINSTANCE.getUpdateOperation_Value();
 
 		/**
 		 * The meta object literal for the '{@link io.github.abelgomez.ps.impl.DelayedImpl <em>Delayed</em>}' class.

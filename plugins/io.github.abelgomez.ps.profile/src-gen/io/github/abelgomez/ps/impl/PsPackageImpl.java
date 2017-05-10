@@ -339,7 +339,7 @@ public class PsPackageImpl extends EPackageImpl implements PsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getUpdateOperation_OperandValue() {
+	public EAttribute getUpdateOperation_Value() {
 		return (EAttribute)updateOperationEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -667,7 +667,7 @@ public class PsPackageImpl extends EPackageImpl implements PsPackage {
 
 		updateOperationEClass = createEClass(UPDATE_OPERATION);
 		createEAttribute(updateOperationEClass, UPDATE_OPERATION__OPERATOR);
-		createEAttribute(updateOperationEClass, UPDATE_OPERATION__OPERAND_VALUE);
+		createEAttribute(updateOperationEClass, UPDATE_OPERATION__VALUE);
 
 		delayedEClass = createEClass(DELAYED);
 		createEAttribute(delayedEClass, DELAYED__DELAY);
@@ -769,7 +769,7 @@ public class PsPackageImpl extends EPackageImpl implements PsPackage {
 
 		initEClass(updateOperationEClass, UpdateOperation.class, "UpdateOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getUpdateOperation_Operator(), this.getSignKind(), "operator", null, 1, 1, UpdateOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getUpdateOperation_OperandValue(), theTypesPackage.getReal(), "operandValue", null, 1, 1, UpdateOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getUpdateOperation_Value(), theTypesPackage.getString(), "value", null, 1, 1, UpdateOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(delayedEClass, Delayed.class, "Delayed", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDelayed_Delay(), theTypesPackage.getInteger(), "delay", "0", 1, 1, Delayed.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

@@ -61,7 +61,7 @@
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="ps.ecore#//UpdateOperation">
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ps.ecore#//UpdateOperation/operator"/>
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ps.ecore#//UpdateOperation/operandValue"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ps.ecore#//UpdateOperation/value"/>
     </genClasses>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="ps.ecore#//Delayed">
       <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute ps.ecore#//Delayed/delay"/>
