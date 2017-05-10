@@ -1,0 +1,137 @@
+import stringutils;
+
+modeltype CPN "strict" uses cpntools('http://io.github.abelgomez/cpntools/1.0');
+
+library cpnsupport;
+
+
+helper create_place(inout _page : CPN::Page) : CPN::Place {
+	var p := object CPN::Place {
+		width := 60;
+		height := 40;
+	};
+	_page.places += p;
+	fillAttribs(p);
+	return p;
+};
+
+helper create_place(inout _page : CPN::Page, in _text : String) : CPN::Place {
+	var p := create_place(_page);
+	p.text := _text;
+	return p;
+};
+
+helper create_place(inout _page : CPN::Page, in _type : CPN::ColorSet) : CPN::Place {
+	var p := create_place(_page);
+	p.type := _type;
+	return p;
+};
+
+helper create_place(inout _page : CPN::Page, in _text : String, in _type : CPN::ColorSet) : CPN::Place {
+	var p := create_place(_page, _text);
+	p.type := _type;
+	return p;
+};
+
+helper create_place(inout _page : CPN::Page, in _text : String, in _type : CPN::ColorSet, in _initmark : String) : CPN::Place {
+	var p := create_place(_page, _text, _type);
+	if (_initmark.oclIsUndefined().not()) { 
+		p.initmark := object CPN::Initmark {
+			expression := _initmark;
+		};
+	};
+	return p;
+};
+
+helper create_trans(inout _page : CPN::Page) : CPN::Trans {
+	var t := object CPN::Trans {
+		width := 60;
+		height := 40;
+	};
+	_page.transs += t;
+	fillAttribs(t);
+	return t;
+};
+
+helper create_trans(inout _page : CPN::Page, in _text : String) : CPN::Trans {
+	var t := create_trans(_page);
+	t.text := _text;
+	return t;
+};
+
+helper create_trans(inout _page : CPN::Page, in _text : String, in _priority : String) : CPN::Trans {
+	var t := create_trans(_page, _text);
+	if (_priority.oclIsUndefined().not()) {
+		t.priority := object CPN::TransPriority {
+			text := _priority;
+		};
+	};
+	return t;
+};
+
+helper create_trans(inout _page : CPN::Page, in _text : String, in _priority : String, in _cond : String) : CPN::Trans {
+	var t := create_trans(_page, _text, _priority);
+	if (_cond.oclIsUndefined().not()) {
+		t.cond := object CPN::TransCond {
+			text:= _cond;
+		};
+	};
+	return t;
+};
+
+helper create_trans(inout _page : CPN::Page, in _text : String, in _priority : String, in _cond : String, in _time : String) : CPN::Trans {
+	var t := create_trans(_page, _text, _priority, _cond);
+	if (_time.oclIsUndefined().not()) {
+		t.time := object CPN::TransTime {
+			text:= _time;
+		};
+	};
+	return t;
+};
+
+helper create_arc(inout _page : CPN::Page, in _text : String)  : CPN::Arc {
+	var a := object CPN::Arc {
+		headsize := 1.2;
+		annot := object CPN::Annot {
+			text := _text;
+		};
+	};
+	_page.arcs += a;
+	fillAttribs(a);
+	return a;
+}
+
+helper create_arc(inout _page : CPN::Page, in _place : CPN::Place, in _trans : CPN::Trans) : CPN::Arc {
+	return create_arc(_page, _place, _trans, null);
+};
+
+helper create_arc(inout _page : CPN::Page, in _place : CPN::Place, in _trans : CPN::Trans, in _text : String) : CPN::Arc {
+	var a := create_arc(_page, _text);
+	a.orientation := Orientation::PtoT;
+	a.place := _place;
+	a.trans := _trans;
+	return a;
+};
+
+helper create_arc(inout _page : CPN::Page, in _trans : CPN::Trans, in _place : CPN::Place)  : CPN::Arc {
+	return create_arc(_page, _trans, _place, null);
+};
+
+helper create_arc(inout _page : CPN::Page, in _trans : CPN::Trans, in _place : CPN::Place, in _text : String)  : CPN::Arc {
+	var a := create_arc(_page, _text);
+	a.orientation := Orientation::TtoP;
+	a.place := _place;
+	a.trans := _trans;
+	return a;
+};
+
+
+helper fillAttribs(inout element : CPN::DiagramElement) {
+	element.fillColour := 'White';
+	element.fillPattern := '';
+	element.fillFilled := false;
+	element.lineColour := 'Black';
+	element.lineThick := 1;
+	element.lineType := 'Solid';
+}
+

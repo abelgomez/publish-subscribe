@@ -1,0 +1,102 @@
+import stringutils;
+import pssupport;
+
+modeltype UML "strict" uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
+
+library umlsupport;
+
+
+
+helper OrderedSet (UML::InteractionFragment)::filterInterestingEvents() : OrderedSet (UML::InteractionFragment) {
+	return self
+		-- They correspond to interesting events: 
+		->select(e |
+			-- Is an 'alt' CombinedFragment
+			if e.oclIsKindOf(UML::CombinedFragment)
+				then e.oclAsType(UML::CombinedFragment).interactionOperator = UML::InteractionOperatorKind::alt
+				else false endif
+			or
+			-- Is a ExecutionSpecification stereotyped as AssignmentExecution or
+			if e.oclIsKindOf(UML::ExecutionSpecification)
+				then e.oclAsType(UML::ExecutionSpecification).isAssignmentExecution() 
+				else false endif
+			or
+			-- Is a MessageOccurrenceSpecification whose Message is stereotyped as a AbstractSetter
+			if e.oclIsKindOf(UML::MessageOccurrenceSpecification)
+				then let mos : UML::MessageOccurrenceSpecification = e.oclAsType(UML::MessageOccurrenceSpecification) in 
+					mos.message.isAbstractSetter() and mos.message.sendEvent = mos  
+				else false endif);
+}
+
+/**
+helper OrderedSet (UML::InteractionFragment)::filterScenarioInterestingEvents() : OrderedSet (UML::InteractionFragment) {
+	return self
+		-- They correspond to interesting events: 
+		->select(e | 
+			-- Is a ExecutionSpecification stereotyped as AssignmentExecution or
+			if e.oclIsKindOf(UML::ExecutionSpecification)
+				then e.oclAsType(UML::ExecutionSpecification).isAssignmentExecution() 
+				else false endif
+			or
+			-- Is a MessageOccurrenceSpecification whose Message is stereotyped as a AbstractSetter
+			if e.oclIsKindOf(UML::MessageOccurrenceSpecification)
+				then let mos : UML::MessageOccurrenceSpecification = e.oclAsType(UML::MessageOccurrenceSpecification) in 
+					mos.message.isAbstractSetter() and mos.message.sendEvent = mos  
+				else false endif);
+}
+
+helper OrderedSet (UML::InteractionFragment)::filterSubscriptionInterestingEvents() : OrderedSet (UML::InteractionFragment) {
+	return self
+		-- They correspond to interesting events: 
+		->select(
+			-- Is an 'alt' CombinedFragment
+			if oclIsKindOf(UML::CombinedFragment) then oclAsType(UML::CombinedFragment).interactionOperator = UML::InteractionOperatorKind::alt else false endif
+			or
+			-- Is a ExecutionSpecification stereotyped as AssignmentExecution or
+			if oclIsKindOf(UML::ExecutionSpecification) then oclAsType(UML::ExecutionSpecification).isAssignmentExecution() else false endif
+			or
+			-- Is a MessageOccurrenceSpecification whose Message is stereotyped as an AbstractSetter
+			if oclIsKindOf(UML::MessageOccurrenceSpecification) then oclAsType(UML::MessageOccurrenceSpecification).message.isAbstractSetter() else false endif);
+}
+*/
+
+helper UML::Interaction::clientLifelines() : Set (UML::Lifeline) {
+	return self.lifeline->select(isClient());
+}
+
+helper UML::Interaction::serviceLifelines() : Set (UML::Lifeline) {
+	return self.lifeline->select(isService());
+}
+
+helper UML::Interaction::resourcesLifelines() : Set (UML::Lifeline) {
+	return self.lifeline->select(isResource());
+}
+
+helper UML::Interaction::clientClassifiers() : Bag (UML::Classifier) {
+	return self.clientLifelines().represents.type->selectByKind(UML::Classifier);
+}
+
+helper UML::Lifeline::events() : OrderedSet(UML::InteractionFragment) {
+	return self.interaction.fragment->select(covered->includes(self)) 
+}
+
+helper UML::ExecutionSpecification::lifeline() : UML::Lifeline {
+	assert warning (self.covered->size() = 1) with log ('ExecutionSpecification "{1}" covers more than 1 Lifeline'._format(self));
+	return self.covered->asList()->first(); 
+}
+
+helper UML::OccurrenceSpecification::lifeline() : UML::Lifeline {
+	assert fatal (self.covered->size() = 1) with log ('Malformed input model: "OccurrenceSpecification.covered->size()" is not equals to "1" for element "{1}"'._format(self));
+	return self.covered->asList()->first(); 
+}
+
+property clientIdsRegistry : Dict (Classifier, String);
+helper UML::Classifier::clientId() : String {
+	-- We assume that this registry will be really really small
+	var id : String := clientIdsRegistry->get(self);
+	if (id = null) {
+		id := 'C' + (clientIdsRegistry->size() + 1).toString();
+		clientIdsRegistry->put(self, id);
+	};
+	return id; 
+}

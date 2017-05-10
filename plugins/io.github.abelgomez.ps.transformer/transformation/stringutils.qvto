@@ -1,0 +1,108 @@
+library stringutils;
+
+/**
+	Functions for String formatting
+**/
+
+helper String::_format(in arg1 : OclAny) : String {
+	return self._format(List {arg1});
+}
+
+helper String::_format(in arg1 : OclAny, in arg2 : OclAny) : String {
+	return self._format(List {arg1, arg2});
+}
+
+helper String::_format(in arg1 : OclAny, in arg2 : OclAny, in arg3 : OclAny) : String {
+	return self._format(List {arg1, arg2, arg3});
+}
+
+helper String::_format(in arg1 : OclAny, in arg2 : OclAny, in arg3 : OclAny, in arg4 : OclAny) : String {
+	return self._format(List {arg1, arg2, arg3, arg4});
+}
+
+helper String::_format(in arg1 : OclAny, in arg2 : OclAny, in arg3 : OclAny, in arg4 : OclAny, in arg5 : OclAny) : String {
+	return self._format(List {arg1, arg2, arg3, arg4, arg5});
+}
+
+helper String::_format(in arg1 : OclAny, in arg2 : OclAny, in arg3 : OclAny, in arg4 : OclAny, in arg5 : OclAny, in arg6 : OclAny) : String {
+	return self._format(List {arg1, arg2, arg3, arg4, arg5, arg6});
+}
+
+helper String::_format(in arg1 : OclAny, in arg2 : OclAny, in arg3 : OclAny, in arg4 : OclAny, in arg5 : OclAny, in arg6 : OclAny, in arg7 : OclAny) : String {
+	return self._format(List {arg1, arg2, arg3, arg4, arg5, arg6, arg7});
+}
+
+helper String::_format(in arg1 : OclAny, in arg2 : OclAny, in arg3 : OclAny, in arg4 : OclAny, in arg5 : OclAny, in arg6 : OclAny, in arg7 : OclAny, in arg8 : OclAny) : String {
+	return self._format(List {arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8});
+}
+
+helper String::_format(in arg1 : OclAny, in arg2 : OclAny, in arg3 : OclAny, in arg4 : OclAny, in arg5 : OclAny, in arg6 : OclAny, in arg7 : OclAny, in arg8 : OclAny, in arg9 : OclAny) : String {
+	return self._format(List {arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9});
+}
+
+/**
+	Helper function similar to Java._format(...) to easily format Strings
+	Placeholders' numbers always start in 1 (as in OCL). E.g.:
+	
+	'Sample: {1} {2}'._format(1, 'asdf') -> 'Sample: 1 asdf'
+**/
+helper String::_format(in args : List(OclAny)) : String {
+	var str : String := self;
+	var i : Integer := 1;
+	while (i <= args->size()) {
+		str := str.substituteAll('{' + i.toString() + '}', args->at(i).toString());
+		i := i + 1;
+	};
+	return str;
+}
+
+/**
+	Parses the given String, and returns a new String incrementing its numeric
+	suffix if found. If the suffix has trailing zeros, they are maintained. 
+	If the String does not have a numeric suffix, a zero is appended, e.g.:
+
+	'0'.increment() -> '1'
+	'01'.increment() -> '02'
+	'09'.increment() -> '10'
+	'0099'.increment() -> '0100'
+	'a'.increment() -> 'a0'
+	'aa'.increment() -> 'aa0'
+	'aa0'.increment() -> 'aa1'
+	'asdfg1234'.increment() -> 'asdfg1235'
+**/
+helper String::increment() : String {
+	var str : String := '';
+	var i : Integer := self.length();
+	var num : String := '';
+	while (i > 0) {
+		if (self.at(i) = '0' and num.length() > 0) {
+			-- Keep trailing zeros...
+			if (num.characters()->forAll(self.toInteger() = 9)) {
+				-- But if all the parsed digits are nines, we should consume the 
+				-- current zero to make space for the incremented number 
+				i := i - 1;
+			};
+			break;
+		} else if (self.at(i).asInteger() <> null) {
+			num := self.at(i).concat(num);
+			i := i - 1;
+		} else {
+			break;
+		}
+	};
+	if (num = '') {
+		return self.concat('0');
+	} else if (self.substring(1, i).oclIsInvalid()) {
+		return (num.toInteger() + 1).toString();
+	} else {
+		return self.substring(1, i).concat((num.toInteger() + 1).toString())
+	};
+	return str;
+}
+
+helper String::_addSuffixNumber() : String {
+	if (String.getStrCounter(self) = null) {
+		self.addSuffixNumber();
+	};
+	return self.addSuffixNumber();
+}

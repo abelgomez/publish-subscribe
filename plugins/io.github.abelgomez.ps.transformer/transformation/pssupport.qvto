@@ -1,0 +1,132 @@
+import stringutils;
+
+modeltype UML "strict" uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
+modeltype PS "strict" uses ps('http://io.github.abelgomez/ps/1.0');
+
+library pssupport;
+
+helper UML::Interaction::isPublishSubscribeScenario() : Boolean {
+	return self.isStereotypeApplied(self.getApplicableStereotype('Publish-Subscribe::PublishSubscribeScenario'));
+}
+
+helper UML::Message::isAbstractSetter() : Boolean {
+	-- We cannot check if it is an AbstractSetter using "self.getApplicableStereotype" directly 
+	-- because AbstractSetter is abstract and thus, cannot be applied
+	return self.isSetter() or self.isTimedSetter(); 
+}
+
+helper UML::Message::abstractSetter() : PS::AbstractSetter {
+	return
+		if self.isSetter()
+		then 
+			self.setter()
+		else
+			if self.isTimedSetter()
+			then
+				self.timedSetter()
+			else
+				assert fatal (false) with log ('Unexpected <<AbstractSetter>> kind: {1}'._format(self))
+			endif 
+		endif;
+}
+
+helper UML::Message::isSetter() : Boolean {
+	return self.isStereotypeApplied(self.getApplicableStereotype('Publish-Subscribe::Setter')); 
+}
+
+helper UML::Message::setter() : PS::Setter {
+	assert fatal (self.isSetter()) with log ('Message "{1}" does not represent as <<Setter>>'._format(self));
+	return self.getStereotypeApplication(self.getApplicableStereotype('Publish-Subscribe::Setter')).oclAsType(PS::Setter); 
+}
+
+helper UML::Message::isTimedSetter() : Boolean {
+	return self.isStereotypeApplied(self.getApplicableStereotype('Publish-Subscribe::TimedSetter')); 
+}
+
+helper UML::Message::timedSetter() : PS::TimedSetter {
+	assert fatal (self.isTimedSetter()) with log ('Message "{1}" does not represent a <<TimedSetter>>'._format(self));
+	return self.getStereotypeApplication(self.getApplicableStereotype('Publish-Subscribe::TimedSetter')).oclAsType(PS::TimedSetter); 
+}
+
+helper UML::Message::isDelayed() : Boolean {
+	return self.isStereotypeApplied(self.getApplicableStereotype('Publish-Subscribe::Delayed')); 
+}
+
+helper UML::Message::delayed() : PS::Delayed {
+	assert fatal (self.isDelayed()) with log ('Message "{1}" does not represent a <<Delayed>>'._format(self));
+	return self.getStereotypeApplication(self.getApplicableStereotype('Publish-Subscribe::Delayed')).oclAsType(PS::Delayed); 
+}
+
+helper UML::Message::isSubscription() : Boolean {
+	return self.isStereotypeApplied(self.getApplicableStereotype('Publish-Subscribe::Subscription')); 
+}
+
+helper UML::Message::subscription() : PS::Subscription {
+	assert fatal (self.isSubscription()) with log ('Message "{1}" does not represent a <<Subscription>>'._format(self));
+	return self.getStereotypeApplication(self.getApplicableStereotype('Publish-Subscribe::Subscription')).oclAsType(PS::Subscription); 
+}
+
+helper UML::Artifact::isResource() : Boolean {
+	return self.isStereotypeApplied(self.getApplicableStereotype('Publish-Subscribe::Resource')); 
+}
+
+helper UML::Artifact::resource() : PS::Resource {
+	assert fatal (self.isResource()) with log ('Artifact "{1}" does not represent a <<Resource>>'._format(self));
+	return self.getStereotypeApplication(self.getApplicableStereotype('Publish-Subscribe::Resource')).oclAsType(PS::Resource);
+}
+
+helper UML::Lifeline::isService() : Boolean {
+	return self.represents.type.isStereotypeApplied(self.represents.type.getApplicableStereotype('Publish-Subscribe::Service'));
+}
+
+helper UML::Lifeline::isResource() : Boolean {
+	return self.represents.type.isStereotypeApplied(self.represents.type.getApplicableStereotype('Publish-Subscribe::Resource'));
+}
+
+helper UML::Lifeline::resource() : PS::Resource {
+	return self.represents.type.getStereotypeApplication(self.represents.type.getApplicableStereotype('Publish-Subscribe::Resource')).oclAsType(PS::Resource);
+}
+
+helper UML::Lifeline::isClient() : Boolean {
+	return self.isStereotypeApplied(self.getApplicableStereotype('Publish-Subscribe::Client')); 
+}
+
+helper UML::Lifeline::clientClassifier() : UML::Classifier {
+	assert fatal (self.isClient()) with log ('Lifeline "{1}" does not represent a <<Client>>'._format(self));
+	return self.represents.type.oclAsType(UML::Classifier); 
+}
+
+helper UML::ExecutionSpecification::isAssignmentExecution() : Boolean {
+	return self.isStereotypeApplied(self.getApplicableStereotype('Publish-Subscribe::AssignmentExecution')); 
+}
+
+helper UML::ExecutionSpecification::assignmentExecution() : PS::AssignmentExecution {
+	assert fatal (self.isAssignmentExecution()) with log ('ExecutionSpecification "{1}" does not represent an <<AssignmentExecution>>'._format(self));
+	return self.getStereotypeApplication(self.getApplicableStereotype('Publish-Subscribe::AssignmentExecution')).oclAsType(PS::AssignmentExecution);
+}
+
+helper PS::AbstractSetter::resource() : Resource {
+	if (self.oclIsKindOf(PS::Setter)) {
+		return self.oclAsType(PS::Setter).resource;
+	} else if (self.oclIsKindOf(PS::TimedSetter)) {
+		return self.oclAsType(PS::TimedSetter).resource;
+	} else {
+		assert fatal (false) with log ('Unexpected kind of <<AbstractSetter>>: {1}'._format(self))
+	};
+	return null;
+}
+
+helper PS::SignKind::asSymbol() : String {
+	if (self = SignKind::plus) {
+		return '+';
+	} else if (self = SignKind::minus) {
+		return '-';
+	} else if (self = SignKind::mult) {
+		return '*';
+	} else if (self = SignKind::div) {
+		return '/';
+	} else {
+		assert fatal (false) with log ("Unknown SignKind");
+	};
+	return '';
+}

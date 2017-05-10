@@ -1,14 +1,19 @@
+import stringutils;
+import umlsupport;
+import pssupport;
+import cpnsupport;
+
 modeltype UML "strict" uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
 modeltype PS "strict" uses ps('http://io.github.abelgomez/ps/1.0');
 modeltype CPN "strict" uses cpntools('http://io.github.abelgomez/cpntools/1.0');
 
 transformation ps2cpntools(in uml : UML, out cpn : CPN);
 
-property clientIdsRegistry : Dict (Classifier, String);
-
 main() {
 	var cpnet := uml.interaction().map cpnet();
-	cpnet.binder.pages.layout(1500, 1200, 5000);
+	-- Once the transformation has been executed, force the
+	-- automatic layout of the CPNet for all its pages
+	cpnet.binder.pages.layout(1500, 1200, 10000);
 }
 
 mapping UML::Interaction::cpnet() : CPN::Cpnet {
@@ -20,8 +25,13 @@ mapping UML::Interaction::cpnet() : CPN::Cpnet {
 		height := 500;
 		pages += self.map invariantPage();
 		pages += self.map scenarioPage();
+		pages += self.message[isSubscription()].subscription().map subscriptionPage();
 	}
 }
+
+/**
+	Declarations Section
+**/
 
 mapping UML::Interaction::invariantGlobbox() : CPN::Globbox {
 	declarations += self.map priorities();
@@ -161,6 +171,13 @@ mapping int2() : CPN::Product {
 	simpleColors += resolveoneIn(real);
 };
 
+mapping UML::Interaction::clientsCompoundColorSets() : CPN::Block {
+	idname := 'Clients declarations';
+	declarations += self.clientClassifiers()->map clientProductDeclaration();
+	declarations += self.clientClassifiers()->map clientVariableDeclaration();
+	declarations += self.clientClassifiers().attribute->map clientPropertyVariablesDeclaration();
+};
+
 mapping UML::Classifier::clientProductDeclaration() : CPN::Product {
 	idname := self.name.toUpper();
 	simpleColors += resolveoneIn(string);
@@ -174,14 +191,14 @@ mapping UML::Classifier::clientProductDeclaration() : CPN::Product {
 		} else if (p.type.name = 'Real') {
 			simpleColors += resolveoneIn(real);
 		} else {
-			assert fatal (false) with log ("Unknown Client Classifier Property type: " + p.type.name);
+			assert fatal (false) with log ('Unknown Client Classifier Property type: "{1}"'._format(p.type.name));
 		};
 	};
 	timed := true;
 };
 
 mapping UML::Classifier::clientVariableDeclaration() : CPN::Var {
-	idname :=  self.clientId().toLower();
+	idname :=  's';
 	type := resolveoneIn(string);
 };
 
@@ -196,15 +213,8 @@ mapping UML::Property::clientPropertyVariablesDeclaration() : CPN::Var {
 	} else if (self.type.name = 'Real') {
 		type := resolveoneIn(real);
 	} else {
-		assert fatal (false) with log ("Unknown Client Classifier Property type: " + self.type.name);
+		assert fatal (false) with log ('Unknown Client Classifier Property type: "{1}"'._format(self.type.name));
 	};
-};
-
-mapping UML::Interaction::clientsCompoundColorSets() : CPN::Block {
-	idname := 'Clients declarations';
-	declarations += self.clientClassifiers()->map clientProductDeclaration();
-	declarations += self.clientClassifiers()->map clientVariableDeclaration();
-	declarations += self.clientClassifiers().attribute->map clientPropertyVariablesDeclaration();
 };
 
 mapping UML::Interaction::values() : CPN::Block {
@@ -226,16 +236,20 @@ mapping UML::Interaction::values() : CPN::Block {
 		_with += 'm2';
 	};
 	declarations += object CPN::Ml {
-		expression := 'val PosCli=' +
-			'1`("Client1", "CR_USER", 0.0, 999.0, 365, "Deposit")@0++\n' +
-			'1`("Client1", "L1", 0.0, 850.0, 365, "Purchase")@1++\n' +
-			'1`("Client1", "L2", 0.0, 850.0, 365, "Purchase")@1;'
+		var subscriptions : Collection(PS::Subscription) := uml.interaction().message->select(isSubscription()).subscription();
+		var entries : List (String);
+		subscriptions->forEach(s) {
+			entries += '1`("{1}","{2}",{3},{4},{5},"{6}")@0'._format(s.client.base_Lifeline.represents.type.name, s.resource._tag, s.minValue, s.maxValue, s.subscriptionTime, s.triggers.name);
+		};
+		expression := entries->joinfields('++\n','val PosCli=',';');
 	};
 	declarations += object CPN::Ml {
-		expression := 'val PosRec=' +
-			'1`(1,"L1",950.0,365)@0+++' +
-			'1`(2,"L2",900.0,365)@2+++' +
-			'1`(3,"CR_USER",2000.0,365)@2;';
+		var resources : Collection(PS::Resource) := uml.interaction().resourcesLifelines().resource();
+		var entries : List (String);
+		resources->forEach(r) {
+			entries += '1`({1},"{2}",{3},{4})@0'._format(r.epr, r._tag, r.value, r.time);
+		};
+		expression := entries->joinfields('++\n','val PosRec=',';');
 	};
 	declarations += object CPN::Ml {
 		expression := 'val count=' +
@@ -245,10 +259,12 @@ mapping UML::Interaction::values() : CPN::Block {
 		expression := 'val maxTime=4';
 	};
 	declarations += object CPN::Ml {
-		expression :=  uml.interaction().resourcesLifelines().represents.type->selectByKind(UML::Artifact)
-			->collectselect(a; res = '1`"' + a.resource()._tag + '"' | a.isResource())
-			->asList()
-			->joinfields('++', 'val ResLocks=', ';')
+		var resources : Collection(PS::Resource) := uml.interaction().resourcesLifelines().resource();
+		var entries : List (String);
+		resources->forEach(r) {
+			entries += '1`"{1}"'._format(r._tag);
+		};
+		expression := entries->joinfields('++\n','val ResLocks=',';');
 	};
 };
 
@@ -345,59 +361,45 @@ mapping UML::Interaction::variables() : CPN::Block {
 	};
 };
 
-mapping pResourceRegistry(inout _page : CPN::Page) : CPN::Place {
-	init {
-		result := create_place(_page, 'Resource\nregistry', resolveoneIn(rec), null);
-	}
-}
-
-mapping pFusionedResourceRegistry(inout _page : CPN::Page) : CPN::Place {
-	init {
-		result := resolveoneIn(pResourceRegistry).map duplicate(_page);
-	}
-}
-
-mapping pResourceLocks(inout _page : CPN::Page) : CPN::Place {
-	init {
-		result := create_place(_page, 'Resource\nlocks', resolveoneIn(string), 'ResLocks');
-	}
-}
+/**
+	Pages
+**/
 
 mapping UML::Interaction::invariantPage() : CPN::Page {
 	name := 'PS_Core_' + self.name;
 
-	/*  1 */	var pSubscriptionsRemoved     := create_place(result, 'Subscriptions\nRemoved', resolveoneIn(eclir));
-	/*  2 */	var pExpiredControl           := create_place(result, 'Expired\nControl', resolveoneIn(int));
-	/*  3 */	var pSubscriptionsTimeOut     := create_place(result, 'Subscriptions\nTime-Out', resolveoneIn(eclir));
-	/*  4 */	var pExpiredResources         := create_place(result, 'Expired\nResources', resolveoneIn(rec));
-	/*  5 */	var pTimeControl              := create_place(result, 'Time\nControl', resolveoneIn(intt), '0');
-	/*  6 */	var pOpControl                := create_place(result, 'Op\nControl', resolveoneIn(intt), 'count');
-	/*  7 */	var pNotifications            := create_place(result, 'Notifications', resolveoneIn(cl));
-	/*  8 */	var pResourceRegistry         := map pResourceRegistry(result);
-	/*  9 */	var pSubscriptionRegistry     := create_place(result, 'Subscription\nRegistry', resolveoneIn(eclir));
-	/* 10 */	var pResources                := create_place(result, 'Resources', resolveoneIn(rec), 'PosRec');
-	/* 12 */	var pRoles                    := create_place(result, 'Roles', resolveoneIn(cli), 'PosCli');
-	/* 13 */	var pSubscriptionRequest      := create_place(result, 'Subscription\nRequest', resolveoneIn(ecli));
-	/* 14 */	var pFailSubscriptionRequests := create_place(result, 'Fail\nSubscription\nRequests', resolveoneIn(ecli));
+	var pNotifications            := pNotifications(result);
+	var pResourceRegistry         := pResourceRegistry(result);
+	var pSubscriptionsRemoved     := create_place(result, 'Subscriptions\nRemoved', resolveoneIn(eclir));
+	var pExpiredControl           := create_place(result, 'Expired\nControl', resolveoneIn(int));
+	var pSubscriptionsTimeOut     := create_place(result, 'Subscriptions\nTime-Out', resolveoneIn(eclir));
+	var pExpiredResources         := create_place(result, 'Expired\nResources', resolveoneIn(rec));
+	var pTimeControl              := create_place(result, 'Time\nControl', resolveoneIn(intt), '0');
+	var pOpControl                := create_place(result, 'Op\nControl', resolveoneIn(intt), 'count');
+	var pSubscriptionRegistry     := create_place(result, 'Subscription\nRegistry', resolveoneIn(eclir));
+	var pResources                := create_place(result, 'Resources', resolveoneIn(rec), 'PosRec');
+	var pRoles                    := create_place(result, 'Roles', resolveoneIn(cli), 'PosCli');
+	var pSubscriptionRequest      := create_place(result, 'Subscription\nRequest', resolveoneIn(ecli));
+	var pFailSubscriptionRequests := create_place(result, 'Fail\nSubscription\nRequests', resolveoneIn(ecli));
 
-	/*  1 */	var tEmpty                    := create_trans(result, 'Empty', 'P3');
-	/*  2 */	var tRemoveSubscription       := create_trans(result, 'Remove\nSubscription', 'P2', '[EPR = EPR1]');
-	/*  3 */	var tTimeStep                 := create_trans(result, 'Time\nStep', 'P4', '[n < maxTime]', '@+1');
-	/*  4 */	var tResourceExpire           := create_trans(result, 'Resource\nExpire', 'P2', '[n > cr]');
-	/*  5 */	var tGetTimeFail              := create_trans(result, 'Get Time\nFail', 'P4');
-	/*  6 */	var tSetPropFail              := create_trans(result, 'Set Prop\nFail', 'P4');
-	/*  7 */	var tGetPropFail              := create_trans(result, 'Get Prop\nFail', 'P4');
-	/*  8 */	var tSetTimeFail              := create_trans(result, 'Set Time\nFail', 'P4');
-	/*  9 */	var tSubscriptionTimeOut      := create_trans(result, 'Subscription\nTime-Out', 'P2', '[cc < n]');
-	/* 10 */	var tSetTime                  := create_trans(result, 'Set Time', 'P4');
-	/* 11 */	var tNotify                   := create_trans(result, 'Notify', 'P1');
-	/* 12 */	var tPublishOk                := create_trans(result, 'Publish_ok', 'P4');
-	/* 13 */	var tPublishFail              := create_trans(result, 'Publish_fail', 'P2', '[EPR = EPR1]');
-	/* 14 */	var tDiscover                 := create_trans(result, 'Discover', 'P2');
-	/* 15 */	var tReSubscribe              := create_trans(result, 'Re-Subscribe', 'P2', '[C = C1]');
-	/* 16 */	var tFailDiscover             := create_trans(result, 'Fail\nDiscover', 'P4');
-	/* 17 */	var tFailSubscribe            := create_trans(result, 'Fail\nSubscribe', 'P4');
-	/* 18 */	var tSubscribe                := create_trans(result, 'Subscribe', 'P4');
+	var tEmpty                    := create_trans(result, 'Empty', 'P3');
+	var tRemoveSubscription       := create_trans(result, 'Remove\nSubscription', 'P2', '[EPR = EPR1]');
+	var tTimeStep                 := create_trans(result, 'Time\nStep', 'P4', '[n < maxTime]', '@+1');
+	var tResourceExpire           := create_trans(result, 'Resource\nExpire', 'P2', '[n > cr]');
+	var tGetTimeFail              := create_trans(result, 'Get Time\nFail', 'P4');
+	var tSetPropFail              := create_trans(result, 'Set Prop\nFail', 'P4');
+	var tGetPropFail              := create_trans(result, 'Get Prop\nFail', 'P4');
+	var tSetTimeFail              := create_trans(result, 'Set Time\nFail', 'P4');
+	var tSubscriptionTimeOut      := create_trans(result, 'Subscription\nTime-Out', 'P2', '[cc < n]');
+	var tSetTime                  := create_trans(result, 'Set Time', 'P4');
+	var tNotify                   := create_trans(result, 'Notify', 'P1');
+	var tPublishOk                := create_trans(result, 'Publish_ok', 'P4');
+	var tPublishFail              := create_trans(result, 'Publish_fail', 'P2', '[EPR = EPR1]');
+	var tDiscover                 := create_trans(result, 'Discover', 'P2');
+	var tReSubscribe              := create_trans(result, 'Re-Subscribe', 'P2', '[C = C1]');
+	var tFailDiscover             := create_trans(result, 'Fail\nDiscover', 'P4');
+	var tFailSubscribe            := create_trans(result, 'Fail\nSubscribe', 'P4');
+	var tSubscribe                := create_trans(result, 'Subscribe', 'P4');
 
 	
 	create_arc(result, pResourceRegistry, tNotify, '(EPR1,R,v,cr)');
@@ -462,304 +464,330 @@ mapping UML::Interaction::invariantPage() : CPN::Page {
 	create_arc(result, pOpControl, tSetTime, '1');
 };
 
-mapping UML::Classifier::pClient(inout _page : CPN::Page) : CPN::Place {
-	init {
-		result := create_place(_page, 'Client', resolveone(p : CPN::Product | p.idname = self.name.toUpper()));
-	}
-}
-
-mapping UML::Classifier::pClientLock(inout _page : CPN::Page) : CPN::Place {
-	init {
-		result := create_place(_page, 'Client\nlocks', resolveoneIn(string), '1`"' +  self.clientId() + '"');
-	}
-}
-
 mapping UML::Interaction::scenarioPage() : CPN::Page {
 	name := self.name;
 	
-	var pResourceRegistry := map pFusionedResourceRegistry(result);
-	var pResourceLocks := map pResourceLocks(result);
-	
-	var pStartSubscription := create_place(result, 'Start\nSubscription', resolveoneIn(unit));
-	
-	self.scenarioInterestingEvents()->map interestingEventSubnet(result);
-	
-	var pPrev : CPN::Place := pStartSubscription;
-	
-	self.scenarioInterestingEvents()->asList()->forEach(e) {
-		var pEventStart : CPN::Place := e.resolveoneIn(UML::InteractionFragment::interestingEventSubnet).start;
-		var pEventFinish : CPN::Place := e.resolveoneIn(UML::InteractionFragment::interestingEventSubnet).finish;
-		var tBegining : CPN::Trans := create_trans(result);		
-		var pBegining : CPN::Place := create_place(result);
-		var tEnd : CPN::Trans := create_trans(result);		
-		var pEnd : CPN::Place := create_place(result);
-		create_arc(result, pPrev, tBegining);
-		create_arc(result, tBegining, pEventStart);
-		create_arc(result, tBegining, pBegining);
-		create_arc(result, pBegining, tEnd);
-		create_arc(result, pEventFinish, tEnd);
-		create_arc(result, tEnd, pEnd);
-		pPrev := pEnd;
-	};
-	pPrev.text := 'End\nSubscription';
+	var tuple : Tuple (start : CPN::Place, finish : CPN::Place) := self.fragment->filterInterestingEvents()->map eventsSequenceSubnet(result);
+	tuple.start.text := 'Start\nSubscription';
+	tuple.finish.text := 'End\nSubscription';
 }
 
-mapping UML::InteractionFragment::interestingEventSubnet(inout _page : CPN::Page) : Tuple (start : CPN::Place, finish : CPN::Place)
-disjuncts 	UML::ExecutionSpecification::clientExecutionSpecificationSubnet, 
-			UML::MessageOccurrenceSpecification::messageOccurrenceSpecificationSubnet;
-
-mapping UML::MessageOccurrenceSpecification::messageOccurrenceSpecificationSubnet(inout _page : CPN::Page) : Tuple (start : CPN::Place, finish : CPN::Place) {
+mapping PS::Subscription::subscriptionPage() : CPN::Page 
+when {
+	-- TODO: Remove this precondition which allows transforming models with empty triggered Interactions
+	self.triggers.lifeline->size() > 0
+}
+{
 	init {
+		-- Extract some variables for later reuse
+		var interaction : UML::Interaction := self.triggers;
+		var numClients : Integer := interaction.lifeline.represents.type->size(); 
+		var clientClassifier := interaction.lifeline[isClient()].represents.type.oclAsType(UML::Classifier)->asList()->first();
+
+		-- Initial assertions
+		do {
+			-- The interaction MUST contain a single <<Client>> Lifeline  
+			assert fatal (interaction.lifeline[isClient()].represents.type->size() = 1)
+				with log ('Triggered interaction "{1}" contains {2} <<Client>> lifelines (expected exactly 1)'._format(interaction, numClients));
+			-- The type associated to the <<Client>> Lifeline MUST match the <<Client>> type associated via the <<Subscription>> Stereotype 
+			assert fatal (clientClassifier = self.client.base_Lifeline.represents.type)
+				with log ('Declared <<Client>> type does not match the Interaction specification in "{1}"'._format(interaction));
+		};
+	}
+	
+	name := interaction.name;
+	
+
+	-- Transform top-level InteractionFragments that cover the Client lifeline
+	var tuple : Tuple (start : CPN::Place, finish : CPN::Place) := interaction.fragment->filterInterestingEvents()->map eventsSequenceSubnet(result);
+	-- Create all the elements in the main loop
+	var pNotifications := pNotifications(result);
+	var pStart := create_place(result, 'Start\n' + interaction.name, resolveoneIn(string), '1`"{1}"'._format(interaction.name));
+	var tStart := create_trans(result);
+	var pFinish := create_place(result, resolveoneIn(string));
+	var tFinish := create_trans(result);
+	var pEnd:= create_place(result, resolveoneIn(string));
+	var tClose:= create_trans(result);
+	create_arc(result, pStart, tStart, 'C');
+	create_arc(result, pNotifications, tStart, '(EPR,R,C,v,cc)');
+	create_arc(result, tStart, pFinish, 'C');
+	create_arc(result, tStart, tuple.start);
+	create_arc(result, pFinish, tFinish, 'C');
+	create_arc(result, tuple.finish, tFinish);
+	create_arc(result, tFinish, pEnd, 'C');
+	create_arc(result, pEnd, tClose, 'C');
+	create_arc(result, tClose, pStart, 'C');
+	
+}
+
+/**
+	Reusable mappings
+**/
+
+mapping OrderedSet(UML::InteractionFragment)::eventsSequenceSubnet(inout _page : CPN::Page) : Tuple (start : CPN::Place, finish : CPN::Place) {
+	init {
+		-- Create result Places, used to link this subnet with its caller
 		result := Tuple { 
 			start = create_place(_page), 
 			finish = create_place(_page)
 		};
 	}
-	
-	assert fatal (self.message.isTimedSetter()) with log ('Expecting a MessageOccurrenceSpecification of TimedSetter Message but found "' + self.toString() + '"');
-	var setter := self.message.timedSetter();
-	var op := setter.operation;
-	
-	var pResourceRegistry := map pFusionedResourceRegistry(_page);
-	var pResourceLocks := map pResourceLocks(_page);
-	
-	
-	var pLifelineStart := create_place(_page, setter.resource._tag + '_lifeline', resolveoneIn(string), '1`"' +  setter.resource._tag + '"');
-	var tLifelineStart := create_trans(_page);
-	var pLifelineFinish := create_place(_page, resolveoneIn(string));
-	var tLifelineFinish := create_trans(_page);
-
-	create_arc(_page, tLifelineFinish, pResourceRegistry, '(EPR, R, v' + op.operator.toString() + op.operandValue.toString() + ',' + setter.time.toString() + ')');
-	create_arc(_page, pResourceRegistry, tLifelineFinish, '(EPR, R, v, cr)');
-	create_arc(_page, result.start, tLifelineStart);
-	create_arc(_page, pLifelineStart, tLifelineStart, 'R');	
-	if (self.message.isDelayed()) {
-		var delayed := self.message.delayed();
-		var pDelay := create_place(_page, resolveoneIn(string));
-		var tDelay := create_trans(_page, 'wait_' + setter.service.base_Node.name, null, null, '@+' + delayed.delay.toString());
-		create_arc(_page, tLifelineStart, pDelay, 'R');
-		create_arc(_page, pDelay, tDelay, 'R');
-		create_arc(_page, tDelay, pLifelineFinish, 'R');
-	} else {
-		create_arc(_page, tLifelineStart, pLifelineFinish, 'R');
+	var pPrev : CPN::Place := result.start;
+	self->forEach(event) {
+		var pEvent : Tuple (start : CPN::Place, finish : CPN::Place) := event.map eventSubnet(_page);
+		var tBegining : CPN::Trans := create_trans(_page);		
+		var pBegining : CPN::Place := create_place(_page);
+		var tEnd : CPN::Trans := create_trans(_page);		
+		var pEnd : CPN::Place := create_place(_page);
+		create_arc(_page, pPrev, tBegining);
+		create_arc(_page, tBegining, pEvent.start);
+		create_arc(_page, tBegining, pBegining);
+		create_arc(_page, pBegining, tEnd);
+		create_arc(_page, pEvent.finish, tEnd);
+		create_arc(_page, tEnd, pEnd);
+		pPrev := pEnd;
 	};
-	create_arc(_page, pLifelineFinish, tLifelineFinish, 'R');
-	create_arc(_page, tLifelineFinish, result.finish);
-	create_arc(_page, pResourceLocks, tLifelineStart, 'R');
-	create_arc(_page, tLifelineFinish, pResourceLocks, 'R');
+	var tFinish : CPN::Trans := create_trans(_page);		
+	create_arc(_page, pPrev, tFinish);
+	create_arc(_page, tFinish, result.finish);
+}
+
+mapping UML::InteractionFragment::eventSubnet(inout _page : CPN::Page) : Tuple (start : CPN::Place, finish : CPN::Place)
+disjuncts 	UML::ExecutionSpecification::clientExecutionSpecificationSubnet, 
+			UML::MessageOccurrenceSpecification::messageOccurrenceSpecificationSubnet,
+			UML::CombinedFragment::interactionFragmentSubnet,			
+			UML::InteractionFragment::failSubnetCreation;
+
+mapping UML::InteractionFragment::failSubnetCreation(inout _page : CPN::Page) : Tuple (start : CPN::Place, finish : CPN::Place) {
+	assert fatal (false) with log ('Unexpected InteractionFragment kind: "{1}"'._format(self));
 }
 
 mapping UML::ExecutionSpecification::clientExecutionSpecificationSubnet(inout _page : CPN::Page) : Tuple (start : CPN::Place, finish : CPN::Place) {
 	init {
+		-- Initial assertions
+		assert fatal (self.lifeline().isClient()) with log ('Lifeline "{1}" is not a <<Client>> Lifeline'._format(self));
+		assert fatal (self.lifeline().clientClassifier() <> null) with log ('Invalid "represents" Classifier in Lifeline "{1}"'._format(self));
+		assert fatal (self.assignmentExecution().assignments->notEmpty()) with log ('');
+		-- Create result Places, used to link this subnet with its caller
 		result := Tuple { 
 			start = create_place(_page), 
 			finish = create_place(_page)
 		};
 	}
-	assert (self.lifeline().isClient()) with log ('Lifeline "' + self.toString() + '" is not a Client Lifeline');
-	var clientClassifier := self.lifeline().represents.type.oclAsType(UML::Classifier);
-	assert (clientClassifier <> null) with log ('Invalid "represents" Classifier in Lifeline "' + self.toString() + '"');
+
+	-- Extract the Client classifier for reuse
+	var clientClassifier := self.lifeline().clientClassifier();
 	
-	var pLock := clientClassifier.map pClientLock(_page);
-	var pLifelineStart := create_place(_page, clientClassifier.clientId() + '_lifeline', resolveoneIn(string), '1`"' +  clientClassifier.clientId() + '"');
+	-- Create fixed places: Client Lock, and places and transitions at the begining and the end of the subnet
+	var pLock := clientClassifier.pClientLock(_page);
+	var pLifelineStart := create_place(_page, '{1}_'._format(clientClassifier.clientId())._addSuffixNumber(), resolveoneIn(string), '1`"{1}"'._format(clientClassifier.clientId()));
 	var tLifelineStart := create_trans(_page);
 	var pLifelineFinish := create_place(_page, resolveoneIn(string));
 	var tLifelineFinish := create_trans(_page);
 	
+	-- Link all the fixed places at the begining and the end
 	create_arc(_page, result.start, tLifelineStart);
-	create_arc(_page, pLifelineStart, tLifelineStart,  clientClassifier.clientId().toLower());
-	create_arc(_page, pLock, tLifelineStart,  clientClassifier.clientId().toLower());
-	create_arc(_page, pLifelineFinish, tLifelineFinish,  clientClassifier.clientId().toLower());
+	create_arc(_page, pLifelineStart, tLifelineStart, 's');
+	create_arc(_page, pLock, tLifelineStart, 's');
+	create_arc(_page, pLifelineFinish, tLifelineFinish, 's');
 	create_arc(_page, tLifelineFinish, result.finish);
-	create_arc(_page, tLifelineFinish, pLock,  clientClassifier.clientId().toLower());
+	create_arc(_page, tLifelineFinish, pLock, 's');
+	create_arc(_page, tLifelineFinish, pLifelineStart, 's');
 	
-	self.getAssignmentOperations()->map clientAssignmentSubnet(_page, clientClassifier);
-	create_arc(_page, tLifelineStart, self.getAssignmentOperations()->asList()->first().resolveoneIn(PS::AssignmentOperation::clientAssignmentSubnet).start);
-	create_arc(_page, self.getAssignmentOperations()->asList()->last().resolveoneIn(PS::AssignmentOperation::clientAssignmentSubnet).finish, pLifelineFinish);
-	
-	var prev : AssignmentOperation;
-	self.getAssignmentOperations()->asList()->forEach(a) {
-		if (prev.oclIsUndefined().not()) {
-			create_arc(_page, prev.resolveoneIn(PS::AssignmentOperation::clientAssignmentSubnet).finish, a.resolveoneIn(PS::AssignmentOperation::clientAssignmentSubnet).start);
-		};
-		prev := a;
-	}
+	-- Fill the core of the network, based on the Assignment operations
+	do {
+		-- Extract the asignments
+		var assignments : List(PS::AssignmentOperation) := self.assignmentExecution().assignments->asList();
+		assignments->map clientAssignmentSubnet(_page, clientClassifier);
+		-- Link the subnet of the first AssignmentOperation with the begining of this subnet
+		create_arc(_page, tLifelineStart, assignments->first().resolveoneIn(PS::AssignmentOperation::clientAssignmentSubnet).start, 's');
+		-- Link the subnet of the last AssignmentOperation with the end of this subnet
+		create_arc(_page, assignments->last().resolveoneIn(PS::AssignmentOperation::clientAssignmentSubnet).finish, pLifelineFinish, 's');
+		-- Link all the subnets of the AssignmentOperations with their adjacents  
+		var prev : PS::AssignmentOperation;
+		assignments->forEach(a) {
+			if (prev.oclIsUndefined().not()) {
+				create_arc(_page, prev.resolveoneIn(PS::AssignmentOperation::clientAssignmentSubnet).finish, a.resolveoneIn(PS::AssignmentOperation::clientAssignmentSubnet).start, 's');
+			};
+			prev := a;
+		}
+	};
 }
 
 mapping PS::AssignmentOperation::clientAssignmentSubnet(inout _page : CPN::Page, in clientClassifier : UML::Classifier) : Tuple (start : CPN::Place, finish : CPN::Trans) {
 	init {
+		-- Initial assertions
+		assert fatal (clientClassifier.attribute.name->includes(self._property)) with log ('Unable to find Property "{1}" on <<Client>> Classifier "{2}"'._format(self._property, clientClassifier));
+		-- Create result Place and Transition, used to link this subnet with its caller
 		result := Tuple { 
 			start = create_place(_page, resolveoneIn(string)), 
-			finish = create_trans(_page, 'assign_' + self._property)
+			finish = create_trans(_page, 'ASG_{1}_'._format(self._property)._addSuffixNumber())
 		};
 	}
-	var pClient := clientClassifier.map pClient(_page);
-	create_arc(_page, result.start, result.finish,  clientClassifier.clientId().toLower());
-	create_arc(_page, pClient, result.finish, clientClassifier.attribute.name->asList()->joinfields(', ', '(' + clientClassifier.clientId().toLower() + ', ', ')'));
-	create_arc(_page, result.finish, pClient, clientClassifier.attribute.name->collect(s : String | if s <> self._property then s else self.value endif)->asList()->joinfields(', ', '(' + clientClassifier.clientId().toLower() + ', ', ')'));
+	-- Create/get the fixed Client place
+	var pClient := clientClassifier.pClient(_page);
+	-- Create this assignment subnet
+	do {
+		-- Arc between the start and the finish
+		create_arc(_page, result.start, result.finish, 's');
+		-- Arc between the Transition and the Client place
+		-- We substitute the "clientClassifier.attribute" matching "self._property" by "self.value"
+		create_arc(_page, result.finish, pClient, clientClassifier.attribute.name->collect(s : String | if s <> self._property then s else self.value endif)->asList()->joinfields(', ', '(s, ', ')'));
+		-- Arc between the Client place and the Transition
+		create_arc(_page, pClient, result.finish, clientClassifier.attribute.name->asList()->joinfields(', ', '(s, ', ')'));
+	};
 };
+
+mapping UML::MessageOccurrenceSpecification::messageOccurrenceSpecificationSubnet(inout _page : CPN::Page) : Tuple (start : CPN::Place, finish : CPN::Place) {
+	init {
+		-- Initial assertions
+		assert fatal (self.message.isAbstractSetter()) with log ('Expecting a MessageOccurrenceSpecification of an <<AbstractSetter>> Message but found "{1}"'._format(self));
+		-- Create result Places, used to link this subnet with its caller
+		result := Tuple { 
+			start = create_place(_page), 
+			finish = create_place(_page)
+		};
+	}
+	
+	-- Extract the TimedSetter and UpdateOperation for later reuse
+	var setter : PS::AbstractSetter := self.message.abstractSetter();
+	var op : PS::UpdateOperation := setter.operation;
+
+	-- Create the fixed Resource Places (Registry and Lock)	and places and transitions at the begining and the end of the subnet
+	var pResourceLocks := pResourceLocks(_page);
+	var pResourceRegistry := pResourceRegistry(_page);
+	var pLifelineStart := create_place(_page, '{1}_'._format(setter.resource()._tag)._addSuffixNumber(), resolveoneIn(string), '1`"{1}"'._format(setter.resource()._tag));
+	var tLifelineStart := create_trans(_page);
+	var pLifelineFinish := create_place(_page, resolveoneIn(string));
+	var tLifelineFinish := create_trans(_page);
+
+	-- Handle Delayed messages
+	do {
+		if (self.message.isDelayed()) {
+			-- If the Message is Delayed (i.e., it is necessary to wait for some time)
+			-- We need to include a timed transition before the Resource is updated
+			var delayed := self.message.delayed();
+			var pDelay := create_place(_page, resolveoneIn(string));
+			var tDelay := create_trans(_page, null, null, null, '@+{1}'._format(delayed.delay));
+			create_arc(_page, tLifelineStart, pDelay, 'R');
+			create_arc(_page, pDelay, tDelay, 'R');
+			create_arc(_page, tDelay, pLifelineFinish, 'R');
+		} else {
+			-- If the Message is immediate, we just link the transition at the begionin and the place at the end
+			create_arc(_page, tLifelineStart, pLifelineFinish, 'R');
+		};
+	};
+	
+	-- Fill all the rest of the Arcs of the core of the network
+	if (setter.oclIsKindOf(PS::TimedSetter)) {
+		create_arc(_page, tLifelineFinish, pResourceRegistry, '(EPR, R, v {1} {2}, {3})'._format(op.operator.asSymbol(), op.operandValue, setter.oclAsType(PS::TimedSetter).time));
+	} else {
+		create_arc(_page, tLifelineFinish, pResourceRegistry, '(EPR, R, v {1} {2}, cr)'._format(op.operator.asSymbol(), op.operandValue));
+	};
+	create_arc(_page, pResourceRegistry, tLifelineFinish, '(EPR, R, v, cr)');
+	create_arc(_page, result.start, tLifelineStart);
+	create_arc(_page, pLifelineStart, tLifelineStart, 'R');	
+	create_arc(_page, pLifelineFinish, tLifelineFinish, 'R');
+	create_arc(_page, tLifelineFinish, result.finish);
+	create_arc(_page, pResourceLocks, tLifelineStart, 'R');
+	create_arc(_page, tLifelineFinish, pResourceLocks, 'R');
+	create_arc(_page, tLifelineFinish, pLifelineStart, 'R');
+}
+
+mapping UML::CombinedFragment::interactionFragmentSubnet(inout _page : CPN::Page) : Tuple (start : CPN::Place, finish : CPN::Place)
+disjuncts 	UML::CombinedFragment::altInteractionFragmentSubnet, 
+			UML::CombinedFragment::failSubnetCreation;
+
+mapping UML::CombinedFragment::failSubnetCreation(inout _page : CPN::Page) : Tuple (start : CPN::Place, finish : CPN::Place) {
+	assert fatal (false) with log ('Unexpected "interactionOperator" ({1}) in CombinedFragment "{2}"'._format(self.interactionOperator, self));
+}
+
+mapping UML::CombinedFragment::altInteractionFragmentSubnet(inout _page : CPN::Page) : Tuple (start : CPN::Place, finish : CPN::Place)
+when {
+	self.interactionOperator = UML::InteractionOperatorKind::alt
+}{ 
+	init {
+		-- Initial assertions
+		assert fatal (self.operand->size() = 1)
+			with log ("Expecting exactly 1 Operand in CombinedFragment {1}, but found {2}"._format(self, self.operand->size()));
+		var operand : UML::InteractionOperand := self.operand->first();
+		assert fatal (operand.guard.constrainedElement->size() = 1)
+			with log ("Expecting exactly 1 constrained element in CombinedFragment {1}, but found {2} ({3})"._format(self, operand.guard.constrainedElement->size()));
+		assert fatal (operand.guard.constrainedElement->first().oclIsKindOf(UML::Classifier))
+			with log ("Expecting a constrinaed element of kind UML::Classifier, but found {1}"._format(operand.guard.constrainedElement->first()));
+		assert fatal (operand.guard.specification.oclIsKindOf(UML::OpaqueExpression))
+			with log ("Unexpected guard specification kind in CombinedFragment {1}, expected an OpaqueExpression but {2} found instead"._format(self, operand.guard.specification));
+		assert fatal (operand.guard.specification.oclAsType(UML::OpaqueExpression).body->size() = 1)
+			with log ("Unexpected number of guards found in CombinedFragment {1}, expected exactly 1 but found the following instead: {2}"._format(self, operand.guard.specification.oclAsType(UML::OpaqueExpression).body));
+		-- Saved Elements for later reuse
+		var classifier : UML::Classifier := operand.guard.constrainedElement->asSequence()->first().oclAsType(UML::Classifier);
+		var expression : String := operand.guard.specification.oclAsType(UML::OpaqueExpression).body->first();
+		-- Create result Places, used to link this subnet with its caller
+		result := Tuple { 
+			start = create_place(_page), 
+			finish = create_place(_page)
+		};
+		var pCombinedEvents : Tuple (start : CPN::Place, finish : CPN::Place) := operand.fragment->filterInterestingEvents()->map eventsSequenceSubnet(_page); 
+		var pClassifier : CPN::Place := classifier.pClient(_page);
+		var tBegining : CPN::Trans := create_trans(_page);		
+		var pBegining : CPN::Place := create_place(_page);
+		var tCond : CPN::Trans := create_trans(_page, null, 'P2', '[ {1} ]'._format(expression));
+		var pCond : CPN::Place := create_place(_page, resolveoneIn(string));
+		var tCondEnd : CPN::Trans := create_trans(_page);
+		var tNotCond : CPN::Trans := create_trans(_page, null, 'P1');
+		var pNotCond : CPN::Place := create_place(_page);
+		var tNotCondEnd : CPN::Trans := create_trans(_page);
+		create_arc(_page, result.start, tBegining);
+		create_arc(_page, tBegining, pBegining);
+		create_arc(_page, pBegining, tCond);
+		create_arc(_page, tCond, pCombinedEvents.start);
+		create_arc(_page, pClassifier, tCond, classifier.attribute.name->asList()->joinfields(', ', '(s, ', ')'));
+		create_arc(_page, pBegining, tNotCond);
+		create_arc(_page, tCond, pCond, 's');
+		create_arc(_page, tNotCond, pNotCond);
+		create_arc(_page, pCond, tCondEnd, 's');
+		create_arc(_page, pNotCond, tNotCondEnd);
+		create_arc(_page, pCombinedEvents.finish, tCondEnd);
+		create_arc(_page, tCondEnd, result.finish);
+		create_arc(_page, tNotCondEnd, result.finish);
+	}
+}
+
+
+/**
+	Helper to create fusions, uses a global variable "fusionCounter"
+**/
 
 property fusionCounter : Integer = 1;
-mapping CPN::Place::duplicate(inout _page : CPN::Page) : CPN::Place {
-	init {
-		result := create_place(_page, self.text, self.type, self.initmark.expression);
-		_page.places += result;
-		var orig := resolveone(p : Place | p.page = self.page and p.text = self.text and p.type = self.type);
-	
-		var fusion := resolveone(f : Fusion | f.places->includes(self));
-		if (fusion.oclIsUndefined()) {
-			fusion := object CPN::Fusion {
-				places += self;
-				name := "Fusion " + fusionCounter.toString();
-				fusionCounter := fusionCounter + 1;
-			};
-			resolveoneIn(UML::Interaction::cpnet).fusions += fusion;
+helper CPN::Place::duplicate(inout _page : CPN::Page) : CPN::Place {
+	var dup : CPN::Place := create_place(_page, self.text, self.type, self.initmark.expression);
+	_page.places += dup;
+	var fusion := self.fusion;
+	if (fusion.oclIsUndefined()) {
+		fusion := object CPN::Fusion {
+			places += self;
+			name := 'Fusion {1}'._format(fusionCounter);
+			fusionCounter := fusionCounter + 1;
 		};
-		fusion.places += result;
-	}
+		resolveoneIn(UML::Interaction::cpnet).fusions += fusion;
+	};
+	fusion.places += dup;
+	return dup;
 }
 
-helper create_place(inout _page : CPN::Page) : CPN::Place {
-	var p := object CPN::Place {
-		width := 60;
-		height := 40;
-		type := resolveoneIn(unit);
-	};
-	_page.places += p;
-	fillAttribs(p);
-	return p;
-};
-
-helper create_place(inout _page : CPN::Page, in _text : String) : CPN::Place {
-	var p := create_place(_page);
-	p.text := _text;
-	return p;
-};
-
-helper create_place(inout _page : CPN::Page, in _type : CPN::ColorSet) : CPN::Place {
-	var p := create_place(_page);
-	p.type := _type;
-	return p;
-};
-
-helper create_place(inout _page : CPN::Page, in _text : String, in _type : CPN::ColorSet) : CPN::Place {
-	var p := create_place(_page, _text);
-	p.text := _text;
-	p.type := _type;
-	return p;
-};
-
-helper create_place(inout _page : CPN::Page, in _text : String, in _type : CPN::ColorSet, in _initmark : String) : CPN::Place {
-	var p := create_place(_page, _text, _type);
-	if (_initmark.oclIsUndefined().not()) { 
-		p.initmark := object CPN::Initmark {
-			expression := _initmark;
-		};
-	};
-	return p;
-};
-
-helper create_trans(inout _page : CPN::Page) : CPN::Trans {
-	var t := object CPN::Trans {
-		width := 60;
-		height := 40;
-	};
-	_page.transs += t;
-	fillAttribs(t);
-	return t;
-};
-
-helper create_trans(inout _page : CPN::Page, in _text : String) : CPN::Trans {
-	var t := create_trans(_page);
-	t.text := _text;
-	return t;
-};
-
-helper create_trans(inout _page : CPN::Page, in _text : String, in _priority : String) : CPN::Trans {
-	var t := create_trans(_page, _text);
-	if (_priority.oclIsUndefined().not()) {
-		t.priority := object CPN::TransPriority {
-			text := _priority;
-		};
-	};
-	return t;
-};
-
-helper create_trans(inout _page : CPN::Page, in _text : String, in _priority : String, in _cond : String) : CPN::Trans {
-	var t := create_trans(_page, _text, _priority);
-	if (_cond.oclIsUndefined().not()) {
-		t.cond := object CPN::TransCond {
-			text:= _cond;
-		};
-	};
-	return t;
-};
-
-helper create_trans(inout _page : CPN::Page, in _text : String, in _priority : String, in _cond : String, in _time : String) : CPN::Trans {
-	var t := create_trans(_page, _text, _priority, _cond);
-	if (_time.oclIsUndefined().not()) {
-		t.time := object CPN::TransTime {
-			text:= _time;
-		};
-	};
-	return t;
-};
-
-helper create_arc(inout _page : CPN::Page, in _text : String)  : CPN::Arc {
-	var a := object CPN::Arc {
-		headsize := 1.2;
-		annot := object CPN::Annot {
-			text := _text;
-		};
-	};
-	_page.arcs += a;
-	fillAttribs(a);
-	return a;
-}
-
-helper create_arc(inout _page : CPN::Page, in _place : CPN::Place, in _trans : CPN::Trans) : CPN::Arc {
-	return create_arc(_page, _place, _trans, null);
-};
-
-helper create_arc(inout _page : CPN::Page, in _place : CPN::Place, in _trans : CPN::Trans, in _text : String) : CPN::Arc {
-	var a := create_arc(_page, _text);
-	a.orientation := Orientation::PtoT;
-	a.place := _place;
-	a.trans := _trans;
-	return a;
-};
-
-helper create_arc(inout _page : CPN::Page, in _trans : CPN::Trans, in _place : CPN::Place)  : CPN::Arc {
-	return create_arc(_page, _trans, _place, null);
-};
-
-helper create_arc(inout _page : CPN::Page, in _trans : CPN::Trans, in _place : CPN::Place, in _text : String)  : CPN::Arc {
-	var a := create_arc(_page, _text);
-	a.orientation := Orientation::TtoP;
-	a.place := _place;
-	a.trans := _trans;
-	return a;
-};
-
-
-helper fillAttribs(inout element : CPN::DiagramElement) {
-	element.fillColour := 'White';
-	element.fillPattern := '';
-	element.fillFilled := false;
-	element.lineColour := 'Black';
-	element.lineThick := 1;
-	element.lineType := 'Solid';
-}
+/**
+	Helpers specific to this transformation
+**/
 
 helper UML::interaction() : UML::Interaction {
-
+	-- TODO: Remember to comment this out in production
 	return self.objectsOfKind(UML::Interaction)->select(isPublishSubscribeScenario())->asOrderedSet()->first();
 
 	assert fatal (self.rootObjects()->size() = 1) 
-		with log ('Unexpected number of input elements found: Expecting "1", but found "' + uml.rootObjects()->size().toString() + '"');
+		with log ('Unexpected number of input elements found: Expecting 1, but found {1}'._format(uml.rootObjects()->size()));
 		
 	assert fatal (self.rootObjects()->asSequence()->first().oclIsKindOf(UML::Interaction)) 
-		with log ('Unexpected input element type: Expecting "UML::Interaction", but found "' + uml.rootObjects()->asSequence()->first().metaClassName() + '"');
+		with log ('Unexpected input element type: Expecting "UML::Interaction", but found "{1}"'._format(uml.rootObjects()->asSequence()->first().metaClassName()));
 	
 	var interaction : UML::Interaction = self.rootObjects()->asSequence()->first().oclAsType(UML::Interaction);
 	
@@ -767,127 +795,98 @@ helper UML::interaction() : UML::Interaction {
 		with log ('Root "UML::Interaction" is not a "Publish-Subscribe::PublishSubscribeScenario"');
 
 	assert fatal (interaction.clientLifelines()->size() = 1) 
-		with log ('Unexpected number of clients in "Publish-Subscribe::PublishSubscribeScenario": Expecting "1", but found "' + interaction.clientLifelines()->size().toString() + '"');
+		with log ('Unexpected number of clients in "Publish-Subscribe::PublishSubscribeScenario": Expecting "1", but found "{1}"'._format(interaction.clientLifelines()->size()));
 	
 	return interaction;
 }
 
-helper UML::Interaction::isPublishSubscribeScenario() : Boolean {
-	return self.isStereotypeApplied(self.getApplicableStereotype('Publish-Subscribe::PublishSubscribeScenario'));
+/**
+	Mappings for special places
+**/
+
+mapping _pResourceRegistry(inout _page : CPN::Page) : CPN::Place {
+	init {
+		result := create_place(_page, null, resolveoneIn(rec), null);
+	}
 }
 
-helper UML::Interaction::scenarioInterestingEvents() : OrderedSet (UML::InteractionFragment) {
-	return self.fragment
-		-- They are included in the interesting lifelines, i.e.:
-		->select(
-			-- A Service's Lifeline 
-			covered->asSequence()->first().isService() or
-			-- A Client's Lifeline
-			covered->asSequence()->first().isClient())
-		-- They correspond to interesting events: 
-		->select( 
-			-- Is a ExecutionSpecification stereotyped as AssignmentExecution or
-			isAssignmentExecution() 
-			-- Is a MessageOccurrenceSpecification whose Message is stereotyped as a TimedSetter
-			or if oclIsKindOf(UML::MessageOccurrenceSpecification) then oclAsType(UML::MessageOccurrenceSpecification).message.isTimedSetter() else false endif);
-}
-
-helper UML::Interaction::clientLifelines() : Set (UML::Lifeline) {
-	return self.lifeline->select(isClient());
-}
-
-helper UML::Interaction::serviceLifelines() : Set (UML::Lifeline) {
-	return self.lifeline->select(isService());
-}
-
-helper UML::Interaction::resourcesLifelines() : Set (UML::Lifeline) {
-	return self.lifeline->select(isResource());
-}
-
-helper UML::Interaction::clientClassifiers() : Bag (UML::Classifier) {
-	return self.clientLifelines().represents.type->selectByKind(UML::Classifier);
-}
-
-helper UML::Lifeline::isService() : Boolean {
-	return self.represents.type.isStereotypeApplied(self.represents.type.getApplicableStereotype('Publish-Subscribe::Service'));
-}
-
-helper UML::Lifeline::isResource() : Boolean {
-	return self.represents.type.isStereotypeApplied(self.represents.type.getApplicableStereotype('Publish-Subscribe::Resource'));
-}
-
-helper UML::Lifeline::isClient() : Boolean {
-	return self.isStereotypeApplied(self.getApplicableStereotype('Publish-Subscribe::Client')); 
-}
-
-helper UML::Lifeline::events() : OrderedSet(UML::InteractionFragment) {
-	return self.interaction.fragment->select(covered->includes(self)) 
-}
-
-helper UML::InteractionFragment::isAssignmentExecution() : Boolean {
-	return self.isStereotypeApplied(self.getApplicableStereotype('Publish-Subscribe::AssignmentExecution')); 
-}
-
-helper UML::InteractionFragment::getAssignmentOperations() : Collection (AssignmentOperation) {
-	if (self.isAssignmentExecution()) {
-		return self.getValue(self.getApplicableStereotype('Publish-Subscribe::AssignmentExecution'), 'assignments').oclAsType(Collection (AssignmentOperation));
-	};
-	return List {};
-}
-
-helper UML::InteractionFragment::lifeline() : UML::Lifeline {
-	return self.covered->asList()->first(); 
-}
-
-helper UML::Message::isTimedSetter() : Boolean {
-	return self.isStereotypeApplied(self.getApplicableStereotype('Publish-Subscribe::TimedSetter')); 
-}
-
-helper UML::Message::timedSetter() : PS::TimedSetter {
-	return self.getStereotypeApplication(self.getApplicableStereotype('Publish-Subscribe::TimedSetter')).oclAsType(PS::TimedSetter); 
-}
-
-helper UML::Message::isDelayed() : Boolean {
-	return self.isStereotypeApplied(self.getApplicableStereotype('Publish-Subscribe::Delay')); 
-}
-
-helper UML::Message::delayed() : PS::Delayed {
-	return self.getStereotypeApplication(self.getApplicableStereotype('Publish-Subscribe::Delay')).oclAsType(PS::Delayed); 
-}
-
-helper UML::Message::isSubscription() : Boolean {
-	return self.isStereotypeApplied(self.getApplicableStereotype('Publish-Subscribe::Subscription')); 
-}
-
-helper UML::Artifact::isResource() : Boolean {
-	return self.isStereotypeApplied(self.getApplicableStereotype('Publish-Subscribe::Resource')); 
-}
-
-helper UML::Artifact::resource() : PS::Resource {
-	return self.getStereotypeApplication(self.getApplicableStereotype('Publish-Subscribe::Resource')).oclAsType(PS::Resource);
-}
-
-helper PS::SignKind::toString() : String{
-	if (self = SignKind::plus) {
-		return '+';
-	} else if (self = SignKind::minus) {
-		return '-';
-	} else if (self = SignKind::mult) {
-		return '*';
-	} else if (self = SignKind::div) {
-		return '/';
+helper pResourceRegistry(inout _page : CPN::Page) : CPN::Place {
+	var pResourceRegistry : CPN::Place := resolveoneIn(_pResourceRegistry);
+	if (pResourceRegistry.oclIsUndefined()) {
+		pResourceRegistry := map _pResourceRegistry(_page);
 	} else {
-		assert fatal (false) with log ("Unknown SignKind");
+		pResourceRegistry := pResourceRegistry.duplicate(_page);
 	};
-	return '';
+	pResourceRegistry.text := 'Resource\nRegistry_'._addSuffixNumber();
+	return pResourceRegistry; 
 }
 
-helper UML::Classifier::clientId() : String {
-	-- We assume that this registry will be really small (normally with size == 1)
-	var id : String := clientIdsRegistry->get(self);
-	if (id = null) {
-		id := 'C' + (clientIdsRegistry->size() + 1).toString();
-		clientIdsRegistry->put(self, id);
-	};
-	return id; 
+mapping _pNotifications(inout _page : CPN::Page) : CPN::Place {
+	init {
+		result := create_place(_page, null, resolveoneIn(cl));
+	}
 }
+
+helper pNotifications(inout _page : CPN::Page) : CPN::Place {
+	var pNotifications : CPN::Place := resolveoneIn(_pNotifications);
+	if (pNotifications.oclIsUndefined()) {
+		pNotifications := map _pNotifications(_page);
+	} else {
+		pNotifications := pNotifications.duplicate(_page);
+	};
+	pNotifications.text := 'Notifications_'._addSuffixNumber();
+	return pNotifications; 
+}
+
+
+mapping _pResourceLocks(inout _page : CPN::Page) : CPN::Place {
+	init {
+		result := create_place(_page, null, resolveoneIn(string), 'ResLocks');
+	}
+}
+
+helper pResourceLocks(inout _page : CPN::Page) : CPN::Place {
+	var pResourceLocks : CPN::Place := resolveoneIn(_pResourceLocks);
+	if (pResourceLocks.oclIsUndefined()) {
+		pResourceLocks := map _pResourceLocks(_page);
+	} else {
+		pResourceLocks := pResourceLocks.duplicate(_page);
+	};
+	pResourceLocks.text := 'Resource\nLocks_'._addSuffixNumber();
+	return pResourceLocks; 
+}
+
+mapping UML::Classifier::_pClient(inout _page : CPN::Page) : CPN::Place {
+	init {
+		result := create_place(_page, null, resolveone(p : CPN::Product | p.idname = self.name.toUpper()));
+	}
+}
+
+helper UML::Classifier::pClient(inout _page : CPN::Page) : CPN::Place {
+	var pClient : CPN::Place := self.resolveoneIn(UML::Classifier::_pClient);
+	if (pClient.oclIsUndefined()) {
+		pClient := self.map _pClient(_page);
+	} else {
+		pClient := pClient.duplicate(_page);
+	};
+	pClient.text := '{1}_'._format(self.name)._addSuffixNumber();
+	return pClient;
+}
+
+mapping UML::Classifier::_pClientLock(inout _page : CPN::Page) : CPN::Place {
+	init {
+		result := create_place(_page, null, resolveoneIn(string), '1`"{1}"'._format(self.clientId()));
+	}
+}
+
+helper UML::Classifier::pClientLock(inout _page : CPN::Page) : CPN::Place {
+	var pClientLock : CPN::Place := self.resolveoneIn(UML::Classifier::_pClientLock);
+	if (pClientLock.oclIsUndefined()) {
+		pClientLock := self.map _pClientLock(_page);
+	} else {
+		pClientLock := pClientLock.duplicate(_page);
+	};
+	pClientLock.text := '{1}_LCK_'._format(self.name)._addSuffixNumber();
+	return pClientLock;
+}
+
