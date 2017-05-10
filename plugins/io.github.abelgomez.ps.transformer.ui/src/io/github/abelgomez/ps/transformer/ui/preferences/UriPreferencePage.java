@@ -10,7 +10,9 @@
  *******************************************************************************/
 package io.github.abelgomez.ps.transformer.ui.preferences;
 
+import java.awt.Desktop;
 import java.io.File;
+import java.io.IOException;
 import java.net.URI;
 import java.text.MessageFormat;
 
@@ -91,9 +93,14 @@ public class UriPreferencePage extends PreferencePage implements IWorkbenchPrefe
 			browseButton.addSelectionListener(new BrowseSelectionAdapter());
 
 			Link editLink = new Link(group, SWT.NONE);
-			editLink.setLayoutData(new GridData(SWT.FILL, SWT.BEGINNING, true, false));
+			editLink.setLayoutData(new GridData(SWT.FILL, SWT.BEGINNING, true, false, 2, 1));
 			editLink.setText("<a>Edit this file in the workspace</a>");
 			editLink.addSelectionListener(new OpenEditorSelectionAdapter());
+
+			Link openDirectoryLink = new Link(group, SWT.NONE);
+			openDirectoryLink.setLayoutData(new GridData(SWT.FILL, SWT.BEGINNING, true, false, 2, 1));
+			openDirectoryLink.setText("<a>Open container in system's file explorer</a>");
+			openDirectoryLink.addSelectionListener(new OpenDirectorySelectionAdapter());
 
 			context.bindValue(WidgetProperties.text(SWT.Modify).observe(pathText), observableLocation);
 		}
@@ -169,6 +176,33 @@ public class UriPreferencePage extends PreferencePage implements IWorkbenchPrefe
 									MessageFormat.format("Unable to open ''{0}'' in the workspace", observableLocation.getValue()), e));
 
 				}
+			}
+		}
+	}
+
+	/**
+	 * {@link SelectionAdapter} implementig the behaviour when the <em>open
+	 * contaier in system's file explorer</em> link if pressed.
+	 * 
+	 * @author Abel Gómez (agomezlla@uoc.edu)
+	 *
+	 */
+	private final class OpenDirectorySelectionAdapter extends SelectionAdapter {
+		@Override
+		public void widgetSelected(SelectionEvent event) {
+			if (Desktop.isDesktopSupported()) {
+				try {
+					Desktop.getDesktop().open(new File(URI.create(observableLocation.getValue())).getParentFile());
+				} catch (IOException e) {
+					TransformerUiPlugin.getDefault().getLog().log(
+							new Status(IStatus.ERROR, TransformerUiPlugin.PLUGIN_ID,
+									MessageFormat.format("Unable to open ''{0}'' container in the system's file explorer", observableLocation.getValue()), e));
+
+				}
+			} else {
+				TransformerUiPlugin.getDefault().getLog().log(
+						new Status(IStatus.ERROR, TransformerUiPlugin.PLUGIN_ID,
+								"Desktop functionality is not supported by this system"));
 			}
 		}
 	}
