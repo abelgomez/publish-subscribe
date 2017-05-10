@@ -17,7 +17,7 @@
    <extension
          point="io.github.abelgomez.ps.transformer.uri_provider">
       <URI
-            priority="5"
+            priority="0"
             provider="io.github.abelgomez.ps.transformer.DefaultUriProvider">
       </URI>
    </extension>
