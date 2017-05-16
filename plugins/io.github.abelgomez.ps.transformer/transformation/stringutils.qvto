@@ -5,39 +5,47 @@ library stringutils;
 **/
 
 helper String::_format(in arg1 : OclAny) : String {
-	return self._format(List {arg1});
+	return self._format(List {_safeToString(arg1)});
 }
 
 helper String::_format(in arg1 : OclAny, in arg2 : OclAny) : String {
-	return self._format(List {arg1, arg2});
+	return self._format(List {_safeToString(arg1), _safeToString(arg2)});
 }
 
 helper String::_format(in arg1 : OclAny, in arg2 : OclAny, in arg3 : OclAny) : String {
-	return self._format(List {arg1, arg2, arg3});
+	return self._format(List {_safeToString(arg1), _safeToString(arg2), _safeToString(arg3)});
 }
 
 helper String::_format(in arg1 : OclAny, in arg2 : OclAny, in arg3 : OclAny, in arg4 : OclAny) : String {
-	return self._format(List {arg1, arg2, arg3, arg4});
+	return self._format(List {_safeToString(arg1), _safeToString(arg2), _safeToString(arg3), _safeToString(arg4)});
 }
 
 helper String::_format(in arg1 : OclAny, in arg2 : OclAny, in arg3 : OclAny, in arg4 : OclAny, in arg5 : OclAny) : String {
-	return self._format(List {arg1, arg2, arg3, arg4, arg5});
+	return self._format(List {_safeToString(arg1), _safeToString(arg2), _safeToString(arg3), _safeToString(arg4), _safeToString(arg5)});
 }
 
 helper String::_format(in arg1 : OclAny, in arg2 : OclAny, in arg3 : OclAny, in arg4 : OclAny, in arg5 : OclAny, in arg6 : OclAny) : String {
-	return self._format(List {arg1, arg2, arg3, arg4, arg5, arg6});
+	return self._format(List {_safeToString(arg1), _safeToString(arg2), _safeToString(arg3), _safeToString(arg4), _safeToString(arg5), _safeToString(arg6)});
 }
 
 helper String::_format(in arg1 : OclAny, in arg2 : OclAny, in arg3 : OclAny, in arg4 : OclAny, in arg5 : OclAny, in arg6 : OclAny, in arg7 : OclAny) : String {
-	return self._format(List {arg1, arg2, arg3, arg4, arg5, arg6, arg7});
+	return self._format(List {_safeToString(arg1), _safeToString(arg2), _safeToString(arg3), _safeToString(arg4), _safeToString(arg5), _safeToString(arg6), _safeToString(arg7)});
 }
 
 helper String::_format(in arg1 : OclAny, in arg2 : OclAny, in arg3 : OclAny, in arg4 : OclAny, in arg5 : OclAny, in arg6 : OclAny, in arg7 : OclAny, in arg8 : OclAny) : String {
-	return self._format(List {arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8});
+	return self._format(List {_safeToString(arg1), _safeToString(arg2), _safeToString(arg3), _safeToString(arg4), _safeToString(arg5), _safeToString(arg6), _safeToString(arg7), _safeToString(arg8)});
 }
 
 helper String::_format(in arg1 : OclAny, in arg2 : OclAny, in arg3 : OclAny, in arg4 : OclAny, in arg5 : OclAny, in arg6 : OclAny, in arg7 : OclAny, in arg8 : OclAny, in arg9 : OclAny) : String {
-	return self._format(List {arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9});
+	return self._format(List {_safeToString(arg1), _safeToString(arg2), _safeToString(arg3), _safeToString(arg4), _safeToString(arg5), _safeToString(arg6), _safeToString(arg7), _safeToString(arg8), _safeToString(arg9)});
+}
+
+/**
+	Helper function used to create valid lists for the _format function 
+	when one of the arguments is invalid 
+**/
+helper _safeToString (in any : OclAny) : String {
+	return if (any.oclIsInvalid()) then '' else any.toString() endif
 }
 
 /**

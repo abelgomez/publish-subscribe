@@ -2,6 +2,7 @@ import stringutils;
 import pssupport;
 
 modeltype UML "strict" uses uml('http://www.eclipse.org/uml2/5.0.0/UML');
+modeltype PS "strict" uses ps('http://io.github.abelgomez/ps/1.0');
 
 library umlsupport;
 
@@ -59,6 +60,66 @@ helper OrderedSet (UML::InteractionFragment)::filterSubscriptionInterestingEvent
 			if oclIsKindOf(UML::MessageOccurrenceSpecification) then oclAsType(UML::MessageOccurrenceSpecification).message.isAbstractSetter() else false endif);
 }
 */
+
+helper UML::InteractionFragment::coveredInteraction() : UML::Interaction {
+	assert fatal (self.covered.interaction->asOrderedSet()->size() = 1) with log ('Unexpected number of covered Interactions: Expected exactly "1" but bound "{1}"'._format(self.covered.interaction->asOrderedSet()->size()));
+	return self.covered.interaction->asOrderedSet()->first();
+}
+
+helper UML::MessageOccurrenceSpecification::findPreviousGetters() : OrderedSet (PS::Getter) {
+	var thisLifeline : UML::Lifeline := self.lifeline();
+	var elt : UML::Element := self;
+	var fragments : List (UML::InteractionFragment);
+	while (elt.owner <> null) {
+		if (elt.owner.hasFragments()) {
+			var i : Integer := elt.owner.fragments()->indexOf(elt); 
+			while (i >= 1) {
+				fragments->add(elt.owner.fragments()->at(i));
+				i := i-1;
+			};
+		};
+		if (elt.owner = self.coveredInteraction()) {
+			break;
+		} else {
+			elt := elt.owner;
+		}
+	};
+	return fragments->reverse()[UML::MessageOccurrenceSpecification][lifeline() = thisLifeline].message[isGetter()].getter()->asOrderedSet();
+}
+
+helper UML::InteractionFragment::findPreviousGetters() : OrderedSet (PS::Getter) {
+	var elt : UML::Element := self;
+	var fragments : List (UML::InteractionFragment);
+	while (elt.owner <> null) {
+		if (elt.owner.hasFragments()) {
+			var i : Integer := elt.owner.fragments()->indexOf(elt); 
+			while (i >= 1) {
+				fragments->add(elt.owner.fragments()->at(i));
+				i := i-1;
+			};
+		};
+		if (elt.owner = self.coveredInteraction()) {
+			break;
+		} else {
+			elt := elt.owner;
+		}
+	};
+	return fragments->reverse()[UML::MessageOccurrenceSpecification][self.covered->includes(lifeline())].message[isGetter()].getter()->asOrderedSet();
+}
+
+helper UML::Element::hasFragments() : Boolean {
+	return self.oclIsKindOf(UML::Interaction) or self.oclIsKindOf(InteractionOperand);
+}
+
+helper UML::Element::fragments() : OrderedSet (UML::InteractionFragment) {
+	if (self.oclIsKindOf(UML::Interaction)) {
+		return self.oclAsType(UML::Interaction).fragment;
+	} else if (self.oclIsKindOf(InteractionOperand)) {
+		return self.oclAsType(UML::InteractionOperand).fragment;
+	} else {
+		return null;
+	}
+}
 
 helper UML::Interaction::clientLifelines() : Set (UML::Lifeline) {
 	return self.lifeline->select(isClient());

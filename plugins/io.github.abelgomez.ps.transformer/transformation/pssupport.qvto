@@ -9,6 +9,16 @@ helper UML::Interaction::isPublishSubscribeScenario() : Boolean {
 	return self.isStereotypeApplied(self.getApplicableStereotype('Publish-Subscribe::PublishSubscribeScenario'));
 }
 
+helper UML::Message::isGetter() : Boolean {
+	return self.isStereotypeApplied(self.getApplicableStereotype('Publish-Subscribe::Getter')); 
+}
+
+helper UML::Message::getter() : PS::Getter {
+	assert fatal (self.isGetter()) with log ('Message "{1}" does not represent as <<Getter>>'._format(self));
+	return self.getStereotypeApplication(self.getApplicableStereotype('Publish-Subscribe::Getter')).oclAsType(PS::Getter); 
+}
+
+
 helper UML::Message::isAbstractSetter() : Boolean {
 	-- We cannot check if it is an AbstractSetter using "self.getApplicableStereotype" directly 
 	-- because AbstractSetter is abstract and thus, cannot be applied
@@ -104,6 +114,8 @@ helper UML::ExecutionSpecification::assignmentExecution() : PS::AssignmentExecut
 	assert fatal (self.isAssignmentExecution()) with log ('ExecutionSpecification "{1}" does not represent an <<AssignmentExecution>>'._format(self));
 	return self.getStereotypeApplication(self.getApplicableStereotype('Publish-Subscribe::AssignmentExecution')).oclAsType(PS::AssignmentExecution);
 }
+
+
 
 helper PS::AbstractSetter::resource() : Resource {
 	if (self.oclIsKindOf(PS::Setter)) {
