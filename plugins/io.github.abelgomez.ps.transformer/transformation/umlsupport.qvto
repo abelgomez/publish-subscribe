@@ -14,7 +14,14 @@ helper OrderedSet (UML::InteractionFragment)::filterInterestingEvents() : Ordere
 		->select(e |
 			-- Is an 'alt' CombinedFragment
 			if e.oclIsKindOf(UML::CombinedFragment)
-				then e.oclAsType(UML::CombinedFragment).interactionOperator = UML::InteractionOperatorKind::alt
+				then e.oclAsType(UML::CombinedFragment).interactionOperator = UML::InteractionOperatorKind::alt and
+				 		e.oclAsType(UML::CombinedFragment).operand.fragment->flatten()->asOrderedSet()->filterInterestingEvents()->notEmpty()
+				else false endif
+			or
+			-- Is a 'par' CombinedFragment
+			if e.oclIsKindOf(UML::CombinedFragment)
+				then e.oclAsType(UML::CombinedFragment).interactionOperator = UML::InteractionOperatorKind::par and
+				 		e.oclAsType(UML::CombinedFragment).operand.fragment->flatten()->asOrderedSet()->filterInterestingEvents()->notEmpty()
 				else false endif
 			or
 			-- Is a ExecutionSpecification stereotyped as AssignmentExecution or
@@ -28,38 +35,6 @@ helper OrderedSet (UML::InteractionFragment)::filterInterestingEvents() : Ordere
 					mos.message.isAbstractSetter() and mos.message.sendEvent = mos  
 				else false endif);
 }
-
-/**
-helper OrderedSet (UML::InteractionFragment)::filterScenarioInterestingEvents() : OrderedSet (UML::InteractionFragment) {
-	return self
-		-- They correspond to interesting events: 
-		->select(e | 
-			-- Is a ExecutionSpecification stereotyped as AssignmentExecution or
-			if e.oclIsKindOf(UML::ExecutionSpecification)
-				then e.oclAsType(UML::ExecutionSpecification).isAssignmentExecution() 
-				else false endif
-			or
-			-- Is a MessageOccurrenceSpecification whose Message is stereotyped as a AbstractSetter
-			if e.oclIsKindOf(UML::MessageOccurrenceSpecification)
-				then let mos : UML::MessageOccurrenceSpecification = e.oclAsType(UML::MessageOccurrenceSpecification) in 
-					mos.message.isAbstractSetter() and mos.message.sendEvent = mos  
-				else false endif);
-}
-
-helper OrderedSet (UML::InteractionFragment)::filterSubscriptionInterestingEvents() : OrderedSet (UML::InteractionFragment) {
-	return self
-		-- They correspond to interesting events: 
-		->select(
-			-- Is an 'alt' CombinedFragment
-			if oclIsKindOf(UML::CombinedFragment) then oclAsType(UML::CombinedFragment).interactionOperator = UML::InteractionOperatorKind::alt else false endif
-			or
-			-- Is a ExecutionSpecification stereotyped as AssignmentExecution or
-			if oclIsKindOf(UML::ExecutionSpecification) then oclAsType(UML::ExecutionSpecification).isAssignmentExecution() else false endif
-			or
-			-- Is a MessageOccurrenceSpecification whose Message is stereotyped as an AbstractSetter
-			if oclIsKindOf(UML::MessageOccurrenceSpecification) then oclAsType(UML::MessageOccurrenceSpecification).message.isAbstractSetter() else false endif);
-}
-*/
 
 helper UML::InteractionFragment::coveredInteraction() : UML::Interaction {
 	assert fatal (self.covered.interaction->asOrderedSet()->size() = 1) with log ('Unexpected number of covered Interactions: Expected exactly "1" but bound "{1}"'._format(self.covered.interaction->asOrderedSet()->size()));
@@ -151,6 +126,7 @@ helper UML::OccurrenceSpecification::lifeline() : UML::Lifeline {
 	return self.covered->asList()->first(); 
 }
 
+/*
 property clientIdsRegistry : Dict (Classifier, String);
 helper UML::Classifier::clientId() : String {
 	-- We assume that this registry will be really really small
@@ -160,4 +136,26 @@ helper UML::Classifier::clientId() : String {
 		clientIdsRegistry->put(self, id);
 	};
 	return id; 
+}
+*/
+
+helper UML::Classifier::clientVarName() : String {
+	return self.name.toLowerCase(); 
+}
+
+helper UML::Property::defaultValueAsString() : String {
+	if (self.defaultValue <> null) {
+		return self.defaultValue.toString();
+	} else if (self.type.name = 'String') {
+		return '';
+	} else if (self.type.name = 'Boolean') {
+		return 'false';
+	} else if (self.type.name = 'Integer') {
+		return '0';
+	} else if (self.type.name = 'Real') {
+		return '0.0';
+	} else {
+		assert fatal (false) with log ('Unknown Property type: "{1}"'._format(self.type.name));
+	};
+	return null;
 }

@@ -15,7 +15,7 @@ main() {
 	-- automatic layout of the CPNet for all its pages
 	cpnet.binder.pages->forEach(p) {
 		var nNodes := p.places->size() + p.transs->size(); 
-		p.layout(nNodes * 40, nNodes * 40, 1000);
+		p.layout(nNodes * 40, nNodes * 40, 2000);
 	}
 		
 }
@@ -54,8 +54,6 @@ mapping UML::Interaction::priorities() : CPN::Block {
 	declarations += object CPN::Ml { expression := 'val P2 = 20;'};
 	declarations += object CPN::Ml { expression := 'val P3 = 30;'};
 	declarations += object CPN::Ml { expression := 'val P4 = 40;'};
-	declarations += object CPN::Ml { expression := 'val P5 = 50;'};
-	declarations += object CPN::Ml { expression := 'val P6 = 60;'};
 }
 
 mapping UML::Interaction::simpleColorSets() : CPN::Block {
@@ -63,10 +61,9 @@ mapping UML::Interaction::simpleColorSets() : CPN::Block {
 	declarations += map unit();
 	declarations += map bool();
 	declarations += map int();
-	declarations += map intinf();
-	declarations += map time();
 	declarations += map real();
 	declarations += map string();
+	declarations += map lock();
 }
 
 mapping unit() : CPN::Unit { 
@@ -81,20 +78,16 @@ mapping int() : CPN::Integer {
 	idname := 'INT';
 };
 
-mapping intinf() : CPN::LargeInteger {
-	idname := 'INTINF';
-};
-
-mapping time() : CPN::Time {
-	idname := 'TIME';
-};
-
 mapping real() : CPN::Real {
 	idname := 'REAL';
 };
 
 mapping string() : CPN::String {
 	idname := 'STRING';
+};
+
+mapping lock() : CPN::Unit {
+	idname := 'LOCK';
 };
 
 mapping UML::Interaction::compoundColorSets() : CPN::Block {
@@ -105,8 +98,6 @@ mapping UML::Interaction::compoundColorSets() : CPN::Block {
 	declarations += map cl();
 	declarations += map ecli();
 	declarations += map eclir();
-	declarations += map int2();
-	declarations += map string3();
 };
 
 mapping intt() : CPN::Alias {
@@ -169,20 +160,6 @@ mapping eclir() : CPN::Product {
 	simpleColors += resolveoneIn(string);
 };
 
-mapping int2() : CPN::Product {
-	idname := 'INT2';
-	timed := true; 
-	simpleColors += resolveoneIn(int);
-	simpleColors += resolveoneIn(real);
-};
-
-mapping string3() : CPN::Product {
-	idname := 'STRINGx3';
-	simpleColors += resolveoneIn(string);
-	simpleColors += resolveoneIn(string);
-	simpleColors += resolveoneIn(string);
-};
-
 mapping UML::Interaction::clientsCompoundColorSets() : CPN::Block {
 	idname := 'Clients declarations';
 	declarations += self.clientClassifiers()->map clientProductDeclaration();
@@ -210,7 +187,7 @@ mapping UML::Classifier::clientProductDeclaration() : CPN::Product {
 };
 
 mapping UML::Classifier::clientVariableDeclaration() : CPN::Var {
-	idname :=  's';
+	idname :=  self.clientVarName();
 	type := resolveoneIn(string);
 };
 
@@ -270,14 +247,6 @@ mapping UML::Interaction::values() : CPN::Block {
 	declarations += object CPN::Ml {
 		expression := 'val maxTime=4';
 	};
-	declarations += object CPN::Ml {
-		var resources : Collection(PS::Resource) := uml.interaction().resourcesLifelines().resource();
-		var entries : List (String);
-		resources->forEach(r) {
-			entries += '1`"{1}"'._format(r._tag);
-		};
-		expression := entries->joinfields('++\n','val ResLocks=',';');
-	};
 };
 
 mapping UML::Interaction::functions() : CPN::Block {
@@ -286,15 +255,16 @@ mapping UML::Interaction::functions() : CPN::Block {
 		expression := 'fun intTime()=IntInf.toInt(time());';
 	};
 	declarations += object CPN::Ml {
-		expression := 'fun nV()=V0m1.ran();';
-	};
-	declarations += object CPN::Ml {
 		expression := 'fun nT()=V0m1.ran();';
 	};
 };	
 
 mapping UML::Interaction::variables() : CPN::Block {
 	idname := 'Variable declarations';
+	declarations += object CPN::Var {
+		idname := 'l';
+		type := resolveoneIn(lock);
+	};
 	declarations += object CPN::Var {
 		idname := 'R';
 		type := resolveoneIn(string);
@@ -401,6 +371,7 @@ mapping UML::Interaction::invariantPage() : CPN::Page {
 	var pRoles                    := create_place(result, 'Roles', resolveoneIn(cli), 'PosCli');
 	var pSubscriptionRequest      := create_place(result, 'Subscription\nRequest', resolveoneIn(ecli));
 	var pFailSubscriptionRequests := create_place(result, 'Fail\nSubscription\nRequests', resolveoneIn(ecli));
+	var pFailRoles                := create_place(result, 'Fail\nRoles', resolveoneIn(cli));
 
 	var tEmpty                    := create_trans(result, 'Empty', 'P3');
 	var tRemoveSubscription       := create_trans(result, 'Remove\nSubscription', 'P2', '[EPR = EPR1]');
@@ -412,7 +383,7 @@ mapping UML::Interaction::invariantPage() : CPN::Page {
 	var tSetTimeFail              := create_trans(result, 'Set Time\nFail', 'P4');
 	var tSubscriptionTimeOut      := create_trans(result, 'Subscription\nTime-Out', 'P2', '[cc < n]');
 	var tSetTime                  := create_trans(result, 'Set Time', 'P4');
-	var tNotify                   := create_trans(result, 'Notify', 'P1');
+	var tNotify                   := create_trans(result, 'Notify', 'P1', '[v <= condv2, v >= condv1]');
 	var tPublishOk                := create_trans(result, 'Publish_ok', 'P4');
 	var tPublishFail              := create_trans(result, 'Publish_fail', 'P2', '[EPR = EPR1]');
 	var tDiscover                 := create_trans(result, 'Discover', 'P2');
@@ -443,8 +414,6 @@ mapping UML::Interaction::invariantPage() : CPN::Page {
 	create_arc(result, tReSubscribe, pSubscriptionRegistry, '(EPR1,R,C,condv11,condv22,condtt+intTime(),tr)');
 	create_arc(result, tSubscribe, pSubscriptionRegistry, '(EPR1,R,C,condv1,condv2,condt+intTime(),tr)');
 	create_arc(result, tNotify, pNotifications, '(EPR1,R,C,v,cc)');
-	create_arc(result, tNotify, pResourceRegistry, '(EPR1,R,v,cr)');
-	create_arc(result, pResourceRegistry, tNotify, '(EPR1,R,v,cr)');
 	create_arc(result, pResourceRegistry, tResourceExpire, '(EPR,R,v,cr)');
 	create_arc(result, pResourceRegistry, tSetTime, '(EPR,R,v,cr)');
 	create_arc(result, tSetTime, pResourceRegistry, '(EPR,R,v,nT()+intTime())');
@@ -464,6 +433,7 @@ mapping UML::Interaction::invariantPage() : CPN::Page {
 	create_arc(result, tFailSubscribe, pFailSubscriptionRequests, '(EPR1,R,C,condv1,condv2,condt,tr)');
 	create_arc(result, pRoles, tDiscover, '(C,R,condv1,condv2,condt,tr)');
 	create_arc(result, pRoles, tFailDiscover, '(C,R,condv1,condv2,condt,tr)');
+	create_arc(result, tFailDiscover, pFailRoles, '(C,R,condv1,condv2,condt,tr)');
 	create_arc(result, pResources, tPublishFail, '(EPR,R,v,t)');
 	create_arc(result, pResources, tPublishOk, '(EPR,R,v,t)');
 	create_arc(result, tResourceExpire, pExpiredResources, '(EPR,R,v,cr)');
@@ -488,8 +458,35 @@ mapping UML::Interaction::scenarioPage() : CPN::Page {
 	name := self.name;
 	
 	var tuple : Tuple (start : CPN::Place, finish : CPN::Place) := self.fragment->filterInterestingEvents()->map eventsSequenceSubnet(result);
-	tuple.start.text := 'Start\nSubscription';
-	tuple.finish.text := 'End\nSubscription';
+	
+	var pStart := create_place(result, 'Start\nSubscription', null, '()');
+	var tStart := create_trans(result, 'Acquire\nLocks');
+	var tFinish := create_trans(result, 'End\nSubscription');
+	create_arc(result, pStart, tStart);
+	create_arc(result, tStart, tuple.start);
+	create_arc(result, tuple.finish, tFinish);
+	
+	-- Acquire locks
+	do {
+		-- Clients Locks
+		self.clientLifelines()->forEach(l) {
+			var pClientLock := l.clientClassifier().pClientLock(result);
+			create_arc(result, pClientLock, tStart, 'l');
+			create_arc(result, tFinish, pClientLock, 'l');
+		};
+		-- Resources Locks
+		self.resourcesLifelines()->forEach(l) {
+			var pResourceLock := l.resource().pResourceLock(result);
+			create_arc(result, pResourceLock, tStart, 'l');
+			create_arc(result, tFinish, pResourceLock, 'l');
+		};
+	};
+	
+	-- Change colours of initial and final places for an easy identification
+	do {	
+		pStart.lineColour:= Colour16::Green;
+		tFinish.lineColour := Colour16::Maroon;
+	};
 }
 
 mapping PS::Subscription::subscriptionPage() : CPN::Page 
@@ -501,11 +498,11 @@ when {
 	init {
 		-- Extract some variables for later reuse
 		var interaction : UML::Interaction := self.triggers;
-		var numClients : Integer := interaction.lifeline.represents.type->size(); 
-		var clientClassifier := interaction.lifeline[isClient()].represents.type.oclAsType(UML::Classifier)->asList()->first();
 	
 		-- Initial assertions
 		do {
+			var numClients : Integer := interaction.lifeline.represents.type->size(); 
+			var clientClassifier := interaction.lifeline[isClient()].represents.type.oclAsType(UML::Classifier)->asList()->first();
 			-- The interaction MUST contain a single <<Client>> Lifeline  
 			assert fatal (interaction.lifeline[isClient()].represents.type->size() = 1)
 				with log ('Triggered interaction "{1}" contains {2} <<Client>> lifelines (expected exactly 1)'._format(interaction, numClients));
@@ -521,34 +518,42 @@ when {
 	var tuple : Tuple (start : CPN::Place, finish : CPN::Place) := interaction.fragment->filterInterestingEvents()->map eventsSequenceSubnet(result);
 	-- Create all the elements in the main loop
 	var pNotifications := pNotifications(result);
-	var pStart := create_place(result, 'Start\n' + interaction.name, resolveoneIn(string3), '1`("{1}", "{2}", "{3}")'._format(self.client.base_Lifeline.clientClassifier().clientId(), interaction.name, self.resource._tag));
+	var pStart := create_place(result, 'Start\n{1}'._format(interaction.name), null, '()');
 	var tStart := create_trans(result);
-	var pFinish := interaction.pNotificationData(result);
+	var pFinish := create_place(result);
 	var tFinish := create_trans(result);
-	var pEnd:= create_place(result, resolveoneIn(string3));
+	var pEnd:= create_place(result, 'Finish\n{1}'._format(interaction.name));
 	var tClose:= create_trans(result);
-	create_arc(result, pStart, tStart, '(s,C,R)');
+	create_arc(result, pStart, tStart);
 	create_arc(result, pNotifications, tStart, '(EPR,R,C,v,cc)');
-	create_arc(result, tStart, pFinish, '(s,C,R)');
+	create_arc(result, tStart, pFinish);
 	create_arc(result, tStart, tuple.start);
-	create_arc(result, pFinish, tFinish, '(s,C,R)');
+	create_arc(result, pFinish, tFinish);
 	create_arc(result, tuple.finish, tFinish);
-	create_arc(result, tFinish, pEnd, '(s,C,R)');
-	create_arc(result, pEnd, tClose, '(s,C,R)');
-	create_arc(result, tClose, pStart, '(s,C,R)');
+	create_arc(result, tFinish, pEnd);
+	create_arc(result, pEnd, tClose);
+	create_arc(result, tClose, pStart);
 	
-	-- Acquire lock for Subscrition Client
+	-- Acquire locks
 	do {
-		var pClientLock := clientClassifier.pClientLock(result);
-		create_arc(result, pClientLock, tStart, 's');
-		create_arc(result, tFinish, pClientLock, 's');
+		-- Clients Locks
+		interaction.clientLifelines()->forEach(l) {
+			var pClientLock := l.clientClassifier().pClientLock(result);
+			create_arc(result, pClientLock, tStart, 'l');
+			create_arc(result, tFinish, pClientLock, 'l');
+		};
+		-- Resources Locks
+		interaction.resourcesLifelines()->forEach(l) {
+			var pResourceLock := l.resource().pResourceLock(result);
+			create_arc(result, pResourceLock, tStart, 'l');
+			create_arc(result, tFinish, pResourceLock, 'l');
+		};
 	};
-		
-	-- Acquire lock for Subscription Resource
-	do {
-		var pResourceLock := pResourceLocks(result);
-		create_arc(result, pResourceLock, tStart, 'R');
-		create_arc(result, tFinish, pResourceLock, 'R');
+
+	-- Change colours of initial and final places for an easy identification
+	do {	
+		pStart.lineColour:= Colour16::Green;
+		pEnd.lineColour:= Colour16::Maroon;
 	};
 }
 
@@ -610,75 +615,39 @@ mapping UML::ExecutionSpecification::clientExecutionSpecificationSubnet(inout _p
 	-- Extract the Client classifier for reuse
 	var clientClassifier := self.lifeline().clientClassifier();
 	
-	-- Create fixed places: places and transitions at the begining and the end of the subnet
-	var tLifelineStart := create_trans(_page);
-	var pLifelineFinish := create_place(_page, resolveoneIn(string));
-	var tLifelineFinish := create_trans(_page);
+	-- Extract the asignments
+	var assignments : List(PS::AssignmentOperation) := self.assignmentExecution().assignments->asList();
+	var tAssignments : List (CPN::Trans) := assignments->map clientAssignments(_page, clientClassifier);
 	
-	-- Link all the fixed places at the begining and the end
-	create_arc(_page, result.start, tLifelineStart);
-	create_arc(_page, pLifelineFinish, tLifelineFinish, 's');
-	create_arc(_page, tLifelineFinish, result.finish);
-	
-	-- Fill the core of the network, based on the Assignment operations
-	do {
-		-- Extract the asignments
-		var assignments : List(PS::AssignmentOperation) := self.assignmentExecution().assignments->asList();
-		assignments->map clientAssignmentSubnet(_page, clientClassifier);
-		-- Link the subnet of the first AssignmentOperation with the begining of this subnet
-		create_arc(_page, tLifelineStart, assignments->first().resolveoneIn(PS::AssignmentOperation::clientAssignmentSubnet).start, 's');
-		-- Link the subnet of the last AssignmentOperation with the end of this subnet
-		create_arc(_page, assignments->last().resolveoneIn(PS::AssignmentOperation::clientAssignmentSubnet).finish, pLifelineFinish, 's');
-		-- Link all the subnets of the AssignmentOperations with their adjacents  
-		var prev : PS::AssignmentOperation;
-		assignments->forEach(a) {
-			if (prev.oclIsUndefined().not()) {
-				create_arc(_page, prev.resolveoneIn(PS::AssignmentOperation::clientAssignmentSubnet).finish, a.resolveoneIn(PS::AssignmentOperation::clientAssignmentSubnet).start, 's');
-			};
-			prev := a;
-		}
-	};
-	
-	-- Clients are only locked locally in the Scenario SD
-	-- Triggered interactions get global locks
-	if (self.coveredInteraction().isPublishSubscribeScenario()) {
-		var pLock := clientClassifier.pClientLock(_page);
-		create_arc(_page, pLock, tLifelineStart, 's');
-		create_arc(_page, tLifelineFinish, pLock, 's');
-	};
-	
-	-- Setup the initial data that this subnet must use
-	if (self.coveredInteraction().isPublishSubscribeScenario()) {
-		var pLifelineStart := create_place(_page, '{1}_'._format(clientClassifier.clientId())._addSuffixNumber(), resolveoneIn(string), '1`"{1}"'._format(clientClassifier.clientId()));
-		create_arc(_page, pLifelineStart, tLifelineStart, 's');
-	} else {
-		var pNotificationData := self.coveredInteraction().pNotificationData(_page);
-		create_arc(_page, pNotificationData, tLifelineStart, "(s, C, R)");
-		create_arc(_page, tLifelineStart, pNotificationData, "(s, C, R)");
+	-- Build the subnet using the created Transitions for the assignments
+	var pPrev : CPN::Place := result.start;  
+	tAssignments->forEach(t) {
+		create_arc(_page, pPrev, t);
+		if (t = tAssignments->last()) {
+			pPrev := result.finish; 
+		} else {
+			pPrev := create_place(_page);
+		};
+		create_arc(_page, t, pPrev);
 	};
 }
 
-mapping PS::AssignmentOperation::clientAssignmentSubnet(inout _page : CPN::Page, in clientClassifier : UML::Classifier) : Tuple (start : CPN::Place, finish : CPN::Trans) {
+mapping PS::AssignmentOperation::clientAssignments(inout _page : CPN::Page, in clientClassifier : UML::Classifier) : CPN::Trans {
 	init {
 		-- Initial assertions
 		assert fatal (clientClassifier.attribute.name->includes(self._property.trim())) with log ('Unable to find Property "{1}" on <<Client>> Classifier "{2}"'._format(self._property.trim(), clientClassifier));
 		-- Create result Place and Transition, used to link this subnet with its caller
-		result := Tuple { 
-			start = create_place(_page, resolveoneIn(string)), 
-			finish = create_trans(_page, 'ASG_{1}_'._format(self._property.trim())._addSuffixNumber())
-		};
+		result := create_trans(_page, 'ASG_{1}_'._format(self._property.trim())._addSuffixNumber());
 	}
 	-- Create/get the fixed Client place
 	var pClient := clientClassifier.pClient(_page);
 	-- Create this assignment subnet
 	do {
-		-- Arc between the start and the finish
-		create_arc(_page, result.start, result.finish, 's');
 		-- Arc between the Transition and the Client place
 		-- We substitute the "clientClassifier.attribute" matching "self._property" by "self.value"
-		create_arc(_page, result.finish, pClient, clientClassifier.attribute.name->collect(s : String | if s <> self._property.trim() then s else self.value.trim() endif)->asList()->joinfields(', ', '(s, ', ')'));
+		create_arc(_page, result, pClient, clientClassifier.attribute.name->collect(s : String | if s <> self._property.trim() then s else self.value.trim() endif)->asList()->joinfields(', ', '({1}, '._format(clientClassifier.clientVarName()), ')'));
 		-- Arc between the Client place and the Transition
-		create_arc(_page, pClient, result.finish, clientClassifier.attribute.name->asList()->joinfields(', ', '(s, ', ')'));
+		create_arc(_page, pClient, result, clientClassifier.attribute.name->asList()->joinfields(', ', '({1}, '._format(clientClassifier.clientVarName()), ')'));
 	};
 };
 
@@ -686,6 +655,7 @@ mapping UML::MessageOccurrenceSpecification::setterMessageOccurrenceSpecificatio
 	init {
 		-- Initial assertions
 		assert fatal (self.message.isAbstractSetter()) with log ('Expecting a MessageOccurrenceSpecification of an <<AbstractSetter>> Message but found "{1}"'._format(self));
+		assert fatal (self.message.abstractSetter().operation->notEmpty()) with log ('MessageOccurrenceSpecification <<AbstractSetter>> "{1}" has empty <<UpdateOperation>>'._format(self));
 		-- Create result Places, used to link this subnet with its caller
 		result := Tuple { 
 			start = create_place(_page), 
@@ -699,71 +669,47 @@ mapping UML::MessageOccurrenceSpecification::setterMessageOccurrenceSpecificatio
 
 	-- Create the fixed Resource Places (Registry and Lock)	and places and transitions at the begining and the end of the subnet
 	var pResourceRegistry := pResourceRegistry(_page);
-	var tLifelineStart := create_trans(_page);
-	var pLifelineFinish := create_place(_page, resolveoneIn(string));
-	var tLifelineFinish := create_trans(_page);
+	var tModifyResource := create_trans(_page, null, null, '[ R = "{1}" ]'._format(setter.resource()._tag));
 
 	-- Handle Delayed messages
-	do {
-		if (self.message.isDelayed()) {
-			-- If the Message is Delayed (i.e., it is necessary to wait for some time)
-			-- We need to include a timed transition before the Resource is updated
-			var delayed := self.message.delayed();
-			var pDelay := create_place(_page, resolveoneIn(string));
-			var tDelay := create_trans(_page, null, null, null, '@+{1}'._format(delayed.delay));
-			create_arc(_page, tLifelineStart, pDelay, 'R');
-			create_arc(_page, pDelay, tDelay, 'R');
-			create_arc(_page, tDelay, pLifelineFinish, 'R');
-		} else {
-			-- If the Message is immediate, we just link the transition at the begionin and the place at the end
-			create_arc(_page, tLifelineStart, pLifelineFinish, 'R');
-		};
+	if (self.message.isDelayed()) {
+		-- If the Message is Delayed (i.e., it is necessary to wait for some time)
+		-- We need to include a timed transition before the Resource is updated
+		var delayed := self.message.delayed();
+		var tDelay := create_trans(_page, null, null, null, '@+{1}'._format(delayed.delay));
+		var pDelay := create_place(_page);
+		create_arc(_page, result.start, tDelay);
+		create_arc(_page, tDelay, pDelay);
+		create_arc(_page, pDelay, tModifyResource);
+	} else {
+		-- If the Message is immediate, we just link the transition at the begionin and the place at the end
+		create_arc(_page, result.start, tModifyResource);
 	};
 	
 	-- Fill all the rest of the Arcs of the core of the network
-	if (setter.oclIsKindOf(PS::TimedSetter)) {
-		create_arc(_page, tLifelineFinish, pResourceRegistry, '(EPR, R, v {1} {2}, {3})'._format(op.operator.asSymbol(), op.value, setter.oclAsType(PS::TimedSetter).time));
-	} else {
-		create_arc(_page, tLifelineFinish, pResourceRegistry, '(EPR, R, v {1} {2}, cr)'._format(op.operator.asSymbol(), op.value));
-	};
-	create_arc(_page, pResourceRegistry, tLifelineFinish, '(EPR, R, v, cr)');
-	create_arc(_page, result.start, tLifelineStart);
-	create_arc(_page, pLifelineFinish, tLifelineFinish, 'R');
-	create_arc(_page, tLifelineFinish, result.finish);
+	create_arc(_page, tModifyResource, pResourceRegistry, '(EPR, R, v {1} {2}, {3})'._format(op.operator.asSymbol(), op.value, if setter.oclIsKindOf(PS::TimedSetter) then setter.oclAsType(PS::TimedSetter).time else 'cr' endif));
+	create_arc(_page, pResourceRegistry, tModifyResource, '(EPR, R, v, cr)');
+	create_arc(_page, tModifyResource, result.finish);
 	
-	-- Resources are only locked locally in the Scenario SD
-	-- Triggered interactions get global locks
-	if (self.coveredInteraction().isPublishSubscribeScenario()) {
-		var pResourceLocks := pResourceLocks(_page);
-		create_arc(_page, pResourceLocks, tLifelineStart, 'R');
-		create_arc(_page, tLifelineFinish, pResourceLocks, 'R');
-	};
-	
-	-- Setup the initial data that this subnet must use
-	if (self.coveredInteraction().isPublishSubscribeScenario()) {
-		var pLifelineStart := create_place(_page, '{1}_'._format(setter.resource()._tag)._addSuffixNumber(), resolveoneIn(string), '1`"{1}"'._format(setter.resource()._tag));
-		create_arc(_page, pLifelineStart, tLifelineStart, 'R');	
-	} else {
-		var pNotificationData := self.coveredInteraction().pNotificationData(_page);
-		create_arc(_page, pNotificationData, tLifelineStart, '(s, C, R)');
-		create_arc(_page, tLifelineStart, pNotificationData, '(s, C, R)');
-		if (self.findPreviousGetters()->notEmpty()) {
-			var pResourceRegistryGetter := pResourceRegistry(_page);
-			self.findPreviousGetters()->forEach(g) {
-				g.variable.map asRealVariable();
-			 	var pGetter := create_place(_page, resolveoneIn(real));
-			 	var tGetter := create_trans(_page, null, null, '[R="{1}"]'._format(g.resource._tag));
-			 	create_arc(_page, pGetter, tLifelineFinish, g.variable);
-			 	create_arc(_page, tGetter, pGetter, 'v');
-			 	create_arc(_page, pResourceRegistryGetter, tGetter, '(EPR, R, v, cr)');
-			 	create_arc(_page, tGetter, pResourceRegistryGetter, '(EPR, R, v, cr)');
-			};
-		}
+	-- Add places for getters, since variables may be used in the assignment
+	if (self.findPreviousGetters()->notEmpty()) {
+		var pResourceRegistryGetter := pResourceRegistry(_page);
+		self.findPreviousGetters()->forEach(g) {
+			g.variable.map asRealVariable();
+		 	var pGetter := create_place(_page, resolveoneIn(real));
+		 	var tGetter := create_trans(_page, null, null, '[ R = "{1}" ]'._format(g.resource._tag));
+		 	create_arc(_page, pGetter, tModifyResource, g.variable);
+		 	create_arc(_page, tGetter, pGetter, 'v');
+		 	create_arc(_page, pGetter, tGetter, null, true);
+		 	create_arc(_page, pResourceRegistryGetter, tGetter, '(EPR, R, v, cr)');
+		 	create_arc(_page, tGetter, pResourceRegistryGetter, '(EPR, R, v, cr)');
+		};
 	}
 }
 
 mapping UML::CombinedFragment::interactionFragmentSubnet(inout _page : CPN::Page) : Tuple (start : CPN::Place, finish : CPN::Place)
 disjuncts 	UML::CombinedFragment::altInteractionFragmentSubnet, 
+			UML::CombinedFragment::parInteractionFragmentSubnet,
 			UML::CombinedFragment::failSubnetCreation;
 
 mapping UML::CombinedFragment::failSubnetCreation(inout _page : CPN::Page) : Tuple (start : CPN::Place, finish : CPN::Place) {
@@ -788,7 +734,7 @@ when {
 	var tBegining : CPN::Trans := create_trans(_page);		
 	var pBegining : CPN::Place := create_place(_page);
 	
-	var tNotCond : CPN::Trans := create_trans(_page, null, 'P1');
+	var tNotCond : CPN::Trans := create_trans(_page, null, 'P2');
 	var tNotCondEnd : CPN::Trans := create_trans(_page);
 	create_arc(_page, pBegining, tNotCond);
 	create_arc(_page, tNotCondEnd, result.finish);
@@ -809,7 +755,7 @@ when {
 		assert fatal (o.guard.constrainedElement->size() = 1)
 			with log ('Expecting exactly 1 constrained element in CombinedFragment {1}, but found {2} ({3})'._format(self, o.guard.constrainedElement->size()));
 		assert fatal (o.guard.constrainedElement->first().oclIsKindOf(UML::Classifier))
-			with log ('Expecting a constrinaed element of kind UML::Classifier, but found "{1}"'._format(o.guard.constrainedElement->first()));
+			with log ('Expecting a constrained element of kind UML::Classifier, but found "{1}"'._format(o.guard.constrainedElement->first()));
 		assert fatal (o.guard.specification.oclIsKindOf(UML::LiteralString))
 			with log ('Unexpected guard specification kind in CombinedFragment "{1}", expected a LiteralString but "{2}" found instead'._format(self, o.guard.specification));
 		
@@ -820,25 +766,18 @@ when {
 		var pCombinedEvents : Tuple (start : CPN::Place, finish : CPN::Place) := o.fragment->filterInterestingEvents()->map eventsSequenceSubnet(_page); 
 		var pClassifier : CPN::Place := classifier.pClient(_page);
 		
-		var pCond : CPN::Place := create_place(_page, resolveoneIn(string));
-		var tCond : CPN::Trans := create_trans(_page, null, 'P2', '[ {1} ]'._format(expression));
+		var pCond : CPN::Place := create_place(_page);
+		var tCond : CPN::Trans := create_trans(_page, null, 'P1', '[ {1} ]'._format(expression));
 		var tCondEnd : CPN::Trans := create_trans(_page);
 		create_arc(_page, pBegining, tCond);
 		create_arc(_page, tCond, pCombinedEvents.start);
-		create_arc(_page, pClassifier, tCond, classifier.attribute.name->asList()->joinfields(', ', '(s, ', ')'));
-		create_arc(_page, tCond, pClassifier, classifier.attribute.name->asList()->joinfields(', ', '(s, ', ')'));
-		create_arc(_page, tCond, pCond, 's');
+		create_arc(_page, pClassifier, tCond, classifier.attribute.name->asList()->joinfields(', ', '({1}, '._format(classifier.clientVarName()), ')'));
+		create_arc(_page, tCond, pClassifier, classifier.attribute.name->asList()->joinfields(', ', '({1}, '._format(classifier.clientVarName()), ')'));
+		create_arc(_page, tCond, pCond);
 		create_arc(_page, pCombinedEvents.finish, tCondEnd);
-		create_arc(_page, pCond, tCondEnd, 's');
+		create_arc(_page, pCond, tCondEnd);
 		create_arc(_page, tCondEnd, result.finish);
 
-		-- Setup the initial data that this subnet must use
-		if (self.coveredInteraction().isPublishSubscribeScenario().not()) {
-			var pNotificationData := self.enclosingInteraction.pNotificationData(_page);
-			create_arc(_page, pNotificationData, tCond, "(s, C, R)");
-			create_arc(_page, tCond, pNotificationData, "(s, C, R)");
-		};
-		
 		if (self.findPreviousGetters()->notEmpty()) {
 			var pResourceRegistryGetter := pResourceRegistry(_page);
 			self.findPreviousGetters()->forEach(g) {
@@ -847,10 +786,83 @@ when {
 			 	var tGetter := create_trans(_page, null, null, '[R="{1}"]'._format(g.resource._tag));
 			 	create_arc(_page, pGetter, tCond, g.variable);
 			 	create_arc(_page, tGetter, pGetter, 'v');
+			 	create_arc(_page, pGetter, tGetter, null, true);
 			 	create_arc(_page, pResourceRegistryGetter, tGetter, '(EPR, R, v, cr)');
 			 	create_arc(_page, tGetter, pResourceRegistryGetter, '(EPR, R, v, cr)');
 			};
 		}
+	};
+}
+
+mapping UML::CombinedFragment::parInteractionFragmentSubnet(inout _page : CPN::Page) : Tuple (start : CPN::Place, finish : CPN::Place)
+when {
+	self.interactionOperator = UML::InteractionOperatorKind::par
+}{ 
+	init {
+		-- Create result Places, used to link this subnet with its caller
+		result := Tuple { 
+			start = create_place(_page), 
+			finish = create_place(_page)
+		};
+	}
+
+	var tBegining : CPN::Trans := create_trans(_page);		
+	var tEnd : CPN::Trans := create_trans(_page);
+	create_arc(_page, result.start, tBegining);
+	create_arc(_page, tEnd, result.finish);
+
+	self.operand->forEach(o) {
+		if (o.fragment->filterInterestingEvents()->isEmpty()) {
+			-- Do nothing
+			var pEmpty : CPN::Place:= create_place(_page, 'Empty\nOperand_'._addSuffixNumber());		
+			create_arc(_page, tBegining, pEmpty);
+			create_arc(_page, pEmpty, tEnd);
+		} else  if (o.guard = null) {
+			var pCombinedEvents : Tuple (start : CPN::Place, finish : CPN::Place) := o.fragment->filterInterestingEvents()->map eventsSequenceSubnet(_page);
+			create_arc(_page, tBegining, pCombinedEvents.start);
+			create_arc(_page, pCombinedEvents.finish, tEnd);
+		} else {
+			assert fatal (o.guard.constrainedElement->size() = 1)
+				with log ('Expecting exactly 1 constrained element in CombinedFragment {1}, but found {2} ({3})'._format(self, o.guard.constrainedElement->size()));
+			assert fatal (o.guard.constrainedElement->first().oclIsKindOf(UML::Classifier))
+				with log ('Expecting a constrained element of kind UML::Classifier, but found "{1}"'._format(o.guard.constrainedElement->first()));
+			assert fatal (o.guard.specification.oclIsKindOf(UML::LiteralString))
+				with log ('Unexpected guard specification kind in CombinedFragment "{1}", expected a LiteralString but "{2}" found instead'._format(self, o.guard.specification));
+			
+			-- Saved Elements for later reuse
+			var classifier : UML::Classifier := o.guard.constrainedElement->asSequence()->first().oclAsType(UML::Classifier);
+			var expression : String := o.guard.specification.oclAsType(UML::LiteralString).value;
+			
+			var pCombinedEvents : Tuple (start : CPN::Place, finish : CPN::Place) := o.fragment->filterInterestingEvents()->map eventsSequenceSubnet(_page); 
+			var pClassifier : CPN::Place := classifier.pClient(_page);
+			
+			var pBegining : CPN::Place := create_place(_page);
+			var pCond : CPN::Place := create_place(_page);
+			var tCond : CPN::Trans := create_trans(_page, null, null, '[ {1} ]'._format(expression));
+			
+			create_arc(_page, tBegining, pBegining);
+			create_arc(_page, pBegining, tCond);
+			create_arc(_page, tCond, pCombinedEvents.start);
+			create_arc(_page, pClassifier, tCond, classifier.attribute.name->asList()->joinfields(', ', '({1}, '._format(classifier.clientVarName()), ')'));
+			create_arc(_page, tCond, pClassifier, classifier.attribute.name->asList()->joinfields(', ', '({1}, '._format(classifier.clientVarName()), ')'));
+			create_arc(_page, tCond, pCond);
+			create_arc(_page, pCombinedEvents.finish, tEnd);
+			create_arc(_page, pCond, tEnd);
+	
+			if (self.findPreviousGetters()->notEmpty()) {
+				var pResourceRegistryGetter := pResourceRegistry(_page);
+				self.findPreviousGetters()->forEach(g) {
+					g.variable.map asRealVariable();
+				 	var pGetter := create_place(_page, resolveoneIn(real));
+				 	var tGetter := create_trans(_page, null, null, '[R="{1}"]'._format(g.resource._tag));
+				 	create_arc(_page, pGetter, tCond, g.variable);
+				 	create_arc(_page, tGetter, pGetter, 'v');
+				 	create_arc(_page, pGetter, tGetter, null, true);
+				 	create_arc(_page, pResourceRegistryGetter, tGetter, '(EPR, R, v, cr)');
+				 	create_arc(_page, tGetter, pResourceRegistryGetter, '(EPR, R, v, cr)');
+				};
+			}
+		};
 	};
 }
 
@@ -905,23 +917,6 @@ helper UML::interaction() : UML::Interaction {
 	Mappings for special places
 **/
 
-mapping UML::Interaction::_pNotificationData(inout _page : CPN::Page) : CPN::Place {
-	init {
-		result := create_place(_page, resolveoneIn(string3));
-	}
-}
-
-helper UML::Interaction::pNotificationData(inout _page : CPN::Page) : CPN::Place {
-	var pNotificationData : CPN::Place := resolveoneIn(UML::Interaction::_pNotificationData);
-	if (pNotificationData.oclIsUndefined()) {
-		pNotificationData := self.map _pNotificationData(_page);
-	} else {
-		pNotificationData := pNotificationData.duplicate(_page);
-	};
-	pNotificationData.text := '{1}\nInfo_'._format(self.name)._addSuffixNumber();
-	return pNotificationData; 
-}
-
 mapping _pResourceRegistry(inout _page : CPN::Page) : CPN::Place {
 	init {
 		result := create_place(_page, null, resolveoneIn(rec), null);
@@ -956,27 +951,27 @@ helper pNotifications(inout _page : CPN::Page) : CPN::Place {
 	return pNotifications; 
 }
 
-
-mapping _pResourceLocks(inout _page : CPN::Page) : CPN::Place {
+mapping PS::Resource::_pResourceLock(inout _page : CPN::Page) : CPN::Place {
 	init {
-		result := create_place(_page, null, resolveoneIn(string), 'ResLocks');
+		result := create_place(_page, null, resolveoneIn(lock), '()');
 	}
 }
 
-helper pResourceLocks(inout _page : CPN::Page) : CPN::Place {
-	var pResourceLocks : CPN::Place := resolveoneIn(_pResourceLocks);
-	if (pResourceLocks.oclIsUndefined()) {
-		pResourceLocks := map _pResourceLocks(_page);
+helper PS::Resource::pResourceLock(inout _page : CPN::Page) : CPN::Place {
+	var pResourceLock : CPN::Place := self.resolveoneIn(PS::Resource::_pResourceLock);
+	if (pResourceLock.oclIsUndefined()) {
+		pResourceLock := self.map _pResourceLock(_page);
 	} else {
-		pResourceLocks := pResourceLocks.duplicate(_page);
+		pResourceLock := pResourceLock.duplicate(_page);
 	};
-	pResourceLocks.text := 'Resource\nLocks_'._addSuffixNumber();
-	return pResourceLocks; 
+	pResourceLock.text := '{1}_LCK_'._format(self._tag)._addSuffixNumber();
+	return pResourceLock; 
 }
 
 mapping UML::Classifier::_pClient(inout _page : CPN::Page) : CPN::Place {
 	init {
-		result := create_place(_page, null, resolveone(p : CPN::Product | p.idname = self.name.toUpper()));
+		var initMarking : String := self.attribute->asList().defaultValueAsString()->asList()->joinfields(', ', '("{1}", '._format(self.name.toUpperCase()), ')');
+		result := create_place(_page, null, resolveone(p : CPN::Product | p.idname = self.name.toUpper()), initMarking);
 	}
 }
 
@@ -993,7 +988,7 @@ helper UML::Classifier::pClient(inout _page : CPN::Page) : CPN::Place {
 
 mapping UML::Classifier::_pClientLock(inout _page : CPN::Page) : CPN::Place {
 	init {
-		result := create_place(_page, null, resolveoneIn(string), '1`"{1}"'._format(self.clientId()));
+		result := create_place(_page, null, resolveoneIn(lock), '()');
 	}
 }
 

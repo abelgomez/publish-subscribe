@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Ecore="http://www.eclipse.org/uml2/schemas/Ecore/5" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/uml2/schemas/Ecore/5 pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA">
   <uml:Profile xmi:id="_oym6cPnVEeaktbtljtfrvA" name="Publish-Subscribe" metaclassReference="_zAOlAPnVEeaktbtljtfrvA _zAPzIPnVEeaktbtljtfrvA _zAPzIfnVEeaktbtljtfrvA _zAPzIvnVEeaktbtljtfrvA _zAQaMPnVEeaktbtljtfrvA _zARBQPnVEeaktbtljtfrvA">
-    <elementImport xmi:id="_zAOlAPnVEeaktbtljtfrvA" alias="Interaction">
+    <elementImport xmi:type="uml:ElementImport" xmi:id="_zAOlAPnVEeaktbtljtfrvA" alias="Interaction">
       <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Interaction"/>
     </elementImport>
-    <elementImport xmi:id="_zAPzIPnVEeaktbtljtfrvA" alias="Artifact">
+    <elementImport xmi:type="uml:ElementImport" xmi:id="_zAPzIPnVEeaktbtljtfrvA" alias="Artifact">
       <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Artifact"/>
     </elementImport>
-    <elementImport xmi:id="_zAPzIfnVEeaktbtljtfrvA" alias="Lifeline">
+    <elementImport xmi:type="uml:ElementImport" xmi:id="_zAPzIfnVEeaktbtljtfrvA" alias="Lifeline">
       <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Lifeline"/>
     </elementImport>
-    <elementImport xmi:id="_zAPzIvnVEeaktbtljtfrvA" alias="Node">
+    <elementImport xmi:type="uml:ElementImport" xmi:id="_zAPzIvnVEeaktbtljtfrvA" alias="Node">
       <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Node"/>
     </elementImport>
-    <elementImport xmi:id="_zAQaMPnVEeaktbtljtfrvA" alias="Message">
+    <elementImport xmi:type="uml:ElementImport" xmi:id="_zAQaMPnVEeaktbtljtfrvA" alias="Message">
       <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Message"/>
     </elementImport>
-    <elementImport xmi:id="_zARBQPnVEeaktbtljtfrvA" alias="ExecutionSpecification">
+    <elementImport xmi:type="uml:ElementImport" xmi:id="_zARBQPnVEeaktbtljtfrvA" alias="ExecutionSpecification">
       <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#ExecutionSpecification"/>
     </elementImport>
-    <packageImport xmi:id="_o2HhcPnVEeaktbtljtfrvA">
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_o2HhcPnVEeaktbtljtfrvA">
       <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
     </packageImport>
-    <packageImport xmi:id="_o2IIgPnVEeaktbtljtfrvA">
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_o2IIgPnVEeaktbtljtfrvA">
       <importedPackage xmi:type="uml:Model" href="pathmap://UML_METAMODELS/UML.metamodel.uml#_0"/>
     </packageImport>
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_8jFbUPnVEeaktbtljtfrvA" name="PublishSubscribeScenario">
-      <ownedAttribute xmi:id="_E19QcPnWEeaktbtljtfrvA" name="base_Interaction" association="_E18pYPnWEeaktbtljtfrvA">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_E19QcPnWEeaktbtljtfrvA" name="base_Interaction" association="_E18pYPnWEeaktbtljtfrvA">
         <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Interaction"/>
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_-ZfjUPnVEeaktbtljtfrvA" name="Service">
-      <ownedAttribute xmi:id="_FWiN8fnWEeaktbtljtfrvA" name="base_Node" association="_FWhm4PnWEeaktbtljtfrvA">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_FWiN8fnWEeaktbtljtfrvA" name="base_Node" association="_FWhm4PnWEeaktbtljtfrvA">
         <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Node"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_Ywco8vnWEeaktbtljtfrvA" name="publishes" type="_At85QPnWEeaktbtljtfrvA" isReadOnly="true" isDerived="true" association="_YwcB4PnWEeaktbtljtfrvA">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Ywco8vnWEeaktbtljtfrvA" name="publishes" type="_At85QPnWEeaktbtljtfrvA" isReadOnly="true" isDerived="true" association="_YwcB4PnWEeaktbtljtfrvA">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_l_dn8PnWEeaktbtljtfrvA" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mAEE4PnWEeaktbtljtfrvA" value="*"/>
         <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_z4o-QPnWEeaktbtljtfrvA" name="nestedResources">
@@ -44,36 +44,36 @@
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_At85QPnWEeaktbtljtfrvA" name="Resource">
-      <ownedRule xmi:id="_K1BtcP3oEeaPB6TaPSVLSg" name="ownerIsService">
+      <ownedRule xmi:type="uml:Constraint" xmi:id="_K1BtcP3oEeaPB6TaPSVLSg" name="ownerIsService">
         <specification xmi:type="uml:OpaqueExpression" xmi:id="_NelwsP3oEeaPB6TaPSVLSg">
           <language>OCL</language>
           <body>self.base_Artifact.owner.getStereotypeApplication(base_Artifact.owner.getApplicableStereotype('Publish-Subscribe::Service')).oclIsUndefined()._not()</body>
         </specification>
       </ownedRule>
-      <ownedAttribute xmi:id="_FzcMYvnWEeaktbtljtfrvA" name="base_Artifact" association="_FzcMYPnWEeaktbtljtfrvA">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_FzcMYvnWEeaktbtljtfrvA" name="base_Artifact" association="_FzcMYPnWEeaktbtljtfrvA">
         <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Artifact"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_Ii6DUPnWEeaktbtljtfrvA" name="epr" visibility="public">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Ii6DUPnWEeaktbtljtfrvA" name="epr" visibility="public">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_UNTYcPnXEeaktbtljtfrvA"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_UNb7UPnXEeaktbtljtfrvA" value="1"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_I8F_YPnWEeaktbtljtfrvA" name="tag">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_I8F_YPnWEeaktbtljtfrvA" name="tag">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WfbMEPnXEeaktbtljtfrvA"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Wfh5wPnXEeaktbtljtfrvA" value="1"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_JTDt4PnWEeaktbtljtfrvA" name="value">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_JTDt4PnWEeaktbtljtfrvA" name="value">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WfoAYPnXEeaktbtljtfrvA"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WfoncPnXEeaktbtljtfrvA" value="1"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_JnbbYPnWEeaktbtljtfrvA" name="time">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_JnbbYPnWEeaktbtljtfrvA" name="time">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Wfp1kPnXEeaktbtljtfrvA"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WfqcoPnXEeaktbtljtfrvA" value="1"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_Ywco8_nWEeaktbtljtfrvA" name="owningService" type="_-ZfjUPnVEeaktbtljtfrvA" association="_YwcB4PnWEeaktbtljtfrvA">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Ywco8_nWEeaktbtljtfrvA" name="owningService" type="_-ZfjUPnVEeaktbtljtfrvA" association="_YwcB4PnWEeaktbtljtfrvA">
         <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_AfXZ0P3rEeaPB6TaPSVLSg">
           <language>OCL</language>
           <body>self.base_Artifact.owner.getStereotypeApplication(base_Artifact.owner.getApplicableStereotype('Publish-Subscribe::Service')).oclAsType(Service)</body>
@@ -90,41 +90,41 @@
       <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_FzcMYfnWEeaktbtljtfrvA" name="extension_Resource" type="_At85QPnWEeaktbtljtfrvA" aggregation="composite" association="_FzcMYPnWEeaktbtljtfrvA"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_YwcB4PnWEeaktbtljtfrvA" memberEnd="_Ywco8vnWEeaktbtljtfrvA _Ywco8_nWEeaktbtljtfrvA">
-      <eAnnotations xmi:id="_Ywco8PnWEeaktbtljtfrvA" source="org.eclipse.papyrus">
-        <details xmi:id="_Ywco8fnWEeaktbtljtfrvA" key="nature" value="UML_Nature"/>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Ywco8PnWEeaktbtljtfrvA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Ywco8fnWEeaktbtljtfrvA" key="nature" value="UML_Nature"/>
       </eAnnotations>
     </packagedElement>
     <packagedElement xmi:type="uml:DataType" xmi:id="_FnEH0PnXEeaktbtljtfrvA" name="UpdateOperation">
-      <ownedAttribute xmi:id="_LuOTUPnXEeaktbtljtfrvA" name="operator" type="_HVKoYPnXEeaktbtljtfrvA">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_LuOTUPnXEeaktbtljtfrvA" name="operator" type="_HVKoYPnXEeaktbtljtfrvA">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XEox8PnXEeaktbtljtfrvA" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_XEqAEPnXEeaktbtljtfrvA" value="1"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_PTyr0PnXEeaktbtljtfrvA" name="value">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_PTyr0PnXEeaktbtljtfrvA" name="value">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XEqnIPnXEeaktbtljtfrvA" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_XEr1QPnXEeaktbtljtfrvA" value="1"/>
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Enumeration" xmi:id="_HVKoYPnXEeaktbtljtfrvA" name="SignKind">
-      <ownedLiteral xmi:id="_IabnUPnXEeaktbtljtfrvA" name="plus"/>
-      <ownedLiteral xmi:id="_JfUy0PnXEeaktbtljtfrvA" name="minus"/>
-      <ownedLiteral xmi:id="_KDRNYPnXEeaktbtljtfrvA" name="mult"/>
-      <ownedLiteral xmi:id="_Kx84UPnXEeaktbtljtfrvA" name="div"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_IabnUPnXEeaktbtljtfrvA" name="plus"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_JfUy0PnXEeaktbtljtfrvA" name="minus"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_KDRNYPnXEeaktbtljtfrvA" name="mult"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_Kx84UPnXEeaktbtljtfrvA" name="div"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_exUJwPnXEeaktbtljtfrvA" name="Delayed">
-      <ownedAttribute xmi:id="_qePD4PnXEeaktbtljtfrvA" name="delay" visibility="public">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_qePD4PnXEeaktbtljtfrvA" name="delay" visibility="public">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
         <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_t5u6YPnXEeaktbtljtfrvA"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_3CFjIAmHEeeHtpH2P4n_Qg" name="base_Message" association="_3CCf0AmHEeeHtpH2P4n_Qg">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_3CFjIAmHEeeHtpH2P4n_Qg" name="base_Message" association="_3CCf0AmHEeeHtpH2P4n_Qg">
         <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Message"/>
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_fHNhQPnXEeaktbtljtfrvA" name="AssignmentExecution">
-      <ownedAttribute xmi:id="_ndl9YfnXEeaktbtljtfrvA" name="base_ExecutionSpecification" association="_ndlWUPnXEeaktbtljtfrvA">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_ndl9YfnXEeaktbtljtfrvA" name="base_ExecutionSpecification" association="_ndlWUPnXEeaktbtljtfrvA">
         <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#ExecutionSpecification"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_0KtRwPnuEeaktbtljtfrvA" name="assignments" type="_iUp2MPnuEeaktbtljtfrvA">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_0KtRwPnuEeaktbtljtfrvA" name="assignments" type="_iUp2MPnuEeaktbtljtfrvA">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_44Ow0PnuEeaktbtljtfrvA"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_44RNEPnuEeaktbtljtfrvA" value="*"/>
       </ownedAttribute>
@@ -133,7 +133,7 @@
       <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_ndl9YPnXEeaktbtljtfrvA" name="extension_AssignmentExecution" type="_fHNhQPnXEeaktbtljtfrvA" aggregation="composite" association="_ndlWUPnXEeaktbtljtfrvA"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_AlxiwPnYEeaktbtljtfrvA" name="Client">
-      <ownedAttribute xmi:id="_CK8w0vnYEeaktbtljtfrvA" name="base_Lifeline" association="_CK8w0PnYEeaktbtljtfrvA">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_CK8w0vnYEeaktbtljtfrvA" name="base_Lifeline" association="_CK8w0PnYEeaktbtljtfrvA">
         <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Lifeline"/>
       </ownedAttribute>
     </packagedElement>
@@ -141,10 +141,10 @@
       <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_CK8w0fnYEeaktbtljtfrvA" name="extension_Client" type="_AlxiwPnYEeaktbtljtfrvA" aggregation="composite" association="_CK8w0PnYEeaktbtljtfrvA"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_Gn-VwPnYEeaktbtljtfrvA" name="ClientToResourceMessage" isAbstract="true">
-      <ownedAttribute xmi:id="_NZ8_4fnYEeaktbtljtfrvA" name="base_Message" association="_NZ8Y0PnYEeaktbtljtfrvA">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_NZ8_4fnYEeaktbtljtfrvA" name="base_Message" association="_NZ8Y0PnYEeaktbtljtfrvA">
         <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Message"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_bDND0_nYEeaktbtljtfrvA" name="resource" type="_At85QPnWEeaktbtljtfrvA" isReadOnly="true" isDerived="true" association="_bDND0PnYEeaktbtljtfrvA">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_bDND0_nYEeaktbtljtfrvA" name="resource" type="_At85QPnWEeaktbtljtfrvA" isReadOnly="true" isDerived="true" association="_bDND0PnYEeaktbtljtfrvA">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_eNGIwPnfEeaktbtljtfrvA" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_eNYcoPnfEeaktbtljtfrvA" value="1"/>
         <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="__nLvYPneEeaktbtljtfrvA" name="resource">
@@ -156,7 +156,7 @@ if r.oclIsInvalid() &#xD;
 endif</body>
         </defaultValue>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_PeZj4PnYEeaktbtljtfrvA" name="client" type="_AlxiwPnYEeaktbtljtfrvA" isReadOnly="true" isDerived="true" association="_PeY80PnYEeaktbtljtfrvA">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_PeZj4PnYEeaktbtljtfrvA" name="client" type="_AlxiwPnYEeaktbtljtfrvA" isReadOnly="true" isDerived="true" association="_PeY80PnYEeaktbtljtfrvA">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_feL9MPnfEeaktbtljtfrvA" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_fe8yMPnfEeaktbtljtfrvA" value="1"/>
         <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_wSzw8PnfEeaktbtljtfrvA" name="client">
@@ -174,76 +174,76 @@ endif&#xD;
       <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_NZ8_4PnYEeaktbtljtfrvA" name="extension_ClientToResourceMessage" type="_Gn-VwPnYEeaktbtljtfrvA" aggregation="composite" association="_NZ8Y0PnYEeaktbtljtfrvA"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_PeY80PnYEeaktbtljtfrvA" memberEnd="_PeZj4PnYEeaktbtljtfrvA _PeZj4fnYEeaktbtljtfrvA">
-      <eAnnotations xmi:id="_PeY80fnYEeaktbtljtfrvA" source="org.eclipse.papyrus">
-        <details xmi:id="_PeY80vnYEeaktbtljtfrvA" key="nature" value="UML_Nature"/>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_PeY80fnYEeaktbtljtfrvA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_PeY80vnYEeaktbtljtfrvA" key="nature" value="UML_Nature"/>
       </eAnnotations>
-      <ownedEnd xmi:id="_PeZj4fnYEeaktbtljtfrvA" name="message" type="_Gn-VwPnYEeaktbtljtfrvA" association="_PeY80PnYEeaktbtljtfrvA">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_PeZj4fnYEeaktbtljtfrvA" name="message" type="_Gn-VwPnYEeaktbtljtfrvA" association="_PeY80PnYEeaktbtljtfrvA">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ZiiiUPnYEeaktbtljtfrvA"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Zi680PnYEeaktbtljtfrvA" value="*"/>
       </ownedEnd>
     </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_bDND0PnYEeaktbtljtfrvA" memberEnd="_bDND0_nYEeaktbtljtfrvA _bDND1PnYEeaktbtljtfrvA">
-      <eAnnotations xmi:id="_bDND0fnYEeaktbtljtfrvA" source="org.eclipse.papyrus">
-        <details xmi:id="_bDND0vnYEeaktbtljtfrvA" key="nature" value="UML_Nature"/>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_bDND0fnYEeaktbtljtfrvA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_bDND0vnYEeaktbtljtfrvA" key="nature" value="UML_Nature"/>
       </eAnnotations>
-      <ownedEnd xmi:id="_bDND1PnYEeaktbtljtfrvA" name="message" type="_Gn-VwPnYEeaktbtljtfrvA" association="_bDND0PnYEeaktbtljtfrvA">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_bDND1PnYEeaktbtljtfrvA" name="message" type="_Gn-VwPnYEeaktbtljtfrvA" association="_bDND0PnYEeaktbtljtfrvA">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_d0-jsPnfEeaktbtljtfrvA"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_d1SFsPnfEeaktbtljtfrvA" value="*"/>
       </ownedEnd>
     </packagedElement>
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_jdAAUPnYEeaktbtljtfrvA" name="Subscription">
-      <generalization xmi:id="_oOZ50PnYEeaktbtljtfrvA" general="_Gn-VwPnYEeaktbtljtfrvA"/>
-      <ownedAttribute xmi:id="_6oOw0PnYEeaktbtljtfrvA" name="minValue">
+      <generalization xmi:type="uml:Generalization" xmi:id="_oOZ50PnYEeaktbtljtfrvA" general="_Gn-VwPnYEeaktbtljtfrvA"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_6oOw0PnYEeaktbtljtfrvA" name="minValue">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_G119MPnZEeaktbtljtfrvA" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_G12kQPnZEeaktbtljtfrvA" value="1"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_62WFUPnYEeaktbtljtfrvA" name="maxValue">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_62WFUPnYEeaktbtljtfrvA" name="maxValue">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_G13LUPnZEeaktbtljtfrvA" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_G13yYPnZEeaktbtljtfrvA" value="1"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_7BjPwPnYEeaktbtljtfrvA" name="subscriptionTime">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_7BjPwPnYEeaktbtljtfrvA" name="subscriptionTime">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_G14ZcPnZEeaktbtljtfrvA" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_G14ZcfnZEeaktbtljtfrvA" value="1"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_7RgXUPnYEeaktbtljtfrvA" name="triggers">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_7RgXUPnYEeaktbtljtfrvA" name="triggers">
         <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Interaction"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_G1cUkPnZEeaktbtljtfrvA" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_G1qXAPnZEeaktbtljtfrvA" value="1"/>
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_lWJTQPnYEeaktbtljtfrvA" name="Getter">
-      <generalization xmi:id="_oknaYPnYEeaktbtljtfrvA" general="_Gn-VwPnYEeaktbtljtfrvA"/>
-      <ownedAttribute xmi:id="_thrKQPnYEeaktbtljtfrvA" name="variable">
+      <generalization xmi:type="uml:Generalization" xmi:id="_oknaYPnYEeaktbtljtfrvA" general="_Gn-VwPnYEeaktbtljtfrvA"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_thrKQPnYEeaktbtljtfrvA" name="variable">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vNgZ8PnYEeaktbtljtfrvA" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vNi2MPnYEeaktbtljtfrvA" value="1"/>
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_l3BywPnYEeaktbtljtfrvA" name="Setter">
-      <generalization xmi:id="_o7fCQPnYEeaktbtljtfrvA" general="_Gn-VwPnYEeaktbtljtfrvA"/>
-      <generalization xmi:id="_xigAYP6DEeaPB6TaPSVLSg" general="_vJru4P6DEeaPB6TaPSVLSg"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_o7fCQPnYEeaktbtljtfrvA" general="_Gn-VwPnYEeaktbtljtfrvA"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_xigAYP6DEeaPB6TaPSVLSg" general="_vJru4P6DEeaPB6TaPSVLSg"/>
     </packagedElement>
     <packagedElement xmi:type="uml:DataType" xmi:id="_iUp2MPnuEeaktbtljtfrvA" name="AssignmentOperation">
-      <ownedAttribute xmi:id="_l2W50PnXEeaktbtljtfrvA" name="property">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_l2W50PnXEeaktbtljtfrvA" name="property">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_zzKL4PnXEeaktbtljtfrvA" name="value">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_zzKL4PnXEeaktbtljtfrvA" name="value">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_IC3EYP6DEeaPB6TaPSVLSg" name="TimedSetter">
-      <generalization xmi:id="_yCiyYP6DEeaPB6TaPSVLSg" general="_vJru4P6DEeaPB6TaPSVLSg"/>
-      <ownedAttribute xmi:id="_Iq7xAP6DEeaPB6TaPSVLSg" name="base_Message" association="_Iq3fkP6DEeaPB6TaPSVLSg">
+      <generalization xmi:type="uml:Generalization" xmi:id="_yCiyYP6DEeaPB6TaPSVLSg" general="_vJru4P6DEeaPB6TaPSVLSg"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Iq7xAP6DEeaPB6TaPSVLSg" name="base_Message" association="_Iq3fkP6DEeaPB6TaPSVLSg">
         <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Message"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_OjCz4P6DEeaPB6TaPSVLSg" name="time">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_OjCz4P6DEeaPB6TaPSVLSg" name="time">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
         <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_UItb4P6DEeaPB6TaPSVLSg"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_HDVroP6EEeaPB6TaPSVLSg" name="resource" type="_At85QPnWEeaktbtljtfrvA" isReadOnly="true" isDerived="true" association="_HDTPYP6EEeaPB6TaPSVLSg">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_HDVroP6EEeaPB6TaPSVLSg" name="resource" type="_At85QPnWEeaktbtljtfrvA" isReadOnly="true" isDerived="true" association="_HDTPYP6EEeaPB6TaPSVLSg">
         <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_vRPS8P6EEeaPB6TaPSVLSg" name="resource">
           <language>OCL</language>
           <body>let r : Resource = self.base_Message.receiveEvent.oclAsType(uml::MessageOccurrenceSpecification).covered.represents.type->collect(getStereotypeApplication(getApplicableStereotype('Publish-Subscribe::Resource')))->asSequence()->first().oclAsType(Resource) in&#xD;
@@ -253,7 +253,7 @@ if r.oclIsInvalid() &#xD;
 endif</body>
         </defaultValue>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_IRW98v6EEeaPB6TaPSVLSg" name="service" type="_-ZfjUPnVEeaktbtljtfrvA" isReadOnly="true" isDerived="true" association="_IRWW4P6EEeaPB6TaPSVLSg">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_IRW98v6EEeaPB6TaPSVLSg" name="service" type="_-ZfjUPnVEeaktbtljtfrvA" isReadOnly="true" isDerived="true" association="_IRWW4P6EEeaPB6TaPSVLSg">
         <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_3EoWwP6EEeaPB6TaPSVLSg" name="service">
           <language>OCL</language>
           <body>let s : Service = self.base_Message.sendEvent.oclAsType(uml::MessageOccurrenceSpecification).covered.represents.type->collect(getStereotypeApplication(getApplicableStereotype('Publish-Subscribe::Service')))->asSequence()->first().oclAsType(Service) in&#xD;
@@ -268,31 +268,31 @@ endif</body>
       <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_Iq7J8P6DEeaPB6TaPSVLSg" name="extension_TimedSetter" type="_IC3EYP6DEeaPB6TaPSVLSg" aggregation="composite" association="_Iq3fkP6DEeaPB6TaPSVLSg"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Stereotype" xmi:id="_vJru4P6DEeaPB6TaPSVLSg" name="AbstractSetter" isAbstract="true">
-      <ownedAttribute xmi:id="_w2UK0PnYEeaktbtljtfrvA" name="operation" type="_FnEH0PnXEeaktbtljtfrvA">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_w2UK0PnYEeaktbtljtfrvA" name="operation" type="_FnEH0PnXEeaktbtljtfrvA">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_59H-UPnYEeaktbtljtfrvA" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_59JzgPnYEeaktbtljtfrvA" value="1"/>
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_HDTPYP6EEeaPB6TaPSVLSg" memberEnd="_HDVroP6EEeaPB6TaPSVLSg _HDVrof6EEeaPB6TaPSVLSg">
-      <eAnnotations xmi:id="_HDUdgP6EEeaPB6TaPSVLSg" source="org.eclipse.papyrus">
-        <details xmi:id="_HDUdgf6EEeaPB6TaPSVLSg" key="nature" value="UML_Nature"/>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_HDUdgP6EEeaPB6TaPSVLSg" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_HDUdgf6EEeaPB6TaPSVLSg" key="nature" value="UML_Nature"/>
       </eAnnotations>
-      <ownedEnd xmi:id="_HDVrof6EEeaPB6TaPSVLSg" name="timedsetter" type="_IC3EYP6DEeaPB6TaPSVLSg" association="_HDTPYP6EEeaPB6TaPSVLSg"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_HDVrof6EEeaPB6TaPSVLSg" name="timedsetter" type="_IC3EYP6DEeaPB6TaPSVLSg" association="_HDTPYP6EEeaPB6TaPSVLSg"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_IRWW4P6EEeaPB6TaPSVLSg" memberEnd="_IRW98v6EEeaPB6TaPSVLSg _IRW98_6EEeaPB6TaPSVLSg">
-      <eAnnotations xmi:id="_IRW98P6EEeaPB6TaPSVLSg" source="org.eclipse.papyrus">
-        <details xmi:id="_IRW98f6EEeaPB6TaPSVLSg" key="nature" value="UML_Nature"/>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_IRW98P6EEeaPB6TaPSVLSg" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_IRW98f6EEeaPB6TaPSVLSg" key="nature" value="UML_Nature"/>
       </eAnnotations>
-      <ownedEnd xmi:id="_IRW98_6EEeaPB6TaPSVLSg" name="timedsetter" type="_IC3EYP6DEeaPB6TaPSVLSg" association="_IRWW4P6EEeaPB6TaPSVLSg"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_IRW98_6EEeaPB6TaPSVLSg" name="timedsetter" type="_IC3EYP6DEeaPB6TaPSVLSg" association="_IRWW4P6EEeaPB6TaPSVLSg"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Extension" xmi:id="_3CCf0AmHEeeHtpH2P4n_Qg" name="E_Delayed_Message1" memberEnd="_3CE8EAmHEeeHtpH2P4n_Qg _3CFjIAmHEeeHtpH2P4n_Qg">
       <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_3CE8EAmHEeeHtpH2P4n_Qg" name="extension_Delayed" type="_exUJwPnXEeaktbtljtfrvA" aggregation="composite" association="_3CCf0AmHEeeHtpH2P4n_Qg"/>
     </packagedElement>
-    <profileApplication xmi:id="_18pdYPnWEeaktbtljtfrvA">
-      <eAnnotations xmi:id="_18qrgPnWEeaktbtljtfrvA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_18pdYPnWEeaktbtljtfrvA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_18qrgPnWEeaktbtljtfrvA" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA"/>
       </eAnnotations>
-      <appliedProfile href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
     </profileApplication>
   </uml:Profile>
   <Ecore:EPackage xmi:id="_2XniIPnWEeaktbtljtfrvA" base_Package="_oym6cPnVEeaktbtljtfrvA" packageName="ps" nsPrefix="ps" nsURI="http://io.github.abelgomez/ps/1.0" basePackage="io.github.abelgomez" prefix="Ps"/>
