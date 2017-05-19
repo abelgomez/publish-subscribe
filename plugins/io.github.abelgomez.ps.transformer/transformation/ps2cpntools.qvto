@@ -15,7 +15,7 @@ main() {
 	-- automatic layout of the CPNet for all its pages
 	cpnet.binder.pages->forEach(p) {
 		var nNodes := p.places->size() + p.transs->size(); 
-		p.layout(nNodes * 40, nNodes * 40, 2000);
+		p.layout(nNodes * 40, nNodes * 40, 3000);
 	}
 		
 }
@@ -41,7 +41,8 @@ mapping UML::Interaction::invariantGlobbox() : CPN::Globbox {
 	declarations += self.map priorities();
 	declarations += self.map simpleColorSets();
 	declarations += self.map compoundColorSets();
-	declarations += self.map clientsCompoundColorSets();
+	declarations += self.map clientsDeclarations();
+	declarations += self.map resourcesDeclarations();
 	declarations += self.map values();
 	declarations += self.map functions();
 	declarations += self.map variables();
@@ -91,7 +92,7 @@ mapping lock() : CPN::Unit {
 };
 
 mapping UML::Interaction::compoundColorSets() : CPN::Block {
-	idname := 'Standard compound declarations';
+	idname := 'Compound declarations';
 	declarations += map intt();
 	declarations += map rec();
 	declarations += map cli();
@@ -133,7 +134,7 @@ mapping cl() : CPN::Product {
 	simpleColors += resolveoneIn(string);
 	simpleColors += resolveoneIn(string);
 	simpleColors += resolveoneIn(real);
-	simpleColors += resolveoneIn(int);
+	simpleColors += resolveoneIn(string);
 };
 
 mapping ecli() : CPN::Product {
@@ -160,7 +161,7 @@ mapping eclir() : CPN::Product {
 	simpleColors += resolveoneIn(string);
 };
 
-mapping UML::Interaction::clientsCompoundColorSets() : CPN::Block {
+mapping UML::Interaction::clientsDeclarations() : CPN::Block {
 	idname := 'Clients declarations';
 	declarations += self.clientClassifiers()->map clientProductDeclaration();
 	declarations += self.clientClassifiers()->map clientVariableDeclaration();
@@ -206,6 +207,23 @@ mapping UML::Property::clientPropertyVariablesDeclaration() : CPN::Var {
 	};
 };
 
+mapping UML::Interaction::resourcesDeclarations() : CPN::Block {
+	idname := 'Resources declarations';
+	declarations += self.resourcesLifelines().resource()->map resourceVariablesDeclaration();
+};
+
+mapping PS::Resource::resourceVariablesDeclaration() : CPN::Block {
+	idname :=  self._tag;
+	declarations += object CPN::Var {
+		idname := 'cr_R{1}'._format(self.epr);
+		type := resolveoneIn(int);
+	};
+	declarations += object CPN::Var {
+		idname := 'EPR_R{1}'._format(self.epr);
+		type := resolveoneIn(int);
+	};
+};
+
 mapping UML::Interaction::values() : CPN::Block {
 	idname := 'Value declarations';
 	declarations += object CPN::Ml {
@@ -239,10 +257,6 @@ mapping UML::Interaction::values() : CPN::Block {
 			entries += '1`({1},"{2}",{3},{4})@0'._format(r.epr, r._tag, r.value, r.time);
 		};
 		expression := entries->joinfields('++\n','val PosRec=',';');
-	};
-	declarations += object CPN::Ml {
-		expression := 'val count=' +
-			'2`1@0++2`1@1++1`1@2;';
 	};
 	declarations += object CPN::Ml {
 		expression := 'val maxTime=4';
@@ -365,7 +379,6 @@ mapping UML::Interaction::invariantPage() : CPN::Page {
 	var pSubscriptionsTimeOut     := create_place(result, 'Subscriptions\nTime-Out', resolveoneIn(eclir));
 	var pExpiredResources         := create_place(result, 'Expired\nResources', resolveoneIn(rec));
 	var pTimeControl              := create_place(result, 'Time\nControl', resolveoneIn(intt), '0');
-	var pOpControl                := create_place(result, 'Op\nControl', resolveoneIn(intt), 'count');
 	var pSubscriptionRegistry     := create_place(result, 'Subscription\nRegistry', resolveoneIn(eclir));
 	var pResources                := create_place(result, 'Resources', resolveoneIn(rec), 'PosRec');
 	var pRoles                    := create_place(result, 'Roles', resolveoneIn(cli), 'PosCli');
@@ -377,14 +390,9 @@ mapping UML::Interaction::invariantPage() : CPN::Page {
 	var tRemoveSubscription       := create_trans(result, 'Remove\nSubscription', 'P2', '[EPR = EPR1]');
 	var tTimeStep                 := create_trans(result, 'Time\nStep', 'P4', '[n < maxTime]', '@+1');
 	var tResourceExpire           := create_trans(result, 'Resource\nExpire', 'P2', '[n > cr]');
-	var tGetTimeFail              := create_trans(result, 'Get Time\nFail', 'P4');
-	var tSetPropFail              := create_trans(result, 'Set Prop\nFail', 'P4');
-	var tGetPropFail              := create_trans(result, 'Get Prop\nFail', 'P4');
-	var tSetTimeFail              := create_trans(result, 'Set Time\nFail', 'P4');
 	var tSubscriptionTimeOut      := create_trans(result, 'Subscription\nTime-Out', 'P2', '[cc < n]');
-	var tSetTime                  := create_trans(result, 'Set Time', 'P4');
 	var tNotify                   := create_trans(result, 'Notify', 'P1', '[v <= condv2, v >= condv1]');
-	var tPublishOk                := create_trans(result, 'Publish_ok', 'P4');
+	var tPublishOk                := create_trans(result, 'Publish_ok', 'P3');
 	var tPublishFail              := create_trans(result, 'Publish_fail', 'P2', '[EPR = EPR1]');
 	var tDiscover                 := create_trans(result, 'Discover', 'P2');
 	var tReSubscribe              := create_trans(result, 'Re-Subscribe', 'P2', '[C = C1]');
@@ -413,10 +421,8 @@ mapping UML::Interaction::invariantPage() : CPN::Page {
 	create_arc(result, pSubscriptionRegistry, tReSubscribe, '(EPR1,R,C,condv1,condv2,cc,trOld)');
 	create_arc(result, tReSubscribe, pSubscriptionRegistry, '(EPR1,R,C,condv11,condv22,condtt+intTime(),tr)');
 	create_arc(result, tSubscribe, pSubscriptionRegistry, '(EPR1,R,C,condv1,condv2,condt+intTime(),tr)');
-	create_arc(result, tNotify, pNotifications, '(EPR1,R,C,v,cc)');
+	create_arc(result, tNotify, pNotifications, '(EPR1,R,C,v,tr)');
 	create_arc(result, pResourceRegistry, tResourceExpire, '(EPR,R,v,cr)');
-	create_arc(result, pResourceRegistry, tSetTime, '(EPR,R,v,cr)');
-	create_arc(result, tSetTime, pResourceRegistry, '(EPR,R,v,nT()+intTime())');
 	create_arc(result, tPublishOk, pResourceRegistry, '(EPR,R,v,intTime()+t)');
 	create_arc(result, pResourceRegistry, tPublishFail, '(EPR1,R,v,cr)');
 	create_arc(result, tPublishFail, pResourceRegistry, '(EPR1,R,v,cr)');
@@ -439,19 +445,6 @@ mapping UML::Interaction::invariantPage() : CPN::Page {
 	create_arc(result, tResourceExpire, pExpiredResources, '(EPR,R,v,cr)');
 	create_arc(result, tFailSubscribe, pExpiredResources, '(EPR1,R,v,cr)');
 	create_arc(result, pExpiredResources, tFailSubscribe, '(EPR1,R,v,cr)');
-	create_arc(result, pExpiredResources, tGetTimeFail, '(EPR,R,v,cr)');
-	create_arc(result, tGetTimeFail, pExpiredResources, '(EPR,R,v,cr)');
-	create_arc(result, pExpiredResources, tSetPropFail, '(EPR,R,v,cr)');
-	create_arc(result, tSetPropFail, pExpiredResources, '(EPR,R,v,cr)');
-	create_arc(result, pExpiredResources, tGetPropFail, '(EPR,R,v,cr)');
-	create_arc(result, tGetPropFail, pExpiredResources, '(EPR,R,v,cr)');
-	create_arc(result, pExpiredResources, tSetTimeFail, '(EPR,R,v,cr)');
-	create_arc(result, tSetTimeFail, pExpiredResources, '(EPR,R,v,cr)');
-	create_arc(result, pOpControl, tGetTimeFail, '1');
-	create_arc(result, pOpControl, tSetPropFail, '1');
-	create_arc(result, pOpControl, tGetPropFail, '1');
-	create_arc(result, pOpControl, tSetTimeFail, '1');
-	create_arc(result, pOpControl, tSetTime, '1');
 };
 
 mapping UML::Interaction::scenarioPage() : CPN::Page {
@@ -525,7 +518,7 @@ when {
 	var pEnd:= create_place(result, 'Finish\n{1}'._format(interaction.name));
 	var tClose:= create_trans(result);
 	create_arc(result, pStart, tStart);
-	create_arc(result, pNotifications, tStart, '(EPR,R,C,v,cc)');
+	create_arc(result, pNotifications, tStart, '(EPR,"{1}","{2}",v,"{3}")'._format(self.resource._tag, self.client.base_Lifeline.clientClassifier().name, interaction.name));
 	create_arc(result, tStart, pFinish);
 	create_arc(result, tStart, tuple.start);
 	create_arc(result, pFinish, tFinish);
@@ -669,7 +662,7 @@ mapping UML::MessageOccurrenceSpecification::setterMessageOccurrenceSpecificatio
 
 	-- Create the fixed Resource Places (Registry and Lock)	and places and transitions at the begining and the end of the subnet
 	var pResourceRegistry := pResourceRegistry(_page);
-	var tModifyResource := create_trans(_page, null, null, '[ R = "{1}" ]'._format(setter.resource()._tag));
+	var tModifyResource := create_trans(_page, 'SET_{1}_'._format(setter.resource()._tag)._addSuffixNumber());
 
 	-- Handle Delayed messages
 	if (self.message.isDelayed()) {
@@ -681,30 +674,28 @@ mapping UML::MessageOccurrenceSpecification::setterMessageOccurrenceSpecificatio
 		create_arc(_page, result.start, tDelay);
 		create_arc(_page, tDelay, pDelay);
 		create_arc(_page, pDelay, tModifyResource);
+		create_arc(_page, pResourceRegistry, tDelay, '(EPR, "{1}", v, cr)'._format(setter.resource()._tag));
+		create_arc(_page, tDelay, pResourceRegistry, '(EPR, "{1}", v, cr)'._format(setter.resource()._tag));
 	} else {
 		-- If the Message is immediate, we just link the transition at the begionin and the place at the end
 		create_arc(_page, result.start, tModifyResource);
 	};
 	
 	-- Fill all the rest of the Arcs of the core of the network
-	create_arc(_page, tModifyResource, pResourceRegistry, '(EPR, R, v {1} {2}, {3})'._format(op.operator.asSymbol(), op.value, if setter.oclIsKindOf(PS::TimedSetter) then setter.oclAsType(PS::TimedSetter).time else 'cr' endif));
-	create_arc(_page, pResourceRegistry, tModifyResource, '(EPR, R, v, cr)');
+	create_arc(_page, tModifyResource, pResourceRegistry, '(EPR, "{1}", v {2} {3}, {4})'._format(setter.resource()._tag, op.operator.asSymbol(), op.value, if setter.oclIsKindOf(PS::TimedSetter) then setter.oclAsType(PS::TimedSetter).time else 'cr' endif));
+	create_arc(_page, pResourceRegistry, tModifyResource, '(EPR, "{1}", v, cr)'._format(setter.resource()._tag));
 	create_arc(_page, tModifyResource, result.finish);
 	
 	-- Add places for getters, since variables may be used in the assignment
-	if (self.findPreviousGetters()->notEmpty()) {
-		var pResourceRegistryGetter := pResourceRegistry(_page);
-		self.findPreviousGetters()->forEach(g) {
-			g.variable.map asRealVariable();
-		 	var pGetter := create_place(_page, resolveoneIn(real));
-		 	var tGetter := create_trans(_page, null, null, '[ R = "{1}" ]'._format(g.resource._tag));
-		 	create_arc(_page, pGetter, tModifyResource, g.variable);
-		 	create_arc(_page, tGetter, pGetter, 'v');
-		 	create_arc(_page, pGetter, tGetter, null, true);
-		 	create_arc(_page, pResourceRegistryGetter, tGetter, '(EPR, R, v, cr)');
-		 	create_arc(_page, tGetter, pResourceRegistryGetter, '(EPR, R, v, cr)');
-		};
-	}
+	self.findPreviousGetters()->select(resource <> setter.resource())->getterSubnet(_page, tModifyResource);
+}
+
+mapping PS::Getter::getterSubnet(inout _page : CPN::Page, in trans : CPN::Trans) {
+	var pResourceRegistryGetter := pResourceRegistry(_page);
+	self.variable.map asRealVariable();
+	var inscription : String := '(EPR_R{1}, "{2}", {3}, cr_R{4})'._format(self.resource.epr, self.resource._tag, self.variable, self.resource.epr);
+	create_arc(_page, pResourceRegistryGetter, trans, inscription);
+	create_arc(_page, trans, pResourceRegistryGetter, inscription);
 }
 
 mapping UML::CombinedFragment::interactionFragmentSubnet(inout _page : CPN::Page) : Tuple (start : CPN::Place, finish : CPN::Place)
@@ -767,7 +758,7 @@ when {
 		var pClassifier : CPN::Place := classifier.pClient(_page);
 		
 		var pCond : CPN::Place := create_place(_page);
-		var tCond : CPN::Trans := create_trans(_page, null, 'P1', '[ {1} ]'._format(expression));
+		var tCond : CPN::Trans := create_trans(_page, null, 'P1', '[{1}]'._format(expression));
 		var tCondEnd : CPN::Trans := create_trans(_page);
 		create_arc(_page, pBegining, tCond);
 		create_arc(_page, tCond, pCombinedEvents.start);
@@ -778,19 +769,8 @@ when {
 		create_arc(_page, pCond, tCondEnd);
 		create_arc(_page, tCondEnd, result.finish);
 
-		if (self.findPreviousGetters()->notEmpty()) {
-			var pResourceRegistryGetter := pResourceRegistry(_page);
-			self.findPreviousGetters()->forEach(g) {
-				g.variable.map asRealVariable();
-			 	var pGetter := create_place(_page, resolveoneIn(real));
-			 	var tGetter := create_trans(_page, null, null, '[R="{1}"]'._format(g.resource._tag));
-			 	create_arc(_page, pGetter, tCond, g.variable);
-			 	create_arc(_page, tGetter, pGetter, 'v');
-			 	create_arc(_page, pGetter, tGetter, null, true);
-			 	create_arc(_page, pResourceRegistryGetter, tGetter, '(EPR, R, v, cr)');
-			 	create_arc(_page, tGetter, pResourceRegistryGetter, '(EPR, R, v, cr)');
-			};
-		}
+		-- Add places for getters, since variables may be used in the condition
+		self.findPreviousGetters()->map getterSubnet(_page, tCond);
 	};
 }
 
@@ -838,7 +818,7 @@ when {
 			
 			var pBegining : CPN::Place := create_place(_page);
 			var pCond : CPN::Place := create_place(_page);
-			var tCond : CPN::Trans := create_trans(_page, null, null, '[ {1} ]'._format(expression));
+			var tCond : CPN::Trans := create_trans(_page, null, null, '[{1}]'._format(expression));
 			
 			create_arc(_page, tBegining, pBegining);
 			create_arc(_page, pBegining, tCond);
@@ -849,19 +829,8 @@ when {
 			create_arc(_page, pCombinedEvents.finish, tEnd);
 			create_arc(_page, pCond, tEnd);
 	
-			if (self.findPreviousGetters()->notEmpty()) {
-				var pResourceRegistryGetter := pResourceRegistry(_page);
-				self.findPreviousGetters()->forEach(g) {
-					g.variable.map asRealVariable();
-				 	var pGetter := create_place(_page, resolveoneIn(real));
-				 	var tGetter := create_trans(_page, null, null, '[R="{1}"]'._format(g.resource._tag));
-				 	create_arc(_page, pGetter, tCond, g.variable);
-				 	create_arc(_page, tGetter, pGetter, 'v');
-				 	create_arc(_page, pGetter, tGetter, null, true);
-				 	create_arc(_page, pResourceRegistryGetter, tGetter, '(EPR, R, v, cr)');
-				 	create_arc(_page, tGetter, pResourceRegistryGetter, '(EPR, R, v, cr)');
-				};
-			}
+			-- Add places for getters, since variables may be used in the condition
+			self.findPreviousGetters()->map getterSubnet(_page, tCond);
 		};
 	};
 }
@@ -970,7 +939,7 @@ helper PS::Resource::pResourceLock(inout _page : CPN::Page) : CPN::Place {
 
 mapping UML::Classifier::_pClient(inout _page : CPN::Page) : CPN::Place {
 	init {
-		var initMarking : String := self.attribute->asList().defaultValueAsString()->asList()->joinfields(', ', '("{1}", '._format(self.name.toUpperCase()), ')');
+		var initMarking : String := self.attribute->asList().defaultValueAsString()->asList()->joinfields(', ', '("{1}", '._format(self.name), ')');
 		result := create_place(_page, null, resolveone(p : CPN::Product | p.idname = self.name.toUpper()), initMarking);
 	}
 }
