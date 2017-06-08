@@ -12,7 +12,7 @@
 <feature
       id="io.github.abelgomez.ps.feature"
       label="Publish-Subscribe Tools"
-      version="0.4.0.qualifier"
+      version="0.5.0.qualifier"
       provider-name="Abel Gómez">
 
    <description url="https://github.com/SOM-Research/publish-subscribe/">
@@ -114,26 +114,28 @@ This Agreement is governed by the laws of the State of New York and the intellec
    </license>
 
    <requires>
+      <import plugin="org.eclipse.core.runtime" version="3.12.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.ecore" version="2.12.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.uml2.uml" version="5.2.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.papyrus.uml.extensionpoints" version="1.2.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.core.runtime" version="3.12.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.m2m.qvt.oml" version="3.6.0" match="greaterOrEqual"/>
-      <import plugin="io.github.abelgomez.cpntools" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.uml2.types" version="2.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ocl.ecore" version="3.6.0" match="greaterOrEqual"/>
+      <import plugin="io.github.abelgomez.cpntools" version="0.4.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
          id="io.github.abelgomez.ps.profile"
          download-size="0"
          install-size="0"
-         version="0.4.0.qualifier"
+         version="0.5.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="io.github.abelgomez.ps.transformer"
          download-size="0"
          install-size="0"
-         version="0.4.0.qualifier"
+         version="0.5.0.qualifier"
          unpack="false"/>
 
 </feature>

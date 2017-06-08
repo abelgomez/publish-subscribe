@@ -12,7 +12,7 @@
 <feature
       id="io.github.abelgomez.ps.sdk.feature"
       label="Publish-Subscribe Tools SDK"
-      version="0.4.0.qualifier"
+      version="0.5.0.qualifier"
       provider-name="Abel Gómez">
 
    <description url="https://github.com/SOM-Research/publish-subscribe/">
@@ -124,18 +124,18 @@ This Agreement is governed by the laws of the State of New York and the intellec
 
    <requires>
       <import plugin="org.junit" version="4.12.0" match="greaterOrEqual"/>
-      <import plugin="io.github.abelgomez.ps.transformer" version="0.1.0" match="greaterOrEqual"/>
-      <import feature="io.github.abelgomez.cpntools.feature" version="0.1.0.qualifier"/>
-      <import feature="org.eclipse.papyrus.sdk.feature" version="2.0.0.201606080854"/>
-      <import feature="org.eclipse.m2m.qvt.oml.sdk" version="3.6.0.v20160606-1156"/>
-      <import plugin="io.github.abelgomez.cpntools.io" version="0.1.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.papyrus.sdk.feature" version="2.0.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.m2m.qvt.oml.sdk" version="3.6.0" match="greaterOrEqual"/>
+      <import plugin="io.github.abelgomez.ps.transformer" version="0.5.0" match="greaterOrEqual"/>
+      <import plugin="io.github.abelgomez.cpntools.io" version="0.4.0" match="greaterOrEqual"/>
+      <import feature="io.github.abelgomez.cpntools.feature" version="0.4.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
          id="io.github.abelgomez.ps.transformer.test"
          download-size="0"
          install-size="0"
-         version="0.4.0.qualifier"
+         version="0.5.0.qualifier"
          unpack="false"/>
 
 </feature>

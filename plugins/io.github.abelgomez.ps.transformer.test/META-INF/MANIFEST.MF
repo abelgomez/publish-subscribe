@@ -2,9 +2,9 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Publish-Subscribe Transformer Test Plug-in
 Bundle-SymbolicName: io.github.abelgomez.ps.transformer.test
-Bundle-Version: 0.4.0.qualifier
+Bundle-Version: 0.5.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: Abel Gómez
 Require-Bundle: org.junit;bundle-version="4.12.0",
- io.github.abelgomez.ps.transformer;bundle-version="0.1.0",
- io.github.abelgomez.cpntools.io;bundle-version="0.1.0"
+ io.github.abelgomez.ps.transformer;bundle-version="0.5.0",
+ io.github.abelgomez.cpntools.io;bundle-version="0.4.0"
