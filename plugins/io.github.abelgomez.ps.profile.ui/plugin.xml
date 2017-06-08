@@ -7,6 +7,10 @@
             priority="10"
             provider="io.github.abelgomez.ps.profile.ui.providers.AssignmentOperationLabelProvider">
       </labelProvider>
+      <labelProvider
+            priority="10"
+            provider="io.github.abelgomez.ps.profile.ui.providers.UpdateOperationLabelProvider">
+      </labelProvider>
    </extension>
 
 </plugin>
