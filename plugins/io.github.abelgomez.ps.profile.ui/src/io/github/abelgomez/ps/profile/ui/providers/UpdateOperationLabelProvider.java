@@ -19,9 +19,9 @@ public class UpdateOperationLabelProvider extends EMFLabelProvider implements IF
 	public String getText(Object element) {
 		UpdateOperation updateOperation = (UpdateOperation) element;
 		StringBuilder builder = new StringBuilder();
-		builder.append("(operator = '");
+		builder.append("(operator='");
 		builder.append(updateOperation.getOperator().getLiteral());
-		builder.append("', value = '");
+		builder.append("', value='");
 		builder.append(updateOperation.getValue());
 		builder.append("')");
 		return builder.toString();

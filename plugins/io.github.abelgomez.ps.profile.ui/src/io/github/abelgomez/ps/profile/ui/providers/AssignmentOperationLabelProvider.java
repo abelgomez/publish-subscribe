@@ -20,7 +20,7 @@ public class AssignmentOperationLabelProvider extends EMFLabelProvider implement
 		AssignmentOperation assignmentOperation = (AssignmentOperation) element;
 		StringBuilder builder = new StringBuilder();
 		builder.append(assignmentOperation.getProperty());
-		builder.append(" = ");
+		builder.append("=");
 		builder.append(assignmentOperation.getValue());
 		return builder.toString();
 	}
