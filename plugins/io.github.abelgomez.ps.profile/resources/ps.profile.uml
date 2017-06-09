@@ -127,6 +127,7 @@
       <ownedAttribute xmi:type="uml:Property" xmi:id="_0KtRwPnuEeaktbtljtfrvA" name="assignments" type="_iUp2MPnuEeaktbtljtfrvA">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_44Ow0PnuEeaktbtljtfrvA"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_44RNEPnuEeaktbtljtfrvA" value="*"/>
+        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_Db0QEE0MEeeae9nO_7SbpQ"/>
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Extension" xmi:id="_ndlWUPnXEeaktbtljtfrvA" name="E_AssignmentExecution_ExecutionSpecification1" memberEnd="_ndl9YPnXEeaktbtljtfrvA _ndl9YfnXEeaktbtljtfrvA">
@@ -271,6 +272,7 @@ endif</body>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_w2UK0PnYEeaktbtljtfrvA" name="operation" type="_FnEH0PnXEeaktbtljtfrvA">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_59H-UPnYEeaktbtljtfrvA" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_59JzgPnYEeaktbtljtfrvA" value="1"/>
+        <defaultValue xmi:type="uml:LiteralNull" xmi:id="_jqOjME0KEeeXqooIpaU73w"/>
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_HDTPYP6EEeaPB6TaPSVLSg" memberEnd="_HDVroP6EEeaPB6TaPSVLSg _HDVrof6EEeaPB6TaPSVLSg">
