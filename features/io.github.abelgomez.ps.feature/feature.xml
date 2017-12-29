@@ -12,7 +12,7 @@
 <feature
       id="io.github.abelgomez.ps.feature"
       label="Publish-Subscribe Tools"
-      version="0.5.1.qualifier"
+      version="0.6.0.qualifier"
       provider-name="Abel Gómez">
 
    <description url="https://github.com/abelgomez/publish-subscribe/">
@@ -129,14 +129,14 @@ This Agreement is governed by the laws of the State of New York and the intellec
          id="io.github.abelgomez.ps.profile"
          download-size="0"
          install-size="0"
-         version="0.5.1.qualifier"
+         version="0.6.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="io.github.abelgomez.ps.transformer"
          download-size="0"
          install-size="0"
-         version="0.5.1.qualifier"
+         version="0.6.0.qualifier"
          unpack="false"/>
 
 </feature>
