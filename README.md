@@ -2,11 +2,11 @@
 
 This repository contains the plugins to transform services following the *publish-subscribe* paradigm into colored Petri nets. Models are created using Papyrus UML2. Such models are later  annotated with the provided *publish-subscribe* profile.
 
-This repository depends on the [CPN Tools Toolkit](https://github.com/SOM-Research/cpntools.toolkit).
+This repository depends on the [CPN Tools Toolkit](https://github.com/abelgomez/cpntools.toolkit).
 
 ## Installing the *Publish-Subscribe Tools*
 
-In Eclipse, go to `Help -> Install New Software...` and use https://som-research.github.io/publish-subscribe/updates/ as the URL for the update site.
+In Eclipse, go to `Help -> Install New Software...` and use https://abelgomez.github.io/publish-subscribe/updates/ as the URL for the update site.
 
 The *Publish-Subscribe Tools* require [Eclipse Neon](https://eclipse.org/neon/) (4.6) or higher. 
 

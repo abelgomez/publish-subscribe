@@ -15,12 +15,13 @@
       version="0.5.1.qualifier"
       provider-name="Abel Gómez">
 
-   <description url="https://github.com/SOM-Research/publish-subscribe/">
-      Plug-ins supporting UML2 artifacts that represent services developed following the publish-subscribe paradigm.
+   <description url="https://github.com/abelgomez/publish-subscribe/">
+      Plug-ins supporting UML2 artifacts that represent services developed
+following the publish-subscribe paradigm.
    </description>
 
-   <copyright url="https://github.com/SOM-Research/publish-subscribe/">
-      Abel Gómez Copyright (c) 2016
+   <copyright url="https://github.com/abelgomez/publish-subscribe/">
+      Abel Gómez Copyright (c) 2017
    </copyright>
 
    <license url="https://www.eclipse.org/legal/epl-v10.html">

@@ -15,13 +15,14 @@
       version="0.5.1.qualifier"
       provider-name="Abel Gómez">
 
-   <description url="https://github.com/SOM-Research/publish-subscribe/">
+   <description url="https://github.com/abelgomez/publish-subscribe/">
       Plug-ins supporting the development of the publish-subscribe
-toolkit. Includes the SDK for the CPN Tools Toolkit, QVTo and Papyrus.
+toolkit. Includes the SDK for the CPN Tools Toolkit, QVTo and
+Papyrus.
    </description>
 
-   <copyright url="https://github.com/SOM-Research/publish-subscribe/">
-      Abel Gómez Copyright (c) 2016
+   <copyright url="https://github.com/abelgomez/publish-subscribe/">
+      Abel Gómez Copyright (c) 2017
    </copyright>
 
    <license url="https://www.eclipse.org/legal/epl-v10.html">
