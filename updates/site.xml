@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site
-      associateSitesURL="https://som-research.github.io/publish-subscribe/updates/associateSites.xml">
-   <description name="Publish-Subscribe Tools" url="https://som-research.github.io/publish-subscribe/updates/">
+      associateSitesURL="https://abelgomez.github.io/publish-subscribe/updates/associateSites.xml">
+   <description name="Publish-Subscribe Tools" url="https://abelgomez.github.io/publish-subscribe/updates/">
       This repository contains the plugins to transform services following the publish-subscribe paradigm into colored Petri nets. Models are created using Papyrus UML2. Such models are later annotated with the provided publish-subscribe profile.
    </description>
    <feature url="features/io.github.abelgomez.ps.feature_0.1.0.201610071255.jar" id="io.github.abelgomez.ps.feature" version="0.1.0.201610071255">
@@ -65,6 +65,15 @@
       <category name="Publish-Subscribe Tools"/>
    </feature>
    <feature url="features/io.github.abelgomez.ps.sdk.feature_0.5.1.201706091424.jar" id="io.github.abelgomez.ps.sdk.feature" version="0.5.1.201706091424">
+      <category name="Publish-Subscribe Tools SDK"/>
+   </feature>
+   <feature url="features/io.github.abelgomez.ps.feature_0.6.0.201712300034.jar" id="io.github.abelgomez.ps.feature" version="0.6.0.201712300034">
+      <category name="Publish-Subscribe Tools"/>
+   </feature>
+   <feature url="features/io.github.abelgomez.ps.ui.feature_0.6.0.201712300034.jar" id="io.github.abelgomez.ps.ui.feature" version="0.6.0.201712300034">
+      <category name="Publish-Subscribe Tools"/>
+   </feature>
+   <feature url="features/io.github.abelgomez.ps.sdk.feature_0.6.0.201712300034.jar" id="io.github.abelgomez.ps.sdk.feature" version="0.6.0.201712300034">
       <category name="Publish-Subscribe Tools SDK"/>
    </feature>
    <category-def name="Publish-Subscribe Tools" label="Publish-Subscribe Tools">
