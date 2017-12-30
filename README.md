@@ -10,6 +10,8 @@ In Eclipse, go to `Help -> Install New Software...` and use https://abelgomez.gi
 
 The *Publish-Subscribe Tools* require [Eclipse Neon](https://eclipse.org/neon/) (4.6) or higher. 
 
+**NOTE:** Although the prototype may be used with newer Eclipse versions, the examples have been developed with [Eclipse Neon](https://eclipse.org/neon/) (4.6). Due to Papyrus limitations, you may experience issues when opening them with a different version.
+
 ## Quick Start
 
 Next, we describe how to start using the plugins provided in this repository.
