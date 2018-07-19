@@ -9,11 +9,11 @@
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="PublishSubscribeScenario">
     <eStructuralFeatures xsi:type="ecore:EReference" name="base_Interaction" ordered="false"
-        lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Interaction"/>
+        lowerBound="1" eType="ecore:EClass platform:/plugin/org.eclipse.uml2.uml/model/UML.ecore#//Interaction"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Service">
     <eStructuralFeatures xsi:type="ecore:EReference" name="base_Node" ordered="false"
-        lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Node"/>
+        lowerBound="1" eType="ecore:EClass platform:/plugin/org.eclipse.uml2.uml/model/UML.ecore#//Node"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="publishes" ordered="false"
         lowerBound="1" upperBound="-1" eType="#//Resource" changeable="false" volatile="true"
         transient="true" derived="true" eOpposite="#//Resource/owningService">
@@ -27,12 +27,12 @@
       <details key="documentation" value="self.base_Artifact.owner.getStereotypeApplication(base_Artifact.owner.getApplicableStereotype('Publish-Subscribe::Service')).oclIsUndefined()._not()"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="base_Artifact" ordered="false"
-        lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Artifact"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="epr" ordered="false" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tag" ordered="false" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+        lowerBound="1" eType="ecore:EClass platform:/plugin/org.eclipse.uml2.uml/model/UML.ecore#//Artifact"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="epr" ordered="false" eType="ecore:EDataType platform:/plugin/org.eclipse.uml2.types/model/Types.ecore#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tag" ordered="false" eType="ecore:EDataType platform:/plugin/org.eclipse.uml2.types/model/Types.ecore#//String"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" ordered="false"
-        eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//Real"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="time" ordered="false" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//Integer"/>
+        eType="ecore:EDataType platform:/plugin/org.eclipse.uml2.types/model/Types.ecore#//Real"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="time" ordered="false" eType="ecore:EDataType platform:/plugin/org.eclipse.uml2.types/model/Types.ecore#//Integer"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="owningService" ordered="false"
         lowerBound="1" eType="#//Service" volatile="true" transient="true" derived="true"
         eOpposite="#//Service/publishes">
@@ -45,7 +45,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" ordered="false"
         lowerBound="1" eType="#//SignKind"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" ordered="false"
-        lowerBound="1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+        lowerBound="1" eType="ecore:EDataType platform:/plugin/org.eclipse.uml2.types/model/Types.ecore#//String"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="SignKind">
     <eLiterals name="plus"/>
@@ -55,30 +55,30 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Delayed">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="delay" ordered="false"
-        lowerBound="1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//Integer"
+        lowerBound="1" eType="ecore:EDataType platform:/plugin/org.eclipse.uml2.types/model/Types.ecore#//Integer"
         defaultValueLiteral="0"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="base_Message" ordered="false"
-        lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Message"/>
+        lowerBound="1" eType="ecore:EClass platform:/plugin/org.eclipse.uml2.uml/model/UML.ecore#//Message"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AssignmentExecution">
     <eStructuralFeatures xsi:type="ecore:EReference" name="base_ExecutionSpecification"
-        ordered="false" lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//ExecutionSpecification"/>
+        ordered="false" lowerBound="1" eType="ecore:EClass platform:/plugin/org.eclipse.uml2.uml/model/UML.ecore#//ExecutionSpecification"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="assignments" ordered="false"
         upperBound="-1" eType="#//AssignmentOperation" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AssignmentOperation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="property" ordered="false"
-        lowerBound="1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+        lowerBound="1" eType="ecore:EDataType platform:/plugin/org.eclipse.uml2.types/model/Types.ecore#//String"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" ordered="false"
-        lowerBound="1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+        lowerBound="1" eType="ecore:EDataType platform:/plugin/org.eclipse.uml2.types/model/Types.ecore#//String"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Client">
     <eStructuralFeatures xsi:type="ecore:EReference" name="base_Lifeline" ordered="false"
-        lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Lifeline"/>
+        lowerBound="1" eType="ecore:EClass platform:/plugin/org.eclipse.uml2.uml/model/UML.ecore#//Lifeline"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ClientToResourceMessage" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="base_Message" ordered="false"
-        lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Message"/>
+        lowerBound="1" eType="ecore:EClass platform:/plugin/org.eclipse.uml2.uml/model/UML.ecore#//Message"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="resource" ordered="false"
         lowerBound="1" eType="#//Resource" changeable="false" volatile="true" transient="true"
         derived="true">
@@ -96,17 +96,17 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Subscription" eSuperTypes="#//ClientToResourceMessage">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="minValue" ordered="false"
-        lowerBound="1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//Real"/>
+        lowerBound="1" eType="ecore:EDataType platform:/plugin/org.eclipse.uml2.types/model/Types.ecore#//Real"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxValue" ordered="false"
-        lowerBound="1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//Real"/>
+        lowerBound="1" eType="ecore:EDataType platform:/plugin/org.eclipse.uml2.types/model/Types.ecore#//Real"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="subscriptionTime" ordered="false"
-        lowerBound="1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//Integer"/>
+        lowerBound="1" eType="ecore:EDataType platform:/plugin/org.eclipse.uml2.types/model/Types.ecore#//Integer"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="triggers" ordered="false"
-        lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Interaction"/>
+        lowerBound="1" eType="ecore:EClass platform:/plugin/org.eclipse.uml2.uml/model/UML.ecore#//Interaction"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Getter" eSuperTypes="#//ClientToResourceMessage">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="variable" ordered="false"
-        lowerBound="1" eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//String"/>
+        lowerBound="1" eType="ecore:EDataType platform:/plugin/org.eclipse.uml2.types/model/Types.ecore#//String"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Setter" eSuperTypes="#//ClientToResourceMessage #//AbstractSetter"/>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractSetter" abstract="true">
@@ -115,9 +115,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TimedSetter" eSuperTypes="#//AbstractSetter">
     <eStructuralFeatures xsi:type="ecore:EReference" name="base_Message" ordered="false"
-        lowerBound="1" eType="ecore:EClass ../../org.eclipse.uml2.uml/model/UML.ecore#//Message"/>
+        lowerBound="1" eType="ecore:EClass platform:/plugin/org.eclipse.uml2.uml/model/UML.ecore#//Message"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="time" ordered="false" lowerBound="1"
-        eType="ecore:EDataType ../../org.eclipse.uml2.types/model/Types.ecore#//Integer"
+        eType="ecore:EDataType platform:/plugin/org.eclipse.uml2.types/model/Types.ecore#//Integer"
         defaultValueLiteral="0"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="resource" ordered="false"
         lowerBound="1" eType="#//Resource" changeable="false" volatile="true" transient="true"
