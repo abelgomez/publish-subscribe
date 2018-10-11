@@ -4,6 +4,10 @@ This repository contains the plugins to transform services following the *publis
 
 This repository depends on the [CPN Tools Toolkit](https://github.com/abelgomez/cpntools.toolkit).
 
+## Transformation patterns
+
+The transformations patterns are documented in the [io.github.abelgomez.ps.transformer plug-in](plugins/io.github.abelgomez.ps.transformer), and more specifically in the [doc/README.md](plugins/io.github.abelgomez.ps.transformer/doc/README.md) file.
+
 ## Installing the *Publish-Subscribe Tools*
 
 In Eclipse, go to `Help -> Install New Software...` and use https://abelgomez.github.io/publish-subscribe/updates/ as the URL for the update site.
